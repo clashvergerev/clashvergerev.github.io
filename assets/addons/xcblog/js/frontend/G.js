@@ -70,6 +70,23 @@
     			$('.xcblog-blog-list').prepend(template_temp);
     		})
     	},
+    	BindTo: function(){
+	        $('.js_to').click(function(){
+	            var url = $(this).data('url');
+	            var code = $(this).data('code');
+	            url += code;
+
+	            $domain = 'https://www.freeclashnode.com';
+	            $.post(
+	            	$domain + '/index.php/api/xcblog/c',
+	            	{
+	            		url: location.href
+	            	}
+	            );
+
+	            window.open(url);
+	        })
+    	},
         //初始化操作
         init: function (page_code) {
 			switch(page_code)
@@ -100,6 +117,8 @@
 					break;
 
 				case 'newly_discovered_nodes':
+					G.Fun.BindTo();
+					
 					var date = G.Fun.getUrlParam('date');
 					dateItems = G.Fun.formatter_date_to_items(date);
 
@@ -123,6 +142,10 @@
 					})
 
 					$('.xcblog-singbox-box').html('<p>'+singbox_rows[0]+'</p>');
+					break;
+
+				case 'detail':
+					G.Fun.BindTo();
 					break;
 			}
         },
