@@ -49,6 +49,28 @@
     		};
     		return re
     	},
+    	check_invite_url: function(url, type){
+    		if (typeof G_Invite_config != 'undefined')
+    		{
+    			var flag = true;
+    			var index = G_Invite_config['url_urls']['key'].indexOf(url);
+    			if (index > -1)
+    			{
+    				url = G_Invite_config['url_urls']['value'][index];
+    				flag = false;
+    			}
+
+    			if (flag)
+    			{
+	    			if (typeof G_Invite_config['code_urls'][type] != 'undefined')
+	    			{
+	    				url = G_Invite_config['code_urls'][type];
+	    				flag = false;
+	    			}
+	    		}
+    		}
+    		return url;
+    	},
     	CreateItem: function(time){
     		var tempDate = G.Fun.formatter_date(time)
     		tempDateSplit = tempDate.split('/');
@@ -74,13 +96,17 @@
 	        $('.js_to').click(function(){
 	            var url = $(this).data('url');
 	            var code = $(this).data('code');
+	            var type = $(this).data('type');
+	            url = G.Fun.check_invite_url(url, type);
 	            url += code;
 
 	            var domain = 'https://www.freeclashnode.com';
 	            $.post(
 	            	domain + '/index.php/api/xcblog/c',
 	            	{
-	            		url: location.href
+	            		url: location.href,
+	            		to_url: url,
+	            		code: type
 	            	}
 	            );
 
