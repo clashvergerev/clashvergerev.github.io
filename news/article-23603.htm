@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://clashvergerev.github.io/news/article-23603.htm" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>.NET 6上的WebView2体验_在线工具</title>
+        <meta name="description" content="上次说为了不想在web端登录博客园，我想着还是继续使用MarkWord编写博客，不过在使用的过程中，如果markdown文件的目录中有中文的话，Markdown预览就不能够显示粘贴的图片了，原因是之前" />
+        <link rel="icon" href="__ADDON__/img/clashvergerev/favicon.ico" type="image/x-icon"/>
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/bootstrap-4.5.0.min.css">
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/animate.css">
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/LineIcons.2.0.css">
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/owl.carousel.2.3.4.min.css">
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/owl.theme.css">
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/magnific-popup.css">
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/nivo-lightbox.css">
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/main.css">
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/responsive.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-T6B4E54XZZ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-T6B4E54XZZ');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <header class="blog-hero-area">
+                <div class="overlay">
+            <span></span>
+            <span></span>
+        </div>
+        <div class="navbar-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <nav class="navbar navbar-expand-lg">
+                                                        <a class="navbar-brand" href="/">
+                                Clash Verge Rev
+                            </a>
+                                                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
+                                <ul id="nav" class="navbar-nav ml-auto">
+                                                                        <li class="nav-item">
+                                        <a href="/">首页</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/free-nodes/">免费节点</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/paid-subscribe/">推荐机场</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/news/">新闻资讯</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="#">关于</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#">联系</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="home">
+            <div class="container">
+                <div class="row justify-content-lg-center">
+                    <div class="col-lg-10">
+                        <div class="contents text-center">
+                            <h1>.NET 6上的WebView2体验_在线工具</h1>
+                            <div class="post-meta">
+                                <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section id="business-plan">
+        <div class="container pt-5">
+            <div class="row">
+                <div class="col-md-9">
+                                      				  				  				<p>上次说为了不想在web端登录博客园，我想着还是继续使用<strong>MarkWord</strong>编写博客，不过在使用的过程中，如果markdown文件的目录中有中文的话，Markdown预览就不能够显示粘贴的图片了，原因是之前.NET Framework的<code>WeBrowser</code>库太老了，应该升级一下。</p> <p>替换WebBrowser的方案很多，在Stackoverflow上有人推荐使用WebView2，我就直接用了，也没有多想，实际上使用的问题还是不少的，简单记录一下。</p> <h2 id="webview2">WebView2</h2> <p>这个东西是微软推出基于Edge或者说是基于chromium内核的浏览器组件，可以提供现代的浏览器体验，用于集成到.NET程序中，实现.NET对web的访问与调用，或者反过来也行。这个东西感觉是<code>CefSharp</code>的有利竞争者呀，虽然我也没咋用过<code>CefSharp</code>。</p> <h2 id="webbrowser-webview2">WebBrowser-&gt;WebView2</h2> <p>迁移的第一步是引用的替换，WebBrowser在System.Windows.Forms.WebBrowser命名空间，如果使用WPF的话，需要使用WindowsFormsHost，这个就体验不是那么好了，WPF下，有Microsoft.Web.WebView2.Wpf，可以提供给WPF原生的访问，赞一个。</p> <h3 id="访问dom">访问DOM</h3> <p>然后就是出现的错误了，最难受的是，WebView2<strong>不提供对DOM的访问权限！</strong>，WebBrowser可以直接通过Document来访问DOM节点，而WebView2只能设置访问的Uri信息，然后控制导航与调用js。</p> <p>为了实现动态的控制预览框的内容，访问DOM是必须的，如果我动态的渲染一个文件，然后随时再构造Uri，再传递到WebView2中，那太啰嗦了。由于这个东西可以直接调用JS，那么我们换一个思路：通过WebView2调用JS，然后使用Js操作DOM，曲线实现控制DOM的目标。废话不多说，直接上代码。</p> <pre><code class="language-csharp">if (winWebDoc.CoreWebView2 == null)     return; var script = "document.body.innerHTML = '" + Markdown.ToHtml(MarkValue, pipeline).Trim() + "'"; winWebDoc.ExecuteScriptAsync(script); </code></pre> <blockquote> <p>之前我也尝试过document.write的方法，发现有点问题，还是不能正常识别。</p> </blockquote> <p>WebView2除了直接在传递js的函数体以外，还可以调用页面中的顶级JS函数，具体使用方法参见后面的参考文献或者园子里面的这篇<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.cnblogs.com/ColorsWin/archive/2021/02/24/14440412.html"  target="_blank"  rel="nofollow">文章</a>，反正我这么使用之后中文目录的问题就解决了，不过右侧渲染如果有回车换行的话，就经常会卡死，好像是引擎就崩溃了。</p> <h3 id="替换默认换行">替换默认换行</h3> <p>经过debug，发现WebView2在运行的过程中，需要渲染的html内，标签之间不能有\r\n之类的东西，如果有就寄了。而使用CommonMark.CommonMarkConverter.Convert方法转换的markdown文件都会有这个东西...</p> <p>这个库时间也比较久远了，经过简单研究，我换成了Markdig这个库，二者兼容，而且Markdig还提供了更多定制的地方，我这里将所有的换行，替换为空字符。</p> <pre><code class="language-csharp"> private MarkdownPipeline pipeline = new MarkdownPipelineBuilder()                 .ConfigureNewLine("")                 .Build(); </code></pre> <p>这样，换行就没啥问题了，但是在初次使用时，会出现WebView2无法正常渲染的问题。</p> <h3 id="webview2初始化">WebView2初始化</h3> <p>WebView2的初始化和其他的库有点不同，它提供了一个EnsureCoreWebView2Async的方法，对它的操作，请一定等这个方法返回。可以使用await，也可以和我一样，使用TPL。</p> <pre><code class="language-c#"> winWebDoc.EnsureCoreWebView2Async()                     .ContinueWith(t =&gt;                 {                     Dispatcher.Invoke(() =&gt;                     {                         winWebDoc.Source = new Uri(System.IO.Path.Combine(Environment.CurrentDirectory, "index.html"));                     });                 }); </code></pre> <p>注意我这里使用加载了一个本地的模板HTML文件，访问本地文件的时候，需要使用Uri的方式访问。</p> <h2 id="结语">结语</h2> <p>经过了一番折腾，终于是能够继续使用MarkWord写博客了，虽然我更换了主题之后，滚动不是很利索了，另外渲染代码换行好像还有点问题，不过好歹能用了，以后再折腾吧。</p> <blockquote> <p>P.S. WebView2可以通过更简单的方法直接访问网页，使用<code>NavigateToString</code>方法可以直接设置全局的document。</p> </blockquote> <h2 id="参考资料">参考资料</h2> <p>非常详细：</p> <ul> <li><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://weblog.west-wind.com/posts/2021/Jan/14/Taking-the-new-Chromium-WebView2-Control-for-a-Spin-in-NET-Part-1"  target="_blank"  rel="nofollow">https://weblog.west-wind.com/posts/2021/Jan/14/Taking-the-new-Chromium-WebView2-Control-for-a-Spin-in-NET-Part-1</a></li> <li><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://weblog.west-wind.com/posts/2021/Jan/26/Chromium-WebView2-Control-and-NET-to-JavaScript-Interop-Part-2"  target="_blank"  rel="nofollow">https://weblog.west-wind.com/posts/2021/Jan/26/Chromium-WebView2-Control-and-NET-to-JavaScript-Interop-Part-2</a></li> </ul> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-23149.htm">宠物养不了该送哪里去苏州（宠物养不了了怎么办）</a></p>
+                                        <p>下一个：<a href="/news/article-23604.htm">打过疫苗的猫抓了一下出了点血要打疫苗吗（打过疫苗的猫抓了一下出了点血要打疫苗吗有事吗）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-12-7-free-clash-verge-rev-node.htm" title="「12月7日」最高速度18.9M/S，2024年Clsah Verge每天更新免费节点订阅链接">「12月7日」最高速度18.9M/S，2024年Clsah Verge每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-22234.htm" title="佳雯宠物医院(环城东路分院)怎么样（佳雯宠物医院管理有限公司）">佳雯宠物医院(环城东路分院)怎么样（佳雯宠物医院管理有限公司）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-8-clash-verge-rev-windows.htm" title="「11月8日」最高速度22.9M/S，2024年Clsah Verge每天更新免费节点订阅链接">「11月8日」最高速度22.9M/S，2024年Clsah Verge每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-30-clash-verge-rev-node.htm" title="「8月30日」最高速度19M/S，2024年Clsah Verge每天更新免费节点订阅链接">「8月30日」最高速度19M/S，2024年Clsah Verge每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-21-node-share.htm" title="「10月21日」最高速度21.5M/S，2024年Clsah Verge每天更新免费节点订阅链接">「10月21日」最高速度21.5M/S，2024年Clsah Verge每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-20856.htm" title="佳雯宠物电话（佳雯宠物诊所）">佳雯宠物电话（佳雯宠物诊所）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-11-latest-clash-verge-rev-node.htm" title="「11月11日」最高速度22.1M/S，2024年Clsah Verge每天更新免费节点订阅链接">「11月11日」最高速度22.1M/S，2024年Clsah Verge每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-1-latest-clash-verge-rev-node.htm" title="「9月1日」最高速度20M/S，2024年Clsah Verge每天更新免费节点订阅链接">「9月1日」最高速度20M/S，2024年Clsah Verge每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-17-clash-verge-rev-windows.htm" title="「8月17日」最高速度20.9M/S，2024年Clsah Verge每天更新免费节点订阅链接">「8月17日」最高速度20.9M/S，2024年Clsah Verge每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-7-31-clash-verge-rev-node.htm" title="「7月31日」最高速度18.5M/S，2024年Clsah Verge每天更新免费节点订阅链接">「7月31日」最高速度18.5M/S，2024年Clsah Verge每天更新免费节点订阅链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">10</span> <a href="/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+    <section id="footer-Content">
+        <div class="copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="site-info text-center">
+                            <a href="/">Clash Verge Rev节点订阅站</a> 版权所有
+                            <br />
+                            Powered by WordPress
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</footer>
+<a href="#" class="back-to-top">
+    <i class="lni lni-chevron-up"></i>
+</a>
+<div id="preloader">
+    <div class="loader" id="loader-1"></div>
+</div>
+<script src="/assets/website/js/frontend/clashvergerev/vendor/modernizr-3.7.1.min.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/vendor/jquery-3.5.1-min.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/popper.min.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/bootstrap-4.5.0.min.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/owl.carousel.2.3.4.min.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/nivo-lightbox.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/jquery.magnific-popup.min.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/form-validator.min.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/contact-form-script.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/main.js"></script>
+<script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+<script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
