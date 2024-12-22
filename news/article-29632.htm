@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://clashvergerev.github.io/news/article-29632.htm" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>javascript删除数组元素的7个方法</title>
+        <meta name="description" content="在JavaScript中，除了Object之外，Array类型（数组）恐怕就是最常用的类型了。与其他语言的数组相比，JavaScript中的Array非常灵活。这种灵活性有利有弊，好处是其富有创造性，" />
+        <link rel="icon" href="/assets/website/img/clashvergerev/favicon.ico" type="image/x-icon"/>
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/bootstrap-4.5.0.min.css">
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/animate.css">
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/LineIcons.2.0.css">
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/owl.carousel.2.3.4.min.css">
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/owl.theme.css">
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/magnific-popup.css">
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/nivo-lightbox.css">
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/main.css">
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/responsive.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-T6B4E54XZZ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-T6B4E54XZZ');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <header class="blog-hero-area">
+                <div class="overlay">
+            <span></span>
+            <span></span>
+        </div>
+        <div class="navbar-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <nav class="navbar navbar-expand-lg">
+                                                        <a class="navbar-brand" href="/">
+                                Clash Verge Rev
+                            </a>
+                                                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
+                                <ul id="nav" class="navbar-nav ml-auto">
+                                                                        <li class="nav-item">
+                                        <a href="/">首页</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/free-nodes/">免费节点</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/paid-subscribe/">推荐机场</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/news/">新闻资讯</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="#">关于</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#">联系</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="home">
+            <div class="container">
+                <div class="row justify-content-lg-center">
+                    <div class="col-lg-10">
+                        <div class="contents text-center">
+                            <h1>javascript删除数组元素的7个方法</h1>
+                            <div class="post-meta">
+                                <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section id="business-plan">
+        <div class="container pt-5">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="htmledit_views"> <div id="cnblogs_post_body" class="blogpost-body"> <p>在JavaScript中，除了Object之外，Array类型（数组）恐怕就是最常用的类型了。与其他语言的数组相比，JavaScript中的Array非常灵活。这种灵活性有利有弊，好处是其富有创造性，可以提供各种灵活的解决方案；坏处是容易脑子不够用，因为事实上，它太灵活了，灵活到无法控制的抓狂。</p> <p>前面调侃了几句，回归正题，这里要总结7个在JavaScript中删除Array元素的方法，分别是利用length属性、delete关键字、pop()栈方法、shift()队列方法、splice()操作方法、forEach()或filter()迭代方法和prototype原型方法。</p> <p><strong>length属性</strong></p> <p>JavaScript中Array的length属性非常有特点一一它不是只读的。因此，可以通过设置这个属性来达到从数组的末尾移除项或添加新项的目的。</p> <div class="cnblogs_code"> <pre><span style="color:#0000ff;">var</span> colors = ["red", "blue", "grey"];<span style="color:#008000;">//</span><span style="color:#008000;"> 创建一个包含3个字符串的数组</span> colors.length = 2<span style="color:#000000;">;<br/>console.log(colors[</span>2]);<span style="color:#008000;">//</span><span style="color:#008000;"> undefined</span></pre> </div> <p><strong>delete关键字</strong></p> <p>JavaScript提供了一个delete关键字用来删除（清除）数组元素。</p> <div class="cnblogs_code"> <pre><span style="color:#0000ff;">var</span> colors = ["red", "blue", "grey", "green"<span style="color:#000000;">];</span><span style="color:#0000ff;">delete</span> colors[0<span style="color:#000000;">];  console.log(colors);</span><span style="color:#008000;">//</span><span style="color:#008000;"> [undefined, "blue", "grey", "green"]</span></pre> </div> <p>要注意的是，使用delete删除元素之后数组长度不变，只是被删除元素被置为undefined了。</p> <p><strong>pop()栈方法</strong></p> <p>JavaScript中的Array对象提供了一个pop()栈方法用于弹出并返回数组中的最后一项，某种程度上可以当做删除用。</p> <p>栈数据结构的访问规则是FILO（First In Last Out，先进后出），栈操作在栈顶添加项，从栈顶移除项，使用pop()方法，它能移除数组中的最后一项并返回该项，并且数组的长度减1。</p> <div class="cnblogs_code"> <pre><span style="color:#0000ff;">var</span> colors = ["red", "blue", "grey"<span style="color:#000000;">];</span><span style="color:#0000ff;">var</span> color =<span style="color:#000000;"> colors.pop();  console.log(color);</span><span style="color:#008000;">//</span><span style="color:#008000;"> "grey"</span> console.log(colors.length);<span style="color:#008000;">//</span><span style="color:#008000;"> 2</span></pre> </div> <p>可以看出，在调用pop()方法时，数组返回最后一项，即”grey”，数组的元素也仅剩两项。</p> <p><strong>shift()队列方法</strong></p> <p>JavaScript中的Array对象提供了一个shift()队列方法用于弹出并返回数组中的第一项，某种程度上也可以当做删除用。</p> <p>队列数据结构的访问规则是FIFO（First In First Out，先进先出），队列在列表的末端添加项，从列表的前端移除项，使用shift()方法，它能够移除数组中的第一个项并返回该项，并且数组的长度减1。</p> <div class="cnblogs_code"> <pre><span style="color:#0000ff;">var</span> colors = ["red", "blue", "grey"<span style="color:#000000;">];</span><span style="color:#0000ff;">var</span> color =<span style="color:#000000;"> colors.shift();  console.log(color);</span><span style="color:#008000;">//</span><span style="color:#008000;"> "red"</span> console.log(colors.length);<span style="color:#008000;">//</span><span style="color:#008000;"> 2</span></pre> </div> <p>可以看出，在调用shift()方法时，数组返回第一项，即”red”，数组的元素也仅剩两项。</p> <p><strong>splice()操作方法</strong></p> <p>在JavaScript的Array对象中提供了一个splice()方法用于对数组进行特定的操作。splice()恐怕要算最强大的数组方法了，他的用法有很多种，在此只介绍删除数组元素的方法。在删除数组元素的时候，它可以删除任意数量的项，只需要指定2个参数：要删除的第一项的位置和要删除的项数。</p> <div class="cnblogs_code"> <pre><span style="color:#0000ff;">var</span> colors = ["red", "blue", "grey"<span style="color:#000000;">];</span><span style="color:#0000ff;">var</span> color = colors.splice(0, 1<span style="color:#000000;">);  console.log(color);</span><span style="color:#008000;">//</span><span style="color:#008000;"> "red"</span> console.log(colors);<span style="color:#008000;">//</span><span style="color:#008000;"> ["blue", "grey"]</span></pre> </div> <p>可以看出，在调用了splice(0, 1)方法时，数组从第一项开始，删除了一项。</p> <p><strong>迭代方法</strong></p> <p>所谓的迭代方法就是用循环迭代数组元素，发现符合要删除的项则删除。用的最多的地方，可能是当数组中的元素为对象的时候，可以根据对象的某个属性（例如ID）来删除数组元素。</p> <p>第一种用最常见的ForEach循环来对比元素找到之后将其删除。</p> <div class="cnblogs_code"> <pre><span style="color:#0000ff;">var</span> colors = ["red", "blue", "grey"<span style="color:#000000;">];  colors.forEach(</span><span style="color:#0000ff;">function</span><span style="color:#000000;">(item, index, arr) {</span><span style="color:#0000ff;">if</span>(item === "red"<span style="color:#000000;">) {         arr.splice(index,</span>1<span style="color:#000000;">);     } });</span></pre> </div> <p>可以看到这里还要配合splice()方法去实现删除，循环只是为了找到特定的元素。另外一种思路是循环将不需要删除的元素推入到新的数组中，也能达到假性删除特定元素的目的。</p> <p>第二种我们用循环中的filter方法。</p> <div class="cnblogs_code"> <pre><span style="color:#0000ff;">var</span> colors = ["red", "blue", "grey"<span style="color:#000000;">];  colors</span>= colors.filter(<span style="color:#0000ff;">function</span><span style="color:#000000;">(item) {</span><span style="color:#0000ff;">return</span> item != "red"<span style="color:#000000;"> });   console.log(colors);</span><span style="color:#008000;">//</span><span style="color:#008000;"> ["blue", "grey"]</span></pre> </div> <p>代码很简单，找出元素不是red的项数返回给colors（其实是得到了一个新的数组，并不是在原数组上进行删除操作），一定程度上也算是达到了删除特定元素的目的。</p> <p><strong>prototype原型方法</strong></p> <p>可以通过在Array的原型上添加方法来达到删除的目的。</p> <div class="cnblogs_code"> <pre>Array.prototype.remove =<span style="color:#0000ff;">function</span><span style="color:#000000;">(dx) {</span><span style="color:#0000ff;">　　if</span>(isNaN(dx) || dx &gt;<span style="color:#0000ff;">this</span><span style="color:#000000;">.length){</span><span style="color:#0000ff;">return</span><span style="color:#0000ff;">false</span><span style="color:#000000;">; 　　}</span><span style="color:#0000ff;">for</span>(<span style="color:#0000ff;">var</span> i = 0, n = 0; i &lt;<span style="color:#0000ff;">this</span>.length; i++<span style="color:#000000;">) {</span><span style="color:#0000ff;">if</span>(<span style="color:#0000ff;">this</span>[i] !=<span style="color:#0000ff;">this</span><span style="color:#000000;">[dx]) {</span><span style="color:#0000ff;">　　　　　　this</span>[n++] =<span style="color:#0000ff;">this</span><span style="color:#000000;">[i]; 　　　　} 　　}</span><span style="color:#0000ff;">　　this</span>.length -= 1<span style="color:#000000;">; };</span><span style="color:#0000ff;">var</span> colors = ["red", "blue", "grey"<span style="color:#000000;">]; colors.remove(</span>1<span style="color:#000000;">);<br/>console.log(colors);</span><span style="color:#008000;">//</span><span style="color:#008000;">["red", "grey"]</span></pre> </div> <p>这种方法其实就是自己实现一个删除的逻辑，然后把删除方法添加给了Array的原型对象，则在此环境中的所有Array对象都可以使用该方法。尽管可以这么做，但是不推荐在产品化的程序中修改原生对象的原型。道理很简单，如果只是某个实现中缺少某个方法，就在原生对象的原型中添加这个方法，那么当在另一个支持该方法的实现中运行代码时，就可能导致命名冲突。而且这样做可能会意外地导致原生方法被重写。</p> <p>"别人稍一注意你，你就敞开心扉，你觉得这是坦率，其实往往是因为孤独。"</p> </div> <p>转载于:https://www.cnblogs.com/yanggb/p/11464821.html</p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-29178.htm">一片枫叶一片情是什么歌的歌词啊（一片片枫叶情歌对唱）</a></p>
+                                        <p>下一个：<a href="/news/article-29635.htm">天津宠物领养中心电话多少号码（天津宠物救助站领养宠物）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-20854.htm" title="广州宠物领养中心在哪里啊最近（广州宠物领养中心官网）">广州宠物领养中心在哪里啊最近（广州宠物领养中心官网）</a></li>
+                        <li class="py-2"><a href="/news/article-25462.htm" title="1970年农历四月二十四是几号生日（1970年农历四月二十七是几号）">1970年农历四月二十四是几号生日（1970年农历四月二十七是几号）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-1-clash-verge-rev-node-share.htm" title="「10月1日」最高速度22.4M/S，2024年Clsah Verge每天更新免费节点订阅链接">「10月1日」最高速度22.4M/S，2024年Clsah Verge每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-18-clash-verge-rev-node-github.htm" title="「8月18日」最高速度22.9M/S，2024年Clsah Verge每天更新免费节点订阅链接">「8月18日」最高速度22.9M/S，2024年Clsah Verge每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-22-clash-verge-rev-node.htm" title="「11月22日」最高速度21.8M/S，2024年Clsah Verge每天更新免费节点订阅链接">「11月22日」最高速度21.8M/S，2024年Clsah Verge每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-2-clash-verge-rev-node.htm" title="「12月2日」最高速度19.4M/S，2024年Clsah Verge每天更新免费节点订阅链接">「12月2日」最高速度19.4M/S，2024年Clsah Verge每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-13-free-node-subscribe.htm" title="「9月13日」最高速度20.4M/S，2024年Clsah Verge每天更新免费节点订阅链接">「9月13日」最高速度20.4M/S，2024年Clsah Verge每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-16-clash-verge-rev-node.htm" title="「10月16日」最高速度20.4M/S，2024年Clsah Verge每天更新免费节点订阅链接">「10月16日」最高速度20.4M/S，2024年Clsah Verge每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-25932.htm" title="取消动物防疫收费通知范文（取消动物防疫收费通知范文怎么写）">取消动物防疫收费通知范文（取消动物防疫收费通知范文怎么写）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-30-free-clash-verge-rev-node.htm" title="「10月30日」最高速度18M/S，2024年Clsah Verge每天更新免费节点订阅链接">「10月30日」最高速度18M/S，2024年Clsah Verge每天更新免费节点订阅链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">66</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">10</span> <a href="/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+    <section id="footer-Content">
+        <div class="copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="site-info text-center">
+                    <p>
+                        <a href="/">首页</a> | 
+                        <a href="/free-node/">免费节点</a> | 
+                        <a href="/news/">新闻资讯</a> |
+                        <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                            <a href="/">Clash Verge Rev节点订阅站</a> 版权所有
+                            <br />
+                            Powered by WordPress
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</footer>
+<a href="#" class="back-to-top">
+    <i class="lni lni-chevron-up"></i>
+</a>
+<div id="preloader">
+    <div class="loader" id="loader-1"></div>
+</div>
+<script src="/assets/website/js/frontend/clashvergerev/vendor/modernizr-3.7.1.min.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/vendor/jquery-3.5.1-min.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/popper.min.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/bootstrap-4.5.0.min.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/owl.carousel.2.3.4.min.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/nivo-lightbox.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/jquery.magnific-popup.min.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/form-validator.min.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/contact-form-script.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/main.js"></script>
+<script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+<script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
