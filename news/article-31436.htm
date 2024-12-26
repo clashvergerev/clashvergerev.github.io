@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://clashvergerev.github.io/news/article-31436.htm" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>spring boot 整合 druid 监控界面</title>
+        <meta name="description" content="上篇文章说了，使用mysql 配置慢日志来截获 查询较慢的SQL 进行优化，这篇就讲一下使用开源的工具druid 来实现具体的效果 druid 是阿里的数据库连接管理工具类，今天使用spring Bo" />
+        <link rel="icon" href="/assets/website/img/clashvergerev/favicon.ico" type="image/x-icon"/>
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/bootstrap-4.5.0.min.css">
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/animate.css">
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/LineIcons.2.0.css">
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/owl.carousel.2.3.4.min.css">
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/owl.theme.css">
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/magnific-popup.css">
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/nivo-lightbox.css">
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/main.css">
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/responsive.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-T6B4E54XZZ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-T6B4E54XZZ');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <header class="blog-hero-area">
+                <div class="overlay">
+            <span></span>
+            <span></span>
+        </div>
+        <div class="navbar-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <nav class="navbar navbar-expand-lg">
+                                                        <a class="navbar-brand" href="/">
+                                Clash Verge Rev
+                            </a>
+                                                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
+                                <ul id="nav" class="navbar-nav ml-auto">
+                                                                        <li class="nav-item">
+                                        <a href="/">首页</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/free-nodes/">免费节点</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/paid-subscribe/">推荐机场</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/news/">新闻资讯</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="#">关于</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#">联系</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="home">
+            <div class="container">
+                <div class="row justify-content-lg-center">
+                    <div class="col-lg-10">
+                        <div class="contents text-center">
+                            <h1>spring boot 整合 druid 监控界面</h1>
+                            <div class="post-meta">
+                                <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section id="business-plan">
+        <div class="container pt-5">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <p><img decoding="async" src="http://img.555519.xyz/uploads/20221230/1852684ad02e555f5b035bf539cd098d.jpg" alt="spring boot 整合 druid 监控界面"><br /> 上篇文章说了，使用mysql 配置慢日志来截获 查询较慢的SQL 进行优化，这篇就讲一下使用开源的工具druid 来实现具体的效果<br /> druid 是阿里的数据库连接管理工具类，今天使用spring Boot 与之整合，具体代码如下：<br /> 引入依赖：</p> <pre><code class="prism language-c">   <span class="token operator">&lt;</span>dependency<span class="token operator">&gt;</span>             <span class="token operator">&lt;</span>groupId<span class="token operator">&gt;</span>com<span class="token punctuation">.</span>alibaba<span class="token operator">&lt;</span><span class="token operator">/</span>groupId<span class="token operator">&gt;</span>             <span class="token operator">&lt;</span>artifactId<span class="token operator">&gt;</span>druid<span class="token operator">-</span>spring<span class="token operator">-</span>boot<span class="token operator">-</span>starter<span class="token operator">&lt;</span><span class="token operator">/</span>artifactId<span class="token operator">&gt;</span>             <span class="token operator">&lt;</span>version<span class="token operator">&gt;</span><span class="token number">1.1</span><span class="token number">.9</span><span class="token operator">&lt;</span><span class="token operator">/</span>version<span class="token operator">&gt;</span>         <span class="token operator">&lt;</span><span class="token operator">/</span>dependency<span class="token operator">&gt;</span> </code></pre> <p>配置文件：</p> <pre><code class="prism language-c">spring<span class="token punctuation">:</span>   datasource<span class="token punctuation">:</span>     type<span class="token punctuation">:</span> com<span class="token punctuation">.</span>alibaba<span class="token punctuation">.</span>druid<span class="token punctuation">.</span>pool<span class="token punctuation">.</span>DruidDataSource     driverClassName<span class="token punctuation">:</span> com<span class="token punctuation">.</span>mysql<span class="token punctuation">.</span>cj<span class="token punctuation">.</span>jdbc<span class="token punctuation">.</span>Driver     url<span class="token punctuation">:</span> jdbc<span class="token punctuation">:</span>mysql<span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span><span class="token number">192.168</span><span class="token number">.92</span><span class="token number">.11</span><span class="token punctuation">:</span><span class="token number">3306</span><span class="token operator">/</span>test<span class="token operator">?</span>useUnicode<span class="token operator">=</span>true<span class="token operator">&amp;</span>characterEncoding<span class="token operator">=</span>UTF<span class="token operator">-</span><span class="token number">8</span><span class="token operator">&amp;</span>useSSL<span class="token operator">=</span>false<span class="token operator">&amp;</span>serverTimezone<span class="token operator">=</span>Asia<span class="token operator">/</span>Shanghai     username<span class="token punctuation">:</span> root     password<span class="token punctuation">:</span> <span class="token number">123456</span>     initialSize<span class="token punctuation">:</span> <span class="token number">5</span>     minIdle<span class="token punctuation">:</span> <span class="token number">3</span>     maxActive<span class="token punctuation">:</span> <span class="token number">20</span>     maxWait<span class="token punctuation">:</span> <span class="token number">60000</span>     timeBetweenEvictionRunsMillis<span class="token punctuation">:</span> <span class="token number">60000</span>     minEvictableIdleTimeMillis<span class="token punctuation">:</span> <span class="token number">30000</span>     validationQuery<span class="token punctuation">:</span> select <span class="token string">'x'</span>     testWhileIdle<span class="token punctuation">:</span> true     testOnBorrow<span class="token punctuation">:</span> false     testOnReturn<span class="token punctuation">:</span> false     poolPreparedStatements<span class="token punctuation">:</span> true     maxPoolPreparedStatementPerConnectionSize<span class="token punctuation">:</span> <span class="token number">20</span>     filters<span class="token punctuation">:</span> stat<span class="token punctuation">,</span>wall<span class="token punctuation">,</span>slf4j     connectionProperties<span class="token punctuation">:</span> druid<span class="token punctuation">.</span>stat<span class="token punctuation">.</span>mergeSql<span class="token operator">=</span>true<span class="token punctuation">;</span>druid<span class="token punctuation">.</span>stat<span class="token punctuation">.</span>slowSqlMillis<span class="token operator">=</span><span class="token number">5000</span> </code></pre> <p>参数说明</p> <pre><code class="prism language-bash">- spring.datasource.druid.max-active 最大连接数 - spring.datasource.druid.initial-size 初始化大小 - spring.datasource.druid.min-idle 最小连接数 - spring.datasource.druid.max-wait 获取连接等待超时时间 - spring.datasource.druid.time-between-eviction-runs-millis 间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒 - spring.datasource.druid.min-evictable-idle-time-millis 一个连接在池中最小生存的时间，单位是毫秒 - spring.datasource.druid.filters<span class="token operator">=</span>config,stat,wall,log4j 配置监控统计拦截的filters，去掉后监控界面SQL无法进行统计，’wall’用于防火墙 </code></pre> <p>配置Druid相关的Servlet和Filter</p> <pre><code class="prism language-c">package com<span class="token punctuation">.</span>example<span class="token punctuation">.</span>druid_test<span class="token punctuation">.</span>filter<span class="token punctuation">;</span>  import com<span class="token punctuation">.</span>alibaba<span class="token punctuation">.</span>druid<span class="token punctuation">.</span>support<span class="token punctuation">.</span>http<span class="token punctuation">.</span>WebStatFilter<span class="token punctuation">;</span>  import javax<span class="token punctuation">.</span>servlet<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span>WebFilter<span class="token punctuation">;</span> import javax<span class="token punctuation">.</span>servlet<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span>WebInitParam<span class="token punctuation">;</span>  @<span class="token function">WebFilter</span><span class="token punctuation">(</span>filterName<span class="token operator">=</span><span class="token string">"druidWebStatFilter"</span><span class="token punctuation">,</span>urlPatterns<span class="token operator">=</span><span class="token string">"/*"</span><span class="token punctuation">,</span>         initParams<span class="token operator">=</span><span class="token punctuation">{<!-- --></span>                 @<span class="token function">WebInitParam</span><span class="token punctuation">(</span>name<span class="token operator">=</span><span class="token string">"exclusions"</span><span class="token punctuation">,</span>value<span class="token operator">=</span><span class="token string">"*.js,*.gif,*.jpg,*.bmp,*.png,*.css,*.ico,/druid/*"</span><span class="token punctuation">)</span><span class="token comment">//忽略资源</span>         <span class="token punctuation">}</span> <span class="token punctuation">)</span> public class DruidStatFilter extends WebStatFilter <span class="token punctuation">{<!-- --></span> <span class="token punctuation">}</span>  </code></pre> <pre><code class="prism language-c">import com<span class="token punctuation">.</span>alibaba<span class="token punctuation">.</span>druid<span class="token punctuation">.</span>support<span class="token punctuation">.</span>http<span class="token punctuation">.</span>StatViewServlet<span class="token punctuation">;</span>  import javax<span class="token punctuation">.</span>servlet<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span>WebInitParam<span class="token punctuation">;</span> import javax<span class="token punctuation">.</span>servlet<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span>WebServlet<span class="token punctuation">;</span>  @<span class="token function">WebServlet</span><span class="token punctuation">(</span>urlPatterns<span class="token operator">=</span><span class="token string">"/druid/*"</span><span class="token punctuation">,</span>         initParams<span class="token operator">=</span><span class="token punctuation">{<!-- --></span>                 @<span class="token function">WebInitParam</span><span class="token punctuation">(</span>name<span class="token operator">=</span><span class="token string">"allow"</span><span class="token punctuation">,</span>value<span class="token operator">=</span><span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token comment">// IP白名单(没有配置或者为空，则允许所有访问)</span>                 <span class="token comment">/* @WebInitParam(name="deny",value="192.168.188.130"),*/</span><span class="token comment">// IP黑名单 (存在共同时，deny优先于allow)</span>                 @<span class="token function">WebInitParam</span><span class="token punctuation">(</span>name<span class="token operator">=</span><span class="token string">"loginUsername"</span><span class="token punctuation">,</span>value<span class="token operator">=</span><span class="token string">"admin"</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token comment">// 用户名</span>                 @<span class="token function">WebInitParam</span><span class="token punctuation">(</span>name<span class="token operator">=</span><span class="token string">"loginPassword"</span><span class="token punctuation">,</span>value<span class="token operator">=</span><span class="token string">"123456"</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token comment">// 密码</span>                 @<span class="token function">WebInitParam</span><span class="token punctuation">(</span>name<span class="token operator">=</span><span class="token string">"resetEnable"</span><span class="token punctuation">,</span>value<span class="token operator">=</span><span class="token string">"false"</span><span class="token punctuation">)</span><span class="token comment">// 禁用HTML页面上的“Reset All”功能</span>         <span class="token punctuation">}</span><span class="token punctuation">)</span> public class DruidStatViewServlet extends StatViewServlet <span class="token punctuation">{<!-- --></span> <span class="token punctuation">}</span> </code></pre> <p>启动类要增加这个注解：@ServletComponentScan<img decoding="async" src="http://img.555519.xyz/uploads/20221230/62901ad92bc2eef83e441565c804fdc2.jpg" alt="spring boot 整合 druid 监控界面"><br /> 然后访问</p> <pre><code class="prism language-c">http<span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span><span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span><span class="token punctuation">:</span><span class="token number">8080</span><span class="token operator">/</span>druid<span class="token operator">/</span>sql<span class="token punctuation">.</span>html </code></pre> <p>这里可以读取到执行时间慢的SQL<br /><img decoding="async" src="http://img.555519.xyz/uploads/20221230/58160eef4771ed2b113e19d00c4e5d60.jpg" alt="spring boot 整合 druid 监控界面"><br /> 这个是我们具体的连接配置信息：<br /><img decoding="async" src="http://img.555519.xyz/uploads/20221230/1d3524564d39078a94228e293bd48e43.jpg" alt="spring boot 整合 druid 监控界面"><br /> 后面还有sessin,Spring ，SQL防火墙， 有兴趣的可以了解一下，这里就不做延伸了</p> <p>然后我执行我本地的一个方法,执行完以后就可以看到已经能够查出来具体的SQL了<br /><img decoding="async" src="http://img.555519.xyz/uploads/20221230/a176bc6b37cc451694c4780cfc16bfcf.jpg" alt="spring boot 整合 druid 监控界面"><br /> 可以点击进去看具体的SQL<br /><img decoding="async" src="http://img.555519.xyz/uploads/20221230/c2541436842875277b03f6425ef79489.jpg" alt="spring boot 整合 druid 监控界面"><br /> 如果使用的是Spring mvc的话可以借鉴这位大神的博客<br /> https://blog.csdn.net/u010391342/article/details/80606482<br /> 这个我还没有尝试</p> <p>写在最后，在互联网项目中如果没有较好的监控工具，其实使用这个也蛮不错的，可以算是项目中的亮点，实现起来也比较简单</p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-31072.htm">成年猫粮排行（成年猫粮多少钱一袋）</a></p>
+                                        <p>下一个：<a href="/news/article-31437.htm">两个月猫抓了一下出了点血要打疫苗吗?（两个月大猫抓伤渗了一点点血）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-28720.htm" title="哈尔滨宠物王国 哈尔滨宠物王国在哪">哈尔滨宠物王国 哈尔滨宠物王国在哪</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-18-clash-verge-rev-node-github.htm" title="「8月18日」最高速度22.9M/S，2024年Clsah Verge每天更新免费节点订阅链接">「8月18日」最高速度22.9M/S，2024年Clsah Verge每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-13-free-node-subscribe.htm" title="「10月13日」最高速度19.7M/S，2024年Clsah Verge每天更新免费节点订阅链接">「10月13日」最高速度19.7M/S，2024年Clsah Verge每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-24289.htm" title="哈尔滨动物园原址（哈尔滨动物园在哪儿）">哈尔滨动物园原址（哈尔滨动物园在哪儿）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-18-clash-verge-rev-github.htm" title="「12月18日」最高速度21.2M/S，2024年Clsah Verge每天更新免费节点订阅链接">「12月18日」最高速度21.2M/S，2024年Clsah Verge每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-29924.htm" title="为什么猫不打疫苗不能洗澡呢（猫不打疫苗不可以洗澡吗）">为什么猫不打疫苗不能洗澡呢（猫不打疫苗不可以洗澡吗）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-3-free-node-subscribe-links.htm" title="「8月3日」最高速度23M/S，2024年Clsah Verge每天更新免费节点订阅链接">「8月3日」最高速度23M/S，2024年Clsah Verge每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-29-node-share-links.htm" title="「8月29日」最高速度22.4M/S，2024年Clsah Verge每天更新免费节点订阅链接">「8月29日」最高速度22.4M/S，2024年Clsah Verge每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-22-clash-verge-rev-node-share.htm" title="「12月22日」最高速度18.4M/S，2024年Clsah Verge每天更新免费节点订阅地址">「12月22日」最高速度18.4M/S，2024年Clsah Verge每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-24-clash-verge-rev-node.htm" title="「11月24日」最高速度20.1M/S，2024年Clsah Verge每天更新免费节点订阅链接">「11月24日」最高速度20.1M/S，2024年Clsah Verge每天更新免费节点订阅链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">78</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">10</span> <a href="/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+    <section id="footer-Content">
+        <div class="copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="site-info text-center">
+                    <p>
+                        <a href="/">首页</a> | 
+                        <a href="/free-node/">免费节点</a> | 
+                        <a href="/news/">新闻资讯</a> |
+                        <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                            <a href="/">Clash Verge Rev节点订阅站</a> 版权所有
+                            <br />
+                            Powered by WordPress
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</footer>
+<a href="#" class="back-to-top">
+    <i class="lni lni-chevron-up"></i>
+</a>
+<div id="preloader">
+    <div class="loader" id="loader-1"></div>
+</div>
+<script src="/assets/website/js/frontend/clashvergerev/vendor/modernizr-3.7.1.min.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/vendor/jquery-3.5.1-min.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/popper.min.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/bootstrap-4.5.0.min.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/owl.carousel.2.3.4.min.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/nivo-lightbox.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/jquery.magnific-popup.min.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/form-validator.min.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/contact-form-script.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/main.js"></script>
+<script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+<script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
