@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://clashvergerev.github.io/news/article-34411.htm" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>CesiumJS 2022^ 原理[2] 渲染架构之 Primitive &#8211; 创建并执行指令</title>
+        <meta name="description" content="目录  回顾  预备知识：指令 预备知识：通道   1. 生成并执行指令  1.1. Primitive 生成指令 1.2. Context 对象负责执行 WebGL 底层代码   2. 多段视锥体技" />
+        <link rel="icon" href="/assets/website/img/clashvergerev/favicon.ico" type="image/x-icon"/>
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/bootstrap-4.5.0.min.css">
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/animate.css">
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/LineIcons.2.0.css">
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/owl.carousel.2.3.4.min.css">
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/owl.theme.css">
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/magnific-popup.css">
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/nivo-lightbox.css">
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/main.css">
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/responsive.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-T6B4E54XZZ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-T6B4E54XZZ');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <header class="blog-hero-area">
+                <div class="overlay">
+            <span></span>
+            <span></span>
+        </div>
+        <div class="navbar-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <nav class="navbar navbar-expand-lg">
+                                                        <a class="navbar-brand" href="/">
+                                Clash Verge Rev
+                            </a>
+                                                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
+                                <ul id="nav" class="navbar-nav ml-auto">
+                                                                        <li class="nav-item">
+                                        <a href="/">首页</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/free-nodes/">免费节点</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/paid-subscribe/">推荐机场</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/news/">新闻资讯</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="#">关于</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#">联系</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="home">
+            <div class="container">
+                <div class="row justify-content-lg-center">
+                    <div class="col-lg-10">
+                        <div class="contents text-center">
+                            <h1>CesiumJS 2022^ 原理[2] 渲染架构之 Primitive &#8211; 创建并执行指令</h1>
+                            <div class="post-meta">
+                                <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section id="business-plan">
+        <div class="container pt-5">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div class="toc"> <div class="toc-container-header">目录</div> <ul> <li><a href="#%E5%9B%9E%E9%A1%BE" rel="nofollow">回顾</a> <ul> <li><a href="#%E9%A2%84%E5%A4%87%E7%9F%A5%E8%AF%86%E6%8C%87%E4%BB%A4" rel="nofollow">预备知识：指令</a></li> <li><a href="#%E9%A2%84%E5%A4%87%E7%9F%A5%E8%AF%86%E9%80%9A%E9%81%93" rel="nofollow">预备知识：通道</a></li> </ul> </li> <li><a href="#1-%E7%94%9F%E6%88%90%E5%B9%B6%E6%89%A7%E8%A1%8C%E6%8C%87%E4%BB%A4" rel="nofollow">1. 生成并执行指令</a> <ul> <li><a href="#11-primitive-%E7%94%9F%E6%88%90%E6%8C%87%E4%BB%A4" rel="nofollow">1.1. Primitive 生成指令</a></li> <li><a href="#12-context-%E5%AF%B9%E8%B1%A1%E8%B4%9F%E8%B4%A3%E6%89%A7%E8%A1%8C-webgl-%E5%BA%95%E5%B1%82%E4%BB%A3%E7%A0%81" rel="nofollow">1.2. Context 对象负责执行 WebGL 底层代码</a></li> </ul> </li> <li><a href="#2-%E5%A4%9A%E6%AE%B5%E8%A7%86%E9%94%A5%E4%BD%93%E6%8A%80%E6%9C%AF" rel="nofollow">2. 多段视锥体技术</a></li> <li><a href="#3-%E6%8C%87%E4%BB%A4%E5%AF%B9%E8%B1%A1%E7%9A%84%E8%BD%AC%E7%A7%BB" rel="nofollow">3. 指令对象的转移</a> <ul> <li><a href="#%E7%AD%9B%E9%80%89%E5%8F%AF%E8%A7%81%E9%9B%86" rel="nofollow">筛选可见集</a></li> </ul> </li> <li><a href="#4-%E6%9C%AC%E7%AF%87%E6%80%BB%E7%BB%93" rel="nofollow">4. 本篇总结</a></li> </ul> </div> <hr/> </h1> <p>书接上文，<code>Scene.js</code> 模块内的<code>render</code> 函数会将控制权交给 WebGL，执行 CesiumJS 自己封装的指令对象，画出每一帧来。</p> <p>模块内的<code>render</code> 函数首先会更新一批状态信息，譬如帧状态、雾效、Uniform 值、通道状态、三维场景中的环境信息等，然后就开始更新并执行指令，调用的是<code>Scene</code> 原型链上的<code>updateAndExecuteCommands</code> 方法。</p> <p>整个过程大致的调用链是这样的（<code>function</code> 关键字简写为<code>fn</code>）：</p> <pre><code>[Module Scene.js] - fn render()   - Scene.prototype.updateAndExecuteCommands()     - fn executeCommandsInViewport()       - fn updateAndRenderPrimitives()           [Module Primitive.js]           - fn createCommands()           - fn updateAndQueueCommands()       - fn executeCommands()      	- fn executeCommand()</code></pre> <p>本篇讲解的是从<code>Scene</code> 原型链上的<code>updateAndExcuteCommands()</code> 方法开始，期间 Scene 中的 Primitives 是如何创建指令，又最终如何被 WebGL 执行的。</p> <p>这个过程涉及非常多细节代码，但是为了快速聚焦整个过程，本篇先介绍两个 CesiumJS 封装的概念：指令和通道。</p> <h2 id="预备知识指令">预备知识：指令</h2> <p>WebGL 是一种依赖于“全局状态”的绘图 API，面向对象特征比较弱，为了修改全局状态上的顶点数据、着色器程序、帧缓冲、纹理等“资源”，必须通过<code>gl.XXX</code> 函数调用触发全局状态的改变。</p> <p>而图形编程基础提出的渲染管线、通道等概念偏向于面向对象，显然 WebGL 这种偏过程的风格需要被 JavaScript 运行时引擎封装。</p> <p>CesiumJS 将 WebGL 的绘制过程，也就是行为，封装成了“指令”，不同的指令对象有不同的用途。指令对象保存的行为，具体就是指由 Primitive 对象（不一定全是 Primitive）生成的 WebGL 所需的数据资源（缓冲、纹理、唯一值等），以及着色器对象。数据资源和着色器对象仍然是 CesiumJS 封装的对象，而不是 WebGL 原生的对象，这是为了更好地与 CesiumJS 各种对象结合去绘图。</p> <p>CesiumJS 有三类指令：</p> <ul> <li><code>DrawCommand</code> 绘图指令</li> <li><code>ClearCommand</code> 清屏指令</li> <li><code>ComputeCommand</code> 计算指令</li> </ul> <p>绘图指令最终会把控制权交给<code>Context</code> 对象，根据自身的着色器对象，绘制自己身上的数据资源。</p> <p>清屏指令比较简单，目的就是调用 WebGL 的清屏函数，清空各类缓冲区并填充清空后的颜色值，依旧会把控制权传递给<code>Context</code> 对象。</p> <p>计算指令则借助 WebGL 并行计算的特点，将指令对象上的数据在着色器中编码、计算、解码，最后写入到输出缓冲（通常是帧缓冲的纹理上），同样控制权会给到<code>Context</code> 对象。</p> <h2 id="预备知识通道">预备知识：通道</h2> <p>一帧是由多个通道顺序绘制构成的，在 CesiumJS 中，通道英文单词是<code>Pass</code>。</p> <p>既然通道的绘制是有顺序的，其顺序保存在<code>Renderer/Pass.js</code> 模块导出的冻结对象中，目前（1.92版本）有 9 个优先顺序等级（最后<code>NUMBER_OF_PASSES</code> 是通道的数量）：</p> <pre><code class="language-js">const Pass = {   ENVIRONMENT: 0,   COMPUTE: 1,   GLOBE: 2,   TERRAIN_CLASSIFICATION: 3,   CESIUM_3D_TILE: 4,   CESIUM_3D_TILE_CLASSIFICATION: 5,   CESIUM_3D_TILE_CLASSIFICATION_IGNORE_SHOW: 6,   OPAQUE: 7,   TRANSLUCENT: 8,   OVERLAY: 9,   NUMBER_OF_PASSES: 10, }</code></pre> <p>以上为例，第一优先被绘制的指令，是环境（<code>ENVIRONMENT: 0</code>）方面的对象、物体。而不透明（<code>OPAQUE: 7</code>）的三维对象的绘制指令，则要先于透明（<code>TRANSLUCENT: 8</code>）物体被执行。</p> <p>CesiumJS 会在每一帧即将开始绘制前，对所有已经收集好的指令根据通道进行排序，实现顺序绘制，下文会细谈。</p> </h1> <p>原型链上的<code>updateAndExecuteCommands</code> 方法会做模式判断，我们一般使用的是三维模式（<code>SceneMode.SCENE3D</code>），所以只需要看<code>else if</code> 分支即可，也就是</p> <pre><code class="language-js">executeCommandsInViewport(true, this, passState, backgroundColor);</code></pre> <p>此处，<code>this</code> 就是<code>Scene</code> 自己。</p> <p><code>executeCommandsInViewport()</code> 是一个<code>Scene.js</code> 模块内的函数，这个函数比较短，对于当前我们关心的东西，只需要看它调用的<code>updateAndRenderPrimitives()</code> 和最后的<code>executeCommands()</code> 函数调用即可。</p> <h2 id="11-primitive-生成指令">1.1. Primitive 生成指令</h2> <pre><code>[Module Scene.js] - fn updateAndRenderPrimitives()   [Module Primitive.js]   - fn createCommands()   - fn updateAndQueueCommands()</code></pre> <p><code>Scene.js</code> 模块内的函数<code>updateAndRenderPrimitives()</code> 负责更新 Scene 上所有的 Primitive。</p> <p>期间，控制权会通过<code>PrimitiveCollection</code> 转移到<code>Primitive</code> 类（或者有类似结构的类，譬如<code>Cesium3DTileset</code> 等）上，令其更新本身的数据资源，根据情况创建新的着色器，并随之创建<strong>绘图指令</strong>，最终在<code>Primitive.js</code> 模块内的<code>updateAndQueueCommands()</code> 函数排序、并推入帧状态对象的指令列表上。</p> <h2 id="12-context-对象负责执行-webgl-底层代码">1.2. Context 对象负责执行 WebGL 底层代码</h2> <pre><code>[Module Scene.js] - fn executeCommands() - fn executeCommand() // 收到 Command 和 Context   [Module Context.js]   - Context.prototype.draw()</code></pre> <p>另一个模块内的函数<code>executeCommands()</code> 则负责执行这些指令（中间还有一些小插曲，下文再提）。</p> <p>此时，上文的“通道”再次起作用，此函数内会根据 Pass 的优先顺序依次更新唯一值状态（UniformState），然后下发给<code>executeCommand()</code> 函数（注意少了个<code>s</code>）以具体的某个指令对象以及<code>Context</code> 对象。</p> <blockquote> <p>除了<code>executeCommand()</code> 函数外，<code>Scene.js</code> 模块内仍还有其它类似的函数，例如<code>executeIdCommand()</code> 负责执行绘制 ID 信息纹理的指令，<code>executeTranslucentCommandsBackToFront()</code> /<code>executeTranslucentCommandsFrontToBack()</code> 函数负责透明物体的指令等。甚至在 Scene 对象自己的属性中，就有清屏指令字段，会在<code>executeCommands()</code> 函数中直接执行，不经过上述几个执行具体指令的函数。</p> </blockquote> <p><code>Context</code> 对象是对<code>WebGL(2)RenderingContext</code> 等 WebGL 原生接口、参数的封装，所有指令对象最终都会由其进行拆包装、组装 WebGL 函数调用并执行绘图、计算、清屏（见上文介绍的预备知识：指令）。</p> </h1> <p>先介绍一个概念，WebGL 中的深度。</p> <p>简单的说，屏幕朝里，三维物体的前后顺序就是深度。CesiumJS 的深度非常大，即使不考虑远太空，只考虑地球表面附近的范围，WebGL 的数值范围也不太够用。聪明的前辈们想到了使用对数函数压缩深度的值域，因为一个非常大的数字只需取其对数，很快就能小下来。</p> <p>Scene 对象上有一个可读可写访问器<code>logarithmicDepthBuffer</code>，它指示是否启用对数深度。</p> <p>现在，CesiumJS 通常使用的就是对数深度。</p> <p>对数深度解决的不仅仅只是普通深度值值域不够的问题，还解决了不支持对数深度技术之前使用的多段视锥技术问题。</p> <p>再次简单的说，多段视锥技术将视锥体由远及近切成多个段，保证了相机近段的指令足够多以保证效果，远段尽量少满足性能。</p> <p>你在<code>Scene.js</code> 模块中的<code>executeCommands()</code> 函数的最后能找到一个循环体：</p> <pre><code class="language-js">// Execute commands in each frustum in back to front order let j; for (let i = 0; i &lt; numFrustums; ++i) {   // ... }</code></pre> <p>打开调试工具，很容易击中这个断点，查看<code>numFrustums</code> 变量的值，有启用对数深度的 CesiumJS 程序，一般<code>numFrustums</code> 都是 1。</p> </h1> <p>在本文第 1 节中，详细说明了指令对象的生成与被执行。</p> <p>上述其实忽略了很多细节，现在捡起来说。</p> <p>指令对象在 Primitive（或类似的类）生成后，由 模块内的<code>updateAndQueueCommands()</code> 函数排序并推入帧状态对象的指令列表上：</p> <pre><code class="language-js">// updateAndQueueCommands 函数中，函数接收来自 Scene 逐级传入的帧状态对象 -- frameState const commandList = frameState.commandList; const passes = frameState.passes; if (passes.render || passes.pick) {   // ... 省略部分代码   commandList.push(colorCommand); }</code></pre> <p><code>frameState.commandList</code> 就是个普通的数组。</p> <p>而在执行时，却是从<code>View</code> 对象上的<code>frustumCommandsList</code> 上取的指令：</p> <pre><code class="language-js">// Scene.js 模块的 executeCommands 函数中  const frustumCommandsList = view.frustumCommandsList; const numFrustums = frustumCommandsList.length;  let j; for (let i = 0; i &lt; numFrustums; ++i) {   const index = numFrustums - i - 1;   const frustumCommands = frustumCommandsList[index];      // ...      // 截取不透明物体的通道指令执行代码片段   us.updatePass(Pass.OPAQUE);   commands = frustumCommands.commands[Pass.OPAQUE];   length = frustumCommands.indices[Pass.OPAQUE];   for (j = 0; j &lt; length; ++j) {     executeCommand(commands[j], scene, context, passState);   }      // ... }</code></pre> <p>其中，下发给<code>executeCommand()</code> 函数的<code>commands[j]</code> 参数，就是具体的某个指令对象。</p> <p><strong>所以这两个过程之间，是怎么做指令对象传递的？</strong></p> <p>答案就在<code>View</code> 原型链上的<code>createPotentiallyVisibleSet</code> 方法中。</p> <h2 id="筛选可见集">筛选可见集</h2> <p><code>View</code> 对象是 Scene、Camera 之间的纽带，负责“眼睛”与“世界”之间信息的处理，即视图。</p> <p><code>View</code> 原型链上的<code>createPotentiallyVisibleSet</code> 方法的作用，就是把 Scene 上的计算指令、覆盖物指令，帧状态上的指令列表，根据 View 的可见范围做一次筛选，减少要执行指令个数提升性能。</p> <p>具体来说，就是把分散在各处的指令，筛选后绑至 View 对象的<code>frustumCommandsList</code> 列表中，借助<code>View.js</code> 模块内的<code>insertIntoBin()</code> 函数完成：</p> <pre><code class="language-js">// View.js 模块内  function insertIntoBin(view, scene, command, commandNear, commandFar) {   // ...      const frustumCommandsList = view.frustumCommandsList;   const length = frustumCommandsList.length;    for (let i = 0; i &lt; length; ++i) {     // ...          frustumCommands.commands<div class="reply_pass"><strong>下载密码：</strong>发表评论并刷新可见！</div>[index] = command;         // ...   }      // ... }</code></pre> <p>这个函数内做了对指令的筛选判断。</p> </h1> <p>本篇调查清楚了<code>Scene</code> 对象上各种三维物体是如何绘制的，即借助<strong>指令</strong> 对象保存待绘制的信息，最后交由<code>Context</code> 对象完成 WebGL 代码的执行。</p> <p>期间，发生了指令的分类和可见集的筛选；篇幅原因，CesiumJS 在这漫长的渲染过程中还做了很多细节的事情。</p> <p>不过，Cesium 的三维物体的渲染架构就算讲完了。</p> <p>接下来，则是另两个比较头痛的话题：</p> <ul> <li>地球的渲染架构（瓦片四叉树）</li> <li>具备创建指令的各路数据源（Entity、DataSource、Model、Cesium3DTileset等）</li> </ul> <p>指令和通道的概念仍然会继续使用，敬请期待。</p> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-34410.htm">Java字符串比较，==，等于，匹配，compareTo()之间的差异。</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-7-22-free-subscribe-node.htm" title="「7月22日」最高速度21.1M/S，2024年Clash Verge Rev每天更新免费节点订阅链接">「7月22日」最高速度21.1M/S，2024年Clash Verge Rev每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-4-free-subscribe-node.htm" title="「10月4日」最高速度20.5M/S，2024年Clsah Verge每天更新免费节点订阅链接">「10月4日」最高速度20.5M/S，2024年Clsah Verge每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-30-free-node-subscribe.htm" title="「11月30日」最高速度22.6M/S，2024年Clsah Verge每天更新免费节点订阅链接">「11月30日」最高速度22.6M/S，2024年Clsah Verge每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-3-clash-verge-rev-github.htm" title="「11月3日」最高速度20.1M/S，2024年Clsah Verge每天更新免费节点订阅链接">「11月3日」最高速度20.1M/S，2024年Clsah Verge每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-25-clash-verge-rev-github.htm" title="「11月25日」最高速度21.4M/S，2024年Clsah Verge每天更新免费节点订阅链接">「11月25日」最高速度21.4M/S，2024年Clsah Verge每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-8-clash-verge-rev-windows.htm" title="「11月8日」最高速度22.9M/S，2024年Clsah Verge每天更新免费节点订阅链接">「11月8日」最高速度22.9M/S，2024年Clsah Verge每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-26-today-clash-verge-rev-node.htm" title="「12月26日」最高速度21.2M/S，2024年Clsah Verge每天更新免费节点订阅地址">「12月26日」最高速度21.2M/S，2024年Clsah Verge每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-31-free-high-speed-nodes.htm" title="「10月31日」最高速度20.9M/S，2024年Clsah Verge每天更新免费节点订阅链接">「10月31日」最高速度20.9M/S，2024年Clsah Verge每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-19484.htm" title="无货源怎么做咸鱼具体怎么操作?（无货源怎么做闲鱼）">无货源怎么做咸鱼具体怎么操作?（无货源怎么做闲鱼）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-17-clash-verge-rev-node-github.htm" title="「9月17日」最高速度22.2M/S，2024年Clsah Verge每天更新免费节点订阅链接">「9月17日」最高速度22.2M/S，2024年Clsah Verge每天更新免费节点订阅链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">3</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">10</span> <a href="/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+    <section id="footer-Content">
+        <div class="copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="site-info text-center">
+                    <p>
+                        <a href="/">首页</a> | 
+                        <a href="/free-node/">免费节点</a> | 
+                        <a href="/news/">新闻资讯</a> |
+                        <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                            <a href="/">Clash Verge Rev节点订阅站</a> 版权所有
+                            <br />
+                            Powered by WordPress
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</footer>
+<a href="#" class="back-to-top">
+    <i class="lni lni-chevron-up"></i>
+</a>
+<div id="preloader">
+    <div class="loader" id="loader-1"></div>
+</div>
+<script src="/assets/website/js/frontend/clashvergerev/vendor/modernizr-3.7.1.min.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/vendor/jquery-3.5.1-min.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/popper.min.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/bootstrap-4.5.0.min.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/owl.carousel.2.3.4.min.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/nivo-lightbox.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/jquery.magnific-popup.min.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/form-validator.min.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/contact-form-script.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/main.js"></script>
+<script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+<script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
