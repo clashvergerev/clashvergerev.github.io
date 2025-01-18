@@ -107,6 +107,8 @@
 	            		url: location.href,
 	            		to_url: url,
 	            		code: type
+	            	}, function(){
+	            		
 	            	}
 	            );
 
