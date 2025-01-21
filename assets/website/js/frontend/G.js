@@ -173,13 +173,13 @@
 					var v2ray_rows = [];
 					for(var i=0;i<5;i++)
 					{
-						var clash_url = 'https://www.freeclashnode.com/uploads/'+dateItems['year']+'/'+dateItems['month']+'/'+i+'-'+dateItems['year']+dateItems['month']+dateItems['day']+'.yaml';
+						var clash_url = 'https://node.freeclashnode.com/uploads/'+dateItems['year']+'/'+dateItems['month']+'/'+i+'-'+dateItems['year']+dateItems['month']+dateItems['day']+'.yaml';
 						clash_rows.push(clash_url);
 
-						var v2ray_url = 'https://www.freeclashnode.com/uploads/'+dateItems['year']+'/'+dateItems['month']+'/'+i+'-'+dateItems['year']+dateItems['month']+dateItems['day']+'.txt';
+						var v2ray_url = 'https://node.freeclashnode.com/uploads/'+dateItems['year']+'/'+dateItems['month']+'/'+i+'-'+dateItems['year']+dateItems['month']+dateItems['day']+'.txt';
 						v2ray_rows.push(v2ray_url);
 					}
-					var singbox_rows = ['https://www.freeclashnode.com/uploads/'+dateItems['year']+'/'+dateItems['month']+'/'+dateItems['year']+dateItems['month']+dateItems['day']+'.json'];
+					var singbox_rows = ['https://node.freeclashnode.com/uploads/'+dateItems['year']+'/'+dateItems['month']+'/'+dateItems['year']+dateItems['month']+dateItems['day']+'.json'];
 
 					$.each(clash_rows, function(i){
 						var clash_p = $('<p>'+clash_rows[i]+'</p>')
