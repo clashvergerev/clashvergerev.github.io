@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://clashvergerev.github.io/news/article-46207.htm" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>SpringBoot 如何进行参数校验</title>
+        <meta name="description" content="为什么需要参数校验 在日常的接口开发中，为了防止非法参数对业务造成影响，经常需要对接口的参数进行校验，例如登录的时候需要校验用户名和密码是否为空，添加用户的时候校验用户邮箱地址、手机号码格式是否正确。" />
+        <link rel="icon" href="/assets/website/img/clashvergerev/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Clash Verge Rev节点订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://clashvergerev.github.io/news/article-46207.htm" />
+    <meta property="og:site_name" content="Clash Verge Rev节点订阅站" />
+    <meta property="og:title" content="SpringBoot 如何进行参数校验" />
+    <meta property="og:image" content="https://clashvergerev.github.io/uploads/20240722-1/0362f3f734f8008b3f5d457365aeb688.webp" />
+        <meta property="og:release_date" content="2025-01-25T09:54:02" />
+    <meta property="og:updated_time" content="2025-01-25T09:54:02" />
+        <meta property="og:description" content="为什么需要参数校验 在日常的接口开发中，为了防止非法参数对业务造成影响，经常需要对接口的参数进行校验，例如登录的时候需要校验用户名和密码是否为空，添加用户的时候校验用户邮箱地址、手机号码格式是否正确。" />
+        
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/bootstrap-4.5.0.min.css">
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/animate.css">
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/LineIcons.2.0.css">
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/owl.carousel.2.3.4.min.css">
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/owl.theme.css">
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/magnific-popup.css">
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/nivo-lightbox.css">
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/main.css">
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/responsive.css">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="SpringBoot 如何进行参数校验">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-T6B4E54XZZ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-T6B4E54XZZ');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <header class="blog-hero-area">
+                <div class="overlay">
+            <span></span>
+            <span></span>
+        </div>
+        <div class="navbar-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <nav class="navbar navbar-expand-lg">
+                                                        <a class="navbar-brand" href="/">
+                                Clash Verge Rev
+                            </a>
+                                                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
+                                <ul id="nav" class="navbar-nav ml-auto">
+                                                                        <li class="nav-item">
+                                        <a href="/">首页</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/free-nodes/">免费节点</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/paid-subscribe/">推荐机场</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/news/">新闻资讯</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="#">关于</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#">联系</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="home">
+            <div class="container">
+                <div class="row justify-content-lg-center">
+                    <div class="col-lg-10">
+                        <div class="contents text-center">
+                            <h1>SpringBoot 如何进行参数校验</h1>
+                            <div class="post-meta">
+                                <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section id="business-plan">
+        <div class="container pt-5">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<h2 id="为什么需要参数校验">为什么需要参数校验</h2> <p>在日常的接口开发中，为了防止非法参数对业务造成影响，经常需要对接口的参数进行校验，例如登录的时候需要校验用户名和密码是否为空，添加用户的时候校验用户邮箱地址、手机号码格式是否正确。 靠代码对接口参数一个个校验的话就太繁琐了，代码可读性极差。<br /><code>Validator</code>框架就是为了解决开发人员在开发的时候少写代码，提升开发效率；Validator专门用来进行接口参数校验，例如常见的必填校验，email格式校验，用户名必须位于6到12之间等等。<br /> 接下来我们看看在SpringbBoot中如何集成参数校验框架。</p> </h1> <h2 id="引入依赖">引入依赖</h2> <pre><code class="language-xml">&lt;dependency&gt;   &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;   &lt;artifactId&gt;spring-boot-starter-validation&lt;/artifactId&gt; &lt;/dependency&gt;</code></pre> <h2 id="定义参数实体类">定义参数实体类</h2> <pre><code class="language-java">package com.didiplus.modules.sys.domain;  import io.swagger.annotations.ApiModel; import io.swagger.annotations.ApiModelProperty; import lombok.Data;  import javax.validation.constraints.Email; import javax.validation.constraints.NotBlank; import javax.validation.constraints.NotEmpty;  /**  * Author: didiplus  * Email: 972479352@qq.com  * CreateTime: 2022/4/25  * Desc: 字典类型领域模型  */  @Data @ApiModel(value = "字典类型") public class SysDictType {      @ApiModelProperty("ID")     private String id;      @NotBlank(message = "字典名称必填项")     @ApiModelProperty(value = "字典名称",example = "用户ID")     private String typeName;      @NotBlank(message = "字典编码不能为空")     @ApiModelProperty(value = "字典编码")     private String typeCode;      @Email(message = "请填写正确的邮箱地址")     @ApiModelProperty(value = "字典编码")     private String email;      @ApiModelProperty(value = "字典描述")     private String description;      @NotBlank(message = "字典状态不能为空")     @ApiModelProperty(value = "字典状态")     private String enable; }</code></pre> <p>常见的约束注解如下：</p> <table> <thead> <tr> <th>注解</th> <th>功能</th> </tr> </thead> <tbody> <tr> <td>@AssertFalse</td> <td>可以为null,如果不为null的话必须为false</td> </tr> <tr> <td>@AssertTrue</td> <td>可以为null,如果不为null的话必须为true</td> </tr> <tr> <td>@DecimalMax</td> <td>设置不能超过最大值</td> </tr> <tr> <td>@DecimalMin</td> <td>设置不能超过最小值</td> </tr> <tr> <td>@Digits</td> <td>设置必须是数字且数字整数的位数和小数的位数必须在指定范围内</td> </tr> <tr> <td>@Future</td> <td>日期必须在当前日期的未来</td> </tr> <tr> <td>@Past</td> <td>日期必须在当前日期的过去</td> </tr> <tr> <td>@Max</td> <td>最大不得超过此最大值</td> </tr> <tr> <td>@Min</td> <td>最大不得小于此最小值</td> </tr> <tr> <td>@NotNull</td> <td>不能为null，可以是空</td> </tr> <tr> <td>@Null</td> <td>必须为null</td> </tr> <tr> <td>@Pattern</td> <td>必须满足指定的正则表达式</td> </tr> <tr> <td>@Size</td> <td>集合、数组、map等的size()值必须在指定范围内</td> </tr> <tr> <td>@Email</td> <td>必须是email格式</td> </tr> <tr> <td>@Length</td> <td>长度必须在指定范围内</td> </tr> <tr> <td>@NotBlank</td> <td>字符串不能为null,字符串trim()后也不能等于""</td> </tr> <tr> <td>@NotEmpty</td> <td>不能为null，集合、数组、map等size()不能为0；字符串trim()后可以等于""</td> </tr> <tr> <td>@Range</td> <td>值必须在指定范围内</td> </tr> <tr> <td>@URL</td> <td>必须是一个URL</td> </tr> </tbody> </table> <h2 id="定义校验类进行测试">定义校验类进行测试</h2> <pre><code class="language-java">package com.didiplus.modules.sys.controller;  import com.didiplus.modules.sys.domain.SysDictType; import io.swagger.annotations.Api; import io.swagger.annotations.ApiOperation; import io.swagger.v3.oas.annotations.parameters.RequestBody; import org.springframework.validation.annotation.Validated; import org.springframework.web.bind.annotation.PostMapping; import org.springframework.web.bind.annotation.PutMapping; import org.springframework.web.bind.annotation.RequestMapping; import org.springframework.web.bind.annotation.RestController;  /**  * Author: didiplus  * Email: 972479352@qq.com  * CreateTime: 2022/4/25  * Desc: 数据字典控制器  */ @RestController @Api(tags = "数据字典") @RequestMapping("/api/sys/dictType") public class SysDictTypeController {      @ApiOperation("字典添加")     @PostMapping("/add")     public SysDictType add(@Validated @RequestBody SysDictType sysDictType) {         return  sysDictType;     }      @ApiOperation("字典修改")     @PutMapping("/edit")     public SysDictType edit(@Validated @RequestBody SysDictType sysDictType) {         return  sysDictType;     }   }</code></pre> <p>这里我们先定义两个方法<code>add</code>,<code>edit</code>，都是使用了<code>@RequestBody</code>注解，用于接受前端发送的<code>json</code>数据。</p> <h2 id="打开接口文档模拟提交数据">打开接口文档模拟提交数据</h2> <p><img decoding="async" src="https://gitee.com/didiplus/imgbed/raw/master/static/20220426153641.png#crop=0&amp;crop=0&amp;crop=1&amp;crop=1&amp;id=vonlW&amp;originHeight=792&amp;originWidth=1597&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;status=done&amp;style=stroke&amp;title=" alt="" loading="lazy"/><br /> 通过接口文档看到前三个字段都是必填项。<br /><img decoding="async" src="https://gitee.com/didiplus/imgbed/raw/master/static/20220426155017.png#crop=0&amp;crop=0&amp;crop=1&amp;crop=1&amp;id=qboSr&amp;originHeight=731&amp;originWidth=1588&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;status=done&amp;style=none&amp;title=" alt="" loading="lazy"/><br /> 由于email的格式不对就被拦截了，提示是因为邮箱地址不对。</p> </h1> <p>虽然我们之前定义了全局异常拦截器，也看到了拦截器确实生效了，但是<code> Validator</code>校验框架返回的错误提示太臃肿了，不便于阅读，为了方便前端提示，我们需要将其简化一下。<br /> 直接修改之前定义的<code>RestExceptionHandler</code>，单独拦截参数校验的三个异常：<code>javax.validation.ConstraintViolationException</code>，<code>org.springframework.validation.BindException</code>，<code>org.springframework.web.bind.MethodArgumentNotValidException</code>，代码如下：</p> <pre><code class="language-java">package com.didiplus.common.web.response.Handler;  import com.didiplus.common.web.response.Result;  import org.springframework.http.HttpStatus; import org.springframework.http.ResponseEntity; import org.springframework.validation.BindException; import org.springframework.validation.ObjectError; import org.springframework.web.bind.MethodArgumentNotValidException; import org.springframework.web.bind.annotation.ExceptionHandler; import org.springframework.web.bind.annotation.RestControllerAdvice;  import javax.validation.ConstraintViolation; import javax.validation.ConstraintViolationException; import javax.validation.ValidationException;  import java.util.stream.Collectors;  /**  * Author: didiplus  * Email: 972479352@qq.com  * CreateTime: 2022/4/24  * Desc:  默认全局异常处理。  */ @RestControllerAdvice public class RestExceptionHandler {     /**      * 默认全局异常处理。      * @param e the e      * @return ResultData      */     @ExceptionHandler(value = {BindException.class, ValidationException.class, MethodArgumentNotValidException.class})     public ResponseEntity&lt;Result&lt;String&gt;&gt; handleValidatedException(Exception e) {             Result&lt;String&gt;  result = null;             if (e instanceof  MethodArgumentNotValidException) {                 MethodArgumentNotValidException ex =(MethodArgumentNotValidException)  e;                 result = Result.failure(HttpStatus.BAD_REQUEST.value(),                                 ex.getBindingResult().getAllErrors().stream()                                         .map(ObjectError::getDefaultMessage)                                         .collect(Collectors.joining(";"))                                 );             } else  if (e instanceof ConstraintViolationException){                 ConstraintViolationException ex = (ConstraintViolationException) e;                 result = Result.failure(HttpStatus.BAD_REQUEST.value(),                                         ex.getConstraintViolations().stream()                                                 .map(ConstraintViolation::getMessage)                                                 .collect(Collectors.joining(";"))                                         );             }else  if (e instanceof BindException) {                 BindException  ex = (BindException ) e;                 result = Result.failure(HttpStatus.BAD_REQUEST.value(),                                         ex.getAllErrors().stream()                                                 .map(ObjectError::getDefaultMessage)                                                 .collect(Collectors.joining(";"))                                         );             }             return new ResponseEntity&lt;&gt;(result,HttpStatus.BAD_REQUEST);     } }</code></pre> <p>美化之后错误信息提示更加友好。<br /><img decoding="async" src="https://gitee.com/didiplus/imgbed/raw/master/static/20220426161237.png#crop=0&amp;crop=0&amp;crop=1&amp;crop=1&amp;id=VXKRz&amp;originHeight=698&amp;originWidth=1587&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;status=done&amp;style=stroke&amp;title=" alt="" loading="lazy"/></p> </h1> <p>虽然Spring Validation 提供的注解基本上够用，但是面对复杂的定义，我们还是需要自己定义相关注解来实现自动校验。<br /> 比如上面实体类中添加的sex性别属性，只允许前端传递传 M，F 这2个枚举值，如何实现呢？</p> <h2 id="创建自定义注解">创建自定义注解</h2> <pre><code class="language-java">package com.didiplus.common.annotation;  import javax.validation.Constraint; import javax.validation.Payload; import java.lang.annotation.Documented; import java.lang.annotation.Repeatable; import java.lang.annotation.Retention; import java.lang.annotation.Target;  import static java.lang.annotation.ElementType.*; import static java.lang.annotation.RetentionPolicy.RUNTIME;  /**  * Author: didiplus  * Email: 972479352@qq.com  * CreateTime: 2022/4/26  * Desc:  */ @Target({METHOD, FIELD, ANNOTATION_TYPE, CONSTRUCTOR, PARAMETER, TYPE_USE}) @Retention(RUNTIME) @Repeatable(EnumString.List.class) @Documented @Constraint(validatedBy = EnumStringValidator.class)//标明由哪个类执行校验逻辑 public @interface EnumString {      String message() default "value not in enum values.";      Class&lt;?&gt;[] groups() default {};      Class&lt;? extends Payload&gt;[] palyload() default {};     /**      * @return date must in this value array      */     String[] value();      /**      * Defines several {@link EnumString} annotations on the same element.      *      * @see EnumString      */     @Target({METHOD, FIELD, ANNOTATION_TYPE, CONSTRUCTOR, PARAMETER, TYPE_USE})     @Retention(RUNTIME)     @Documented     @interface List {          EnumString[] value();     }   }</code></pre> <h2 id="自定义校验逻辑">自定义校验逻辑</h2> <pre><code class="language-java">package com.didiplus.common.annotation;  import javax.validation.ConstraintValidator; import javax.validation.ConstraintValidatorContext; import java.util.Arrays; import java.util.List;   /**  * Author: didiplus  * Email: 972479352@qq.com  * CreateTime: 2022/4/26  * Desc:  */ public class EnumStringValidator implements ConstraintValidator&lt;EnumString,String&gt; {     private List&lt;String&gt; enumStringList;      @Override     public void initialize(EnumString constraintAnnotation) {         enumStringList = Arrays.asList(constraintAnnotation.value());      }      @Override     public boolean isValid(String value, ConstraintValidatorContext constraintValidatorContext) {         if(value == null) {             return true;         }         return enumStringList.contains(value);     } }</code></pre> <h2 id="在字段上增加注解">在字段上增加注解</h2> <pre><code class="language-java">    @ApiModelProperty(value = "性别")     @EnumString(value = {"F","M"}, message="性别只允许为F或M")     private String sex;</code></pre> <h2 id="体验效果">体验效果</h2> <p><img decoding="async" src="https://gitee.com/didiplus/imgbed/raw/master/static/20220426164440.png#crop=0&amp;crop=0&amp;crop=1&amp;crop=1&amp;id=JZWjY&amp;originHeight=751&amp;originWidth=1513&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;status=done&amp;style=stroke&amp;title=" alt="" loading="lazy"/></p> </h1> <p>一个对象在新增的时候某些字段是必填，在更新是有非必填。如上面的<code>SysDictType</code>中<code> id</code> 属性在新增操作时都是<strong>必填。</strong> 面对这种场景你会怎么处理呢？<br /> 其实<code>Validator</code>校验框架已经考虑到了这种场景并且提供了解决方案，就是<strong>分组校验。</strong> 要使用分组校验，只需要三个步骤：</p> <h2 id="定义分组接口">定义分组接口</h2> <pre><code class="language-java">package com.didiplus.common.base;  import javax.validation.groups.Default;  /**  * Author: didiplus  * Email: 972479352@qq.com  * CreateTime: 2022/4/26  * Desc:  */ public interface ValidGroup extends Default {      interface Crud extends ValidGroup{         interface Create extends Crud{          }          interface Update extends Crud{          }          interface Query extends Crud{          }          interface Delete extends Crud{          }     } }</code></pre> <h2 id="在模型中给参数分配分组">在模型中给参数分配分组</h2> <pre><code class="language-java">    @Null(groups = ValidGroup.Crud.Create.class)     @NotNull(groups = ValidGroup.Crud.Update.class,message = "字典ID不能为空")     @ApiModelProperty("ID")     private String id;</code></pre> <h2 id="体现效果">体现效果</h2> <p><img decoding="async" src="https://gitee.com/didiplus/imgbed/raw/master/static/20220427101655.png#crop=0&amp;crop=0&amp;crop=1&amp;crop=1&amp;id=Dok7w&amp;originHeight=840&amp;originWidth=1162&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;status=done&amp;style=stroke&amp;title=" alt="" loading="lazy"/><br /><img decoding="async" src="https://gitee.com/didiplus/imgbed/raw/master/static/20220427102410.png#crop=0&amp;crop=0&amp;crop=1&amp;crop=1&amp;id=nnzmH&amp;originHeight=765&amp;originWidth=1508&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;status=done&amp;style=none&amp;title=" alt="" loading="lazy"/></p> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-46206.htm">MYSQL存储时间数据的数据类型选择</a></p>
+                                        <p>下一个：<a href="/news/article-46703.htm">vue3.0 elementUI实现上传文件的暂停继续功能</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-27326.htm" title="动物疫苗不小心扎到人身上会怎么样 动物疫苗不小心扎到人身上会怎么样吗">动物疫苗不小心扎到人身上会怎么样 动物疫苗不小心扎到人身上会怎么样吗</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-18-clash-verge-rev-github.htm" title="「12月18日」最高速度21.2M/S，2024年Clsah Verge每天更新免费节点订阅链接">「12月18日」最高速度21.2M/S，2024年Clsah Verge每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-16-clash-verge-rev-node.htm" title="「10月16日」最高速度20.4M/S，2024年Clsah Verge每天更新免费节点订阅链接">「10月16日」最高速度20.4M/S，2024年Clsah Verge每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-3-today-clash-verge-rev-node.htm" title="「12月3日」最高速度22.3M/S，2024年Clsah Verge每天更新免费节点订阅链接">「12月3日」最高速度22.3M/S，2024年Clsah Verge每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-12-clash-verge-rev-nodes.htm" title="「10月12日」最高速度22.1M/S，2024年Clsah Verge每天更新免费节点订阅链接">「10月12日」最高速度22.1M/S，2024年Clsah Verge每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-32979.htm" title="vue2.x版本中computed和watch的使用入门详解-关联和区别_在线工具">vue2.x版本中computed和watch的使用入门详解-关联和区别_在线工具</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-21-today-clash-verge-rev-node.htm" title="「1月21日」最高速度22.9M/S，2025年Clsah Verge每天更新免费节点订阅地址">「1月21日」最高速度22.9M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/news/article-29635.htm" title="天津宠物领养中心电话多少号码（天津宠物救助站领养宠物）">天津宠物领养中心电话多少号码（天津宠物救助站领养宠物）</a></li>
+                        <li class="py-2"><a href="/news/article-24995.htm" title="流浪宠物领养网站推荐大全（流浪站领养宠物要钱吗）">流浪宠物领养网站推荐大全（流浪站领养宠物要钱吗）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-24-free-subscribe-node.htm" title="「10月24日」最高速度21.3M/S，2024年Clsah Verge每天更新免费节点订阅链接">「10月24日」最高速度21.3M/S，2024年Clsah Verge每天更新免费节点订阅链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">78</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+    <section id="footer-Content">
+        <div class="copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="site-info text-center">
+                    <p>
+                        <a href="/">首页</a> | 
+                        <a href="/free-node/">免费节点</a> | 
+                        <a href="/news/">新闻资讯</a> |
+                        <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                            <a href="/">Clash Verge Rev节点订阅站</a> 版权所有
+                            <br />
+                            Powered by WordPress
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</footer>
+<a href="#" class="back-to-top">
+    <i class="lni lni-chevron-up"></i>
+</a>
+<div id="preloader">
+    <div class="loader" id="loader-1"></div>
+</div>
+<script src="/assets/website/js/frontend/clashvergerev/vendor/modernizr-3.7.1.min.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/vendor/jquery-3.5.1-min.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/popper.min.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/bootstrap-4.5.0.min.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/owl.carousel.2.3.4.min.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/nivo-lightbox.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/jquery.magnific-popup.min.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/form-validator.min.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/contact-form-script.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/main.js"></script>
+<script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+<script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
