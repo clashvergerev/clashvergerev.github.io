@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://clashvergerev.github.io/news/article-52295.htm" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>spark-sql使用hive的自定函数配置</title>
+        <meta name="description" content="1、spark-sql可以直接使用hive的自定义函数，而不需要重新写一套spark-sql的自定义函数，这里较大家一个简单的配置方式即可 2、将hive的自定义函数jar拷贝到/usr/lib/sp" />
+        <link rel="icon" href="/assets/website/img/clashvergerev/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Clash Verge Rev节点订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://clashvergerev.github.io/news/article-52295.htm" />
+    <meta property="og:site_name" content="Clash Verge Rev节点订阅站" />
+    <meta property="og:title" content="spark-sql使用hive的自定函数配置" />
+    <meta property="og:image" content="https://clashvergerev.github.io/uploads/20240722-1/aeb250aa2e4895f5498e046e37811dad.webp" />
+        <meta property="og:release_date" content="2025-02-06T05:30:15" />
+    <meta property="og:updated_time" content="2025-02-06T05:30:15" />
+        <meta property="og:description" content="1、spark-sql可以直接使用hive的自定义函数，而不需要重新写一套spark-sql的自定义函数，这里较大家一个简单的配置方式即可 2、将hive的自定义函数jar拷贝到/usr/lib/sp" />
+        
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/bootstrap-4.5.0.min.css">
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/animate.css">
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/LineIcons.2.0.css">
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/owl.carousel.2.3.4.min.css">
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/owl.theme.css">
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/magnific-popup.css">
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/nivo-lightbox.css">
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/main.css">
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/responsive.css">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="spark-sql使用hive的自定函数配置">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-T6B4E54XZZ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-T6B4E54XZZ');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <header class="blog-hero-area">
+                <div class="overlay">
+            <span></span>
+            <span></span>
+        </div>
+        <div class="navbar-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <nav class="navbar navbar-expand-lg">
+                            <a class="navbar-brand" href="/">
+                                                            <span>Clash Verge Rev</span>
+                                                        </a>
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
+                                <ul id="nav" class="navbar-nav ml-auto">
+                                                                        <li class="nav-item">
+                                        <a href="/">首页</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/free-nodes/">免费节点</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/paid-subscribe/">推荐机场</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/news/">新闻资讯</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="#">关于</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#">联系</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="home">
+            <div class="container">
+                <div class="row justify-content-lg-center">
+                    <div class="col-lg-10">
+                        <div class="contents text-center">
+                            <h1>spark-sql使用hive的自定函数配置</h1>
+                            <div class="post-meta">
+                                <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section id="business-plan">
+        <div class="container pt-5">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="htmledit_views"> <p>1、spark-sql可以直接使用hive的自定义函数，而不需要重新写一套spark-sql的自定义函数，这里较大家一个简单的配置方式即可</p> <p>2、将hive的自定义函数jar拷贝到/usr/lib/spark-current/jars，我们的jar是先存在oss，所以用下面的命令，</p> <pre><code> osscmd get --host=oss-cn-hangzhou-internal.aliyuncs.com --id=accessid --key=accesskey  oss://bigdata-cps-test/hive-udx-0.2-jar-with-dependencies.jar  /usr/lib/spark-current/jars/hive-udx-0.2-jar-with-dependencies.jar</code></pre> <p>3、创建自定义函数</p> <p>DROP FUNCTION IF EXISTS call_tree_pattern;<br /> CREATE FUNCTION call_tree_pattern AS 'com.xx.gateway.elastic.udf.xxxUDF';</p> <p>4、如果我们的项目从hsql迁移到spark-sql，就可以很平滑的把自定函数迁移过来了</p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-51765.htm">正宗的燕窝多少钱一斤(正宗燕窝多少钱一克)</a></p>
+                                        <p>下一个：<a href="/news/article-52296.htm">Vuex入门mapState, mapGetters, mapMutations, mapActions详解终结篇带源码</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-11-9-clash-verge-rev-github.htm" title="「11月9日」最高速度18M/S，2024年Clsah Verge每天更新免费节点订阅链接">「11月9日」最高速度18M/S，2024年Clsah Verge每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-30603.htm" title="阿城区宠物医院（阿城区宠物医院谁家好）">阿城区宠物医院（阿城区宠物医院谁家好）</a></li>
+                        <li class="py-2"><a href="/news/article-40246.htm" title="延吉宠物医院哪家好价格合理点（延吉市宠物）">延吉宠物医院哪家好价格合理点（延吉市宠物）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-9-latest-clash-verge-rev-node.htm" title="「1月9日」最高速度21M/S，2025年Clsah Verge每天更新免费节点订阅地址">「1月9日」最高速度21M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/news/article-19485.htm" title="成都宠物疫苗批发市场在哪（成都宠物疫苗去哪打）">成都宠物疫苗批发市场在哪（成都宠物疫苗去哪打）</a></li>
+                        <li class="py-2"><a href="/news/article-31070.htm" title="动物疫苗的作用有哪些种类图片大全（动物疫苗注射方法）">动物疫苗的作用有哪些种类图片大全（动物疫苗注射方法）</a></li>
+                        <li class="py-2"><a href="/news/article-38257.htm" title="宠物上门回收电话揭阳（惠州宠物上门回收）">宠物上门回收电话揭阳（惠州宠物上门回收）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-23-clash-verge-rev-nodes.htm" title="「1月23日」最高速度20.7M/S，2025年Clsah Verge每天更新免费节点订阅地址">「1月23日」最高速度20.7M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-29-clash-verge-rev-nodes.htm" title="「1月29日」最高速度22.3M/S，2025年Clsah Verge每天更新免费节点订阅地址">「1月29日」最高速度22.3M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-29-today-clash-verge-rev-node.htm" title="「11月29日」最高速度22.5M/S，2024年Clsah Verge每天更新免费节点订阅链接">「11月29日」最高速度22.5M/S，2024年Clsah Verge每天更新免费节点订阅链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">24</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+    <section id="footer-Content">
+        <div class="copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="site-info text-center">
+                    <p>
+                        <a href="/">首页</a> | 
+                        <a href="/free-node/">免费节点</a> | 
+                        <a href="/news/">新闻资讯</a> |
+                        <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                            <a href="/">Clash Verge Rev节点订阅站</a> 版权所有
+                            <br />
+                            Powered by WordPress
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</footer>
+<a href="#" class="back-to-top">
+    <i class="lni lni-chevron-up"></i>
+</a>
+<div id="preloader">
+    <div class="loader" id="loader-1"></div>
+</div>
+<script src="/assets/website/js/frontend/clashvergerev/vendor/modernizr-3.7.1.min.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/vendor/jquery-3.5.1-min.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/popper.min.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/bootstrap-4.5.0.min.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/owl.carousel.2.3.4.min.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/nivo-lightbox.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/jquery.magnific-popup.min.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/form-validator.min.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/contact-form-script.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/main.js"></script>
+<script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+<script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
