@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://clashvergerev.github.io/news/article-59509.htm" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>js制作简易秒表效果详细讲解、开始、暂停与结束（定时器制作和时间戳制作）</title>
+        <meta name="description" content="首先，css和html    &lt;section&gt;         &lt;div class="minute"&gt;&lt;/div&gt;         &lt;div class=" />
+        <link rel="icon" href="/assets/website/img/clashvergerev/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Clash Verge Rev节点订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://clashvergerev.github.io/news/article-59509.htm" />
+    <meta property="og:site_name" content="Clash Verge Rev节点订阅站" />
+    <meta property="og:title" content="js制作简易秒表效果详细讲解、开始、暂停与结束（定时器制作和时间戳制作）" />
+    <meta property="og:image" content="https://clashvergerev.github.io/uploads/20240722-1/c3081aeb72ccddcbbf96271511274f19.webp" />
+        <meta property="og:release_date" content="2025-02-19T06:38:33" />
+    <meta property="og:updated_time" content="2025-02-19T06:38:33" />
+        <meta property="og:description" content="首先，css和html    &lt;section&gt;         &lt;div class="minute"&gt;&lt;/div&gt;         &lt;div class=" />
+        
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/bootstrap-4.5.0.min.css">
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/animate.css">
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/LineIcons.2.0.css">
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/owl.carousel.2.3.4.min.css">
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/owl.theme.css">
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/magnific-popup.css">
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/nivo-lightbox.css">
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/main.css">
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/responsive.css">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="js制作简易秒表效果详细讲解、开始、暂停与结束（定时器制作和时间戳制作）">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-T6B4E54XZZ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-T6B4E54XZZ');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <header class="blog-hero-area">
+                <div class="overlay">
+            <span></span>
+            <span></span>
+        </div>
+        <div class="navbar-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <nav class="navbar navbar-expand-lg">
+                            <a class="navbar-brand" href="/">
+                                                            <span>Clash Verge Rev</span>
+                                                        </a>
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
+                                <ul id="nav" class="navbar-nav ml-auto">
+                                                                        <li class="nav-item">
+                                        <a href="/">首页</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/free-nodes/">免费节点</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/paid-subscribe/">推荐机场</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/client.htm">客户端</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/news/">新闻资讯</a>
+                                    </li>
+                                                                    </ul>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="home">
+            <div class="container">
+                <div class="row justify-content-lg-center">
+                    <div class="col-lg-10">
+                        <div class="contents text-center">
+                            <h1>js制作简易秒表效果详细讲解、开始、暂停与结束（定时器制作和时间戳制作）</h1>
+                            <div class="post-meta">
+                                <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section id="business-plan">
+        <div class="container pt-5">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="htmledit_views"> <p>首先，css和html</p> <pre><code class="language-html">   &lt;section&gt;         &lt;div class="minute"&gt;&lt;/div&gt;         &lt;div class="second"&gt;&lt;/div&gt;         &lt;div class="mill"&gt;&lt;/div&gt;     &lt;/section&gt;     &lt;button class="start"&gt;开始&lt;/button&gt;     &lt;button class="stop"&gt;暂停&lt;/button&gt;     &lt;button class="over"&gt;结束&lt;/button&gt;</code></pre> <pre><code class="language-css">   div {             width: 100px;             height: 50px;             font-size: 40px;             border: 1px solid red;             float: left;             line-height: 50px;             text-align: center;         }</code></pre> <p>js代码</p> <pre><code class="language-javascript">        //获取元素         var minutes = document.querySelector('.minute')         var seconds = document.querySelector('.second')         var mills = document.querySelector('.mill')         var stop = document.querySelector('.stop')         var div = document.querySelector('div')         var over = document.querySelector('.over')         var start = document.querySelector('.start')         //在全局变量中设置分、秒、和毫秒、还有定时器，方便后边做清除         var timer = null         var mill = 0         var s = 0         var m = 0         //点击开始按钮         start.addEventListener('click', function () {             //创建定时器之前先清除一下定时器，以免重复按开始按钮导致定时器过多，速度过快             clearInterval(timer)             //创建定时器             timer = setInterval(function () {                 //毫秒每次加一                 mill += 1                 //当毫秒加到250的时候进行判断                 if (mill === 250) {                   //加到250是，毫秒数恢复为0，秒数加一                     mill = 0                     s += 1                     //判断当秒数加到60的时候                     if (s === 60) {                     //秒数恢复为0，分钟加一                         s = 0                         m += 1                     }                 }                 //将所加的毫秒、分钟、秒都加到div中                 minutes.innerHTML = m                 seconds.innerHTML = s                 mills.innerHTML = mill             })          })         //按下停止按钮，停止定时器，但是里面是的数值并不会恢复为0         //停止按钮         stop.addEventListener('click', function () {             clearInterval(timer)         })         //按下清空按钮，停止定时器，让所有的数为零，并将div中的数字清空         //清空按钮         over.addEventListener('click', function () {             clearInterval(timer)             mill = 0             s = 0             m = 0             minutes.innerHTML = m             seconds.innerHTML = s             mills.innerHTML = mill         })</code></pre> <p>此外，我们还可以利用事件戳制作秒表，事件戳制作会更精准，</p> <p>先获取事件戳（这个事件戳会一直随着事件走而走）</p> <p>然后创建点击事件，获取点击时候的时间戳，（这个事件戳就是点击时候的时间，不会发生改变）</p> <p>然后利用先获取的时间戳减去点击的时间戳，得到开始的事件。</p> <p>js代码如下（html和css样式跟上面相同）</p> <pre><code class="language-javascript">        //获取样式         var minutes = document.querySelector('.minute')         var seconds = document.querySelector('.second')         var mills = document.querySelector('.mill')         var stop = document.querySelector('.stop')         var div = document.querySelector('div')         var over = document.querySelector('.over')         var start = document.querySelector('.start')         //创建初始的时间戳、定时器         var newTime = new Date().getTime()         var timer = null         var now ;         //点击事件         start.addEventListener('click', function () {             //开始定时器             timer = setInterval(function () {                 //获取点击时的时间戳                 now = +new Date                 //两个时间戳想减，得到相差的时间，就是点击后秒表的时间                 var timers = now - newTime                 //进行取证，取模，得到分和秒                 var minute = parseInt(timers / 1000 / 60 % 60)                 //如果小于10，在前面加上0，（美观）                 var minute = minute &lt; 10 ? '0' + minute : minute                 var second = parseInt(timers / 1000 % 60)                 //如果小于10，在前面加上0，（美观）                 var second = second &lt; 10 ? '0' + second : second                 var mill = parseInt(timers % 250)                 //将时间添加到div中                 minutes.innerHTML = minute                 seconds.innerHTML = second                 mills.innerHTML = mill             }, 20)         })         //停止按钮         stop.addEventListener('click', function () {             clearInterval(timer)         })      </code></pre> <p>如发现问题欢迎留言！！！（你我都在加强的路上）</p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-59508.htm">C语言：关键字&#8212;union（声明共用体类型）</a></p>
+                                        <p>下一个：<a href="/news/article-60100.htm">沈阳免费领养猫的地方（沈阳免费领养猫的地方电话）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-1-1-clash-verge-rev-nodes.htm" title="「1月1日」最高速度21.9M/S，2025年Clsah Verge每天更新免费节点订阅地址">「1月1日」最高速度21.9M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-16-clash-verge-rev-node.htm" title="「11月16日」最高速度20.1M/S，2024年Clsah Verge每天更新免费节点订阅链接">「11月16日」最高速度20.1M/S，2024年Clsah Verge每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-12-today-clash-verge-rev-node.htm" title="「11月12日」最高速度19.5M/S，2024年Clsah Verge每天更新免费节点订阅链接">「11月12日」最高速度19.5M/S，2024年Clsah Verge每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-19-latest-clash-verge-rev-node.htm" title="「1月19日」最高速度20.6M/S，2025年Clsah Verge每天更新免费节点订阅地址">「1月19日」最高速度20.6M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/news/article-20399.htm" title="宠物店培训机构（宠物培训机构咋收费的）">宠物店培训机构（宠物培训机构咋收费的）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-22-free-node-subscribe-links.htm" title="「1月22日」最高速度20M/S，2025年Clsah Verge每天更新免费节点订阅地址">「1月22日」最高速度20M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/news/article-27789.htm" title="中国宠物粮食品牌排行榜 中国宠物粮食品牌排行榜前十名">中国宠物粮食品牌排行榜 中国宠物粮食品牌排行榜前十名</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-19-clash-verge-rev-node-share.htm" title="「2月19日」最高速度20.5M/S，2025年Clsah Verge每天更新免费节点订阅地址">「2月19日」最高速度20.5M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/news/article-32499.htm" title="我所在的城市有一家动物医院的英语怎么说 我所在的城市有一家动物医院的英语怎么说">我所在的城市有一家动物医院的英语怎么说 我所在的城市有一家动物医院的英语怎么说</a></li>
+                        <li class="py-2"><a href="/news/article-55558.htm" title="养宠物违背了动物权利吗（养宠物违法）">养宠物违背了动物权利吗（养宠物违法）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+    <section id="footer-Content">
+        <div class="copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="site-info text-center">
+                    <p>
+                        <a href="/">首页</a> | 
+                        <a href="/free-node/">免费节点</a> | 
+                        <a href="/news/">新闻资讯</a> |
+                        <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                            <a href="/">Clash Verge Rev节点订阅站</a> 版权所有
+                            <br />
+                            Powered by WordPress
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</footer>
+<a href="#" class="back-to-top">
+    <i class="lni lni-chevron-up"></i>
+</a>
+<div id="preloader">
+    <div class="loader" id="loader-1"></div>
+</div>
+<script src="/assets/website/js/frontend/clashvergerev/vendor/modernizr-3.7.1.min.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/vendor/jquery-3.5.1-min.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/popper.min.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/bootstrap-4.5.0.min.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/owl.carousel.2.3.4.min.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/nivo-lightbox.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/jquery.magnific-popup.min.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/form-validator.min.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/contact-form-script.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/main.js"></script>
+<script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+<script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
