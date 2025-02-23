@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://clashvergerev.github.io/news/article-61862.htm" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>encodeURI()、encodeURIComponent()区别及使用场景</title>
+        <meta name="description" content="1 区别 1.1encodeURI() encodeURI()通常用于转码整个 URL，不会对URL 元字符以及语义字符进行转码，URL元字符：  URL 元字符：分号（;），逗号（,），斜杠（/），" />
+        <link rel="icon" href="/assets/website/img/clashvergerev/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Clash Verge Rev节点订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://clashvergerev.github.io/news/article-61862.htm" />
+    <meta property="og:site_name" content="Clash Verge Rev节点订阅站" />
+    <meta property="og:title" content="encodeURI()、encodeURIComponent()区别及使用场景" />
+    <meta property="og:image" content="https://clashvergerev.github.io/uploads/20240722-1/0362f3f734f8008b3f5d457365aeb688.webp" />
+        <meta property="og:release_date" content="2025-02-23T09:48:45" />
+    <meta property="og:updated_time" content="2025-02-23T09:48:45" />
+        <meta property="og:description" content="1 区别 1.1encodeURI() encodeURI()通常用于转码整个 URL，不会对URL 元字符以及语义字符进行转码，URL元字符：  URL 元字符：分号（;），逗号（,），斜杠（/），" />
+        
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/bootstrap-4.5.0.min.css">
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/animate.css">
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/LineIcons.2.0.css">
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/owl.carousel.2.3.4.min.css">
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/owl.theme.css">
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/magnific-popup.css">
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/nivo-lightbox.css">
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/main.css">
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/responsive.css">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="encodeURI()、encodeURIComponent()区别及使用场景">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-T6B4E54XZZ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-T6B4E54XZZ');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <header class="blog-hero-area">
+                <div class="overlay">
+            <span></span>
+            <span></span>
+        </div>
+        <div class="navbar-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <nav class="navbar navbar-expand-lg">
+                            <a class="navbar-brand" href="/">
+                                                            <span>Clash Verge Rev</span>
+                                                        </a>
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
+                                <ul id="nav" class="navbar-nav ml-auto">
+                                                                        <li class="nav-item">
+                                        <a href="/">首页</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/free-nodes/">免费节点</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/paid-subscribe/">推荐机场</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/client.htm">客户端</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/news/">新闻资讯</a>
+                                    </li>
+                                                                    </ul>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="home">
+            <div class="container">
+                <div class="row justify-content-lg-center">
+                    <div class="col-lg-10">
+                        <div class="contents text-center">
+                            <h1>encodeURI()、encodeURIComponent()区别及使用场景</h1>
+                            <div class="post-meta">
+                                <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section id="business-plan">
+        <div class="container pt-5">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-light"> <h3><a id="1__0" rel="nofollow"></a>1 区别</h3> <h4><a id="11_encodeURI_2" rel="nofollow"></a>1.1<code>encodeURI()</code></h4> <p><code>encodeURI()</code>通常用于转码整个 URL，不会对URL 元字符以及语义字符进行转码，URL元字符：</p> <blockquote> <p>URL 元字符：分号（<code>;</code>），逗号（<code>,</code>），斜杠（<code>/</code>），问号（<code>?</code>），冒号（<code>:</code>），at（<code>@</code>），<code>&amp;</code>，等号（<code>=</code>），加号（<code>+</code>），美元符号（<code>$</code>），井号（<code>#</code>）</p> </blockquote> <blockquote> <p>语义字符：<code>a-z</code>，<code>A-Z</code>，<code>0-9</code>，连词号（<code>-</code>），下划线（<code>_</code>），点（<code>.</code>），感叹号（<code>!</code>），波浪线（<code>~</code>），星号（<code>*</code>），单引号（<code>'</code>），圆括号（<code>()</code>）</p> </blockquote> <h4><a id="12_encodeURIComponent_10" rel="nofollow"></a>1.2<code>encodeURIComponent()</code></h4> <p><code>encodeURIComponent()</code>通常只用于转码URL组成部分，如URL中<code>?</code>后的一串；会转码除了语义字符之外的所有字符，即<strong>元字符也会被转码</strong><br /><strong>注：若整个链接被<code>encodeURIComponent()</code>转码，则该链接无法被浏览器访问，需要解码之后才可以正常访问。</strong></p> <h3><a id="2__13" rel="nofollow"></a>2 使用场景</h3> <p>  对于无特殊参数的链接，都可以使用<code>encodeURI()</code>进行转码，那什么特殊情况需要用到<code>encodeURIComponent()</code>呢？通常是链接带着一些特殊参数的时候，就比如以下链接：</p> <pre><code class="prism language-javascript">https<span class="token operator">:</span><span class="token operator">/</span><span class="token operator">/</span>www<span class="token punctuation">.</span>baidu<span class="token punctuation">.</span>com<span class="token operator">/</span>s<span class="token operator">?</span>returnURL<span class="token operator">=</span>http<span class="token operator">:</span><span class="token operator">/</span><span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">www.test.com</span><span class="token regex-delimiter">/</span></span></code></pre> <p>链接内包含一个回调地址，回调地址是另外一个URL，此时我们就需要使用<code>encodeURIComponent()</code>对回调地址进行转码，这样一来，URL中就不会出现多个<code>http://</code>，多个<code>&amp;</code>这样的特殊字符；方便对回调地址进行处理；以上链接处理如下：</p> <pre><code class="prism language-javascript"><span class="token comment">// 对URL中的回调链接进行转码</span><span class="token string">'https://www.baidu.com/s?returnURL='</span><span class="token operator">+</span><span class="token function">encodeURIComponent</span><span class="token punctuation">(</span><span class="token string">'http://www.test.com/'</span><span class="token punctuation">)</span><span class="token comment">//输出: "https://www.baidu.com/s?returnURL=http%3A%2F%2Fwww.test.com%2F"</span></code></pre> <blockquote> <p>参考博客：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://blog.csdn.net/m0_46309087/article/details/119839043"  rel="nofollow">URL 编码与解码使用详解</a></p> </blockquote> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-61861.htm">0501-使用Python访问Kerberos环境下的Kafka(二)</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-46207.htm" title="SpringBoot 如何进行参数校验">SpringBoot 如何进行参数校验</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-10-clash-verge-rev-github.htm" title="「2月10日」最高速度21.6M/S，2025年Clsah Verge每天更新免费节点订阅地址">「2月10日」最高速度21.6M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-18-free-high-speed-nodes.htm" title="「1月18日」最高速度18.3M/S，2025年Clsah Verge每天更新免费节点订阅地址">「1月18日」最高速度18.3M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/news/article-40749.htm" title="农大动物医院急诊电话 农大动物医院营业时间">农大动物医院急诊电话 农大动物医院营业时间</a></li>
+                        <li class="py-2"><a href="/news/article-39271.htm" title="动物疫苗注射方法有几种类型 动物疫苗注射方法有几种类型的">动物疫苗注射方法有几种类型 动物疫苗注射方法有几种类型的</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-13-clash-verge-rev-windows.htm" title="「11月13日」最高速度19.2M/S，2024年Clsah Verge每天更新免费节点订阅链接">「11月13日」最高速度19.2M/S，2024年Clsah Verge每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-44722.htm" title="农大动物医院几点关门营业（农大动物医院急诊电话）">农大动物医院几点关门营业（农大动物医院急诊电话）</a></li>
+                        <li class="py-2"><a href="/news/article-34411.htm" title="CesiumJS 2022^ 原理[2] 渲染架构之 Primitive &#8211; 创建并执行指令">CesiumJS 2022^ 原理[2] 渲染架构之 Primitive &#8211; 创建并执行指令</a></li>
+                        <li class="py-2"><a href="/news/article-18804.htm" title="南京宠物寄养（南京宠物寄养家庭）">南京宠物寄养（南京宠物寄养家庭）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-17-free-node-subscribe.htm" title="「11月17日」最高速度21M/S，2024年Clsah Verge每天更新免费节点订阅链接">「11月17日」最高速度21M/S，2024年Clsah Verge每天更新免费节点订阅链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">69</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+    <section id="footer-Content">
+        <div class="copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="site-info text-center">
+                    <p>
+                        <a href="/">首页</a> | 
+                        <a href="/free-node/">免费节点</a> | 
+                        <a href="/news/">新闻资讯</a> |
+                        <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                            <a href="/">Clash Verge Rev节点订阅站</a> 版权所有
+                            <br />
+                            Powered by WordPress
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</footer>
+<a href="#" class="back-to-top">
+    <i class="lni lni-chevron-up"></i>
+</a>
+<div id="preloader">
+    <div class="loader" id="loader-1"></div>
+</div>
+<script src="/assets/website/js/frontend/clashvergerev/vendor/modernizr-3.7.1.min.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/vendor/jquery-3.5.1-min.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/popper.min.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/bootstrap-4.5.0.min.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/owl.carousel.2.3.4.min.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/nivo-lightbox.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/jquery.magnific-popup.min.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/form-validator.min.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/contact-form-script.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/main.js"></script>
+<script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+<script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
