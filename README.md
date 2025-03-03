@@ -1,4 +1,4 @@
-# 「2月28日」最高速度20.1M/S，2025年Clsah Verge每天更新免费节点订阅地址  更新时间 2025-02-28 07:16:08
+# 「3月3日」最高速度19M/S，2025年Clsah Verge每天更新免费节点订阅地址  更新时间 2025-03-03 08:22:28
 所有免费clash节点都爬取自网络，请勿用于非法用途 。节点地址：<a href="https://clashvergerev.github.io" target="_blank">点击跳转</a>
 
 ## clash使用教程：
@@ -9,41 +9,45 @@
 
 ### Clash订阅链接
 
-- https://clashvergerev.github.io/uploads/2025/02/0-20250228.yaml
-- https://clashvergerev.github.io/uploads/2025/02/1-20250228.yaml
-- https://clashvergerev.github.io/uploads/2025/02/2-20250228.yaml
-- https://clashvergerev.github.io/uploads/2025/02/3-20250228.yaml
-- https://clashvergerev.github.io/uploads/2025/02/4-20250228.yaml
+- https://clashvergerev.github.io/uploads/2025/03/0-20250303.yaml
+- https://clashvergerev.github.io/uploads/2025/03/1-20250303.yaml
+- https://clashvergerev.github.io/uploads/2025/03/2-20250303.yaml
+- https://clashvergerev.github.io/uploads/2025/03/3-20250303.yaml
+- https://clashvergerev.github.io/uploads/2025/03/4-20250303.yaml
 
 ### V2ray订阅链接
 
-- https://clashvergerev.github.io/uploads/2025/02/0-20250228.txt
-- https://clashvergerev.github.io/uploads/2025/02/1-20250228.txt
-- https://clashvergerev.github.io/uploads/2025/02/2-20250228.txt
-- https://clashvergerev.github.io/uploads/2025/02/3-20250228.txt
-- https://clashvergerev.github.io/uploads/2025/02/4-20250228.txt
+- https://clashvergerev.github.io/uploads/2025/03/0-20250303.txt
+- https://clashvergerev.github.io/uploads/2025/03/1-20250303.txt
+- https://clashvergerev.github.io/uploads/2025/03/2-20250303.txt
+- https://clashvergerev.github.io/uploads/2025/03/3-20250303.txt
+- https://clashvergerev.github.io/uploads/2025/03/4-20250303.txt
 
 ### Sing-box订阅链接
 
-- https://clashvergerev.github.io/uploads/2025/02/20250228.json
+- https://clashvergerev.github.io/uploads/2025/03/20250303.json
 
 ## 更多clash节点订阅 ：
 
 
-### 高速机场推荐1【<a href="https://inv.easyfastcloud.com/#/register?code=wcHPHUo2" target="_blank">EFCloud</a>】
+### 高速机场推荐1【<a href="https://www.nfsq.us/#/register?code=UTg5SIHV" target="_blank">农夫山泉</a>】
 
-- 圣诞 元旦 8 折优惠 限时活动-有效期至2025/1/10 23:59，全场 8 折优惠券: 2025，购买订阅时,优惠券填写 2025 并验证,可获得八折优惠。 下单时输入优惠码后点击验证，价格即会更新，费用低至0.33元/天,无视高峰，全天4K秒开，机房遍布全球，IP多多益善，99%流媒体解锁，油管、葫芦、奈菲，小电影丝般顺滑！ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选择，现在注册即可免费试用！
-- 网站注册地址：【<a href="https://inv.easyfastcloud.com/#/register?code=wcHPHUo2" target="_blank">EFCloud（点击注册）</a>】
+- 无视高峰，全天4K秒开，机房遍布全球，IP多多益善，99%流媒体解锁，油管、葫芦、奈菲，小电影丝般顺滑！ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选择，现在注册即可免费试用！
+- 网站注册地址：【<a href="https://www.nfsq.us/#/register?code=UTg5SIHV" target="_blank">农夫山泉（点击注册）</a>】
 
-### 高速机场推荐2【<a href="https://www.fastconnectcloud.net/register?aff=VImoLSwr" target="_blank">FCCloud</a>】
 
-- - 圣诞 元旦 8 折优惠 限时活动-有效期至2025/1/10 23:59，全场 8 折优惠券: 2025，购买订阅时,优惠券填写 2025 并验证,可获得八折优惠。  下单时输入优惠码后点击验证，价格即会更新，费用低至0.33元/天,无视高峰，全天4K秒开，机房遍布全球，IP多多益善，99%流媒体解锁，油管、葫芦、奈菲，小电影丝般顺滑！ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选择，现在注册即可免费试用！
-- 网站注册地址：【<a href="https://www.fastconnectcloud.net/register?aff=VImoLSwr" target="_blank">FCCloud（点击注册）</a>】
+
+### 高速机场推荐2【<a href="https://11008866.xyz/#/register?code=6KO4Fpse" target="_blank">星辰VPN</a>】
+
+- 无视高峰，全天4K秒开，机房遍布全球，IP多多益善，99%流媒体解锁，油管、葫芦、奈菲，小电影丝般顺滑！ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选择，现在注册即可免费试用！
+- 网站注册地址：【<a href="https://11008866.xyz/#/register?code=6KO4Fpse" target="_blank">星辰VPN（点击注册）</a>】
+
 
 ### 高速机场推荐3【<a href="https://goudan.site/#/register?code=7WiPAwPs" target="_blank">西游云</a>】
 
 - 无视高峰，全天4K秒开，机房遍布全球，IP多多益善，99%流媒体解锁，油管、葫芦、奈菲，小电影丝般顺滑！ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选择，现在注册即可免费试用！
 - 网站注册地址：【<a href="https://goudan.site/#/register?code=7WiPAwPs" target="_blank">西游云（点击注册）</a>】
+
 
 ### 高速机场推荐4【<a href="https://login.dg5.biz/#/register?code=G6yPcu5e" target="_blank">狗狗加速</a>】
 
