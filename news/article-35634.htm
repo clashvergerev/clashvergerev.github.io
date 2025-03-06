@@ -69,10 +69,10 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <nav class="navbar navbar-expand-lg">
-                                                        <a class="navbar-brand" href="/">
-                                Clash Verge Rev
-                            </a>
-                                                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <a class="navbar-brand" href="/">
+                                                            <span>Clash Verge Rev</span>
+                                                        </a>
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                                 <span class="toggler-icon"></span>
                                 <span class="toggler-icon"></span>
                                 <span class="toggler-icon"></span>
@@ -89,15 +89,12 @@
                                         <a href="/paid-subscribe/">推荐机场</a>
                                     </li>
                                                                         <li class="nav-item">
-                                        <a href="/news/">新闻资讯</a>
+                                        <a href="/client.htm">客户端</a>
                                     </li>
                                                                         <li class="nav-item">
-                                        <a href="#">关于</a>
+                                        <a href="/news/">新闻资讯</a>
                                     </li>
-                                    <li class="nav-item">
-                                        <a href="#">联系</a>
-                                    </li>
-                                </ul>
+                                                                    </ul>
                             </div>
                         </nav>
                     </div>
@@ -126,7 +123,6 @@
                                     <input type="hidden" id="share-website-info" data-name="" data-url="">
                   				  				  				<div id="content_views" class="htmledit_views"> <p><strong>后端：</strong></p> <p>python manage.py startapp block 创建APP，并在settings的INSATLLED_APP中添加'block'。</p> <p>block目录下创建models.py</p> <pre><code class="language-python">from django.db import models  # Create your models here. # models.py  class Blog(models.Model):     title = models.CharField(max_length=50)     content = models.CharField(max_length=500)      # 自定义表名     class Meta:         db_table = "t_blog"</code></pre> <p>与数据库连接</p> <p>python manage.py makemigrations</p> <p>python manage.py migeate</p> <p>终端打开python manage.py shell</p> <p>手动添加数据</p> <p>from block.models import Blog</p> <p>Blog.objects.create("title="b1", content="b1 content")</p> <p>Blog.objects.create("title="b1", content="b1 content")</p> <p>查询目前添加的数据 Blog.objects.all()</p> <p>退出exit()</p> <p>使用rest_framework, pip install djangorestframework安装包</p> <p>settings的INSATLLED_APP中添加'rest_framework'</p> <p>block目录下创建serializers.py</p> <pre><code class="language-python">#serializers.py from rest_framework import serializers from .models import Blog   class BlogSerializer(serializers.HyperlinkedModelSerializer):     class Meta:         model = Blog  # 序列化的对象名         fields = '__all__'  # 序列化的字段名，或者指定字段 fields = ("id","name","age")</code></pre> <p>block目录下创建views.py</p> <pre><code class="language-python">#views.py from rest_framework import viewsets from .models import Blog from .serializers import BlogSerializer   class BlogViewSet(viewsets.ModelViewSet):     queryset = Blog.objects.all()     serializer_class = BlogSerializer</code></pre> <p>配置路由</p> <p>crude目录下urls.py文件</p> <pre><code class="language-python">#urls.py from django.contrib import admin from django.urls import path, include from rest_framework import routers from block.views import BlogViewSet  router = routers.DefaultRouter() router.register('blog', BlogViewSet)  urlpatterns = [     path('admin/', admin.site.urls),     path('', include(router.urls)) ]</code></pre> <p>解决跨域问题</p> <p>pip install django-cors-headers</p> <p>在settings.py中做如下修改</p> <pre><code class="language-python">INSTALLED_APPS = [     'django.contrib.admin',     'django.contrib.auth',     'django.contrib.contenttypes',     'django.contrib.sessions',     'django.contrib.messages',     'django.contrib.staticfiles',     'rest_framework',     'corsheaders',     'block', ]</code></pre> <pre><code class="language-python">MIDDLEWARE = [     'django.middleware.security.SecurityMiddleware',     'django.contrib.sessions.middleware.SessionMiddleware',     'corsheaders.middleware.CorsMiddleware',     'django.middleware.common.CommonMiddleware',     'django.middleware.csrf.CsrfViewMiddleware',     'django.contrib.auth.middleware.AuthenticationMiddleware',     'django.contrib.messages.middleware.MessageMiddleware',     'django.middleware.clickjacking.XFrameOptionsMiddleware', ]</code></pre> <pre><code>CORS_ORIGIN_ALLOW_ALL = True CORS_ALLOW_CREDENTIALS = True</code></pre> <p>最后文件构成为</p> <p><img fetchpriority="high" decoding="async" alt="" height="318" src="http://img.555519.xyz/uploads3/20220707/2e392f41cd539532d6230bf07bb57b09.jpg"></p> <p><strong>前端</strong></p> <p>vue init webpack crude创建vue项目</p> <p>index.html</p> <pre><code class="language-html">&lt;!DOCTYPE html&gt; &lt;html&gt;   &lt;head&gt;     &lt;meta charset="utf-8"&gt;     &lt;meta name="viewport" content="width=device-width,initial-scale=1.0"&gt;     &lt;link  href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"&gt;     &lt;link  href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css"&gt;     &lt;title&gt;crude&lt;/title&gt;   &lt;/head&gt;   &lt;body&gt;     &lt;div class="container"&gt;       &lt;nav class="navbar" navbar-dark bg-success&gt;         &lt;a class="navbar-brand"&gt;博客系统&lt;/a&gt;         &lt;form class="form-inline"&gt;           &lt;input class="form-control" mr-sm-2 type="search" placeholder="Search" aria-label="Search"&gt;           &lt;button class="btn btn-outline-success my-2 my-sm-0" type="submit"&gt;Search&lt;/button&gt;         &lt;/form&gt;       &lt;/nav&gt;       &lt;div id="app"&gt;&lt;/div&gt;     &lt;/div&gt;     &lt;script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"&gt;&lt;/script&gt;     &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"&gt;&lt;/script&gt;     &lt;script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"&gt;&lt;/script&gt;   &lt;/body&gt; &lt;/html&gt;</code></pre> <p>APP.vue</p> <pre><code>&lt;template&gt;   &lt;div id="app"&gt;     &lt;router-view/&gt;   &lt;/div&gt; &lt;/template&gt;  &lt;script&gt; export default {   name: 'App', } &lt;/script&gt;  &lt;style&gt; #app {   font-family: 'Avenir', Helvetica, Arial, sans-serif;   -webkit-font-smoothing: antialiased;   -moz-osx-font-smoothing: grayscale;   text-align: center;   color: #2c3e50;   margin-top: 60px; } &lt;/style&gt;</code></pre> <p>src/components/Container.vue</p> <pre><code>&lt;template&gt;   &lt;div class="row"&gt;     &lt;!--左右两屏--&gt;     &lt;div class="col-md-4"&gt;       &lt;!--左边是编辑部分--&gt;       &lt;div class="form-group"&gt;         &lt;input type="hidden" v-model="url"&gt;       &lt;/div&gt;       &lt;div class="form-group"&gt;         &lt;input type="text" v-model="title"  class="form-control" placeholder="标题"&gt;        &lt;/div&gt;       &lt;div class="form-group"&gt;         &lt;textarea class="form-control" v-model="content" placeholder="内容"&gt;&lt;/textarea&gt;       &lt;/div&gt;       &lt;div class="form-group"&gt;         &lt;button class="btn btn-block btn-success" @click="saveBlog()"&gt;保存&lt;/button&gt;       &lt;/div&gt;       &lt;div class="form-group"&gt;                &lt;/div&gt;     &lt;/div&gt;      &lt;div class="col-md-8"&gt;       &lt;!--右边是博客内容表格部分--&gt;       &lt;table class="table table-bordered table-hover"&gt;         &lt;thead&gt;           &lt;th class="text-center"&gt;标题&lt;/th&gt;           &lt;th class="text-center"&gt;内容&lt;/th&gt;           &lt;th class="text-center"&gt;编辑&lt;/th&gt;           &lt;th class="text-center"&gt;删除&lt;/th&gt;         &lt;/thead&gt;         &lt;tbody&gt;           &lt;tr v-for="blog in blogs" :key="blog.url"&gt;             &lt;td&gt;{<!-- -->{blog.title}}&lt;/td&gt;             &lt;td&gt;{<!-- -->{blog.content}}&lt;/td&gt;             &lt;td&gt;               &lt;button class="btn btn-success"  @click="editBlog(blog)"&gt;                 &lt;i class="fa fa-edit"&gt;&lt;/i&gt;               &lt;/button&gt;             &lt;/td&gt;             &lt;td&gt;               &lt;button class="btn btn-success"  @click="deleteBlog(blog)"&gt;                 &lt;i class="fa fa-trash"&gt;&lt;/i&gt;               &lt;/button&gt;             &lt;/td&gt;           &lt;/tr&gt;         &lt;/tbody&gt;       &lt;/table&gt;     &lt;/div&gt;   &lt;/div&gt; &lt;/template&gt;   &lt;script&gt; //添加axios.http请求组件 import axios from 'axios' export default {   name: 'Container',   props:{    },   data(){     return{       base_url:"http://127.0.0.1:8000/api/blog/",       blogs:null,       url:"",       title:"",       content:"",     }   },   methods:{     getAll(){         axios.get(this.base_url)         .then(res=&gt;{             this.blogs = res.data;  //获取列表数据             this.url="";             this.title="";             this.content="";         });      },     saveBlog(){         //新增         if(this.url==""){             axios.post(this.base_url,{title:this.title, content:this.content})             .then(()=&gt;{                 this.getAll();             })         }         //修改         else{             axios.put(this.url,{title:this.title, content:this.content})             .then(()=&gt;{                 this.getAll();             })         }     },     editBlog(blog){         this.url= blog.url;         this.title=blog.title;         this.content=blog.content;     },     deleteBlog(blog){         axios.delete(blog.url)         .then(()=&gt;{             this.getAll();         });     },   },   mounted(){       this.getAll();   } } &lt;/script&gt;  &lt;!-- Add "scoped" attribute to limit CSS to this component only --&gt; &lt;style scoped&gt;  &lt;/style&gt;</code></pre> <p>router/index.js</p> <pre><code>import Vue from 'vue' import Router from 'vue-router' import Container from '@/components/Container'  Vue.use(Router)  export default new Router({   routes: [     {       path: '/',       name: 'Container',       component: Container     }   ] })</code></pre> </div> 			                <div class="clearfix"></div>
                 <div class="col-md-12 mt-5">
-                                        <p>上一个：<a href="/news/article-34999.htm">我被猫咬了,没去***,会不会死已经十天（被猫咬了没打疫苗,过多久就会没事了呢?）</a></p>
                                         <p>下一个：<a href="/news/article-35635.htm">宠物领养中心领养要钱吗多少钱一次（宠物领养中心领养要钱吗多少钱一次呢）</a></p>
                                     </div>
                                 </div>
@@ -137,16 +133,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/news/article-46206.htm" title="MYSQL存储时间数据的数据类型选择">MYSQL存储时间数据的数据类型选择</a></li>
-                        <li class="py-2"><a href="/news/article-21720.htm" title="动物疫苗发展前景怎么样（动物疫苗行业分析）">动物疫苗发展前景怎么样（动物疫苗行业分析）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-1-7-free-high-speed-nodes.htm" title="「1月7日」最高速度18.8M/S，2025年Clsah Verge每天更新免费节点订阅地址">「1月7日」最高速度18.8M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
-                        <li class="py-2"><a href="/news/article-39269.htm" title="动物打完疫苗需要注意什么吗知乎（动物打了疫苗）">动物打完疫苗需要注意什么吗知乎（动物打了疫苗）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-1-1-clash-verge-rev-nodes.htm" title="「1月1日」最高速度21.9M/S，2025年Clsah Verge每天更新免费节点订阅地址">「1月1日」最高速度21.9M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-15-free-clash-verge-rev-node.htm" title="「12月15日」最高速度19M/S，2024年Clsah Verge每天更新免费节点订阅链接">「12月15日」最高速度19M/S，2024年Clsah Verge每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-22689.htm" title="面向对象的7种设计原则(2)-接口隔离原则">面向对象的7种设计原则(2)-接口隔离原则</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-10-today-clash-verge-rev-node.htm" title="「12月10日」最高速度22.1M/S，2024年Clsah Verge每天更新免费节点订阅链接">「12月10日」最高速度22.1M/S，2024年Clsah Verge每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-34998.htm" title="分割数组–">分割数组–</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-28-clash-verge-rev-node-github.htm" title="「12月28日」最高速度20.9M/S，2024年Clsah Verge每天更新免费节点订阅地址">「12月28日」最高速度20.9M/S，2024年Clsah Verge每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-23-free-clash-verge-rev-node.htm" title="「2月23日」最高速度22.4M/S，2025年Clsah Verge每天更新免费节点订阅地址">「2月23日」最高速度22.4M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/news/article-35997.htm" title="猫驱虫药多少钱一次啊（猫驱虫药一般多少钱）">猫驱虫药多少钱一次啊（猫驱虫药一般多少钱）</a></li>
+                        <li class="py-2"><a href="/news/article-45223.htm" title="2021年国考公务员考试报名 2021年国考公务员考试报名时间">2021年国考公务员考试报名 2021年国考公务员考试报名时间</a></li>
+                        <li class="py-2"><a href="/news/article-54456.htm" title="宠物领养协议书范本 定期回访模板怎么写 宠物领养协议书范本 定期回访模板怎么写">宠物领养协议书范本 定期回访模板怎么写 宠物领养协议书范本 定期回访模板怎么写</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-26-node-share-links.htm" title="「1月26日」最高速度20.2M/S，2025年Clsah Verge每天更新免费节点订阅地址">「1月26日」最高速度20.2M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/news/article-58379.htm" title="动物医院看病流程视频（动物医院看病贵吗）">动物医院看病流程视频（动物医院看病贵吗）</a></li>
+                        <li class="py-2"><a href="/news/article-52821.htm" title="动物疫苗证在哪里办理 动物疫苗证在哪里办理的">动物疫苗证在哪里办理 动物疫苗证在哪里办理的</a></li>
+                        <li class="py-2"><a href="/news/article-37730.htm" title="小型宠物粮食加工设备价格及图片 小型宠物粮食加工设备价格及图片大全">小型宠物粮食加工设备价格及图片 小型宠物粮食加工设备价格及图片大全</a></li>
+                        <li class="py-2"><a href="/news/article-50713.htm" title="宠物粮食代加工厂排名第一的是（宠物粮食代加工厂排名第一的是什么）">宠物粮食代加工厂排名第一的是（宠物粮食代加工厂排名第一的是什么）</a></li>
+                        <li class="py-2"><a href="/news/article-45224.htm" title="济南宠物领养救助中心电话（济南宠物救助领养中心地址）">济南宠物领养救助中心电话（济南宠物救助领养中心地址）</a></li>
                     </ul>
     </div>
 </div>
@@ -158,16 +154,13 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+                <h4><span class="badge" style="float: right;">12</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
             </li>
                     </ul>
     </div>
