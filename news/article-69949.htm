@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://clashvergerev.github.io/news/article-69949.htm" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>十字链表存储</title>
+        <meta name="description" content="（耿《数据结构》原文）为避免大量移动元素，采用稀疏矩阵的链式存储法——十字链表。 它的好处是能灵活地插入因运算而产生的非零元素，删除因运算而产生的新的零元素，实现矩阵的各种运算。 1.十字链表的存储表" />
+        <link rel="icon" href="/assets/website/img/clashvergerev/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Clash Verge Rev节点订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://clashvergerev.github.io/news/article-69949.htm" />
+    <meta property="og:site_name" content="Clash Verge Rev节点订阅站" />
+    <meta property="og:title" content="十字链表存储" />
+    <meta property="og:image" content="https://clashvergerev.github.io/uploads/20240722-1/fdbfaa600f4d911ede25cc19e7130b6c.webp" />
+        <meta property="og:release_date" content="2025-03-08T05:07:23" />
+    <meta property="og:updated_time" content="2025-03-08T05:07:23" />
+        <meta property="og:description" content="（耿《数据结构》原文）为避免大量移动元素，采用稀疏矩阵的链式存储法——十字链表。 它的好处是能灵活地插入因运算而产生的非零元素，删除因运算而产生的新的零元素，实现矩阵的各种运算。 1.十字链表的存储表" />
+        
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/bootstrap-4.5.0.min.css">
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/animate.css">
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/LineIcons.2.0.css">
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/owl.carousel.2.3.4.min.css">
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/owl.theme.css">
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/magnific-popup.css">
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/nivo-lightbox.css">
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/main.css">
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/responsive.css">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="十字链表存储">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-T6B4E54XZZ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-T6B4E54XZZ');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <header class="blog-hero-area">
+                <div class="overlay">
+            <span></span>
+            <span></span>
+        </div>
+        <div class="navbar-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <nav class="navbar navbar-expand-lg">
+                            <a class="navbar-brand" href="/">
+                                                            <span>Clash Verge Rev</span>
+                                                        </a>
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
+                                <ul id="nav" class="navbar-nav ml-auto">
+                                                                        <li class="nav-item">
+                                        <a href="/">首页</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/free-nodes/">免费节点</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/paid-subscribe/">推荐机场</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/client.htm">客户端</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/news/">新闻资讯</a>
+                                    </li>
+                                                                    </ul>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="home">
+            <div class="container">
+                <div class="row justify-content-lg-center">
+                    <div class="col-lg-10">
+                        <div class="contents text-center">
+                            <h1>十字链表存储</h1>
+                            <div class="post-meta">
+                                <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section id="business-plan">
+        <div class="container pt-5">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="htmledit_views"> <p>（耿《数据结构》原文）为避免大量移动元素，采用稀疏矩阵的链式存储法——十字链表。</p> <p>它的好处是能灵活地插入因运算而产生的非零元素，删除因运算而产生的新的零元素，实现矩阵的各种运算。</p> <p>1.十字链表的存储表示（五要素）</p> <p>矩阵的每一个非零元素用一个结点表示，该结点除了（row,col,value)以外，还要添加两个链域：</p> <p>right：用于链接同一行中的下一个非零元素</p> <p>down：用于链接同一列中的下一个非零元素</p> <p>在十字链表的储存结构中，可以看成是两个单链表的组合沟通。可以类比行指针，列指针。</p> <p>同一行的非零元素通过right域链接成一个单链表，</p> <p>同一列的非零元素通过down域链接成一个单链表。</p> <p>相应的，需要附设一个存放所有行链表头指针的一维数组和一个存放所有列链表的头指针的一维数组。</p> <p style="text-align:center;"><img fetchpriority="high" decoding="async" alt="" height="411" src="http://img.555519.xyz/uploads/20230207/810eab3ae40ba1ba2e829b07312074a6.jpg"></p> <p>2.十字链表的类型定义</p> <p>一个结点的定义;</p> <pre><code>typedef struct OLNode { int row,col; ElementType value; struct OLNode *right,*down;//指向的下一个结点也是同样的结构 }OLNode;*OLink;</code></pre> <p>十字链表存储结构</p> <pre><code>typedef struct { OLink *row_head,*col_head;//头指针 int m,n,len;//行，列，非零元素个数 }CrossList;</code></pre> <p>3.十字链表的算法实现</p> <p>步骤：</p> <p>①读入稀疏矩阵的行数，列数，非零元素个数；</p> <p>②申请行，列链表的头指针空间；</p> <p>③逐个读入非零元素，分别插入行链表，列链表。</p> <p>算法（建立稀疏矩阵的十字链表，实质是在两个单链表中完成插入）</p> <pre><code>CreateCrossList(CrossList *M) { scanf("%d %d %d",&amp;m,&amp;n,&amp;t); M-&gt;m=m; M-&gt;n=n; M-&gt;len=t; if(!(M-&gt;row_head=(OLink*)malloc((m+1)sizeof(OLink)))) exit(OVERFLOW); if(!(M-&gt;col_head=(OLink*)malloc((n+1)sizeof(OLink)))) exit(OVERFLOW); M-&gt;row_head[]=M-&gt;col_head[]=NULL;//初始化 for(scanf(&amp;i,&amp;j,&amp;e);i!=0；scanf(&amp;i,&amp;j,&amp;e))//读入非零的数据，信息包括它的行，列，数据 { if(!(p=(OLNode*)malloc(sizeof(OLNode)))) exit(OVERFLOW); p-&gt;row=i; p-&gt;col=j; p-&gt;value=e;//生成结点 //插入行链表 if(M-&gt;row_head[i]==NULL)//如果原先的稀疏矩阵这一行全为零，直接以这个插入的结点创建这一行行链表的头指针 M-&gt;row_head[i]=p; else { //寻找插入的位置 q=M-&gt;row_head[i];//用来指向这一行的插入点的前一个结点，一开始指向行表头 while(q-&gt;right!=NULL&amp;&amp;q-&gt;right-&gt;col&lt;j) { q=q-&gt;right; p-&gt;right=q-&gt;right;//随循环右移 q-&gt;right=p;//完成插入 } //插入列链表 if(M-&gt;col_head[j]==NULL) M-&gt;col_head[j]=p; else { //寻找插入位置 q=M-&gt;col_head[j]; while(q-&gt;down！=NULL&amp;&amp;q-&gt;down-&gt;row&lt;i) q=q-&gt;down; p-&gt;down=q-&gt;down; q-&gt;down=p; } } } </code></pre> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-69296.htm">动物疫苗注射的作用有哪些呢 动物疫苗注射的作用有哪些呢视频</a></p>
+                                        <p>下一个：<a href="/news/article-69950.htm">宠物猫打的疫苗多少钱（宠物猫打疫苗价格）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-37299.htm" title="动物医院参观有感300字 动物医院参观有感300字作文">动物医院参观有感300字 动物医院参观有感300字作文</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-22-clash-verge-rev-nodes.htm" title="「2月22日」最高速度19M/S，2025年Clsah Verge每天更新免费节点订阅地址">「2月22日」最高速度19M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/news/article-67383.htm" title="厦门宠物领养中心有哪些地址 厦门宠物领养中心有哪些地址和电话">厦门宠物领养中心有哪些地址 厦门宠物领养中心有哪些地址和电话</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-9-latest-clash-verge-rev-node.htm" title="「1月9日」最高速度21M/S，2025年Clsah Verge每天更新免费节点订阅地址">「1月9日」最高速度21M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-18-latest-clash-verge-rev-node.htm" title="「2月18日」最高速度20.2M/S，2025年Clsah Verge每天更新免费节点订阅地址">「2月18日」最高速度20.2M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/news/article-51209.htm" title="宠物店一般卖什么猫粮 宠物店一般卖什么猫粮比较好">宠物店一般卖什么猫粮 宠物店一般卖什么猫粮比较好</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-23-free-clash-verge-rev-node.htm" title="「2月23日」最高速度22.4M/S，2025年Clsah Verge每天更新免费节点订阅地址">「2月23日」最高速度22.4M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-2-latest-clash-verge-rev-node.htm" title="「2月2日」最高速度20.4M/S，2025年Clsah Verge每天更新免费节点订阅地址">「2月2日」最高速度20.4M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/news/article-58536.htm" title="动物医院游戏破解版无限金币爱心（动物医院游戏大全）">动物医院游戏破解版无限金币爱心（动物医院游戏大全）</a></li>
+                        <li class="py-2"><a href="/news/article-42228.htm" title="为什么HTTP/3要基于UDP？可靠吗？">为什么HTTP/3要基于UDP？可靠吗？</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+    <section id="footer-Content">
+        <div class="copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="site-info text-center">
+                    <p>
+                        <a href="/">首页</a> | 
+                        <a href="/free-node/">免费节点</a> | 
+                        <a href="/news/">新闻资讯</a> |
+                        <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                            <a href="/">Clash Verge Rev节点订阅站</a> 版权所有
+                            <br />
+                            Powered by WordPress
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</footer>
+<a href="#" class="back-to-top">
+    <i class="lni lni-chevron-up"></i>
+</a>
+<div id="preloader">
+    <div class="loader" id="loader-1"></div>
+</div>
+<script src="/assets/website/js/frontend/clashvergerev/vendor/modernizr-3.7.1.min.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/vendor/jquery-3.5.1-min.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/popper.min.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/bootstrap-4.5.0.min.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/owl.carousel.2.3.4.min.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/nivo-lightbox.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/jquery.magnific-popup.min.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/form-validator.min.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/contact-form-script.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/main.js"></script>
+<script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+<script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
