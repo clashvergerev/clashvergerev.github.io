@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://clashvergerev.github.io/news/article-73247.htm" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Go并发编程sync.Cond的具体使用_Golang</title>
+        <meta name="description" content="目录  简介 详细介绍 案例：Redis连接池 注意点    简介 Go 标准库提供 Cond 原语的目的是，为等待 / 通知场景下的并发问题提供支持。Cond 通常应用于等待某个条件的一组 goro" />
+        <link rel="icon" href="/assets/website/img/clashvergerev/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Clash Verge Rev节点订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://clashvergerev.github.io/news/article-73247.htm" />
+    <meta property="og:site_name" content="Clash Verge Rev节点订阅站" />
+    <meta property="og:title" content="Go并发编程sync.Cond的具体使用_Golang" />
+    <meta property="og:image" content="https://clashvergerev.github.io/uploads/20240722-1/0362f3f734f8008b3f5d457365aeb688.webp" />
+        <meta property="og:release_date" content="2025-03-13T09:23:15" />
+    <meta property="og:updated_time" content="2025-03-13T09:23:15" />
+        <meta property="og:description" content="目录  简介 详细介绍 案例：Redis连接池 注意点    简介 Go 标准库提供 Cond 原语的目的是，为等待 / 通知场景下的并发问题提供支持。Cond 通常应用于等待某个条件的一组 goro" />
+        
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/bootstrap-4.5.0.min.css">
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/animate.css">
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/LineIcons.2.0.css">
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/owl.carousel.2.3.4.min.css">
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/owl.theme.css">
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/magnific-popup.css">
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/nivo-lightbox.css">
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/main.css">
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/responsive.css">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Go并发编程sync.Cond的具体使用_Golang">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-T6B4E54XZZ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-T6B4E54XZZ');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <header class="blog-hero-area">
+                <div class="overlay">
+            <span></span>
+            <span></span>
+        </div>
+        <div class="navbar-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <nav class="navbar navbar-expand-lg">
+                            <a class="navbar-brand" href="/">
+                                                            <span>Clash Verge Rev</span>
+                                                        </a>
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
+                                <ul id="nav" class="navbar-nav ml-auto">
+                                                                        <li class="nav-item">
+                                        <a href="/">首页</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/free-nodes/">免费节点</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/paid-subscribe/">推荐机场</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/client.htm">客户端</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/news/">新闻资讯</a>
+                                    </li>
+                                                                    </ul>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="home">
+            <div class="container">
+                <div class="row justify-content-lg-center">
+                    <div class="col-lg-10">
+                        <div class="contents text-center">
+                            <h1>Go并发编程sync.Cond的具体使用_Golang</h1>
+                            <div class="post-meta">
+                                <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section id="business-plan">
+        <div class="container pt-5">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="navCategory"> <h5 class="catalogue">目录</h5> <ul class="first_class_ul"> <li><a href="#_label0" rel="nofollow">简介</a></li> <li><a href="#_label1" rel="nofollow">详细介绍</a></li> <li><a href="#_label2" rel="nofollow">案例：Redis连接池</a></li> <li><a href="#_label3" rel="nofollow">注意点</a></li> </ul> </div> <p class="maodian"><a name="_label0" rel="nofollow"></a></p> <h2>简介</h2> <p><code>Go </code>标准库提供 <code>Cond </code>原语的目的是，为等待 / 通知场景下的并发问题提供支持。<code>Cond</code> 通常应用于等待某个条件的一组 <code>goroutine</code>，等条件变为 <code>true</code> 的时候，其中一个 <code>goroutine</code> 或者所有的 <code>goroutine</code> 都会被唤醒执行。</p> <p><code>Cond</code> 是和某个条件相关，这个条件需要一组 <code>goroutine</code> 协作共同完成，在条件还没有满足的时候，所有等待这个条件的 <code>goroutine</code> 都会被阻塞住，只有这一组 <code>goroutine</code> 通过协作达到了这个条件，等待的 goroutine 才可能继续进行下去。</p> <p>这个条件可以是我们自定义的 <code>true/false</code> 逻辑表达式。</p> <p>但是 <code>Cond</code> 使用的比较少，因为在大部分场景下是可以被 <code>Channel</code> 和 <code>WaitGroup</code> 来替换的。</p> <p class="maodian"><a name="_label1" rel="nofollow"></a></p> <h2>详细介绍</h2> <p>下面就是 <code>Cond</code> 的数据结构和对外提供的方法，<code>Cond</code> 内部维护了一个等待队列和锁实例。</p> <div class="ay1code"> <pre class="brush:go;">type Cond struct {     noCopy noCopy       // 锁     L Locker       // 等待队列     notify  notifyList     checker copyChecker  }    func NeWCond(l Locker) *Cond  func (c *Cond) Broadcast()  func (c *Cond) Signal()  func (c *Cond) Wait()</pre> </div> <ul> <li> <p><strong>NeWCond</strong>： <code>NeWCond</code> 方法需要调用者传入一个 <code>Locker</code> 接口，这个接口就 <code>Lock/UnLock</code> 方法，所以我们可以传入一个 <code>sync.Metex</code> 对象</p> </li> <li> <p><strong>Signal</strong>：允许调用者唤醒一个等待当前 <code>Cond</code> 的 <code>goroutine</code>。如果 <code>Cond</code> 等待队列中有一个或者多个等待的 <code>goroutine</code> ，则从等待队列中移除第一个 <code>goroutine</code> 并把它唤醒</p> </li> <li> <p><strong>Broadcast</strong>：允许调用者唤醒所有等待当前 <code>Cond</code> 的 <code>goroutine</code>。如果 Cond 等待队列中有一个或者多个等待的 <code>goroutine</code>，则清空所有等待的 <code>goroutine</code>，并全部唤醒</p> </li> <li> <p><strong>Wait</strong>：会把调用者放入<code> Cond</code> 的等待队列中并阻塞，直到被 <code>Signal</code> 或者 <code>Broadcast</code> 的方法从等待队列中移除并唤醒</p> </li> </ul> <p class="maodian"><a name="_label2" rel="nofollow"></a></p> <h2>案例：Redis连接池</h2> <p>可以看一下下面的代码，使用了 <code>Cond</code> 实现一个 <code>Redis</code> 的连接池，最关键的代码就是在链表为空的时候需要调用 <code>Cond</code> 的 <code>Wait</code> 方法，将 <code>gorutine</code> 进行阻塞。然后 <code>goruntine</code> 在使用完连接后，将连接返回池子后，需要通知其他阻塞的 <code>goruntine</code> 来获取连接。</p> <div class="ay1code"> <pre class="brush:xhtml;">package main    import (     "container/list"     "fmt"     "math/rand"     "sync"     "time"  )    // 连接池  type Pool struct {     lock    sync.Mutex // 锁     clients list.List  // 连接     cond    *sync.Cond // cond实例     close   bool       // 是否关闭  }    // Redis Client  type Client struct {     id int32  }    // 创建Redis Client  func NewClient() *Client {     return &amp;Client{        id: rand.Int31n(100000),     }  }    // 关闭Redis Client  func (this *Client) Close() {     fmt.Printf("Client:%d 正在关闭", this.id)  }    // 创建连接池  func NewPool(maxConnNum int) *Pool {     pool := new(Pool)     pool.cond = sync.NewCond(&amp;pool.lock)       // 创建连接     for i := 0; i &lt; maxConnNum; i++ {        client := NewClient()        pool.clients.PushBack(client)     }       return pool  }    // 从池子中获取连接  func (this *Pool) Pull() *Client {     this.lock.Lock()     defer this.lock.Unlock()       // 已关闭     if this.close {        fmt.Println("Pool is closed")        return nil     }       // 如果连接池没有连接 需要阻塞     for this.clients.Len() &lt;= 0 {        this.cond.Wait()     }       // 从链表中取出头节点，删除并返回     ele := this.clients.Remove(this.clients.Front())     return ele.(*Client)  }    // 将连接放回池子  func (this *Pool) Push(client *Client) {     this.lock.Lock()     defer this.lock.Unlock()       if this.close {        fmt.Println("Pool is closed")        return     }       // 向链表尾部插入一个连接     this.clients.PushBack(client)       // 唤醒一个正在等待的goruntine     this.cond.Signal()  }    // 关闭池子  func (this *Pool) Close() {     this.lock.Lock()     defer this.lock.Unlock()       // 关闭连接     for e := this.clients.Front(); e != nil; e = e.Next() {        client := e.Value.(*Client)        client.Close()     }       // 重置数据     this.close = true     this.clients.Init()  }    func main() {       var wg sync.WaitGroup       pool := NewPool(3)     for i := 1; i &lt;= 10; i++ {        wg.Add(1)        go func(index int) {             defer wg.Done()             // 获取一个连接           client := pool.Pull()             fmt.Printf("Time:%s | 【goruntine#%d】获取到client[%d]\n", time.Now().Format("15:04:05"), index, client.id)           time.Sleep(time.Second * 5)           fmt.Printf("Time:%s | 【goruntine#%d】使用完毕，将client[%d]放回池子\n", time.Now().Format("15:04:05"), index, client.id)             // 将连接放回池子           pool.Push(client)        }(i)     }       wg.Wait()  }</pre> </div> <p>运行结果：</p> <blockquote> <p>Time:15:10:25 | 【goruntine#7】获取到client[31847]<br />Time:15:10:25 | 【goruntine#5】获取到client[27887]<br />Time:15:10:25 | 【goruntine#10】获取到client[98081]<br />Time:15:10:30 | 【goruntine#5】使用完毕，将client[27887]放回池子<br />Time:15:10:30 | 【goruntine#6】获取到client[27887]               <br />Time:15:10:30 | 【goruntine#10】使用完毕，将client[98081]放回池子<br />Time:15:10:30 | 【goruntine#7】使用完毕，将client[31847]放回池子 <br />Time:15:10:30 | 【goruntine#1】获取到client[31847]               <br />Time:15:10:30 | 【goruntine#9】获取到client[98081]               <br />Time:15:10:35 | 【goruntine#6】使用完毕，将client[27887]放回池子<br />Time:15:10:35 | 【goruntine#3】获取到client[27887]              <br />Time:15:10:35 | 【goruntine#1】使用完毕，将client[31847]放回池子<br />Time:15:10:35 | 【goruntine#4】获取到client[31847]              <br />Time:15:10:35 | 【goruntine#9】使用完毕，将client[98081]放回池子<br />Time:15:10:35 | 【goruntine#2】获取到client[98081]              <br />Time:15:10:40 | 【goruntine#3】使用完毕，将client[27887]放回池子<br />Time:15:10:40 | 【goruntine#8】获取到client[27887]              <br />Time:15:10:40 | 【goruntine#2】使用完毕，将client[98081]放回池子<br />Time:15:10:40 | 【goruntine#4】使用完毕，将client[31847]放回池子<br />Time:15:10:45 | 【goruntine#8】使用完毕，将client[27887]放回池子</p> </blockquote> <p class="maodian"><a name="_label3" rel="nofollow"></a></p> <h2>注意点</h2> <ul> <li>在调用 <code>Wait</code> 方法前，需要先加锁，就像我上面例子中 <code>Pull</code> 方法也是先加锁</li> </ul> <p>看一下源码就知道了，因为 <code>Wait</code> 方法的执行逻辑是先将 <code>goruntine</code> 添加到等待队列中，然后释放锁，然后阻塞，等唤醒后，会继续加锁。如果在调用 <code>Wait</code> 前不加锁，但是里面会解锁，执行的时候就会报错。</p> <div class="ay1code"> <pre class="brush:go;">//  //    c.L.Lock()  //    for !condition() {  //        c.Wait()  //    }  //    ... make use of condition ...  //    c.L.Unlock()  //  func (c *Cond) Wait() {     c.checker.check()          // 添加到等待队列     t := runtime_notifyListAdd(&amp;c.notify)     c.L.Unlock()          // 阻塞     runtime_notifyListWait(&amp;c.notify, t)     c.L.Lock()  }</pre> </div> <ul> <li>还是 <code>Wait</code> 方法，在唤醒后需要继续检查 <code>Cond</code> 条件</li> </ul> <p>就拿上面的 <code>redis</code> 连接案例来进行说明吧，我这里是使用了 <code>for</code> 循环来进行检测。如果将 <code>for</code> 循环改成使用 <code>if</code>，也就是只判断一次，会有什么问题？可以停下来先想想</p> <p>上面说了调用者也可以使用 <code>Broadcast</code> 方法来唤醒 <code>goruntine</code> ，如果使用的是 <code>Broadcast</code> 方法，所有的 <code>goruntine</code> 都会被唤醒，然后大家都去链表中去获取 <code>redis</code> 连接了，就会出现部分 <code>goruntine</code>拿不到连接，实际上没有那么多连接可以获取，因为每次只会放回一个连接到池子中。</p> <div class="ay1code"> <pre class="brush:go;">// 如果连接池没有连接 需要阻塞  for this.clients.Len() &lt;= 0 {    this.cond.Wait()  }    // 获取连接  ele := this.clients.Remove(this.clients.Front())  return ele.(*Client)</pre> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-72590.htm">宠物粮批发网（宠物粮批发网站）</a></p>
+                                        <p>下一个：<a href="/news/article-73248.htm">适合新手开的店铺（新手开店适合开什么网店）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-2-23-free-clash-verge-rev-node.htm" title="「2月23日」最高速度22.4M/S，2025年Clsah Verge每天更新免费节点订阅地址">「2月23日」最高速度22.4M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/news/article-48511.htm" title="学美容学费是多少（学美容学费贵吗）">学美容学费是多少（学美容学费贵吗）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-1-node-share-links.htm" title="「3月1日」最高速度21.3M/S，2025年Clsah Verge每天更新免费节点订阅地址">「3月1日」最高速度21.3M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-10-clash-verge-rev-github.htm" title="「2月10日」最高速度21.6M/S，2025年Clsah Verge每天更新免费节点订阅地址">「2月10日」最高速度21.6M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/news/article-41731.htm" title="动物医院社会实践3000字内容（动物医院社会实践报告）">动物医院社会实践3000字内容（动物医院社会实践报告）</a></li>
+                        <li class="py-2"><a href="/news/article-46704.htm" title="塞尔达前往海拉鲁大地（塞尔达海拉鲁地区神庙）">塞尔达前往海拉鲁大地（塞尔达海拉鲁地区神庙）</a></li>
+                        <li class="py-2"><a href="/news/article-42229.htm" title="k8s入门之Ingress">k8s入门之Ingress</a></li>
+                        <li class="py-2"><a href="/news/article-55005.htm" title="宠物领养网免费同城送货（宠物领养免费送到家）">宠物领养网免费同城送货（宠物领养免费送到家）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-29-clash-verge-rev-nodes.htm" title="「1月29日」最高速度22.3M/S，2025年Clsah Verge每天更新免费节点订阅地址">「1月29日」最高速度22.3M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/news/article-54456.htm" title="宠物领养协议书范本 定期回访模板怎么写 宠物领养协议书范本 定期回访模板怎么写">宠物领养协议书范本 定期回访模板怎么写 宠物领养协议书范本 定期回访模板怎么写</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">45</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+    <section id="footer-Content">
+        <div class="copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="site-info text-center">
+                    <p>
+                        <a href="/">首页</a> | 
+                        <a href="/free-node/">免费节点</a> | 
+                        <a href="/news/">新闻资讯</a> |
+                        <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                            <a href="/">Clash Verge Rev节点订阅站</a> 版权所有
+                            <br />
+                            Powered by WordPress
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</footer>
+<a href="#" class="back-to-top">
+    <i class="lni lni-chevron-up"></i>
+</a>
+<div id="preloader">
+    <div class="loader" id="loader-1"></div>
+</div>
+<script src="/assets/website/js/frontend/clashvergerev/vendor/modernizr-3.7.1.min.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/vendor/jquery-3.5.1-min.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/popper.min.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/bootstrap-4.5.0.min.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/owl.carousel.2.3.4.min.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/nivo-lightbox.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/jquery.magnific-popup.min.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/form-validator.min.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/contact-form-script.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/main.js"></script>
+<script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+<script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
