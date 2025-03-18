@@ -97,22 +97,20 @@
 	            var url = $(this).data('url');
 	            var code = $(this).data('code');
 	            var type = $(this).data('type');
-	            url = G.Fun.check_invite_url(url, type);
-	            url += code;
+	            var new_url = G.Fun.check_invite_url(url, type);
+	            new_url += code;
 
 	            var domain = 'https://www.freeclashnode.com';
 	            $.post(
 	            	domain + '/index.php/api/xcblog/c',
 	            	{
 	            		url: location.href,
-	            		to_url: url,
+	            		to_url: new_url,
 	            		code: type
-	            	}, function(){
-	            		
 	            	}
 	            );
 
-	            window.open(url);
+	            window.open(new_url);
 	        })
     	},
     	BindDetailWebsite: function(){
