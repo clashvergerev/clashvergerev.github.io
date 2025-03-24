@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://clashvergerev.github.io/news/article-79347.htm" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>如何保证Redis缓存和数据库一致性？</title>
+        <meta name="description" content="首先我们先了解下缓存是什么？ 缓存就是把低速存储的结果，临时保存在高速存储的技术。 为什么使用redis进行缓存数据？ Redis嘛，就是一种运行速度很快，并发很强的跑在内存上的NoSql数据库，支持" />
+        <link rel="icon" href="/assets/website/img/clashvergerev/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Clash Verge Rev节点订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://clashvergerev.github.io/news/article-79347.htm" />
+    <meta property="og:site_name" content="Clash Verge Rev节点订阅站" />
+    <meta property="og:title" content="如何保证Redis缓存和数据库一致性？" />
+    <meta property="og:image" content="https://clashvergerev.github.io/uploads/20240722-1/675cdea5f14f66c97348f46af36cf72c.webp" />
+        <meta property="og:release_date" content="2025-03-22T08:51:00" />
+    <meta property="og:updated_time" content="2025-03-22T08:51:00" />
+        <meta property="og:description" content="首先我们先了解下缓存是什么？ 缓存就是把低速存储的结果，临时保存在高速存储的技术。 为什么使用redis进行缓存数据？ Redis嘛，就是一种运行速度很快，并发很强的跑在内存上的NoSql数据库，支持" />
+        
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/bootstrap-4.5.0.min.css">
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/animate.css">
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/LineIcons.2.0.css">
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/owl.carousel.2.3.4.min.css">
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/owl.theme.css">
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/magnific-popup.css">
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/nivo-lightbox.css">
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/main.css">
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/responsive.css">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="如何保证Redis缓存和数据库一致性？">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-T6B4E54XZZ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-T6B4E54XZZ');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <header class="blog-hero-area">
+                <div class="overlay">
+            <span></span>
+            <span></span>
+        </div>
+        <div class="navbar-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <nav class="navbar navbar-expand-lg">
+                            <a class="navbar-brand" href="/">
+                                                            <span>Clash Verge Rev</span>
+                                                        </a>
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
+                                <ul id="nav" class="navbar-nav ml-auto">
+                                                                        <li class="nav-item">
+                                        <a href="/">首页</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/free-nodes/">免费节点</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/paid-subscribe/">推荐机场</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/client.htm">客户端</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/news/">新闻资讯</a>
+                                    </li>
+                                                                    </ul>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="home">
+            <div class="container">
+                <div class="row justify-content-lg-center">
+                    <div class="col-lg-10">
+                        <div class="contents text-center">
+                            <h1>如何保证Redis缓存和数据库一致性？</h1>
+                            <div class="post-meta">
+                                <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section id="business-plan">
+        <div class="container pt-5">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <p><strong>首先我们先了解下缓存是什么？</strong><br /> 缓存就是把低速存储的结果，临时保存在高速存储的技术。</p> <p><strong>为什么使用redis进行缓存数据？</strong></p> <p>Redis嘛，就是一种运行速度很快，并发很强的跑在内存上的NoSql数据库，支持键到五种数据类型的映射，（string、list、set、zset、hash）,而memecache只能支持简单的数据类型。另外redis可以完成一部份数据的持久化，而memecache完全将数据保存在内存中，不进行持久化，如果服务器出问题，数据将全部丢失，另外一个原因是redis底层实现优化比memecache好。另外采用了多路复用io阻塞机制，数据结构简单，操作节省时间。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220824/09e7d81dd6edd3b78a5a3195766ee6a5.jpg" alt="如何保证Redis缓存和数据库一致性？"></p> <p>那常见的保证缓存与数据库一致的方法有哪些呢？</p> <p>想要保证缓存与数据库的双写一致，一共有4种方式，即4种同步策略：<br /><strong>先更新缓存，再更新数据库；<br /> 先更新数据库，再更新缓存；<br /> 先删除缓存，再更新数据库；<br /> 先更新数据库，再删除缓存。</strong></p> <p>那么我们需要做的就是根据不同的场景来使用合理的方式来解决数据问题。</p> <p><strong>第一种：先删除缓存，再更新数据库</strong></p> <p>在出现失败时可能出现的问题：</p> <p>1：线程A删除缓存成功，线程A更新数据库失败；</p> <p>2 ：线程B从缓存中读取数据；由于缓存被删，进程B无法从缓存中得到数据，进而从数据库读取数据；此时数据库中的数据更新失败，线程B从数据库成功获取旧的数据，然后将数据更新到了缓存。<br /> 最终，缓存和数据库的数据是一致的，但仍然是旧的数据。</p> <p><strong>第二种：先更新数据库，再删除缓存</strong></p> <p>假设这会有两个请求，一个请求A做查询操作，一个请求B做更新操作，那么会有如下情形产生</p> <p>（1）缓存刚好失效<br /> （2）请求A查询数据库，得一个旧值<br /> （3）请求B将新值写入数据库<br /> （4）请求B删除缓存<br /> （5）请求A将查到的旧值写入缓存<br /> 如果发生上述情况，确实是会发生脏数据。<br /> 然而，发生这种情况的概率又有多少呢？<br /> 发生上述情况有一个先天性条件，就是步骤（3）的写数据库操作比步骤（2）的读数据库操作耗时更短，才有可能使得步骤（4）先于步骤（5）。<br /> 数据库的读操作的速度远快于写操作的（不然做读写分离干嘛，做读写分离的意义就是因为读操作比较快，耗资源少），因此步骤（3）耗时比步骤（2）更短，这一情形很难出现。<br /> 先更新数据库，再删缓存依然会有问题，不过，问题出现的可能性会因为上面说的原因，变得比较低。</p> <p><strong>第三种：给所有的缓存一个失效期</strong></p> <p>第三种方案可以说是一个大杀器，任何不一致，都可以靠失效期解决，失效期越短，数据一致性越高。但是失效期越短，查数据库就会越频繁。因此失效期应该根据业务来定。<br /> 1.并发不高的情况：<br /> 读: 读redis-&gt;没有，读mysql-&gt;把mysql数据写回redis，有的话直接从redis中取；<br /> 写: 写mysql-&gt;成功，再写redis；<br /> 2.并发高的情况：<br /> 读: 读redis-&gt;没有，读mysql-&gt;把mysql数据写回redis，有的话直接从redis中取；<br /> 写：异步话，先写入redis的缓存，就直接返回；定期或特定动作将数据保存到mysql，可以做到多次更新，一次保存；</p> <p><strong>第四种：加锁，使线程顺序执行</strong></p> <p>如果一个服务部署到了多个机器，就变成了分布式锁，或者是分布式队列按顺序去操作数据库或者 Redis，带来的副作用就是：数据库本来是并发的，现在变成串行的了，加锁或者排队执行的方案降低了系统性能，所以这个方案看起来不太可行。</p> <p><strong>第五种：采用双删</strong></p> <p>先删除缓存，再更新数据库，当更新数据后休眠一段时间再删除一次缓存。</p> <p>方案推荐两种：</p> <p>1：项目整合quartz等定时任务框架，去实现延时3–5s再去执行最后一步任务 。（推荐使用）<br /> 2：创建线程池，线程池中拿一个线程，线程体中延时3-5s再去执行最后一步任务（不能忘了启动线程）</p> <p><strong>第六种：异步更新缓存(基于订阅binlog的同步机制)</strong></p> <p>MySQL binlog增量订阅消费+消息队列+增量数据更新到redis读Redis</p> <p>热数据基本都在Redis写MySQL:增删改都是操作MySQL更新Redis数据：MySQ的数据操作binlog，来更新到Redis：</p> <p>1)数据操作主要分为两大块：一个是全量(将全部数据一次写入到redis)一个是增量(实时更新)。</p> <p>这里说的是增量,指的是mysql的update、insert、delate变更数据。</p> <p>2)读取binlog后分析 ，利用消息队列,推送更新各台的redis缓存数据。<br /> 这样一旦MySQL中产生了新的写入、更新、删除等操作，就可以把binlog相关的消息推送至Redis，Redis再根据binlog中的记录，对Redis进行更新。<br /> 其实这种机制，很类似MySQL的主从备份机制，因为MySQL的主备也是通过binlog来实现的数据一致性。<br /> 这里可以结合使用canal(阿里的一款开源框架)，通过该框架可以对MySQL的binlog进行订阅，而canal正是模仿了mysql的slave数据库的备份请求，使得Redis的数据更新达到了相同的效果。<br /> 当然，这里的消息推送工具你也可以采用别的第三方：kafka、rabbitMQ等来实现推送更新Redis。</p> <p>以上就是redis和数据库数据保持一致的方案。<br /><strong>微信搜索IT说说公众号，获取更多java技术资源！</strong></p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-79346.htm">BeanDefinitionRegistryPostProcessor和BeanFactoryPostProcessor以及BeanPostProcessor执行先后顺序</a></p>
+                                        <p>下一个：<a href="/news/article-80019.htm">被猫咬伤怎么知道有没有病（被猫咬伤怎么知道有没有病毒感染）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-3-15-free-clash-verge-rev-node.htm" title="「3月15日」最高速度20.3M/S，2025年Clsah Verge每天更新免费节点订阅地址">「3月15日」最高速度20.3M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-21-clash-verge-rev-windows.htm" title="「2月21日」最高速度20M/S，2025年Clsah Verge每天更新免费节点订阅地址">「2月21日」最高速度20M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/news/article-41236.htm" title="由浅入深快速掌握Java 数组的使用_java">由浅入深快速掌握Java 数组的使用_java</a></li>
+                        <li class="py-2"><a href="/news/article-41235.htm" title="深度学习（PyTorch）——TensorBoard的使用方法与技巧">深度学习（PyTorch）——TensorBoard的使用方法与技巧</a></li>
+                        <li class="py-2"><a href="/news/article-73916.htm" title="宠物领养证如何办理手续流程图解（宠物领养程序怎么领养）">宠物领养证如何办理手续流程图解（宠物领养程序怎么领养）</a></li>
+                        <li class="py-2"><a href="/news/article-44186.htm" title="开宠物粮食店 开宠物粮食店要多少钱">开宠物粮食店 开宠物粮食店要多少钱</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-1-node-share-links.htm" title="「2月1日」最高速度18.1M/S，2025年Clsah Verge每天更新免费节点订阅地址">「2月1日」最高速度18.1M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-23-free-clash-verge-rev-node.htm" title="「2月23日」最高速度22.4M/S，2025年Clsah Verge每天更新免费节点订阅地址">「2月23日」最高速度22.4M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/news/article-61273.htm" title="猫抓图片简笔画（猫抓的图片大全大图）">猫抓图片简笔画（猫抓的图片大全大图）</a></li>
+                        <li class="py-2"><a href="/news/article-43221.htm" title="做宠物生意赚钱吗（做宠物行业什么赚钱）">做宠物生意赚钱吗（做宠物行业什么赚钱）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">72</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+    <section id="footer-Content">
+        <div class="copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="site-info text-center">
+                    <p>
+                        <a href="/">首页</a> | 
+                        <a href="/free-node/">免费节点</a> | 
+                        <a href="/news/">新闻资讯</a> |
+                        <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                            <a href="/">Clash Verge Rev节点订阅站</a> 版权所有
+                            <br />
+                            Powered by WordPress
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</footer>
+<a href="#" class="back-to-top">
+    <i class="lni lni-chevron-up"></i>
+</a>
+<div id="preloader">
+    <div class="loader" id="loader-1"></div>
+</div>
+<script src="/assets/website/js/frontend/clashvergerev/vendor/modernizr-3.7.1.min.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/vendor/jquery-3.5.1-min.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/popper.min.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/bootstrap-4.5.0.min.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/owl.carousel.2.3.4.min.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/nivo-lightbox.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/jquery.magnific-popup.min.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/form-validator.min.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/contact-form-script.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/main.js"></script>
+<script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+<script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
