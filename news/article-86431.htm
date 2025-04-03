@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://clashvergerev.github.io/news/article-86431.htm" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>K8S 中的pod 和 node 区别</title>
+        <meta name="description" content="初学K8S，对于node 和 pod，感到很迷茫，查询之后，记录如下： pod 在Kubernetes中，最小的管理元素不是一个个独立的容器，而是Pod,Pod是最小的，管理，创建，计划的最小单元. " />
+        <link rel="icon" href="/assets/website/img/clashvergerev/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Clash Verge Rev节点订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://clashvergerev.github.io/news/article-86431.htm" />
+    <meta property="og:site_name" content="Clash Verge Rev节点订阅站" />
+    <meta property="og:title" content="K8S 中的pod 和 node 区别" />
+    <meta property="og:image" content="https://clashvergerev.github.io/uploads/20240722-1/fa669720bc32eda2cf3d9ed1f98fd13f.webp" />
+        <meta property="og:release_date" content="2025-04-01T09:50:43" />
+    <meta property="og:updated_time" content="2025-04-01T09:50:43" />
+        <meta property="og:description" content="初学K8S，对于node 和 pod，感到很迷茫，查询之后，记录如下： pod 在Kubernetes中，最小的管理元素不是一个个独立的容器，而是Pod,Pod是最小的，管理，创建，计划的最小单元. " />
+        
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/bootstrap-4.5.0.min.css">
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/animate.css">
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/LineIcons.2.0.css">
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/owl.carousel.2.3.4.min.css">
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/owl.theme.css">
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/magnific-popup.css">
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/nivo-lightbox.css">
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/main.css">
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/responsive.css">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="K8S 中的pod 和 node 区别">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-T6B4E54XZZ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-T6B4E54XZZ');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <header class="blog-hero-area">
+                <div class="overlay">
+            <span></span>
+            <span></span>
+        </div>
+        <div class="navbar-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <nav class="navbar navbar-expand-lg">
+                            <a class="navbar-brand" href="/">
+                                                            <span>Clash Verge Rev</span>
+                                                        </a>
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
+                                <ul id="nav" class="navbar-nav ml-auto">
+                                                                        <li class="nav-item">
+                                        <a href="/">首页</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/free-nodes/">免费节点</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/paid-subscribe/">推荐机场</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/client.htm">客户端</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/news/">新闻资讯</a>
+                                    </li>
+                                                                    </ul>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="home">
+            <div class="container">
+                <div class="row justify-content-lg-center">
+                    <div class="col-lg-10">
+                        <div class="contents text-center">
+                            <h1>K8S 中的pod 和 node 区别</h1>
+                            <div class="post-meta">
+                                <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section id="business-plan">
+        <div class="container pt-5">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="htmledit_views"> <p>初学K8S，对于node 和 pod，感到很迷茫，查询之后，记录如下：</p> <h2>pod</h2> <p>在Kubernetes中，最小的管理元素不是一个个独立的容器，而是Pod,Pod是最小的，管理，创建，计划的最小单元.</p> <p><img decoding="async" alt="" height="206" src="http://img.555519.xyz/uploads3/20220820/1538e7a610eeb11a0a0d648c5c778277.jpg"></p> <p>一个<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.kubernetes.org.cn/tags/pod"  title="Pod" rel="nofollow">Pod</a>（as ub a pod of whales or pea pod）相当于一个共享context的配置组，在同一个context下，应用可能还会有独立的cgroup隔离机制，一个Pod是一个容器环境下的“逻辑主机”，它可能包含一个或者多个紧密相连的应用，这些应用可能是在同一个物理主机或虚拟机上。</p> <p>Pod 的context可以理解成多个linux命名空间的联合</p> <ul> <li>PID 命名空间（同一个Pod中应用可以看到其它进程）</li> <li>网络 命名空间（同一个Pod的中的应用对相同的IP地址和端口有权限）</li> <li>IPC 命名空间（同一个Pod中的应用可以通过VPC或者POSIX进行通信）</li> <li>UTS 命名空间（同一个Pod中的应用共享一个主机名称）</li> </ul> <p>同一个Pod中的应用可以共享磁盘，磁盘是Pod级的，应用可以通过文件系统调用。</p> <p>查看pod 所属信息：</p> <pre><code>~&gt; kubectl get pod -o wide NAME    READY   STATUS    RESTARTS   AGE   IP           NODE    NOMINATED NODE   READINESS GATES test   1/1     Running    0          14d   192.168.X.X  worker   &lt;none&gt;           &lt;none&gt;</code></pre> <h2><strong>Node</strong></h2> <p>Node是Pod真正运行的主机，可以物理机，也可以是虚拟机。为了管理Pod，每个Node节点上至少要运行container runtime（比如docker或者rkt）、kubelet和kube-proxy服务。</p> <p><img fetchpriority="high" decoding="async" alt="" height="295" src="http://img.555519.xyz/uploads3/20220820/c95493efbe975f92309df2ea9676e03a.jpg"></p> <p>&nbsp;不像其他的资源（如Pod和Namespace），Node本质上不是Kubernetes来创建的，Kubernetes只是管理Node上的资源。虽然可以通过Manifest创建一个Node对象（如下json所示），但Kubernetes也只是去检查是否真的是有这么一个Node，如果检查失败，也不会往上调度Pod。</p> <p>每个Node都包括以下状态信息</p> <ul> <li>地址：包括hostname、外网IP和内网IP</li> <li>条件（Condition）：包括OutOfDisk、Ready、MemoryPressure和DiskPressure</li> <li>容量（Capacity）：Node上的可用资源，包括CPU、内存和Pod总数</li> <li>基本信息（Info）：包括内核版本、容器引擎版本、OS类型等</li> </ul> <p>&nbsp;如果node 被删除，所拥有的pod会自动分流到其他的node，但是存在特殊的无法被分流的pod</p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-85699.htm">动物疫苗公司排名（动物疫苗行业龙头）</a></p>
+                                        <p>下一个：<a href="/news/article-86432.htm">狗粮颗粒机成型原理是什么样的（狗粮颗粒饲料配方大全）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-86432.htm" title="狗粮颗粒机成型原理是什么样的（狗粮颗粒饲料配方大全）">狗粮颗粒机成型原理是什么样的（狗粮颗粒饲料配方大全）</a></li>
+                        <li class="py-2"><a href="/news/article-75253.htm" title="哈尔滨王福军宠物医院电话号码（哈尔滨王福山）">哈尔滨王福军宠物医院电话号码（哈尔滨王福山）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-11-clash-verge-rev-node-share.htm" title="「3月11日」最高速度18.8M/S，2025年Clsah Verge每天更新免费节点订阅地址">「3月11日」最高速度18.8M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/news/article-87130.htm" title="springboot整合Dubbo与Feign的实现 (无注册中心)_java">springboot整合Dubbo与Feign的实现 (无注册中心)_java</a></li>
+                        <li class="py-2"><a href="/news/article-73915.htm" title="redis持久化问题及最终解决方案">redis持久化问题及最终解决方案</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-1-latest-clash-verge-rev-node.htm" title="「4月1日」最高速度19.8M/S，2025年Clsah Verge每天更新免费节点订阅地址">「4月1日」最高速度19.8M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-25-node-share.htm" title="「3月25日」最高速度20.6M/S，2025年Clsah Verge每天更新免费节点订阅地址">「3月25日」最高速度20.6M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-30-latest-clash-verge-rev-node.htm" title="「3月30日」最高速度20.9M/S，2025年Clsah Verge每天更新免费节点订阅地址">「3月30日」最高速度20.9M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-19-clash-verge-rev-windows.htm" title="「3月19日」最高速度18.8M/S，2025年Clsah Verge每天更新免费节点订阅地址">「3月19日」最高速度18.8M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-2-free-high-speed-nodes.htm" title="「3月2日」最高速度19.2M/S，2025年Clsah Verge每天更新免费节点订阅地址">「3月2日」最高速度19.2M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">9</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">90</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+    <section id="footer-Content">
+        <div class="copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="site-info text-center">
+                    <p>
+                        <a href="/">首页</a> | 
+                        <a href="/free-node/">免费节点</a> | 
+                        <a href="/news/">新闻资讯</a> |
+                        <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                            <a href="/">Clash Verge Rev节点订阅站</a> 版权所有
+                            <br />
+                            Powered by WordPress
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</footer>
+<a href="#" class="back-to-top">
+    <i class="lni lni-chevron-up"></i>
+</a>
+<div id="preloader">
+    <div class="loader" id="loader-1"></div>
+</div>
+<script src="/assets/website/js/frontend/clashvergerev/vendor/modernizr-3.7.1.min.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/vendor/jquery-3.5.1-min.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/popper.min.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/bootstrap-4.5.0.min.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/owl.carousel.2.3.4.min.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/nivo-lightbox.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/jquery.magnific-popup.min.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/form-validator.min.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/contact-form-script.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/main.js"></script>
+<script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+<script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://clashvergerev.github.io/news/article-87130.htm" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>springboot整合Dubbo与Feign的实现 (无注册中心)_java</title>
+        <meta name="description" content="1.1.1 核心依赖  1.1.2 核心配置  1.1.3 服务提供者代码结构  1.1.4 服务提供者暴露的API（DubboDemoServiceImpl）  1.1.5 服务提供者端的对象（Us" />
+        <link rel="icon" href="/assets/website/img/clashvergerev/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Clash Verge Rev节点订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://clashvergerev.github.io/news/article-87130.htm" />
+    <meta property="og:site_name" content="Clash Verge Rev节点订阅站" />
+    <meta property="og:title" content="springboot整合Dubbo与Feign的实现 (无注册中心)_java" />
+    <meta property="og:image" content="https://clashvergerev.github.io/uploads/20240722-1/25c036125d8a30a85d01013a84ed1e90.webp" />
+        <meta property="og:release_date" content="2025-04-02T07:46:18" />
+    <meta property="og:updated_time" content="2025-04-02T07:46:18" />
+        <meta property="og:description" content="1.1.1 核心依赖  1.1.2 核心配置  1.1.3 服务提供者代码结构  1.1.4 服务提供者暴露的API（DubboDemoServiceImpl）  1.1.5 服务提供者端的对象（Us" />
+        
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/bootstrap-4.5.0.min.css">
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/animate.css">
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/LineIcons.2.0.css">
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/owl.carousel.2.3.4.min.css">
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/owl.theme.css">
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/magnific-popup.css">
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/nivo-lightbox.css">
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/main.css">
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/responsive.css">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="springboot整合Dubbo与Feign的实现 (无注册中心)_java">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-T6B4E54XZZ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-T6B4E54XZZ');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <header class="blog-hero-area">
+                <div class="overlay">
+            <span></span>
+            <span></span>
+        </div>
+        <div class="navbar-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <nav class="navbar navbar-expand-lg">
+                            <a class="navbar-brand" href="/">
+                                                            <span>Clash Verge Rev</span>
+                                                        </a>
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
+                                <ul id="nav" class="navbar-nav ml-auto">
+                                                                        <li class="nav-item">
+                                        <a href="/">首页</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/free-nodes/">免费节点</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/paid-subscribe/">推荐机场</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/client.htm">客户端</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/news/">新闻资讯</a>
+                                    </li>
+                                                                    </ul>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="home">
+            <div class="container">
+                <div class="row justify-content-lg-center">
+                    <div class="col-lg-10">
+                        <div class="contents text-center">
+                            <h1>springboot整合Dubbo与Feign的实现 (无注册中心)_java</h1>
+                            <div class="post-meta">
+                                <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section id="business-plan">
+        <div class="container pt-5">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				  			 <div id="log-box">  				<div id="catalog"><ul id="catalog-ul"> <li><i class="be be-arrowright"></i> <a href="#title-0" title="1.1.1 核心依赖">1.1.1 核心依赖</a></li> <li><i class="be be-arrowright"></i> <a href="#title-1" title="1.1.2 核心配置">1.1.2 核心配置</a></li> <li><i class="be be-arrowright"></i> <a href="#title-2" title="1.1.3 服务提供者代码结构">1.1.3 服务提供者代码结构</a></li> <li><i class="be be-arrowright"></i> <a href="#title-3" title="1.1.4 服务提供者暴露的API（DubboDemoServiceImpl）">1.1.4 服务提供者暴露的API（DubboDemoServiceImpl）</a></li> <li><i class="be be-arrowright"></i> <a href="#title-4" title="1.1.5 服务提供者端的对象（User）">1.1.5 服务提供者端的对象（User）</a></li> <li><i class="be be-arrowright"></i> <a href="#title-5" title="1.2.1 核心依赖">1.2.1 核心依赖</a></li> <li><i class="be be-arrowright"></i> <a href="#title-6" title="1.2.2 核心配置">1.2.2 核心配置</a></li> <li><i class="be be-arrowright"></i> <a href="#title-7" title="1.2.3 服务消费者代码结构">1.2.3 服务消费者代码结构</a></li> <li><i class="be be-arrowright"></i> <a href="#title-8" title="1.2.4 服务消费者调用服务提供者">1.2.4 服务消费者调用服务提供者</a></li> <li><i class="be be-arrowright"></i> <a href="#title-9" title="1.3.1 消费者入口（测试是否导通）">1.3.1 消费者入口（测试是否导通）</a></li> <li><i class="be be-arrowright"></i> <a href="#title-10" title="1.3.2 消费者入口（测试携带参数与返回值）">1.3.2 消费者入口（测试携带参数与返回值）</a></li> <li><i class="be be-arrowright"></i> <a href="#title-11" title="2.1.1 服务提供者基础配置 ">2.1.1 服务提供者基础配置 </a></li> <li><i class="be be-arrowright"></i> <a href="#title-12" title="2.1.2 服务提供者代码结构 ">2.1.2 服务提供者代码结构 </a></li> <li><i class="be be-arrowright"></i> <a href="#title-13" title="2.2.1 服务消费者代码结构">2.2.1 服务消费者代码结构</a></li> <li><i class="be be-arrowright"></i> <a href="#title-14" title="2.2.2 核心依赖">2.2.2 核心依赖</a></li> <li><i class="be be-arrowright"></i> <a href="#title-15" title="2.2.3 核心配置">2.2.3 核心配置</a></li> <li><i class="be be-arrowright"></i> <a href="#title-16" title="2.2.4 启动类注解 ">2.2.4 启动类注解 </a></li> <li><i class="be be-arrowright"></i> <a href="#title-17" title="2.2.5 在消费者端中声明提供者端的API">2.2.5 在消费者端中声明提供者端的API</a></li> <li><i class="be be-arrowright"></i> <a href="#title-18" title="2.2.6 在消费者端中调用提供者端的API">2.2.6 在消费者端中调用提供者端的API</a></li> <li><i class="be be-arrowright"></i> <a href="#title-19" title="2.3.1 测试是否导通">2.3.1 测试是否导通</a></li> </ul><span class="log-zd"><span class="log-close"><a title="隐藏目录"><i class="be be-cross"></i><strong>目录</strong></a></span></span></div>  			</div> <div id="navCategory"> <h5 class="catalogue">目录</h5> <ul class="first_class_ul"> <li><a href="#_label0" rel="nofollow">一，SpringBoot 整合 Dubbo</a></li> <ul class="second_class_ul"> <li><a href="#_lab2_0_0" rel="nofollow">1.1 服务提供者</a></li> <ul class="third_class_ul"> <li><a href="#_label3_0_0_0" rel="nofollow">1.1.1 核心依赖</a></li> <li><a href="#_label3_0_0_1" rel="nofollow">1.1.2 核心配置</a></li> <li><a href="#_label3_0_0_2" rel="nofollow">1.1.3 服务提供者代码结构</a></li> <li><a href="#_label3_0_0_3" rel="nofollow">1.1.4 服务提供者暴露的API（DubboDemoServiceImpl）</a></li> <li><a href="#_label3_0_0_4" rel="nofollow">1.1.5 服务提供者端的对象（User）</a></li> </ul> <li><a href="#_lab2_0_1" rel="nofollow">1.2 服务消费者</a></li> <ul class="third_class_ul"> <li><a href="#_label3_0_1_5" rel="nofollow">1.2.1 核心依赖</a></li> <li><a href="#_label3_0_1_6" rel="nofollow">1.2.2 核心配置</a></li> <li><a href="#_label3_0_1_7" rel="nofollow">1.2.3 服务消费者代码结构</a></li> <li><a href="#_label3_0_1_8" rel="nofollow">1.2.4 服务消费者调用服务提供者</a></li> </ul> <li><a href="#_lab2_0_2" rel="nofollow">1.3 调用示例</a></li> <ul class="third_class_ul"> <li><a href="#_label3_0_2_9" rel="nofollow">1.3.1 消费者入口（测试是否导通）</a></li> <li><a href="#_label3_0_2_10" rel="nofollow">1.3.2 消费者入口（测试携带参数与返回值）</a></li> </ul> <li><a href="#_lab2_0_3" rel="nofollow">1.4 小结</a></li> <ul class="third_class_ul"></ul> </ul> <li><a href="#_label1" rel="nofollow">二, SpringBoot 整合 Feign</a></li> <ul class="second_class_ul"> <li><a href="#_lab2_1_4" rel="nofollow">2.1 服务提供者</a></li> <ul class="third_class_ul"> <li><a href="#_label3_1_4_11" rel="nofollow">2.1.1 服务提供者基础配置 </a></li> <li><a href="#_label3_1_4_12" rel="nofollow">2.1.2 服务提供者代码结构 </a></li> </ul> <li><a href="#_lab2_1_5" rel="nofollow">2.2 服务消费者</a></li> <ul class="third_class_ul"> <li><a href="#_label3_1_5_13" rel="nofollow">2.2.1 服务消费者代码结构</a></li> <li><a href="#_label3_1_5_14" rel="nofollow">2.2.2 核心依赖</a></li> <li><a href="#_label3_1_5_15" rel="nofollow">2.2.3 核心配置</a></li> <li><a href="#_label3_1_5_16" rel="nofollow">2.2.4 启动类注解 </a></li> <li><a href="#_label3_1_5_17" rel="nofollow">2.2.5 在消费者端中声明提供者端的API</a></li> <li><a href="#_label3_1_5_18" rel="nofollow">2.2.6 在消费者端中调用提供者端的API</a></li> </ul> <li><a href="#_lab2_1_6" rel="nofollow">2.3 调用示例</a></li> <ul class="third_class_ul"> <li><a href="#_label3_1_6_19" rel="nofollow">2.3.1 测试是否导通</a></li> </ul> <li><a href="#_lab2_1_7" rel="nofollow">2.4 小结</a></li> <ul class="third_class_ul"></ul> </ul> </ul> </div> <p class="maodian"><a name="_label0" rel="nofollow"></a></p> <h2>一，SpringBoot 整合 Dubbo</h2> <p class="maodian"><a name="_lab2_0_0" rel="nofollow"></a></p> <h3>1.1 服务提供者</h3> <p class="maodian"><a name="_label3_0_0_0" rel="nofollow"></a></p> <span class="directory"></span><h4 id="title-0">1.1.1 核心依赖</h4> <div class="ay1code"> <pre class="brush:xml;">&lt;!-- dubbo依赖 --&gt;          &lt;dependency&gt;              &lt;groupId&gt;org.apache.dubbo&lt;/groupId&gt;              &lt;artifactId&gt;dubbo-spring-boot-starter&lt;/artifactId&gt;              &lt;version&gt;3.0.5&lt;/version&gt;          &lt;/dependency&gt;</pre> </div> <p class="maodian"><a name="_label3_0_0_1" rel="nofollow"></a></p> <span class="directory"></span><h4 id="title-1">1.1.2 核心配置</h4> <div class="ay1code"> <pre class="brush:plain;">server:    port: 8081  spring:    application:      name: provide-api     dubbo:    registry:      address: N/A # 表示无注册中心    protocol:      name: dubbo # 提供者协议      port: 18081 # 提供者dubbo端口      host: 127.0.0.1 # 服务提供者所在机器地址    scan:      base-packages: com.paycools.service # 提供者需要交由dubbo管理的扫描包路径    application:      name: provide-server # 提供者服务名   </pre> </div> <p class="maodian"><a name="_label3_0_0_2" rel="nofollow"></a></p> <span class="directory"></span><h4 id="title-2">1.1.3 服务提供者代码结构</h4> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220424/1eb6f68082c7b93b6e1053982608fcbe.jpg"></p> <p class="maodian"><a name="_label3_0_0_3" rel="nofollow"></a></p> <span class="directory"></span><h4 id="title-3">1.1.4 服务提供者暴露的API（DubboDemoServiceImpl）</h4> <div class="ay1code"> <pre class="brush:java;">package com.jxz.service.impl;     import com.jxz.service.IDubboDemoService;  import com.jxz.service.vo.User;  import lombok.extern.slf4j.Slf4j;  import org.apache.dubbo.config.annotation.DubboService;  import org.springframework.stereotype.Service;     import java.util.ArrayList;  import java.util.List;     /**   * @author jiangXueZhi   * @data 2022/4/1   */  @Service // spring 的注解  @DubboService // dubbo 提供者的注解  @Slf4j  public class DubboDemoServiceImpl implements IDubboDemoService {      /**       * 用于测试 dubbo 的rpc 远程过程调用是否成功       */      @Override      public String dubboTest() {          log.info("###########  服务提供者成功提供API响应");          return "服务提供者成功提供API响应";      }         /**       * 用于测试 dubbo 的rpc 远程过程调用携带参数与返回值是否正常       */      @Override      public List&lt;User&gt; dubboVoTest(Integer aa) {          if (aa == 1) {              List&lt;User&gt; list = new ArrayList&lt;&gt;(3);              list.add(new User().setName("张三").setAge(18));              list.add(new User().setName("李四").setAge(5));              log.info("###########  服务提供者成功提供API响应,参数为{}, 返回值为{}", aa, list);              return list;          }          log.info("###########  服务提供者成功提供API响应,参数为{}, 返回值为{}", aa, null);          return null;      }  }</pre> </div> <p class="maodian"><a name="_label3_0_0_4" rel="nofollow"></a></p> <span class="directory"></span><h4 id="title-4">1.1.5 服务提供者端的对象（User）</h4> <p><strong>一定要实现序列化！！！</strong></p> <div class="ay1code"> <pre class="brush:java;">package com.jxz.service.vo;     import lombok.Data;  import lombok.experimental.Accessors;     import java.io.Serializable;     /**   * @author jiangXueZhi   * @data 2022/4/2   */  @Data  @Accessors(chain = true)  public class User implements Serializable { // 一定要序列化，因为dubbo传输数据以二进制的方式      private String name;      private int age;  }</pre> </div> <p class="maodian"><a name="_lab2_0_1" rel="nofollow"></a></p> <h3>1.2 服务消费者</h3> <p class="maodian"><a name="_label3_0_1_5" rel="nofollow"></a></p> <span class="directory"></span><h4 id="title-5">1.2.1 核心依赖</h4> <p>与提供者端一样</p> <div class="ay1code"> <pre class="brush:xml;">&lt;!-- dubbo依赖 --&gt;          &lt;dependency&gt;              &lt;groupId&gt;org.apache.dubbo&lt;/groupId&gt;              &lt;artifactId&gt;dubbo-spring-boot-starter&lt;/artifactId&gt;              &lt;version&gt;3.0.5&lt;/version&gt;          &lt;/dependency&gt;</pre> </div> <p class="maodian"><a name="_label3_0_1_6" rel="nofollow"></a></p> <span class="directory"></span><h4 id="title-6">1.2.2 核心配置</h4> <div class="ay1code"> <pre class="brush:plain;">server:    port: 8082  spring:    application:      name: consumer-api     dubbo:    registry:      address: N/A # 表示无注册中心    #scan: # 作为提供者时使用      #base-packages: com.paycools.service # 扫描包的路径    protocol:      name: dubbo      port: 18082      host: 127.0.0.1    application:      name: consumer-server     # 自定义配置--因无注册中心，则需指定服务提供者地址  provide:    host: "dubbo://127.0.0.1:18081"      </pre> </div> <p class="maodian"><a name="_label3_0_1_7" rel="nofollow"></a></p> <span class="directory"></span><h4 id="title-7">1.2.3 服务消费者代码结构</h4> <p><strong>注意，本文中的 UserDemo 完全可以不需要，</strong></p> <p><strong>可以直接在Controller中注入 IDubboDemoService</strong></p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220424/69c2db0d6ca07dfadb94194bf766840d.jpg"></p> <p class="maodian"><a name="_label3_0_1_8" rel="nofollow"></a></p> <span class="directory"></span><h4 id="title-8">1.2.4 服务消费者调用服务提供者</h4> <p>controller</p> <div class="ay1code"> <pre class="brush:java;">package com.jxz.controller;     import com.jxz.service.UserDemo;  import org.springframework.web.bind.annotation.PathVariable;  import org.springframework.web.bind.annotation.RequestMapping;  import org.springframework.web.bind.annotation.RequestMethod;  import org.springframework.web.bind.annotation.RestController;     import javax.annotation.Resource;     /**   * @author jiangXueZhi   * @data 2022/4/1   */  @RequestMapping("/api")  @RestController  public class DemoTestController {      @Resource      private UserDemo userDemo;         @RequestMapping(value = "/demoTest", method = RequestMethod.GET)      public String demoTest() {          return userDemo.demoTest();      }         @RequestMapping(value = "/demoVoTest/{aa}", method = RequestMethod.GET)      public String demoVoTest(@PathVariable("aa") Integer aa) {          return userDemo.demoVoTest(aa);      }  }</pre> </div> <p>userDemo（可省去此类，而直接调用提供者API）</p> <div class="ay1code"> <pre class="brush:java;">package com.jxz.service;     import org.apache.dubbo.config.annotation.DubboReference;  import org.springframework.stereotype.Service;     /**   * @author jiangXueZhi   * @data 2022/4/1   */  @Service  public class UserDemo {         @DubboReference(check = false, url = "${provide.host}") // 无注册中心时的参数配置      IDubboDemoService iDubboDemoService;         public String demoTest() {          return "###  服务消费者成功拿到提供者的API响应：" + iDubboDemoService.dubboTest();      }         public String demoVoTest(Integer aa) {          return "### &lt;带参数以及对象返回值&gt; 服务消费者成功拿到提供者的API响应：" + iDubboDemoService.dubboVoTest(aa);      }  }</pre> </div> <p>IDubboDemoService<strong> </strong></p> <p><strong>包的路径与名称必须与服务提供者端的保持一致！！！并且无需实现</strong></p> <div class="ay1code"> <pre class="brush:java;">package com.jxz.service;     import com.paycools.service.pojo.User;     import java.util.List;     public interface IDubboDemoService {      String dubboTest();         List&lt;User&gt; dubboVoTest(Integer aa);  }</pre> </div> <p>User</p> <div class="ay1code"> <pre class="brush:java;">package com.jxz.service.pojo;     import lombok.Data;     import java.io.Serializable;     /**   * @author jiangXueZhi   * @data 2022/4/2   */  @Data  public class User implements Serializable { // 必须实现序列化      private String name;      private int age;  }</pre> </div> <p class="maodian"><a name="_lab2_0_2" rel="nofollow"></a></p> <h3>1.3 调用示例</h3> <p class="maodian"><a name="_label3_0_2_9" rel="nofollow"></a></p> <span class="directory"></span><h4 id="title-9">1.3.1 消费者入口（测试是否导通）</h4> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220424/0f196c8ffe28afbed2ac2797d3a06142.jpg"></p> <p>1.3.1.1 服务提供者端日志打印</p> <blockquote> <p>2022-04-06 11:27:03.047  INFO 12284 --- [:18081-thread-6] c.p.service.impl.DubboDemoServiceImpl    : ###########  服务提供者成功提供API响应</p> </blockquote> <p class="maodian"><a name="_label3_0_2_10" rel="nofollow"></a></p> <span class="directory"></span><h4 id="title-10">1.3.2 消费者入口（测试携带参数与返回值）</h4> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220424/2f934deb9056a5bbb9cd3c5004428f2b.jpg"></p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220424/98fb08629cfdf6ab23fa3b425bb49d8a.jpg"></p> <p>1.3.2.1 服务提供者端日志打印</p> <blockquote> <p>2022-04-06 11:30:46.489  INFO 12284 --- [:18081-thread-9] c.p.service.impl.DubboDemoServiceImpl    : ###########  服务提供者成功提供API响应,参数为0, 返回值为null</p> <p>2022-04-06 11:30:58.910  INFO 12284 --- [18081-thread-10] c.p.service.impl.DubboDemoServiceImpl    : ###########  服务提供者成功提供API响应,参数为1, 返回值为[User(name=张三, age=18), User(name=李四, age=5)]</p> </blockquote> <p class="maodian"><a name="_lab2_0_3" rel="nofollow"></a></p> <h3>1.4 小结</h3> <blockquote> <p>a.  dubbo 服务提供者暴露的API，在服务消费者中必须保持包名与文件名一致</p> <p>b.  dubbo 服务消费者在注入API时，要用到  @DubboReference 注解</p> <p>c.  dubbo 基于TCP传输协议，其对象都必须实现序列化</p> </blockquote> <p class="maodian"><a name="_label1" rel="nofollow"></a></p> <h2>二, SpringBoot 整合 Feign</h2> <p class="maodian"><a name="_lab2_1_4" rel="nofollow"></a></p> <h3>2.1 服务提供者</h3> <p><strong>使用feign 的方式时，服务提供者无需任何特殊处理，仅正常启动程序即可</strong></p> <p class="maodian"><a name="_label3_1_4_11" rel="nofollow"></a></p> <span class="directory"></span><h4 id="title-11">2.1.1 服务提供者基础配置 </h4> <div class="ay1code"> <pre class="brush:plain;">server:    port: 8083     spring:    application:      name: provide-server    profiles:      active: dev   </pre> </div> <p class="maodian"><a name="_label3_1_4_12" rel="nofollow"></a></p> <span class="directory"></span><h4 id="title-12">2.1.2 服务提供者代码结构 </h4> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220424/85d46bc6e053124b8d5eaaf351b61033.jpg"></p> <p class="maodian"><a name="_lab2_1_5" rel="nofollow"></a></p> <h3>2.2 服务消费者</h3> <p class="maodian"><a name="_label3_1_5_13" rel="nofollow"></a></p> <span class="directory"></span><h4 id="title-13">2.2.1 服务消费者代码结构</h4> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220424/e9f912be1aa07193e2794f976e2bbdaf.jpg"></p> <p class="maodian"><a name="_label3_1_5_14" rel="nofollow"></a></p> <span class="directory"></span><h4 id="title-14">2.2.2 核心依赖</h4> <div class="ay1code"> <pre class="brush:xml;">&lt;!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-openfeign --&gt;          &lt;dependency&gt;              &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;              &lt;artifactId&gt;spring-cloud-starter-openfeign&lt;/artifactId&gt;              &lt;version&gt;3.1.1&lt;/version&gt;          &lt;/dependency&gt;</pre> </div> <p class="maodian"><a name="_label3_1_5_15" rel="nofollow"></a></p> <span class="directory"></span><h4 id="title-15">2.2.3 核心配置</h4> <div class="ay1code"> <pre class="brush:plain;">server:    port: 8084  spring:    application:      name: consumer-server        # 自定义配置，因无注册中心，需直接指定服务提供者  provider:    application-name: provide-server    host: http://127.0.0.1:8083</pre> </div> <p class="maodian"><a name="_label3_1_5_16" rel="nofollow"></a></p> <span class="directory"></span><h4 id="title-16">2.2.4 启动类注解 </h4> <div class="ay1code"> <pre class="brush:java;">package com.jxz;     import org.springframework.boot.SpringApplication;  import org.springframework.boot.autoconfigure.SpringBootApplication;  import org.springframework.cloud.openfeign.EnableFeignClients;     @SpringBootApplication  @EnableFeignClients  public class FeignConsumerDemoApplication {         public static void main(String[] args) {          SpringApplication.run(FeignConsumerDemoApplication.class, args);          System.out.println("服务消费者启动成功...");      }     }</pre> </div> <p class="maodian"><a name="_label3_1_5_17" rel="nofollow"></a></p> <span class="directory"></span><h4 id="title-17">2.2.5 在消费者端中声明提供者端的API</h4> <div class="ay1code"> <pre class="brush:java;">package com.paycools.service;     import com.paycools.pojo.User;  import org.springframework.cloud.openfeign.FeignClient;  import org.springframework.web.bind.annotation.PathVariable;  import org.springframework.web.bind.annotation.RequestMapping;     import java.util.List;     @FeignClient(value = "${provider.application-name}", url = "${provider.host}") // 因无注册中心，需直接指定其url  public interface IProvideService {         @RequestMapping("/api/provide/getProvideResponse")      String getProvideResponse();         @RequestMapping("/api/provide/getProvideVoResponse/{id}")      List&lt;User&gt; getProvideVoResponse(@PathVariable("id") Integer id);  }</pre> </div> <p class="maodian"><a name="_label3_1_5_18" rel="nofollow"></a></p> <span class="directory"></span><h4 id="title-18">2.2.6 在消费者端中调用提供者端的API</h4> <div class="ay1code"> <pre class="brush:java;">package com.jxz.controller;     import com.jxz.service.IProvideService;  import lombok.extern.slf4j.Slf4j;  import org.springframework.web.bind.annotation.PathVariable;  import org.springframework.web.bind.annotation.RequestMapping;  import org.springframework.web.bind.annotation.RequestMethod;  import org.springframework.web.bind.annotation.RestController;     import javax.annotation.Resource;     /**   * @author jiangXueZhi   * @data 2022/4/2   */  @RestController  @RequestMapping("/api/consumer")  @Slf4j  public class ConsumerDemoController {         @Resource      private IProvideService iProvideService;         @RequestMapping("/getProvideResponse")      public String getProvideResponse() {          log.info("服务消费者，成功调用服务提供者API");          return "服务消费者端，" + iProvideService.getProvideResponse();      }         @RequestMapping(value = "/getProvideVoResponse/{id}", method = RequestMethod.GET)      public String getProvideVoResponse(@PathVariable("id") Integer id) {          log.info("服务消费者，成功调用服务提供者API");          return "服务消费者端，" + iProvideService.getProvideVoResponse(id);      }  }</pre> </div> <p class="maodian"><a name="_lab2_1_6" rel="nofollow"></a></p> <h3>2.3 调用示例</h3> <p class="maodian"><a name="_label3_1_6_19" rel="nofollow"></a></p> <span class="directory"></span><h4 id="title-19">2.3.1 测试是否导通</h4> <p style="text-align:center"><img decoding="async" alt="" height="294" src="http://img.555519.xyz/uploads3/20220424/785074b0f7864d74cf420fae8a9f0802.jpg"></p> <p>2.3.1.1 服务提供者端的日志打印</p> <blockquote> <p>2022-04-06 11:56:46.472  INFO 4724 --- [nio-8083-exec-1] com.paycools.controller.UserController   : 服务提供者， 成功通过feign的方式提供服务</p> </blockquote> <p>2.3.1.2 服务消费者端的日志打印</p> <blockquote> <p>2022-04-06 11:56:46.399  INFO 3352 --- [nio-8084-exec-2] c.p.controller.ConsumerDemoController    : 服务消费者，成功调用服务提供者API</p> </blockquote> <p>2.3.2 测试携带参数与获取返回值是否正常</p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220424/c38f294905e112dd32163f8894e01b2d.jpg"></p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220424/8fac93864eddd94739a393ce54064e4d.jpg"></p> <p>2.3.2.1 服务提供者端的日志打印</p> <blockquote> <p>2022-04-06 12:01:14.588  INFO 4724 --- [nio-8083-exec-8] com.paycools.controller.UserController   : 服务提供者， &lt;带有参数与返回值&gt;成功通过feign的方式提供服务, 参数为0，响应为null<br />2022-04-06 12:02:51.754  INFO 4724 --- [nio-8083-exec-5] com.paycools.controller.UserController   : 服务提供者， &lt;带有参数与返回值&gt;成功通过feign的方式提供服务, 参数为1，响应为[User(id=1, name=王五, age=19), User(id=1, name=赵六, age=15)]</p> </blockquote> <p>2.3.2.2 服务消费者端的日志打印</p> <blockquote> <p>2022-04-06 12:01:14.579  INFO 3352 --- [nio-8084-exec-3] c.p.controller.ConsumerDemoController    : 服务消费者，成功调用服务提供者API<br />2022-04-06 12:02:51.751  INFO 3352 --- [nio-8084-exec-8] c.p.controller.ConsumerDemoController    : 服务消费者，成功调用服务提供者API</p> </blockquote> <p class="maodian"><a name="_lab2_1_7" rel="nofollow"></a></p> <h3>2.4 小结</h3> <blockquote> <p>a. 服务提供者无需特殊操作</p> <p>b. 服务消费者端启动类声明注解</p> <p>c. 服务消费者端声明服务提供者的API，然后调用时与本地API无异</p> </blockquote> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-87129.htm">Mac上解决dose not contain the JNI_CreateJavaVM symbol</a></p>
+                                        <p>下一个：<a href="/news/article-87872.htm">MySQL的聚合函数是否忽略NULL</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-3-2-free-high-speed-nodes.htm" title="「3月2日」最高速度19.2M/S，2025年Clsah Verge每天更新免费节点订阅地址">「3月2日」最高速度19.2M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/news/article-67382.htm" title="Shell基础用户自定义变量">Shell基础用户自定义变量</a></li>
+                        <li class="py-2"><a href="/news/article-82845.htm" title="梦见抱别的女人被老婆看见（梦见抱别的女人被老婆看见了啥意思）">梦见抱别的女人被老婆看见（梦见抱别的女人被老婆看见了啥意思）</a></li>
+                        <li class="py-2"><a href="/news/article-75252.htm" title="TypeError: Cannot read property &#8216;xxxx&#8217; of undefined的解决方法">TypeError: Cannot read property &#8216;xxxx&#8217; of undefined的解决方法</a></li>
+                        <li class="py-2"><a href="/news/article-71925.htm" title="JPA OneToMany和ManyToOne单向实现">JPA OneToMany和ManyToOne单向实现</a></li>
+                        <li class="py-2"><a href="/news/article-84992.htm" title="动物疫苗注射方法有几种图片视频（动物疫苗怎么注射）">动物疫苗注射方法有几种图片视频（动物疫苗怎么注射）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-26-clash-verge-rev-node-github.htm" title="「3月26日」最高速度21.2M/S，2025年Clsah Verge每天更新免费节点订阅地址">「3月26日」最高速度21.2M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/news/article-68019.htm" title="生产动物疫苗的上市公司有哪些 生产动物疫苗的上市公司有哪些股票">生产动物疫苗的上市公司有哪些 生产动物疫苗的上市公司有哪些股票</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-1-latest-clash-verge-rev-node.htm" title="「4月1日」最高速度19.8M/S，2025年Clsah Verge每天更新免费节点订阅地址">「4月1日」最高速度19.8M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/news/article-83557.htm" title="动物医院布局设计及分析（动物医院设计平面图）">动物医院布局设计及分析（动物医院设计平面图）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">9</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">90</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+    <section id="footer-Content">
+        <div class="copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="site-info text-center">
+                    <p>
+                        <a href="/">首页</a> | 
+                        <a href="/free-node/">免费节点</a> | 
+                        <a href="/news/">新闻资讯</a> |
+                        <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                            <a href="/">Clash Verge Rev节点订阅站</a> 版权所有
+                            <br />
+                            Powered by WordPress
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</footer>
+<a href="#" class="back-to-top">
+    <i class="lni lni-chevron-up"></i>
+</a>
+<div id="preloader">
+    <div class="loader" id="loader-1"></div>
+</div>
+<script src="/assets/website/js/frontend/clashvergerev/vendor/modernizr-3.7.1.min.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/vendor/jquery-3.5.1-min.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/popper.min.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/bootstrap-4.5.0.min.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/owl.carousel.2.3.4.min.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/nivo-lightbox.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/jquery.magnific-popup.min.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/form-validator.min.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/contact-form-script.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/main.js"></script>
+<script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+<script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
