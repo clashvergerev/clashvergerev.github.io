@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://clashvergerev.github.io/news/article-88569.htm" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>java单例模式的8种写法</title>
+        <meta name="description" content="单例模式（Singleton）是一种非常简单且容易理解的设计模式。顾名思义，单例即单一的实例，确切地讲就是指在某个系统中只存在一个实例，同时提供集中、统一的访问接口，以使系统行为保持协调一致  pac" />
+        <link rel="icon" href="/assets/website/img/clashvergerev/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Clash Verge Rev节点订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://clashvergerev.github.io/news/article-88569.htm" />
+    <meta property="og:site_name" content="Clash Verge Rev节点订阅站" />
+    <meta property="og:title" content="java单例模式的8种写法" />
+    <meta property="og:image" content="https://clashvergerev.github.io/uploads/20240722-1/5f4bab89adb35e3a6e8b6952e49a6454.webp" />
+        <meta property="og:release_date" content="2025-04-04T09:12:16" />
+    <meta property="og:updated_time" content="2025-04-04T09:12:16" />
+        <meta property="og:description" content="单例模式（Singleton）是一种非常简单且容易理解的设计模式。顾名思义，单例即单一的实例，确切地讲就是指在某个系统中只存在一个实例，同时提供集中、统一的访问接口，以使系统行为保持协调一致  pac" />
+        
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/bootstrap-4.5.0.min.css">
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/animate.css">
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/LineIcons.2.0.css">
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/owl.carousel.2.3.4.min.css">
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/owl.theme.css">
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/magnific-popup.css">
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/nivo-lightbox.css">
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/main.css">
+    <link rel="stylesheet" href="/assets/website/css/clashvergerev/responsive.css">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="java单例模式的8种写法">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-T6B4E54XZZ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-T6B4E54XZZ');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <header class="blog-hero-area">
+                <div class="overlay">
+            <span></span>
+            <span></span>
+        </div>
+        <div class="navbar-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <nav class="navbar navbar-expand-lg">
+                            <a class="navbar-brand" href="/">
+                                                            <span>Clash Verge Rev</span>
+                                                        </a>
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
+                                <ul id="nav" class="navbar-nav ml-auto">
+                                                                        <li class="nav-item">
+                                        <a href="/">首页</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/free-nodes/">免费节点</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/paid-subscribe/">推荐机场</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/client.htm">客户端</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/news/">新闻资讯</a>
+                                    </li>
+                                                                    </ul>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="home">
+            <div class="container">
+                <div class="row justify-content-lg-center">
+                    <div class="col-lg-10">
+                        <div class="contents text-center">
+                            <h1>java单例模式的8种写法</h1>
+                            <div class="post-meta">
+                                <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section id="business-plan">
+        <div class="container pt-5">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="htmledit_views"> <p><strong>单例模式（Singleton</strong>）是一种非常简单且容易理解的设计模式。顾名思义，单例即单一的实例，确切地讲就是指在某个系统中只存在一个实例，同时提供集中、统一的访问接口，以使系统行为保持协调一致</p> </h1> <pre><code class="language-java">package com.cyc.mystudy.singleton;  /**  * @Author cyc  * @create 2022/7/30 11:24  */ public class Test01 {     private static final Test01  INSTANCE=new Test01();      private  Test01(){      }      public static Test01 getINSTANCE() {         return INSTANCE;     }      public static void main(String[] args) {         for (int i=0;i&lt;1000;i++){             new Thread(()-&gt;{                 System.out.println(Test01.getINSTANCE().hashCode());             }).start();         }     } } </code></pre> <p>私有的构造方法使得Test01完全被封闭起来 实例化工作是自己内部的事务</p> <p>private static final 修饰 保证了 INSTANCE是私有的 ,不可见的不可访问的,static保证了静态性,在类被加载进内存时,就已经初始化 ,final保证INSTANCE是常量,是不能被修改的</p> <p>外部只要调用公共的方法TEST01.getINSTANCE就可以获得唯一的实例对象了&nbsp;</p> </h1> <pre><code class="language-java">package com.cyc.mystudy.singleton;  /**  * @Author cyc  * @create 2022/7/30 11:24  */ public class Test03 {     private static final Test03 INSTANCE;      static {         INSTANCE=new Test03();     }     private Test03(){      }      public static Test03 getINSTANCE() {         return INSTANCE;     }      public static void main(String[] args) {         for (int i=0;i&lt;1000;i++){             new Thread(()-&gt;{                 System.out.println(Test03.getINSTANCE().hashCode());             }).start();         }     } } </code></pre> <p>此处将实例化操作放到静态代码块中</p> </h1> <pre><code class="language-java">package com.cyc.mystudy.singleton;  /**  * @Author cyc  * @create 2022/7/30 11:33  */ public class Test02 {     private static Test02 test02;     private Test02(){};      public static Test02 getInstance(){         if (test02==null){             test02=new Test02();         }          return test02;     }      public static void main(String[] args) {         for (int i=0;i&lt;1000;i++){             new Thread(()-&gt;{                 System.out.println(Test02.getInstance().hashCode());             }).start();         }     }  } </code></pre> <p>恶汉模式如果没人使用,但是却实例化对象 ,这样一块内存区不是白浪费了 这样单杀了懒汉模式的写法</p> <p>只有当某一个线程第一次调用getINSTANCE时才会进行实例化操作 之后再有线程访问直接返回对象</p> <p>这样程序乍看确实没什么问题 但是在多线程环境下 可能会有多个线程进入到了getINSTANCE方法内,这样就会导致原来已经实例化的对象被覆盖掉</p> <p>为了保证线程安全 我们给getINSTANCE方法加上&nbsp;synchronized同步锁 下面看第四种写法</p> </h1> <pre><code class="language-java">package com.cyc.mystudy.singleton;  /**  * @Author cyc  * @create 2022/7/30 11:33  */ public class Test04 {     private static Test04 test02;     private Test04(){};      public static synchronized Test04 getInstance(){         if (test02==null){             test02=new Test04();         }          return test02;     }      public static void main(String[] args) {         for (int i=0;i&lt;1000;i++){             new Thread(()-&gt;{                 System.out.println(Test04.getInstance().hashCode());             }).start();         }     }  } </code></pre> <p>这样确实没有什么问题&nbsp;然而这样的做法是要付出一定代价的，试想，线程还没进入方法内部便不管三七二十一直接加锁排队，会造成线程阻塞，资源与时间被白白浪费。我们只是为了实例化一个单例对象而已，犯不上如此兴师动众，使用synchronized让所有请求排队等候。所以，要保证多线程并发下逻辑的正确性，同步锁一定要加得恰到好处</p> <p>下面看第五种写法 在方法体内部加锁:</p> </h1> <pre><code class="language-java">package com.cyc.mystudy.singleton;  /**  * @Author cyc  * @create 2022/7/30 11:33  */ public class Test05 {     private static Test05 test02;     private Test05(){};      public static  Test05 getInstance(){         if (test02==null){             synchronized (Test05.class){                 test02=new Test05();             }                      }          return test02;     }      public static void main(String[] args) {         for (int i=0;i&lt;1000;i++){             new Thread(()-&gt;{                 System.out.println(Test05.getInstance().hashCode());             }).start();         }     }  } </code></pre> <p>这样在多线程环境也会有一定问题 ,可能会有多个线程同时通过了 tese02==null 的判断进入了方法里,这样也会造成重复的实例化</p> </h1> <pre><code class="language-java">package com.cyc.mystudy.singleton;  /**  * @Author cyc  * @create 2022/7/30 11:33  */ public class Test06 {     private static  volatile  Test06 test02;     private Test06(){};      public static Test06 getInstance(){         if (test02==null){             synchronized (Test06.class){                 if (test02==null){                     test02=new Test06();                 }             }         }          return test02;     }      public static void main(String[] args) {         for (int i=0;i&lt;1000;i++){             new Thread(()-&gt;{                 System.out.println(Test06.getInstance().hashCode());             }).start();         }     }  } </code></pre> <p>我们一共用了2个嵌套的判空逻辑，这就是懒加载模式的“双检锁”：外层放宽入口，保证线程并发的高效性；内层加锁同步，保证实例化的单次运行。如此里应外合，不仅达到了单例模式的效果，还完美地保证了构建过程的运行效率，一举两得。</p> </h1> <pre><code class="language-java">package com.cyc.mystudy.singleton;  /**  * @Author cyc  * @create 2022/7/30 11:51  */ public class Test07 {      private Test07(){};      private static class Test0701{         private static final  Test07 test07=new Test07();     }          public   static  Test07 getInstance(){         return Test0701.test07;     }      public static void main(String[] args) {         for (int i=0;i&lt;1000;i++){             new Thread(()-&gt;{                 System.out.println(Test07.getInstance().hashCode());             }).start();         }     }      } </code></pre> </h1> <pre><code class="language-java">package com.cyc.mystudy.singleton;  /**  * @Author cyc  * @create 2022/7/30 11:57  */ public enum Test08 {      INSTANCE;      public  void m(){         System.out.println("业务代码");     }      public static void main(String[] args) {         Test08.INSTANCE.m();     } } </code></pre> <p>在一般情况下我们使用饿汉模式,恶汉模式不用担心多线程环境会出问题,写法上也比较简单,</p> <p>我们不用为了省一点性能而去给自己造成麻烦</p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-87873.htm">动物医院需要几个执业兽医证书才能开诊所（动物医院需要几个兽医资格证）</a></p>
+                                        <p>下一个：<a href="/news/article-88570.htm">上海市浦东新区宠物救助中心（上海市浦东新区宠物医院）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-84252.htm" title="狗狗疫苗自己打可以办狗证吗（狗狗疫苗自己打可以办狗证吗多少钱）">狗狗疫苗自己打可以办狗证吗（狗狗疫苗自己打可以办狗证吗多少钱）</a></li>
+                        <li class="py-2"><a href="/news/article-80019.htm" title="被猫咬伤怎么知道有没有病（被猫咬伤怎么知道有没有病毒感染）">被猫咬伤怎么知道有没有病（被猫咬伤怎么知道有没有病毒感染）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-14-clash-verge-rev-windows.htm" title="「3月14日」最高速度18.2M/S，2025年Clsah Verge每天更新免费节点订阅地址">「3月14日」最高速度18.2M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-1-latest-clash-verge-rev-node.htm" title="「4月1日」最高速度19.8M/S，2025年Clsah Verge每天更新免费节点订阅地址">「4月1日」最高速度19.8M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/news/article-74590.htm" title="成都领养狗狗的地方在哪儿（成都哪可以领养狗狗）">成都领养狗狗的地方在哪儿（成都哪可以领养狗狗）</a></li>
+                        <li class="py-2"><a href="/news/article-79347.htm" title="如何保证Redis缓存和数据库一致性？">如何保证Redis缓存和数据库一致性？</a></li>
+                        <li class="py-2"><a href="/news/article-87872.htm" title="MySQL的聚合函数是否忽略NULL">MySQL的聚合函数是否忽略NULL</a></li>
+                        <li class="py-2"><a href="/news/article-76623.htm" title="天津宠物狗领养 天津宠物狗领养中心">天津宠物狗领养 天津宠物狗领养中心</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-2-free-high-speed-nodes.htm" title="「3月2日」最高速度19.2M/S，2025年Clsah Verge每天更新免费节点订阅地址">「3月2日」最高速度19.2M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/news/article-84253.htm" title="厦门同安宠物领养中心地址查询官网（厦门同安宠物领养中心地址查询官网电话）">厦门同安宠物领养中心地址查询官网（厦门同安宠物领养中心地址查询官网电话）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">18</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">90</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+    <section id="footer-Content">
+        <div class="copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="site-info text-center">
+                                                <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                            <a href="/">Clash Verge Rev节点订阅站</a> 版权所有
+                            <br />
+                            Powered by WordPress
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</footer>
+<a href="#" class="back-to-top">
+    <i class="lni lni-chevron-up"></i>
+</a>
+<div id="preloader">
+    <div class="loader" id="loader-1"></div>
+</div>
+<script src="/assets/website/js/frontend/clashvergerev/vendor/modernizr-3.7.1.min.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/vendor/jquery-3.5.1-min.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/popper.min.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/bootstrap-4.5.0.min.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/owl.carousel.2.3.4.min.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/nivo-lightbox.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/jquery.magnific-popup.min.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/form-validator.min.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/contact-form-script.js"></script>
+<script src="/assets/website/js/frontend/clashvergerev/main.js"></script>
+<script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+<script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
