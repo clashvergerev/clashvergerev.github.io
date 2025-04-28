@@ -163,6 +163,7 @@
 
 				case 'newly_discovered_nodes':
 					G.Fun.BindTo();
+					G.Fun.BindDetailWebsite();
 					
 					var date = G.Fun.getUrlParam('date');
 					dateItems = G.Fun.formatter_date_to_items(date);
