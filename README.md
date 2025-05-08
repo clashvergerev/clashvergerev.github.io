@@ -1,4 +1,4 @@
-# 「5月3日」最高速度20.7M/S，2025年Clsah Verge每天更新免费节点订阅地址  更新时间 2025-05-03 10:35:55
+# 「5月8日」最高速度23M/S，2025年Clsah Verge每天更新免费节点订阅地址  更新时间 2025-05-08 10:55:30
 所有免费clash节点都爬取自网络，请勿用于非法用途 。节点地址：<a href="https://clashvergerev.github.io" target="_blank">点击跳转</a>
 
 ## clash使用教程：
@@ -9,23 +9,23 @@
 
 ### Clash订阅链接
 
-- https://clashvergerev.github.io/uploads/2025/05/0-20250503.yaml
-- https://clashvergerev.github.io/uploads/2025/05/1-20250503.yaml
-- https://clashvergerev.github.io/uploads/2025/05/2-20250503.yaml
-- https://clashvergerev.github.io/uploads/2025/05/3-20250503.yaml
-- https://clashvergerev.github.io/uploads/2025/05/4-20250503.yaml
+- https://clashvergerev.github.io/uploads/2025/05/0-20250508.yaml
+- https://clashvergerev.github.io/uploads/2025/05/1-20250508.yaml
+- https://clashvergerev.github.io/uploads/2025/05/2-20250508.yaml
+- https://clashvergerev.github.io/uploads/2025/05/3-20250508.yaml
+- https://clashvergerev.github.io/uploads/2025/05/4-20250508.yaml
 
 ### V2ray订阅链接
 
-- https://clashvergerev.github.io/uploads/2025/05/0-20250503.txt
-- https://clashvergerev.github.io/uploads/2025/05/1-20250503.txt
-- https://clashvergerev.github.io/uploads/2025/05/2-20250503.txt
-- https://clashvergerev.github.io/uploads/2025/05/3-20250503.txt
-- https://clashvergerev.github.io/uploads/2025/05/4-20250503.txt
+- https://clashvergerev.github.io/uploads/2025/05/0-20250508.txt
+- https://clashvergerev.github.io/uploads/2025/05/1-20250508.txt
+- https://clashvergerev.github.io/uploads/2025/05/2-20250508.txt
+- https://clashvergerev.github.io/uploads/2025/05/3-20250508.txt
+- https://clashvergerev.github.io/uploads/2025/05/4-20250508.txt
 
 ### Sing-box订阅链接
 
-- https://clashvergerev.github.io/uploads/2025/05/20250503.json
+- https://clashvergerev.github.io/uploads/2025/05/20250508.json
 
 ## 更多clash节点订阅 ：
 
