@@ -1,0 +1,502 @@
+{
+  "log" : {
+    "disabled" : false,
+    "level" : "info",
+    "timestamp" : true
+  },
+  "dns" : {
+    "servers" : [ {
+      "tag" : "proxy_dns",
+      "address" : "tls://8.8.8.8/dns-query",
+      "detour" : "select"
+    }, {
+      "tag" : "local_dns",
+      "address" : "h3://223.5.5.5/dns-query",
+      "detour" : "direct"
+    }, {
+      "tag" : "reject",
+      "address" : "rcode://refused"
+    }, {
+      "tag" : "fake_ip",
+      "address" : "fakeip"
+    } ],
+    "rules" : [ {
+      "outbound" : "any",
+      "server" : "local_dns",
+      "disable_cache" : true
+    }, {
+      "clash_mode" : "Global",
+      "server" : "proxy_dns"
+    }, {
+      "clash_mode" : "Direct",
+      "server" : "local_dns"
+    }, {
+      "rule_set" : "geosite-cn",
+      "server" : "local_dns"
+    }, {
+      "rule_set" : "geosite-geolocation-!cn",
+      "server" : "proxy_dns"
+    }, {
+      "rule_set" : "geosite-geolocation-!cn",
+      "server" : "fake_ip",
+      "query_type" : [ "A", "AAAA" ]
+    } ],
+    "independent_cache" : true,
+    "fakeip" : {
+      "enabled" : true,
+      "inet4_range" : "198.18.0.0/15",
+      "inet6_range" : "fc00::/18"
+    },
+    "final" : "proxy_dns"
+  },
+  "ntp" : {
+    "enabled" : true,
+    "detour" : "direct",
+    "server" : "time.apple.com",
+    "server_port" : 123,
+    "interval" : "30m"
+  },
+  "inbounds" : [ {
+    "type" : "tun",
+    "sniff" : true,
+    "sniff_override_destination" : true,
+    "domain_strategy" : "prefer_ipv4",
+    "inet4_address" : "172.16.0.1/30",
+    "inet6_address" : "2001:0470:f9da:fdfa::1/64",
+    "mtu" : 9000,
+    "auto_route" : true,
+    "strict_route" : true,
+    "endpoint_independent_nat" : true
+  } ],
+  "outbounds" : [ {
+    "type" : "selector",
+    "tag" : "select",
+    "outbounds" : [ "url-test", "🇺🇸_US_美国->🇫🇷_FR_法国", "🇺🇸_US_美国", "🇺🇸_US_美国_1", "🇨🇳_CN_中国", "🇰🇷_KR_韩国->🇺🇸_US_美国", "🇺🇸_US_美国->🇷🇴_RO_罗马尼亚", "🇨🇳_CN_中国->🇩🇪_DE_德国", "🇺🇸_US_美国_2", "🇨🇳_CN_中国->🇺🇸_US_美国", "🇺🇸_US_美国_3", "🇬🇧_GB_英国->🇺🇸_US_美国", "🇨🇳_CN_中国_1", "🇷🇴_RO_罗马尼亚->🇺🇸_US_美国", "🇨🇳_CN_中国->🇯🇵_JP_日本", "🇺🇸_US_美国_4", "🇨🇳_CN_中国->🇺🇸_US_美国_1", "🇺🇸_US_美国_5", "🇺🇸_US_美国->🇫🇷_FR_法国_1", "🇺🇸_US_美国->🇫🇷_FR_法国_2", "🇺🇸_US_美国_6", "🇨🇳_CN_中国->🇺🇸_US_美国_2", "🇺🇸_US_美国_7", "🇺🇸_US_美国_8", "🇮🇳_IN_印度->🇺🇸_US_美国", "🇸🇪_SE_瑞典", "🇺🇸_US_美国_9", "🇺🇸_US_美国_10" ],
+    "default" : "url-test"
+  }, {
+    "type" : "urltest",
+    "tag" : "url-test",
+    "outbounds" : [ "🇺🇸_US_美国->🇫🇷_FR_法国", "🇺🇸_US_美国", "🇺🇸_US_美国_1", "🇨🇳_CN_中国", "🇰🇷_KR_韩国->🇺🇸_US_美国", "🇺🇸_US_美国->🇷🇴_RO_罗马尼亚", "🇨🇳_CN_中国->🇩🇪_DE_德国", "🇺🇸_US_美国_2", "🇨🇳_CN_中国->🇺🇸_US_美国", "🇺🇸_US_美国_3", "🇬🇧_GB_英国->🇺🇸_US_美国", "🇨🇳_CN_中国_1", "🇷🇴_RO_罗马尼亚->🇺🇸_US_美国", "🇨🇳_CN_中国->🇯🇵_JP_日本", "🇺🇸_US_美国_4", "🇨🇳_CN_中国->🇺🇸_US_美国_1", "🇺🇸_US_美国_5", "🇺🇸_US_美国->🇫🇷_FR_法国_1", "🇺🇸_US_美国->🇫🇷_FR_法国_2", "🇺🇸_US_美国_6", "🇨🇳_CN_中国->🇺🇸_US_美国_2", "🇺🇸_US_美国_7", "🇺🇸_US_美国_8", "🇮🇳_IN_印度->🇺🇸_US_美国", "🇸🇪_SE_瑞典", "🇺🇸_US_美国_9", "🇺🇸_US_美国_10" ],
+    "url" : "https://www.gstatic.com/generate_204",
+    "interval" : "3m",
+    "tolerance" : 50
+  }, {
+    "type" : "trojan",
+    "tag" : "🇺🇸_US_美国->🇫🇷_FR_法国",
+    "server" : "172.67.133.248",
+    "server_port" : 443,
+    "password" : "f0f6e76e-e5fe-4e2c-9faf-34832e021eae",
+    "tls" : {
+      "enabled" : true
+    },
+    "transport" : {
+      "type" : "ws",
+      "path" : "/mZr1mA5hub7QHHkQBzYO",
+      "headers" : {
+        "host" : "ddd.890604.filegear-sg.me"
+      }
+    }
+  }, {
+    "type" : "shadowsocks",
+    "tag" : "🇺🇸_US_美国",
+    "server" : "9.163.232.180",
+    "server_port" : 1490,
+    "method" : "chacha20-ietf-poly1305",
+    "password" : "ojcP36n1SouDcnBg9EOZP8",
+    "multiplex" : {
+      "enabled" : true
+    }
+  }, {
+    "type" : "vless",
+    "tag" : "🇺🇸_US_美国_1",
+    "server" : "172.67.73.163",
+    "server_port" : 8080,
+    "uuid" : "51fda508-20aa-419e-b4c3-3a6202411412",
+    "tls" : {
+      "enabled" : true
+    },
+    "transport" : {
+      "type" : "ws",
+      "path" : "/",
+      "headers" : {
+        "host" : "18.6na7PY43IT.zuLaiR.Org."
+      }
+    }
+  }, {
+    "type" : "vmess",
+    "tag" : "🇨🇳_CN_中国",
+    "server" : "v8.heduian.link",
+    "server_port" : 30808,
+    "uuid" : "cbb3f877-d1fb-344c-87a9-d153bffd5484",
+    "security" : "auto",
+    "alter_id" : 2,
+    "transport" : {
+      "type" : "ws",
+      "path" : "/oooo",
+      "headers" : {
+        "host" : "v8.heduian.link"
+      }
+    }
+  }, {
+    "type" : "shadowsocks",
+    "tag" : "🇰🇷_KR_韩国->🇺🇸_US_美国",
+    "server" : "125.141.31.72",
+    "server_port" : 15098,
+    "method" : "aes-256-cfb",
+    "password" : "qwerREWQ@@",
+    "multiplex" : {
+      "enabled" : true
+    }
+  }, {
+    "type" : "shadowsocks",
+    "tag" : "🇺🇸_US_美国->🇷🇴_RO_罗马尼亚",
+    "server" : "35.91.246.41",
+    "server_port" : 443,
+    "method" : "aes-256-cfb",
+    "password" : "awsps0501",
+    "multiplex" : {
+      "enabled" : true
+    }
+  }, {
+    "type" : "trojan",
+    "tag" : "🇨🇳_CN_中国->🇩🇪_DE_德国",
+    "server" : "120.233.44.201",
+    "server_port" : 21102,
+    "password" : "2b1ed981-6547-4094-998b-06a3323d6f6c",
+    "tls" : {
+      "enabled" : true,
+      "insecure" : true
+    }
+  }, {
+    "type" : "shadowsocks",
+    "tag" : "🇺🇸_US_美国_2",
+    "server" : "104.167.197.25",
+    "server_port" : 57456,
+    "method" : "chacha20-ietf-poly1305",
+    "password" : "360e21d21977dc11",
+    "multiplex" : {
+      "enabled" : true
+    }
+  }, {
+    "type" : "trojan",
+    "tag" : "🇨🇳_CN_中国->🇺🇸_US_美国",
+    "server" : "36.151.251.61",
+    "server_port" : 33097,
+    "password" : "RlzoEILU",
+    "tls" : {
+      "enabled" : true,
+      "insecure" : true
+    }
+  }, {
+    "type" : "trojan",
+    "tag" : "🇺🇸_US_美国_3",
+    "server" : "104.21.35.247",
+    "server_port" : 443,
+    "password" : "c8eac4b7-95ba-4ce0-920d-c3279eb3b391",
+    "tls" : {
+      "enabled" : true
+    },
+    "transport" : {
+      "type" : "ws",
+      "path" : "/ptGwaGzcA4KNAXX",
+      "headers" : {
+        "host" : "ff.huangshang2030.dpdns.org"
+      }
+    }
+  }, {
+    "type" : "vless",
+    "tag" : "🇬🇧_GB_英国->🇺🇸_US_美国",
+    "server" : "5.178.96.177",
+    "server_port" : 777,
+    "uuid" : "bb03cf22-5e68-4e21-cb14-deaac7143593",
+    "tls" : {
+      "enabled" : true
+    },
+    "transport" : {
+      "type" : "ws"
+    }
+  }, {
+    "type" : "trojan",
+    "tag" : "🇨🇳_CN_中国_1",
+    "server" : "c5d812aa-sx4v40-sx7hbg-1mmbp.cu.plebai.net",
+    "server_port" : 15229,
+    "password" : "607d365e-7ea1-11ee-95e9-f23c913c8d2b",
+    "tls" : {
+      "enabled" : true
+    }
+  }, {
+    "type" : "vmess",
+    "tag" : "🇷🇴_RO_罗马尼亚->🇺🇸_US_美国",
+    "server" : "188.213.128.64",
+    "server_port" : 2010,
+    "uuid" : "b117bd27-0e16-4342-852a-59f0c0aa61f4",
+    "security" : "auto",
+    "alter_id" : 0
+  }, {
+    "type" : "vmess",
+    "tag" : "🇨🇳_CN_中国->🇯🇵_JP_日本",
+    "server" : "b79d3418-sux8g0-swe4j1-1rfon.cm5.p5pv.com",
+    "server_port" : 17232,
+    "uuid" : "aed1cc24-351d-11ef-ba52-f23c9164ca5d",
+    "security" : "auto",
+    "alter_id" : 0
+  }, {
+    "type" : "vless",
+    "tag" : "🇺🇸_US_美国_4",
+    "server" : "104.26.14.85",
+    "server_port" : 8080,
+    "uuid" : "56652249-2e67-4429-b86c-3df8b838ad85",
+    "tls" : {
+      "enabled" : true
+    },
+    "transport" : {
+      "type" : "ws",
+      "headers" : {
+        "host" : "4j.QBAo1g5z6k.ZulaIR.org."
+      }
+    }
+  }, {
+    "type" : "trojan",
+    "tag" : "🇨🇳_CN_中国->🇺🇸_US_美国_1",
+    "server" : "36.151.251.62",
+    "server_port" : 13542,
+    "password" : "RlzoEILU",
+    "tls" : {
+      "enabled" : true,
+      "insecure" : true
+    }
+  }, {
+    "type" : "trojan",
+    "tag" : "🇺🇸_US_美国_5",
+    "server" : "172.67.135.37",
+    "server_port" : 443,
+    "password" : "44ed7a37-af89-4cd1-8680-83a7207810d9",
+    "tls" : {
+      "enabled" : true
+    },
+    "transport" : {
+      "type" : "ws",
+      "path" : "/HpYP4foAlpTKtfYnjLYhU30U",
+      "headers" : {
+        "host" : "cctv4.459.pp.ua"
+      }
+    }
+  }, {
+    "type" : "trojan",
+    "tag" : "🇺🇸_US_美国->🇫🇷_FR_法国_1",
+    "server" : "104.21.83.113",
+    "server_port" : 443,
+    "password" : "4a3ee276-f50f-46f6-ba4d-13571732ab70",
+    "tls" : {
+      "enabled" : true
+    },
+    "transport" : {
+      "type" : "ws",
+      "path" : "/COp52Dbu3dvwvDWUxOqxq"
+    }
+  }, {
+    "type" : "trojan",
+    "tag" : "🇺🇸_US_美国->🇫🇷_FR_法国_2",
+    "server" : "104.21.25.95",
+    "server_port" : 443,
+    "password" : "f0f6e76e-e5fe-4e2c-9faf-34832e021eae",
+    "tls" : {
+      "enabled" : true,
+      "insecure" : true
+    },
+    "transport" : {
+      "type" : "ws",
+      "path" : "/mZr1mA5hub7QHHkQBzYO"
+    }
+  }, {
+    "type" : "vless",
+    "tag" : "🇺🇸_US_美国_6",
+    "server" : "194.113.37.240",
+    "server_port" : 777,
+    "uuid" : "bb03cf22-5e68-4e21-cb14-deaac7143593",
+    "tls" : {
+      "enabled" : true
+    },
+    "transport" : {
+      "type" : "ws"
+    }
+  }, {
+    "type" : "trojan",
+    "tag" : "🇨🇳_CN_中国->🇺🇸_US_美国_2",
+    "server" : "36.151.251.62",
+    "server_port" : 3330,
+    "password" : "RlzoEILU",
+    "tls" : {
+      "enabled" : true,
+      "insecure" : true
+    }
+  }, {
+    "type" : "vless",
+    "tag" : "🇺🇸_US_美国_7",
+    "server" : "141.101.121.110",
+    "server_port" : 80,
+    "uuid" : "f2a72ad0-d23f-4eed-96cb-7d970b1e784d",
+    "tls" : {
+      "enabled" : true
+    },
+    "transport" : {
+      "type" : "ws",
+      "path" : "/vless/?Vless_txt",
+      "headers" : {
+        "host" : "ov-germany1.09vpn.com"
+      }
+    }
+  }, {
+    "type" : "trojan",
+    "tag" : "🇺🇸_US_美国_8",
+    "server" : "172.67.144.126",
+    "server_port" : 443,
+    "password" : "895552fa-6284-4c1d-ba00-3944e0c7c626",
+    "tls" : {
+      "enabled" : true
+    },
+    "transport" : {
+      "type" : "ws",
+      "path" : "/By7cEmOrNRS58yeduy9AOG",
+      "headers" : {
+        "host" : "cfr56ty7890.288288.shop"
+      }
+    }
+  }, {
+    "type" : "vless",
+    "tag" : "🇮🇳_IN_印度->🇺🇸_US_美国",
+    "server" : "14.102.228.75",
+    "server_port" : 80,
+    "uuid" : "b49d8a13-12f6-4613-bb0d-3e2f6244f29c",
+    "tls" : {
+      "enabled" : true
+    },
+    "transport" : {
+      "type" : "ws",
+      "path" : "/vless/",
+      "headers" : {
+        "host" : "ov-canada1.09vpn.com"
+      }
+    }
+  }, {
+    "type" : "vmess",
+    "tag" : "🇸🇪_SE_瑞典",
+    "server" : "185.146.173.25",
+    "server_port" : 80,
+    "uuid" : "46181c32-8c82-413a-b836-8375e5e513eb",
+    "security" : "auto",
+    "alter_id" : 0,
+    "transport" : {
+      "type" : "ws",
+      "path" : "/d3d3LmlyYW5ob3N0LmNvbQ==?ed=2560",
+      "headers" : {
+        "host" : "google.whatsapp.snapp.torob.basalam.sarzamiiinahang.ir."
+      }
+    }
+  }, {
+    "type" : "vless",
+    "tag" : "🇺🇸_US_美国_9",
+    "server" : "151.101.2.219",
+    "server_port" : 80,
+    "uuid" : "3f0c9a0f-239d-4fdc-c3bc-3698bae8f2a0",
+    "tls" : {
+      "enabled" : true
+    },
+    "transport" : {
+      "type" : "ws",
+      "path" : "/olem/ws?ed=1024",
+      "headers" : {
+        "host" : "foffmelo.com"
+      }
+    }
+  }, {
+    "type" : "trojan",
+    "tag" : "🇺🇸_US_美国_10",
+    "server" : "172.67.188.77",
+    "server_port" : 443,
+    "password" : "15153c1d-fc81-4b2a-9689-7b4e4a72dce5",
+    "tls" : {
+      "enabled" : true
+    },
+    "transport" : {
+      "type" : "ws",
+      "path" : "/l6lvY4hFZriQDBimbKYmPIggy"
+    }
+  }, {
+    "type" : "direct",
+    "tag" : "direct"
+  }, {
+    "type" : "block",
+    "tag" : "reject"
+  }, {
+    "type" : "dns",
+    "tag" : "dns_out"
+  } ],
+  "route" : {
+    "rules" : [ {
+      "clash_mode" : "Global",
+      "outbound" : "select"
+    }, {
+      "clash_mode" : "Direct",
+      "outbound" : "direct"
+    }, {
+      "protocol" : "dns",
+      "outbound" : "dns_out"
+    }, {
+      "rule_set" : "geosite-category-ads-all",
+      "outbound" : "reject"
+    }, {
+      "rule_set" : "geoip-cn",
+      "outbound" : "direct"
+    }, {
+      "rule_set" : "geosite-cn",
+      "outbound" : "direct"
+    }, {
+      "outbound" : "direct",
+      "ip_is_private" : true
+    }, {
+      "rule_set" : "geosite-geolocation-!cn",
+      "outbound" : "select"
+    } ],
+    "rule_set" : [ {
+      "type" : "remote",
+      "tag" : "geoip-cn",
+      "format" : "binary",
+      "url" : "https://raw.githubusercontent.com/SagerNet/sing-geoip/rule-set/geoip-cn.srs",
+      "download_detour" : "select",
+      "update_interval" : "1d"
+    }, {
+      "type" : "remote",
+      "tag" : "geosite-cn",
+      "format" : "binary",
+      "url" : "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-cn.srs",
+      "download_detour" : "select",
+      "update_interval" : "1d"
+    }, {
+      "type" : "remote",
+      "tag" : "geosite-geolocation-!cn",
+      "format" : "binary",
+      "url" : "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/geolocation-!cn.srs",
+      "download_detour" : "select",
+      "update_interval" : "1d"
+    }, {
+      "type" : "remote",
+      "tag" : "geosite-category-ads-all",
+      "format" : "binary",
+      "url" : "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-category-ads-all.srs",
+      "download_detour" : "select",
+      "update_interval" : "1d"
+    } ],
+    "auto_detect_interface" : true,
+    "final" : "select"
+  },
+  "experimental" : {
+    "cache_file" : {
+      "enabled" : true,
+      "path" : "cache.db"
+    },
+    "clash_api" : {
+      "external_controller" : "127.0.0.1:9090"
+    }
+  }
+}
