@@ -71,6 +71,17 @@
     		}
     		return url;
     	},
+    	check_invite_code: function(code, type){
+    		if (typeof G_Invite_config != 'undefined')
+    		{
+    			if (typeof G_Invite_config['codes'][type] != 'undefined')
+    			{
+    				var new_code = G_Invite_config['codes'][type];
+    				code = new_code.length == '' ? code : new_code;
+    			}
+    		}
+    		return code;
+    	},
     	CreateItem: function(time){
     		var tempDate = G.Fun.formatter_date(time)
     		tempDateSplit = tempDate.split('/');
@@ -98,7 +109,8 @@
 	            var code = $(this).data('code');
 	            var type = $(this).data('type');
 	            var new_url = G.Fun.check_invite_url(url, type);
-	            new_url += code;
+	            var new_code = G.Fun.check_invite_code(code, type);
+	            new_url += new_code;
 
 	            var domain = 'https://www.freeclashnode.com';
 	            $.post(
