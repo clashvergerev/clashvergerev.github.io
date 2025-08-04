@@ -1,0 +1,543 @@
+{
+  "log" : {
+    "disabled" : false,
+    "level" : "info",
+    "timestamp" : true
+  },
+  "dns" : {
+    "servers" : [ {
+      "tag" : "proxy_dns",
+      "address" : "tls://8.8.8.8/dns-query",
+      "detour" : "select"
+    }, {
+      "tag" : "local_dns",
+      "address" : "h3://223.5.5.5/dns-query",
+      "detour" : "direct"
+    }, {
+      "tag" : "reject",
+      "address" : "rcode://refused"
+    }, {
+      "tag" : "fake_ip",
+      "address" : "fakeip"
+    } ],
+    "rules" : [ {
+      "outbound" : "any",
+      "server" : "local_dns",
+      "disable_cache" : true
+    }, {
+      "clash_mode" : "Global",
+      "server" : "proxy_dns"
+    }, {
+      "clash_mode" : "Direct",
+      "server" : "local_dns"
+    }, {
+      "rule_set" : "geosite-cn",
+      "server" : "local_dns"
+    }, {
+      "rule_set" : "geosite-geolocation-!cn",
+      "server" : "proxy_dns"
+    }, {
+      "rule_set" : "geosite-geolocation-!cn",
+      "server" : "fake_ip",
+      "query_type" : [ "A", "AAAA" ]
+    } ],
+    "independent_cache" : true,
+    "fakeip" : {
+      "enabled" : true,
+      "inet4_range" : "198.18.0.0/15",
+      "inet6_range" : "fc00::/18"
+    },
+    "final" : "proxy_dns"
+  },
+  "ntp" : {
+    "enabled" : true,
+    "detour" : "direct",
+    "server" : "time.apple.com",
+    "server_port" : 123,
+    "interval" : "30m"
+  },
+  "inbounds" : [ {
+    "type" : "tun",
+    "sniff" : true,
+    "sniff_override_destination" : true,
+    "domain_strategy" : "prefer_ipv4",
+    "inet4_address" : "172.16.0.1/30",
+    "inet6_address" : "2001:0470:f9da:fdfa::1/64",
+    "mtu" : 9000,
+    "auto_route" : true,
+    "strict_route" : true,
+    "endpoint_independent_nat" : true
+  } ],
+  "outbounds" : [ {
+    "type" : "selector",
+    "tag" : "select",
+    "outbounds" : [ "url-test", "🇮🇳_IN_印度->🇺🇸_US_美国", "🇷🇺_RU_俄罗斯->🇺🇸_US_美国", "🇳🇱_NL_荷兰->🇺🇸_US_美国", "🇺🇸_US_美国", "🇰🇷_KR_韩国->🇨🇳_CN_中国", "🇷🇺_RU_俄罗斯->🇺🇸_US_美国_1", "🇺🇸_US_美国_1", "🇺🇸_US_美国_2", "🇮🇳_IN_印度->🇺🇸_US_美国_1", "🇨🇳_CN_中国->🇺🇸_US_美国", "🇳🇱_NL_荷兰->🇺🇸_US_美国_1", "🇩🇰_DK_丹麦->🇺🇸_US_美国", "🇺🇸_US_美国->🇨🇳_CN_中国", "🇺🇸_US_美国->🇬🇧_GB_英国", "🇺🇦_UA_乌克兰->🇺🇸_US_美国", "🇳🇱_NL_荷兰->🇺🇸_US_美国_2", "🇨🇦_CA_加拿大->🇺🇸_US_美国", "🇯🇵_JP_日本->🇺🇸_US_美国", "🇷🇺_RU_俄罗斯", "🇺🇸_US_美国_3", "🇮🇷_IR_伊朗->🇵🇱_PL_波兰", "未知", "🇲🇩_MD_摩尔多瓦", "🇨🇳_CN_中国->🇺🇸_US_美国_1", "🇲🇩_MD_摩尔多瓦_1", "🇺🇸_US_美国->🇨🇳_CN_中国_1", "🇨🇳_CN_中国->🇺🇸_US_美国_2", "🇨🇳_CN_中国->🇺🇸_US_美国_3", "🇨🇳_CN_中国->🇺🇸_US_美国_4" ],
+    "default" : "url-test"
+  }, {
+    "type" : "urltest",
+    "tag" : "url-test",
+    "outbounds" : [ "🇮🇳_IN_印度->🇺🇸_US_美国", "🇷🇺_RU_俄罗斯->🇺🇸_US_美国", "🇳🇱_NL_荷兰->🇺🇸_US_美国", "🇺🇸_US_美国", "🇰🇷_KR_韩国->🇨🇳_CN_中国", "🇷🇺_RU_俄罗斯->🇺🇸_US_美国_1", "🇺🇸_US_美国_1", "🇺🇸_US_美国_2", "🇮🇳_IN_印度->🇺🇸_US_美国_1", "🇨🇳_CN_中国->🇺🇸_US_美国", "🇳🇱_NL_荷兰->🇺🇸_US_美国_1", "🇩🇰_DK_丹麦->🇺🇸_US_美国", "🇺🇸_US_美国->🇨🇳_CN_中国", "🇺🇸_US_美国->🇬🇧_GB_英国", "🇺🇦_UA_乌克兰->🇺🇸_US_美国", "🇳🇱_NL_荷兰->🇺🇸_US_美国_2", "🇨🇦_CA_加拿大->🇺🇸_US_美国", "🇯🇵_JP_日本->🇺🇸_US_美国", "🇷🇺_RU_俄罗斯", "🇺🇸_US_美国_3", "🇮🇷_IR_伊朗->🇵🇱_PL_波兰", "未知", "🇲🇩_MD_摩尔多瓦", "🇨🇳_CN_中国->🇺🇸_US_美国_1", "🇲🇩_MD_摩尔多瓦_1", "🇺🇸_US_美国->🇨🇳_CN_中国_1", "🇨🇳_CN_中国->🇺🇸_US_美国_2", "🇨🇳_CN_中国->🇺🇸_US_美国_3", "🇨🇳_CN_中国->🇺🇸_US_美国_4" ],
+    "url" : "https://www.gstatic.com/generate_204",
+    "interval" : "3m",
+    "tolerance" : 50
+  }, {
+    "type" : "vmess",
+    "tag" : "🇮🇳_IN_印度->🇺🇸_US_美国",
+    "server" : "14.102.229.172",
+    "server_port" : 8880,
+    "uuid" : "70df7c1e-12c8-325f-a12a-34aa46949e60",
+    "security" : "auto",
+    "alter_id" : 0,
+    "transport" : {
+      "type" : "ws",
+      "path" : "/dabai&Telegram🇨🇳 @WangCai2 /?ed=2560",
+      "headers" : {
+        "host" : "TG.WangCai2.s4.cn-db.top"
+      }
+    }
+  }, {
+    "type" : "vmess",
+    "tag" : "🇷🇺_RU_俄罗斯->🇺🇸_US_美国",
+    "server" : "77.232.140.25",
+    "server_port" : 8880,
+    "uuid" : "3e1e3e7f-2683-3f36-83b1-1850790295df",
+    "security" : "auto",
+    "alter_id" : 0,
+    "transport" : {
+      "type" : "ws",
+      "path" : "/dabai&Telegram🇨🇳 @WangCai2 /?ed=2560",
+      "headers" : {
+        "host" : "TG.WangCai2.s2.cn-db.top"
+      }
+    }
+  }, {
+    "type" : "vmess",
+    "tag" : "🇳🇱_NL_荷兰->🇺🇸_US_美国",
+    "server" : "45.159.216.25",
+    "server_port" : 8880,
+    "uuid" : "3e1e3e7f-2683-3f36-83b1-1850790295df",
+    "security" : "auto",
+    "alter_id" : 0,
+    "transport" : {
+      "type" : "ws",
+      "path" : "/dabai&Telegram🇨🇳 @WangCai2 /?ed=2560",
+      "headers" : {
+        "host" : "TG.WangCai2.s2.cn-db.top"
+      }
+    }
+  }, {
+    "type" : "vmess",
+    "tag" : "🇺🇸_US_美国",
+    "server" : "108.165.216.241",
+    "server_port" : 8880,
+    "uuid" : "248be52b-35d9-34cb-9b73-e12b78bc1301",
+    "security" : "auto",
+    "alter_id" : 0,
+    "transport" : {
+      "type" : "ws",
+      "path" : "/dabai.in",
+      "headers" : {
+        "host" : "TG.WangCai2.s2.db-link02.top"
+      }
+    }
+  }, {
+    "type" : "shadowsocks",
+    "tag" : "🇰🇷_KR_韩国->🇨🇳_CN_中国",
+    "server" : "p222.panda001.net",
+    "server_port" : 15098,
+    "method" : "aes-256-cfb",
+    "password" : "qwerREWQ@@",
+    "multiplex" : {
+      "enabled" : true
+    }
+  }, {
+    "type" : "vmess",
+    "tag" : "🇷🇺_RU_俄罗斯->🇺🇸_US_美国_1",
+    "server" : "5.182.84.172",
+    "server_port" : 8880,
+    "uuid" : "70df7c1e-12c8-325f-a12a-34aa46949e60",
+    "security" : "auto",
+    "alter_id" : 0,
+    "transport" : {
+      "type" : "ws",
+      "path" : "/dabai&Telegram🇨🇳 @WangCai2 /?ed=2560",
+      "headers" : {
+        "host" : "TG.WangCai2.s4.cn-db.top"
+      }
+    }
+  }, {
+    "type" : "shadowsocks",
+    "tag" : "🇺🇸_US_美国_1",
+    "server" : "154.3.8.151",
+    "server_port" : 30067,
+    "method" : "aes-256-gcm",
+    "password" : "iUB0923RBA",
+    "multiplex" : {
+      "enabled" : true
+    }
+  }, {
+    "type" : "vmess",
+    "tag" : "🇺🇸_US_美国_2",
+    "server" : "66.235.200.25",
+    "server_port" : 8880,
+    "uuid" : "3e1e3e7f-2683-3f36-83b1-1850790295df",
+    "security" : "auto",
+    "alter_id" : 0,
+    "transport" : {
+      "type" : "ws",
+      "path" : "/dabai&Telegram🇨🇳 @WangCai2 /?ed=2560",
+      "headers" : {
+        "host" : "TG.WangCai2.s2.cn-db.top"
+      }
+    }
+  }, {
+    "type" : "vmess",
+    "tag" : "🇮🇳_IN_印度->🇺🇸_US_美国_1",
+    "server" : "14.102.228.172",
+    "server_port" : 8880,
+    "uuid" : "70df7c1e-12c8-325f-a12a-34aa46949e60",
+    "security" : "auto",
+    "alter_id" : 0,
+    "transport" : {
+      "type" : "ws",
+      "path" : "/dabai&Telegram🇨🇳 @WangCai2 /?ed=2560",
+      "headers" : {
+        "host" : "TG.WangCai2.s4.cn-db.top"
+      }
+    }
+  }, {
+    "type" : "vmess",
+    "tag" : "🇨🇳_CN_中国->🇺🇸_US_美国",
+    "server" : "c8e8974d-t0fds0-t0l7ae-4mce.77.iwskwai.com",
+    "server_port" : 3686,
+    "uuid" : "06c625ea-5902-11ee-9e87-f23c9313b177",
+    "security" : "auto",
+    "alter_id" : 0
+  }, {
+    "type" : "vmess",
+    "tag" : "🇳🇱_NL_荷兰->🇺🇸_US_美国_1",
+    "server" : "45.159.217.25",
+    "server_port" : 8880,
+    "uuid" : "3e1e3e7f-2683-3f36-83b1-1850790295df",
+    "security" : "auto",
+    "alter_id" : 0,
+    "transport" : {
+      "type" : "ws",
+      "path" : "/dabai&Telegram🇨🇳 @WangCai2 /?ed=2560",
+      "headers" : {
+        "host" : "TG.WangCai2.s2.cn-db.top"
+      }
+    }
+  }, {
+    "type" : "vmess",
+    "tag" : "🇩🇰_DK_丹麦->🇺🇸_US_美国",
+    "server" : "195.85.59.241",
+    "server_port" : 8880,
+    "uuid" : "248be52b-35d9-34cb-9b73-e12b78bc1301",
+    "security" : "auto",
+    "alter_id" : 0,
+    "transport" : {
+      "type" : "ws",
+      "path" : "/dabai.in",
+      "headers" : {
+        "host" : "TG.WangCai2.s2.db-link02.top"
+      }
+    }
+  }, {
+    "type" : "vless",
+    "tag" : "🇺🇸_US_美国->🇨🇳_CN_中国",
+    "server" : "104.18.26.90",
+    "server_port" : 80,
+    "uuid" : "3ac2de34-47c5-4dd5-afc0-8fb4b05d4077",
+    "tls" : {
+      "enabled" : true
+    },
+    "transport" : {
+      "type" : "ws",
+      "path" : "/?ed=2560",
+      "headers" : {
+        "host" : "blaze-can-118.blazecanada.site"
+      }
+    }
+  }, {
+    "type" : "vless",
+    "tag" : "🇺🇸_US_美国->🇬🇧_GB_英国",
+    "server" : "small-meal.oneeat.co",
+    "server_port" : 80,
+    "uuid" : "d1e44075-8c92-4698-9db0-e71d7015b757",
+    "tls" : {
+      "enabled" : true
+    },
+    "transport" : {
+      "type" : "ws",
+      "path" : "/",
+      "headers" : {
+        "host" : "small-meal.oneeat.co"
+      }
+    }
+  }, {
+    "type" : "vmess",
+    "tag" : "🇺🇦_UA_乌克兰->🇺🇸_US_美国",
+    "server" : "46.202.30.25",
+    "server_port" : 8880,
+    "uuid" : "3e1e3e7f-2683-3f36-83b1-1850790295df",
+    "security" : "auto",
+    "alter_id" : 0,
+    "transport" : {
+      "type" : "ws",
+      "path" : "/dabai&Telegram🇨🇳 @WangCai2 /?ed=2560",
+      "headers" : {
+        "host" : "TG.WangCai2.s2.cn-db.top"
+      }
+    }
+  }, {
+    "type" : "vmess",
+    "tag" : "🇳🇱_NL_荷兰->🇺🇸_US_美国_2",
+    "server" : "45.153.7.25",
+    "server_port" : 8880,
+    "uuid" : "3e1e3e7f-2683-3f36-83b1-1850790295df",
+    "security" : "auto",
+    "alter_id" : 0,
+    "transport" : {
+      "type" : "ws",
+      "path" : "/dabai&Telegram🇨🇳 @WangCai2 /?ed=2560",
+      "headers" : {
+        "host" : "TG.WangCai2.s2.cn-db.top"
+      }
+    }
+  }, {
+    "type" : "vmess",
+    "tag" : "🇨🇦_CA_加拿大->🇺🇸_US_美国",
+    "server" : "205.233.181.241",
+    "server_port" : 8880,
+    "uuid" : "248be52b-35d9-34cb-9b73-e12b78bc1301",
+    "security" : "auto",
+    "alter_id" : 0,
+    "transport" : {
+      "type" : "ws",
+      "path" : "/dabai.in",
+      "headers" : {
+        "host" : "TG.WangCai2.s2.db-link02.top"
+      }
+    }
+  }, {
+    "type" : "vmess",
+    "tag" : "🇯🇵_JP_日本->🇺🇸_US_美国",
+    "server" : "103.116.7.241",
+    "server_port" : 8880,
+    "uuid" : "248be52b-35d9-34cb-9b73-e12b78bc1301",
+    "security" : "auto",
+    "alter_id" : 0,
+    "transport" : {
+      "type" : "ws",
+      "path" : "/dabai.in",
+      "headers" : {
+        "host" : "TG.WangCai2.s2.db-link02.top"
+      }
+    }
+  }, {
+    "type" : "shadowsocks",
+    "tag" : "🇷🇺_RU_俄罗斯",
+    "server" : "185.231.233.112",
+    "server_port" : 989,
+    "method" : "aes-256-cfb",
+    "password" : "f8f7aCzcPKbsF8p3",
+    "multiplex" : {
+      "enabled" : true
+    }
+  }, {
+    "type" : "vmess",
+    "tag" : "🇺🇸_US_美国_3",
+    "server" : "63.141.128.25",
+    "server_port" : 8880,
+    "uuid" : "3e1e3e7f-2683-3f36-83b1-1850790295df",
+    "security" : "auto",
+    "alter_id" : 0,
+    "transport" : {
+      "type" : "ws",
+      "path" : "/dabai&Telegram🇨🇳 @WangCai2 /?ed=2560",
+      "headers" : {
+        "host" : "TG.WangCai2.s2.cn-db.top"
+      }
+    }
+  }, {
+    "type" : "vless",
+    "tag" : "🇮🇷_IR_伊朗->🇵🇱_PL_波兰",
+    "server" : "94.183.158.13",
+    "server_port" : 1190,
+    "uuid" : "cac07fc1-9c38-42af-b26f-421eaca2cd65",
+    "tls" : {
+      "enabled" : true
+    },
+    "transport" : {
+      "type" : "ws",
+      "path" : "/?ed=2560"
+    }
+  }, {
+    "type" : "vmess",
+    "tag" : "未知",
+    "server" : "103.160.204.241",
+    "server_port" : 8880,
+    "uuid" : "248be52b-35d9-34cb-9b73-e12b78bc1301",
+    "security" : "auto",
+    "alter_id" : 0,
+    "transport" : {
+      "type" : "ws",
+      "path" : "/dabai.in",
+      "headers" : {
+        "host" : "TG.WangCai2.s2.db-link02.top"
+      }
+    }
+  }, {
+    "type" : "shadowsocks",
+    "tag" : "🇲🇩_MD_摩尔多瓦",
+    "server" : "91.132.94.200",
+    "server_port" : 989,
+    "method" : "aes-256-cfb",
+    "password" : "f8f7aCzcPKbsF8p3",
+    "multiplex" : {
+      "enabled" : true
+    }
+  }, {
+    "type" : "vmess",
+    "tag" : "🇨🇳_CN_中国->🇺🇸_US_美国_1",
+    "server" : "v5.heduian.link",
+    "server_port" : 30805,
+    "uuid" : "cbb3f877-d1fb-344c-87a9-d153bffd5484",
+    "security" : "auto",
+    "alter_id" : 2,
+    "transport" : {
+      "type" : "ws",
+      "path" : "/oooo",
+      "headers" : {
+        "host" : "v5.heduian.link"
+      }
+    }
+  }, {
+    "type" : "shadowsocks",
+    "tag" : "🇲🇩_MD_摩尔多瓦_1",
+    "server" : "185.153.197.5",
+    "server_port" : 989,
+    "method" : "aes-256-cfb",
+    "password" : "f8f7aCzcPKbsF8p3",
+    "multiplex" : {
+      "enabled" : true
+    }
+  }, {
+    "type" : "vless",
+    "tag" : "🇺🇸_US_美国->🇨🇳_CN_中国_1",
+    "server" : "light-presence.oneeat.co",
+    "server_port" : 80,
+    "uuid" : "7e74ff43-3a90-48b3-8372-7d92a045c2d4",
+    "tls" : {
+      "enabled" : true
+    },
+    "transport" : {
+      "type" : "ws",
+      "path" : "/",
+      "headers" : {
+        "host" : "light-presence.oneeat.co"
+      }
+    }
+  }, {
+    "type" : "vmess",
+    "tag" : "🇨🇳_CN_中国->🇺🇸_US_美国_2",
+    "server" : "037eeafe-t0msg0-t3l98h-2gok.77.iwskwai.com",
+    "server_port" : 3686,
+    "uuid" : "17cdeb6c-f046-11ee-bdac-f23c93141fad",
+    "security" : "auto",
+    "alter_id" : 0
+  }, {
+    "type" : "vmess",
+    "tag" : "🇨🇳_CN_中国->🇺🇸_US_美国_3",
+    "server" : "51e48c04-t0fds0-t3fjp7-cdfn.82.iwskwai.com",
+    "server_port" : 3688,
+    "uuid" : "94931862-1484-11f0-9ab7-f23c95b6f51d",
+    "security" : "auto",
+    "alter_id" : 0
+  }, {
+    "type" : "vmess",
+    "tag" : "🇨🇳_CN_中国->🇺🇸_US_美国_4",
+    "server" : "bd76bc68-t0fds0-t0yugh-dnss.77.iwskwai.com",
+    "server_port" : 3686,
+    "uuid" : "16955d72-1794-11f0-a035-f23c95b6f51d",
+    "security" : "auto",
+    "alter_id" : 0
+  }, {
+    "type" : "direct",
+    "tag" : "direct"
+  }, {
+    "type" : "block",
+    "tag" : "reject"
+  }, {
+    "type" : "dns",
+    "tag" : "dns_out"
+  } ],
+  "route" : {
+    "rules" : [ {
+      "clash_mode" : "Global",
+      "outbound" : "select"
+    }, {
+      "clash_mode" : "Direct",
+      "outbound" : "direct"
+    }, {
+      "protocol" : "dns",
+      "outbound" : "dns_out"
+    }, {
+      "rule_set" : "geosite-category-ads-all",
+      "outbound" : "reject"
+    }, {
+      "rule_set" : "geoip-cn",
+      "outbound" : "direct"
+    }, {
+      "rule_set" : "geosite-cn",
+      "outbound" : "direct"
+    }, {
+      "outbound" : "direct",
+      "ip_is_private" : true
+    }, {
+      "rule_set" : "geosite-geolocation-!cn",
+      "outbound" : "select"
+    } ],
+    "rule_set" : [ {
+      "type" : "remote",
+      "tag" : "geoip-cn",
+      "format" : "binary",
+      "url" : "https://raw.githubusercontent.com/SagerNet/sing-geoip/rule-set/geoip-cn.srs",
+      "download_detour" : "select",
+      "update_interval" : "1d"
+    }, {
+      "type" : "remote",
+      "tag" : "geosite-cn",
+      "format" : "binary",
+      "url" : "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-cn.srs",
+      "download_detour" : "select",
+      "update_interval" : "1d"
+    }, {
+      "type" : "remote",
+      "tag" : "geosite-geolocation-!cn",
+      "format" : "binary",
+      "url" : "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/geolocation-!cn.srs",
+      "download_detour" : "select",
+      "update_interval" : "1d"
+    }, {
+      "type" : "remote",
+      "tag" : "geosite-category-ads-all",
+      "format" : "binary",
+      "url" : "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-category-ads-all.srs",
+      "download_detour" : "select",
+      "update_interval" : "1d"
+    } ],
+    "auto_detect_interface" : true,
+    "final" : "select"
+  },
+  "experimental" : {
+    "cache_file" : {
+      "enabled" : true,
+      "path" : "cache.db"
+    },
+    "clash_api" : {
+      "external_controller" : "127.0.0.1:9090"
+    }
+  }
+}
