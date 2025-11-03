@@ -1,0 +1,1145 @@
+{
+  "log": {
+    "level": "info",
+    "timestamp": true
+  },
+  "experimental": {
+    "clash_api": {
+      "external_controller": "127.0.0.1:9090",
+      "external_ui": "ui",
+      "secret": "",
+      "external_ui_download_url": "https://gh-proxy.com/https://github.com/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.zip",
+      "external_ui_download_detour": "direct",
+      "default_mode": "rule"
+    },
+    "cache_file": {
+      "enabled": true,
+      "store_fakeip": true,
+      "store_rdrc": true
+    }
+  },
+  "dns": {
+    "fakeip": {
+      "enabled": true,
+      "inet4_range": "198.18.0.0/15",
+      "inet6_range": "fc00::/18"
+    },
+    "servers": [
+      {
+        "tag": "google",
+        "address": "tls://8.8.8.8"
+      },
+      {
+        "tag": "local",
+        "address": "https://223.5.5.5/dns-query",
+        "detour": "direct"
+      },
+      {
+        "tag": "fakeip",
+        "address": "fakeip"
+      }
+    ],
+    "rules": [
+      {
+        "domain": [
+          "cdn.jsdelivr.net"
+        ],
+        "server": "google"
+      },
+      {
+        "outbound": "any",
+        "server": "local"
+      },
+      {
+        "clash_mode": "direct",
+        "server": "local"
+      },
+      {
+        "clash_mode": "global",
+        "server": "google"
+      },
+      {
+        "query_type": [
+          "A",
+          "AAAA"
+        ],
+        "rule_set": "geosite-cn",
+        "server": "fakeip"
+      },
+      {
+        "rule_set": "geosite-cn",
+        "server": "local"
+      },
+      {
+        "type": "logical",
+        "mode": "and",
+        "rules": [
+          {
+            "rule_set": "geosite-geolocation-!cn",
+            "invert": true
+          },
+          {
+            "rule_set": "geoip-cn"
+          }
+        ],
+        "server": "google",
+        "client_subnet": "114.114.114.114/24"
+      },
+      {
+        "query_type": [
+          "A",
+          "AAAA"
+        ],
+        "server": "fakeip"
+      }
+    ],
+    "independent_cache": true,
+    "strategy": "prefer_ipv4"
+  },
+  "inbounds": [
+    {
+      "tag": "tun-in",
+      "type": "tun",
+      "address": [
+        "172.19.0.0/30",
+        "fdfe:dcba:9876::0/126"
+      ],
+      "stack": "system",
+      "auto_route": true,
+      "strict_route": true,
+      "platform": {
+        "http_proxy": {
+          "enabled": true,
+          "server": "127.0.0.1",
+          "server_port": 7890
+        }
+      }
+    },
+    {
+      "tag": "mixed-in",
+      "type": "mixed",
+      "listen": "127.0.0.1",
+      "listen_port": 7890
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "Proxy",
+      "type": "selector",
+      "outbounds": [
+        "auto",
+        "direct",
+        "🇭🇰 HK_89",
+        "🇨🇳_CN_中国",
+        "🇭🇰 HK_324",
+        "🇭🇰HK-219.77.235.50-1213",
+        "🇭🇰 HK_213",
+        "🇭🇰 HK_210",
+        "🇭🇰 HK_231",
+        "🇭🇰HK-219.77.235.50-1223",
+        "🇭🇰HK-219.77.235.50-1226",
+        "🇭🇰HK-219.77.235.50-1215",
+        "🇭🇰 HK_72",
+        "🇭🇰 HK_86",
+        "🇭🇰HK-219.77.235.50-1220",
+        "🇭🇰HK-219.77.235.50-1224",
+        "🇭🇰 HK_83",
+        "🇺🇸_US_美国",
+        "🇨🇳_CN_中国_1",
+        "🇭🇰HK-219.77.235.50-1229",
+        "🇭🇰HK-219.77.235.50-1214",
+        "🇭🇰 HK_108",
+        "🇭🇰 HK_171"
+      ]
+    },
+    {
+      "tag": "OpenAI",
+      "type": "selector",
+      "outbounds": [
+        "TaiWan",
+        "Singapore",
+        "Japan",
+        "America",
+        "Others"
+      ],
+      "default": "America"
+    },
+    {
+      "tag": "Google",
+      "type": "selector",
+      "outbounds": [
+        "HongKong",
+        "TaiWan",
+        "Singapore",
+        "Japan",
+        "America",
+        "Others"
+      ]
+    },
+    {
+      "tag": "Telegram",
+      "type": "selector",
+      "outbounds": [
+        "HongKong",
+        "TaiWan",
+        "Singapore",
+        "Japan",
+        "America",
+        "Others"
+      ]
+    },
+    {
+      "tag": "Twitter",
+      "type": "selector",
+      "outbounds": [
+        "HongKong",
+        "TaiWan",
+        "Singapore",
+        "Japan",
+        "America",
+        "Others"
+      ]
+    },
+    {
+      "tag": "Facebook",
+      "type": "selector",
+      "outbounds": [
+        "HongKong",
+        "TaiWan",
+        "Singapore",
+        "Japan",
+        "America",
+        "Others"
+      ]
+    },
+    {
+      "tag": "BiliBili",
+      "type": "selector",
+      "outbounds": [
+        "direct",
+        "HongKong",
+        "TaiWan"
+      ]
+    },
+    {
+      "tag": "Bahamut",
+      "type": "selector",
+      "outbounds": [
+        "TaiWan",
+        "Proxy"
+      ]
+    },
+    {
+      "tag": "Spotify",
+      "type": "selector",
+      "outbounds": [
+        "HongKong",
+        "TaiWan",
+        "Singapore",
+        "Japan",
+        "America",
+        "Others"
+      ],
+      "default": "America"
+    },
+    {
+      "tag": "TikTok",
+      "type": "selector",
+      "outbounds": [
+        "HongKong",
+        "TaiWan",
+        "Singapore",
+        "Japan",
+        "America"
+      ],
+      "default": "Japan"
+    },
+    {
+      "tag": "Netflix",
+      "type": "selector",
+      "outbounds": [
+        "HongKong",
+        "TaiWan",
+        "Singapore",
+        "Japan",
+        "America",
+        "Others"
+      ]
+    },
+    {
+      "tag": "Disney+",
+      "type": "selector",
+      "outbounds": [
+        "HongKong",
+        "TaiWan",
+        "Singapore",
+        "Japan",
+        "America",
+        "Others"
+      ]
+    },
+    {
+      "tag": "Apple",
+      "type": "selector",
+      "outbounds": [
+        "direct",
+        "HongKong",
+        "TaiWan",
+        "Singapore",
+        "Japan",
+        "America",
+        "Others"
+      ]
+    },
+    {
+      "tag": "Microsoft",
+      "type": "selector",
+      "outbounds": [
+        "direct",
+        "HongKong",
+        "TaiWan",
+        "Singapore",
+        "Japan",
+        "America",
+        "Others"
+      ]
+    },
+    {
+      "tag": "Games",
+      "type": "selector",
+      "outbounds": [
+        "direct",
+        "HongKong",
+        "TaiWan",
+        "Singapore",
+        "Japan",
+        "America",
+        "Others"
+      ]
+    },
+    {
+      "tag": "Streaming",
+      "type": "selector",
+      "outbounds": [
+        "HongKong",
+        "TaiWan",
+        "Singapore",
+        "Japan",
+        "America",
+        "Others"
+      ]
+    },
+    {
+      "tag": "Global",
+      "type": "selector",
+      "outbounds": [
+        "HongKong",
+        "TaiWan",
+        "Singapore",
+        "Japan",
+        "America",
+        "Others",
+        "direct"
+      ]
+    },
+    {
+      "tag": "China",
+      "type": "selector",
+      "outbounds": [
+        "direct",
+        "Proxy"
+      ]
+    },
+    {
+      "tag": "HongKong",
+      "type": "selector",
+      "outbounds": [
+        "🇭🇰 HK_89",
+        "🇭🇰 HK_324",
+        "🇭🇰HK-219.77.235.50-1213",
+        "🇭🇰 HK_213",
+        "🇭🇰 HK_210",
+        "🇭🇰 HK_231",
+        "🇭🇰HK-219.77.235.50-1223",
+        "🇭🇰HK-219.77.235.50-1226",
+        "🇭🇰HK-219.77.235.50-1215",
+        "🇭🇰 HK_72",
+        "🇭🇰 HK_86",
+        "🇭🇰HK-219.77.235.50-1220",
+        "🇭🇰HK-219.77.235.50-1224",
+        "🇭🇰 HK_83",
+        "🇭🇰HK-219.77.235.50-1229",
+        "🇭🇰HK-219.77.235.50-1214",
+        "🇭🇰 HK_108",
+        "🇭🇰 HK_171"
+      ]
+    },
+    {
+      "tag": "TaiWan",
+      "type": "selector",
+      "outbounds": [
+        "Proxy"
+      ]
+    },
+    {
+      "tag": "Singapore",
+      "type": "selector",
+      "outbounds": [
+        "Proxy"
+      ]
+    },
+    {
+      "tag": "Japan",
+      "type": "selector",
+      "outbounds": [
+        "Proxy"
+      ]
+    },
+    {
+      "tag": "America",
+      "type": "selector",
+      "outbounds": [
+        "🇺🇸_US_美国"
+      ]
+    },
+    {
+      "tag": "Others",
+      "type": "selector",
+      "outbounds": [
+        "🇨🇳_CN_中国",
+        "🇨🇳_CN_中国_1"
+      ]
+    },
+    {
+      "tag": "auto",
+      "type": "urltest",
+      "outbounds": [
+        "🇭🇰 HK_89",
+        "🇨🇳_CN_中国",
+        "🇭🇰 HK_324",
+        "🇭🇰HK-219.77.235.50-1213",
+        "🇭🇰 HK_213",
+        "🇭🇰 HK_210",
+        "🇭🇰 HK_231",
+        "🇭🇰HK-219.77.235.50-1223",
+        "🇭🇰HK-219.77.235.50-1226",
+        "🇭🇰HK-219.77.235.50-1215",
+        "🇭🇰 HK_72",
+        "🇭🇰 HK_86",
+        "🇭🇰HK-219.77.235.50-1220",
+        "🇭🇰HK-219.77.235.50-1224",
+        "🇭🇰 HK_83",
+        "🇺🇸_US_美国",
+        "🇨🇳_CN_中国_1",
+        "🇭🇰HK-219.77.235.50-1229",
+        "🇭🇰HK-219.77.235.50-1214",
+        "🇭🇰 HK_108",
+        "🇭🇰 HK_171"
+      ],
+      "url": "http://www.gstatic.com/generate_204",
+      "interval": "10m",
+      "tolerance": 50
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "vmess",
+      "tag": "🇭🇰 HK_89",
+      "server": "77e1818c-t13gg0-t5fh9u-1uni.hk3.p5pv.com",
+      "server_port": 80,
+      "uuid": "adbd0a82-3336-11ed-bd7c-f23c913c8d2b",
+      "security": "auto",
+      "alter_id": 2,
+      "transport": {
+        "type": "ws",
+        "headers": {
+          "host": "broadcastlv.chat.bilibili.com"
+        },
+        "path": "/"
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "🇨🇳_CN_中国",
+      "server": "36.151.192.242",
+      "server_port": 194,
+      "password": "BxceQaOe",
+      "network": "tcp",
+      "tls": {
+        "insecure": true,
+        "enabled": true
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "🇭🇰 HK_324",
+      "server": "10cd2f16-sv2sg0-t7hu58-1q1la.hk3.p5pv.com",
+      "server_port": 80,
+      "uuid": "25b46954-9a33-11ee-8b86-f23c91cfbbc9",
+      "security": "auto",
+      "alter_id": 2,
+      "transport": {
+        "type": "ws",
+        "headers": {
+          "host": "broadcastlv.chat.bilibili.com"
+        },
+        "path": "/"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "🇭🇰HK-219.77.235.50-1213",
+      "server": "2e617951-sv2sg0-taj9mo-1tco3.hk3.p5pv.com",
+      "server_port": 80,
+      "uuid": "e29de954-ea01-11ef-a271-f23c91cfbbc9",
+      "security": "auto",
+      "alter_id": 2,
+      "transport": {
+        "type": "ws",
+        "headers": {
+          "host": "broadcastlv.chat.bilibili.com"
+        },
+        "path": "/"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "🇭🇰 HK_213",
+      "server": "a731a8b3-sv2sg0-sy1a0y-1iyov.hk3.p5pv.com",
+      "server_port": 80,
+      "uuid": "33629870-e57e-11ec-bb74-f23c9164ca5d",
+      "security": "auto",
+      "alter_id": 2,
+      "transport": {
+        "type": "ws",
+        "headers": {
+          "host": "broadcastlv.chat.bilibili.com"
+        },
+        "path": "/"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "🇭🇰 HK_210",
+      "server": "9d27188f-t00kg0-t9byd7-1jfvb.hk3.p5pv.com",
+      "server_port": 80,
+      "uuid": "06b2ac52-fcc6-11ec-bb74-f23c9164ca5d",
+      "security": "auto",
+      "alter_id": 2,
+      "transport": {
+        "type": "ws",
+        "headers": {
+          "host": "broadcastlv.chat.bilibili.com"
+        },
+        "path": "/"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "🇭🇰 HK_231",
+      "server": "360de725-sv4n40-t2y63q-1jk6u.hk3.p5pv.com",
+      "server_port": 80,
+      "uuid": "45bc25b2-1a10-11ed-91c0-f23c91cfbbc9",
+      "security": "auto",
+      "alter_id": 2,
+      "transport": {
+        "type": "ws",
+        "headers": {
+          "host": "broadcastlv.chat.bilibili.com"
+        },
+        "path": "/"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "🇭🇰HK-219.77.235.50-1223",
+      "server": "7f346235-sv4n40-t76x2i-wj6v.hk3.p5pv.com",
+      "server_port": 80,
+      "uuid": "847c03b2-0a9d-11eb-a8bf-f23c91cfbbc9",
+      "security": "auto",
+      "alter_id": 2,
+      "transport": {
+        "type": "ws",
+        "headers": {
+          "host": "broadcastlv.chat.bilibili.com"
+        },
+        "path": "/"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "🇭🇰HK-219.77.235.50-1226",
+      "server": "6dbaea45-sv0xs0-t9i7o2-1lt20.hk3.p5pv.com",
+      "server_port": 80,
+      "uuid": "bf4ec108-f2b7-11ef-b654-f23c91cfbbc9",
+      "security": "auto",
+      "alter_id": 2,
+      "transport": {
+        "type": "ws",
+        "headers": {
+          "host": "broadcastlv.chat.bilibili.com"
+        },
+        "path": "/"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "🇭🇰HK-219.77.235.50-1215",
+      "server": "00711758-sva740-tbrhck-1thqb.hk3.p5pv.com",
+      "server_port": 80,
+      "uuid": "4f4c6876-fcf6-11ef-94aa-f23c913c8d2b",
+      "security": "auto",
+      "alter_id": 2,
+      "transport": {
+        "type": "ws",
+        "headers": {
+          "host": "broadcastlv.chat.bilibili.com"
+        },
+        "path": "/"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "🇭🇰 HK_72",
+      "server": "d5dc60aa-t0kxs0-t1nwsn-1la2q.hk3.p5pv.com",
+      "server_port": 80,
+      "uuid": "431026c8-7397-11ed-a8bf-f23c91cfbbc9",
+      "security": "auto",
+      "alter_id": 2,
+      "transport": {
+        "type": "ws",
+        "headers": {
+          "host": "broadcastlv.chat.bilibili.com"
+        },
+        "path": "/"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "🇭🇰 HK_86",
+      "server": "f0364aea-t13gg0-t1rksu-1ssud.hk3.p5pv.com",
+      "server_port": 80,
+      "uuid": "e6aa39b6-f0b5-11ef-bca1-f23c91cfbbc9",
+      "security": "auto",
+      "alter_id": 2,
+      "transport": {
+        "type": "ws",
+        "headers": {
+          "host": "broadcastlv.chat.bilibili.com"
+        },
+        "path": "/"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "🇭🇰HK-219.77.235.50-1220",
+      "server": "4c2c02b9-sv2sg0-sv75lj-1swf9.hk3.p5pv.com",
+      "server_port": 80,
+      "uuid": "2bb1edc8-fa5d-11ef-9dd9-f23c9164ca5d",
+      "security": "auto",
+      "alter_id": 2,
+      "transport": {
+        "type": "ws",
+        "headers": {
+          "host": "broadcastlv.chat.bilibili.com"
+        },
+        "path": "/"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "🇭🇰HK-219.77.235.50-1224",
+      "server": "6bdf8f31-sv2sg0-tdh9w7-ahsb.hk3.p5pv.com",
+      "server_port": 80,
+      "uuid": "2e42c1ee-aaaa-11ec-bb74-f23c9164ca5d",
+      "security": "auto",
+      "alter_id": 2,
+      "transport": {
+        "type": "ws",
+        "headers": {
+          "host": "broadcastlv.chat.bilibili.com"
+        },
+        "path": "/"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "🇭🇰 HK_83",
+      "server": "64309899-t15b40-t2c3sq-1spnr.hk3.p5pv.com",
+      "server_port": 80,
+      "uuid": "127e3f92-f714-11ef-bbb0-f23c91cfbbc9",
+      "security": "auto",
+      "alter_id": 2,
+      "transport": {
+        "type": "ws",
+        "headers": {
+          "host": "broadcastlv.chat.bilibili.com"
+        },
+        "path": "/"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "🇺🇸_US_美国",
+      "server": "199.34.230.114",
+      "server_port": 2053,
+      "uuid": "b27e35a7-51f4-468e-8921-56a4901dd923",
+      "transport": {
+        "type": "ws",
+        "path": "/containers/de",
+        "headers": {
+          "Host": "om1.omidsuccess.uk"
+        }
+      },
+      "tls": {
+        "enabled": true,
+        "server_name": "om1.omidsuccess.uk",
+        "utls": {
+          "fingerprint": "chrome",
+          "enabled": true
+        }
+      }
+    },
+    {
+      "type": "shadowsocks",
+      "tag": "🇨🇳_CN_中国_1",
+      "server": "sl.fgmcx.top",
+      "server_port": 41047,
+      "method": "chacha20-ietf-poly1305",
+      "password": "014e90df-a3ee-4654-a9f6-d118e02dd02a"
+    },
+    {
+      "type": "vmess",
+      "tag": "🇭🇰HK-219.77.235.50-1229",
+      "server": "dfed4efb-t4n8g0-t636g9-luwe.hk3.p5pv.com",
+      "server_port": 80,
+      "uuid": "a2b0fd2b-716f-0df8-d4e2-03a1c00e5f1a",
+      "security": "auto",
+      "alter_id": 2,
+      "transport": {
+        "type": "ws",
+        "headers": {
+          "host": "broadcastlv.chat.bilibili.com"
+        },
+        "path": "/"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "🇭🇰HK-219.77.235.50-1214",
+      "server": "1dd7778a-sv4n40-szxh9w-46gc.hk3.p5pv.com",
+      "server_port": 80,
+      "uuid": "225d1cca-d744-11ef-b790-f23c91cfbbc9",
+      "security": "auto",
+      "alter_id": 2,
+      "transport": {
+        "type": "ws",
+        "headers": {
+          "host": "broadcastlv.chat.bilibili.com"
+        },
+        "path": "/"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "🇭🇰 HK_108",
+      "server": "45c56923-sucv40-tcop2n-tl32.hk3.p5pv.com",
+      "server_port": 80,
+      "uuid": "5c02ab88-7b9c-11ea-8fc9-f23c913c8d2b",
+      "security": "auto",
+      "alter_id": 2,
+      "transport": {
+        "type": "ws",
+        "headers": {
+          "host": "broadcastlv.chat.bilibili.com"
+        },
+        "path": "/"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "🇭🇰 HK_171",
+      "server": "b8ffcda3-sv2sg0-sv37gm-81nv.hk3.p5pv.com",
+      "server_port": 80,
+      "uuid": "47e91fb6-25b8-df52-bc18-3cdc8548192f",
+      "security": "auto",
+      "alter_id": 2,
+      "transport": {
+        "type": "ws",
+        "headers": {
+          "host": "broadcastlv.chat.bilibili.com"
+        },
+        "path": "/"
+      }
+    }
+  ],
+  "route": {
+    "auto_detect_interface": true,
+    "final": "Proxy",
+    "rules": [
+      {
+        "inbound": [
+          "tun-in",
+          "mixed-in"
+        ],
+        "action": "sniff"
+      },
+      {
+        "type": "logical",
+        "mode": "or",
+        "rules": [
+          {
+            "port": 53
+          },
+          {
+            "protocol": "dns"
+          }
+        ],
+        "action": "hijack-dns"
+      },
+      {
+        "rule_set": "geosite-category-ads-all",
+        "clash_mode": "rule",
+        "action": "reject"
+      },
+      {
+        "rule_set": "geosite-category-ads-all",
+        "clash_mode": "global",
+        "outbound": "Proxy"
+      },
+      {
+        "clash_mode": "direct",
+        "outbound": "direct"
+      },
+      {
+        "clash_mode": "global",
+        "outbound": "Proxy"
+      },
+      {
+        "domain": [
+          "clash.razord.top",
+          "yacd.metacubex.one",
+          "yacd.haishan.me",
+          "d.metacubex.one"
+        ],
+        "outbound": "direct"
+      },
+      {
+        "ip_is_private": true,
+        "outbound": "direct"
+      },
+      {
+        "rule_set": "geosite-openai",
+        "outbound": "OpenAI"
+      },
+      {
+        "rule_set": [
+          "geosite-youtube",
+          "geoip-google",
+          "geosite-google",
+          "geosite-github"
+        ],
+        "outbound": "Google"
+      },
+      {
+        "rule_set": [
+          "geoip-telegram",
+          "geosite-telegram"
+        ],
+        "outbound": "Telegram"
+      },
+      {
+        "rule_set": [
+          "geoip-twitter",
+          "geosite-twitter"
+        ],
+        "outbound": "Twitter"
+      },
+      {
+        "rule_set": [
+          "geoip-facebook",
+          "geosite-facebook"
+        ],
+        "outbound": "Facebook"
+      },
+      {
+        "rule_set": "geosite-bilibili",
+        "outbound": "BiliBili"
+      },
+      {
+        "rule_set": "geosite-bahamut",
+        "outbound": "Bahamut"
+      },
+      {
+        "rule_set": "geosite-spotify",
+        "outbound": "Spotify"
+      },
+      {
+        "rule_set": "geosite-tiktok",
+        "outbound": "TikTok"
+      },
+      {
+        "rule_set": [
+          "geoip-netflix",
+          "geosite-netflix"
+        ],
+        "outbound": "Netflix"
+      },
+      {
+        "rule_set": "geosite-disney",
+        "outbound": "Disney+"
+      },
+      {
+        "rule_set": [
+          "geoip-apple",
+          "geosite-apple",
+          "geosite-amazon"
+        ],
+        "outbound": "Apple"
+      },
+      {
+        "rule_set": "geosite-microsoft",
+        "outbound": "Microsoft"
+      },
+      {
+        "rule_set": [
+          "geosite-category-games",
+          "geosite-dmm"
+        ],
+        "outbound": "Games"
+      },
+      {
+        "rule_set": [
+          "geosite-hbo",
+          "geosite-primevideo"
+        ],
+        "outbound": "Streaming"
+      },
+      {
+        "rule_set": "geosite-geolocation-!cn",
+        "outbound": "Global"
+      },
+      {
+        "rule_set": [
+          "geoip-cn",
+          "geosite-cn"
+        ],
+        "outbound": "China"
+      }
+    ],
+    "rule_set": [
+      {
+        "tag": "geosite-category-ads-all",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/category-ads-all.srs",
+        "download_detour": "direct"
+      },
+      {
+        "tag": "geosite-openai",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://cdn.jsdelivr.net/gh/Toperlock/sing-box-geosite@main/rule/OpenAI.srs",
+        "download_detour": "direct"
+      },
+      {
+        "tag": "geosite-youtube",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/youtube.srs",
+        "download_detour": "direct"
+      },
+      {
+        "tag": "geoip-google",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geoip/google.srs",
+        "download_detour": "direct"
+      },
+      {
+        "tag": "geosite-google",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/google.srs",
+        "download_detour": "direct"
+      },
+      {
+        "tag": "geosite-github",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/github.srs",
+        "download_detour": "direct"
+      },
+      {
+        "tag": "geoip-telegram",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geoip/telegram.srs",
+        "download_detour": "direct"
+      },
+      {
+        "tag": "geosite-telegram",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/telegram.srs",
+        "download_detour": "direct"
+      },
+      {
+        "tag": "geoip-twitter",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geoip/twitter.srs",
+        "download_detour": "direct"
+      },
+      {
+        "tag": "geosite-twitter",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/twitter.srs",
+        "download_detour": "direct"
+      },
+      {
+        "tag": "geoip-facebook",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geoip/facebook.srs",
+        "download_detour": "direct"
+      },
+      {
+        "tag": "geosite-facebook",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/facebook.srs",
+        "download_detour": "direct"
+      },
+      {
+        "tag": "geosite-bilibili",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/bilibili.srs",
+        "download_detour": "direct"
+      },
+      {
+        "tag": "geosite-bahamut",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/bahamut.srs",
+        "download_detour": "direct"
+      },
+      {
+        "tag": "geosite-spotify",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/spotify.srs",
+        "download_detour": "direct"
+      },
+      {
+        "tag": "geosite-tiktok",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/tiktok.srs",
+        "download_detour": "direct"
+      },
+      {
+        "tag": "geoip-netflix",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geoip/netflix.srs",
+        "download_detour": "direct"
+      },
+      {
+        "tag": "geosite-netflix",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/netflix.srs",
+        "download_detour": "direct"
+      },
+      {
+        "tag": "geosite-disney",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/disney.srs",
+        "download_detour": "direct"
+      },
+      {
+        "tag": "geoip-apple",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo-lite/geoip/apple.srs",
+        "download_detour": "direct"
+      },
+      {
+        "tag": "geosite-apple",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/apple.srs",
+        "download_detour": "direct"
+      },
+      {
+        "tag": "geosite-amazon",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/amazon.srs",
+        "download_detour": "direct"
+      },
+      {
+        "tag": "geosite-microsoft",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/microsoft.srs",
+        "download_detour": "direct"
+      },
+      {
+        "tag": "geosite-category-games",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/category-games.srs",
+        "download_detour": "direct"
+      },
+      {
+        "tag": "geosite-dmm",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/dmm.srs",
+        "download_detour": "direct"
+      },
+      {
+        "tag": "geosite-hbo",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/hbo.srs",
+        "download_detour": "direct"
+      },
+      {
+        "tag": "geosite-primevideo",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/primevideo.srs",
+        "download_detour": "direct"
+      },
+      {
+        "tag": "geosite-geolocation-!cn",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/geolocation-!cn.srs",
+        "download_detour": "direct"
+      },
+      {
+        "tag": "geoip-cn",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geoip/cn.srs",
+        "download_detour": "direct"
+      },
+      {
+        "tag": "geosite-cn",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/cn.srs",
+        "download_detour": "direct"
+      }
+    ]
+  }
+}
