@@ -1,4 +1,4 @@
-# 「11月3日」最高速度18M/S，2025年Clsah Verge每天更新免费节点订阅地址  更新时间 2025-11-03 08:52:46
+# 「11月9日」最高速度18.9M/S，2025年Clsah Verge每天更新免费节点订阅地址  更新时间 2025-11-09 08:28:22
 所有免费clash节点都爬取自网络，请勿用于非法用途 。节点地址：<a href="https://clashvergerev.github.io" target="_blank">点击跳转</a>
 
 ## clash使用教程：
@@ -9,23 +9,23 @@
 
 ### 免费Clash节点订阅链接
 
-- https://clashvergerev.github.io/uploads/2025/11/0-20251103.yaml
-- https://clashvergerev.github.io/uploads/2025/11/1-20251103.yaml
-- https://clashvergerev.github.io/uploads/2025/11/2-20251103.yaml
-- https://clashvergerev.github.io/uploads/2025/11/3-20251103.yaml
-- https://clashvergerev.github.io/uploads/2025/11/4-20251103.yaml
+- https://clashvergerev.github.io/uploads/2025/11/0-20251109.yaml
+- https://clashvergerev.github.io/uploads/2025/11/1-20251109.yaml
+- https://clashvergerev.github.io/uploads/2025/11/2-20251109.yaml
+- https://clashvergerev.github.io/uploads/2025/11/3-20251109.yaml
+- https://clashvergerev.github.io/uploads/2025/11/4-20251109.yaml
 
 ### 免费V2ray节点订阅链接
 
-- https://clashvergerev.github.io/uploads/2025/11/0-20251103.txt
-- https://clashvergerev.github.io/uploads/2025/11/1-20251103.txt
-- https://clashvergerev.github.io/uploads/2025/11/2-20251103.txt
-- https://clashvergerev.github.io/uploads/2025/11/3-20251103.txt
-- https://clashvergerev.github.io/uploads/2025/11/4-20251103.txt
+- https://clashvergerev.github.io/uploads/2025/11/0-20251109.txt
+- https://clashvergerev.github.io/uploads/2025/11/1-20251109.txt
+- https://clashvergerev.github.io/uploads/2025/11/2-20251109.txt
+- https://clashvergerev.github.io/uploads/2025/11/3-20251109.txt
+- https://clashvergerev.github.io/uploads/2025/11/4-20251109.txt
 
 ### 免费Sing-box节点订阅链接
 
-- https://clashvergerev.github.io/uploads/2025/11/20251103.json
+- https://clashvergerev.github.io/uploads/2025/11/20251109.json
 
 ## 更多Clash节点订阅 ：
 

@@ -1,0 +1,487 @@
+# ;不要随意改变关键字，否则会导致出错
+# ;acl4SSR规则
+# ;去广告：支持
+# ;自动测速：支持
+# ;微软分流：不支持
+# ;苹果分流：不支持
+# ;增强中国IP段：不支持
+# ;增强国外GFW：不支持
+# ;ruleset=🎯 全球直连,[]GEOIP,LAN
+
+mixed-port: 7890
+allow-lan: false
+mode: rule
+ipv6: false
+log-level: info
+external-controller: 0.0.0.0:9090
+dns:
+  enable: true
+  listen: 0.0.0.0:53
+  ipv6: false
+  default-nameserver:
+    - 223.5.5.5
+    - 114.114.114.114
+  nameserver:
+    - 223.5.5.5
+    - 114.114.114.114
+    - 119.29.29.29
+    - 180.76.76.76
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  fake-ip-filter:
+    - "*.lan"
+    - "*.localdomain"
+    - "*.example"
+    - "*.invalid"
+    - "*.localhost"
+    - "*.test"
+    - "*.local"
+    - "*.home.arpa"
+    - router.asus.com
+    - localhost.sec.qq.com
+    - localhost.ptlogin2.qq.com
+    - +.msftconnecttest.com
+tun:
+  enable: true
+  stack: system
+  auto-route: true
+  auto-detect-interface: true
+  dns-hijack:
+    - 114.114.114.114
+    - 180.76.76.76
+    - 119.29.29.29
+    - 223.5.5.5
+    - 8.8.8.8
+    - 8.8.4.4
+    - 1.1.1.1
+    - 1.0.0.1
+
+
+proxies:
+  - type: trojan
+    name: 🇨🇳_CN_中国
+    server: oss-cn-shanghai.letssepub.com
+    port: 20021
+    password: adbac894-90b9-4913-b77e-a715a8d4ebc8
+    network: tcp
+    sni: dingding-doc.com
+  - type: trojan
+    name: 🇨🇳_CN_中国_1
+    server: 36.150.215.137
+    port: 5156
+    password: BxceQaOe
+    network: tcp
+    sni: t.me/ripaojiedian
+    skip-cert-verify: true
+  - type: vmess
+    name: 🇸🇬SG²_1|4.1MB/s|GPT⁺|YT|NF|GM|7%
+    server: xcsgp.cokecloud.top
+    port: 25878
+    uuid: 16bdb787-7a82-4e35-a7a3-e0821b3a50bf
+    alterId: 0
+    network: tcp
+    cipher: auto
+  - type: trojan
+    name: 🇨🇳_CN_中国_2
+    server: 36.150.215.231
+    port: 1655
+    password: BxceQaOe
+    network: tcp
+    sni: t.me/ripaojiedian
+    skip-cert-verify: true
+  - type: ss
+    name: 🇨🇳_CN_中国_3
+    server: cokecloudjp.cokecloud.top
+    port: 13215
+    cipher: chacha20-ietf-poly1305
+    password: 16bdb787-7a82-4e35-a7a3-e0821b3a50bf
+  - type: vmess
+    name: 🇭🇰HK²_2|1.4MB/s|GPT⁺|YT|NF|D+|GM|0%|KeepSucced
+    server: xctransfer1st.cokecloud.top
+    port: 12672
+    uuid: 16bdb787-7a82-4e35-a7a3-e0821b3a50bf
+    alterId: 0
+    network: tcp
+    cipher: auto
+  - type: hysteria
+    name: 🇫🇷_FR_法国
+    server: 195.154.200.40
+    port: 15010
+    auth-str: dongtaiwang.com
+    protocol: udp
+    sni: apple.com
+    up: "100"
+    down: "100"
+    skip-cert-verify: true
+    alpn:
+      - h3
+  - type: vmess
+    name: 🇭🇰HK²_5|7.5MB/s|GPT⁺|YT|NF|D+|2%
+    server: a05447bd-t5d5s0-t6z0et-1t60o.hk3.p5pv.com
+    port: 80
+    uuid: ce481c6e-f4c8-11ef-bbb0-f23c91cfbbc9
+    alterId: 2
+    network: ws
+    cipher: auto
+    servername: broadcastlv.chat.bilibili.com
+    ws-opts:
+      path: /
+      headers:
+        Host: broadcastlv.chat.bilibili.com
+  - type: vmess
+    name: 🇹🇼TW²_1|1.2MB/s|GPT⁺|YT|NF|GM|25%|KeepSucced
+    server: xdtw.cokecloud.top
+    port: 13255
+    uuid: 16bdb787-7a82-4e35-a7a3-e0821b3a50bf
+    alterId: 0
+    network: tcp
+    cipher: auto
+  - type: ss
+    name: 🇨🇳_CN_中国_4
+    server: idtf.cokecloud.top
+    port: 32725
+    cipher: chacha20-ietf-poly1305
+    password: 16bdb787-7a82-4e35-a7a3-e0821b3a50bf
+  - type: vmess
+    name: 🇭🇰HK²_2|2.5MB/s|GPT⁺|YT|NF|GM|7%
+    server: xctransfer1st.cokecloud.top
+    port: 44489
+    uuid: 16bdb787-7a82-4e35-a7a3-e0821b3a50bf
+    alterId: 0
+    network: tcp
+    cipher: auto
+  - type: ss
+    name: 🇨🇳_CN_中国_5
+    server: xdtw.cokecloud.top
+    port: 21073
+    cipher: chacha20-ietf-poly1305
+    password: 16bdb787-7a82-4e35-a7a3-e0821b3a50bf
+  - type: trojan
+    name: 🇨🇳_CN_中国_6
+    server: 36.150.215.137
+    port: 9713
+    password: BxceQaOe
+    network: tcp
+    sni: t.me/ripaojiedian
+    skip-cert-verify: true
+  - type: trojan
+    name: 🇨🇳_CN_中国_7
+    server: 117.172.176.23
+    port: 316
+    password: e4e262d453466988575c397a30562337
+    network: tcp
+    sni: www.nintendogames.net
+  - type: vmess
+    name: 🇭🇰HK²_8|6.8MB/s|GPT⁺|YT|NF|D+|GM|8%|KeepHistory
+    server: xctransfer1st.cokecloud.top
+    port: 45861
+    uuid: 16bdb787-7a82-4e35-a7a3-e0821b3a50bf
+    alterId: 0
+    network: tcp
+    cipher: auto
+  - type: hysteria
+    name: 🇺🇸_US_美国
+    server: 51.159.226.1
+    port: 49003
+    auth-str: dongtaiwang.com
+    protocol: udp
+    sni: apple.com
+    up: "11"
+    down: "55"
+    skip-cert-verify: true
+    alpn:
+      - h3
+  - type: hysteria2
+    name: 🇰🇷_KR_韩国
+    server: 6bkr1.6bnw.top
+    port: 10100
+    password: 4a6bf640-5c5e-41d3-8078-89a12174cf57
+    skip-cert-verify: true
+    sni: 6bkr1.6bnw.top
+  - type: vmess
+    name: 🇸🇬SG²_2|1.4MB/s|GPT⁺|YT|NF|D+|GM|7%|KeepSucced
+    server: xcsgp.cokecloud.top
+    port: 10420
+    uuid: 16bdb787-7a82-4e35-a7a3-e0821b3a50bf
+    alterId: 0
+    network: tcp
+    cipher: auto
+  - type: ss
+    name: 🇨🇳_CN_中国_8
+    server: cokecloudjp.cokecloud.top
+    port: 43291
+    cipher: chacha20-ietf-poly1305
+    password: 16bdb787-7a82-4e35-a7a3-e0821b3a50bf
+  - type: vmess
+    name: 🇭🇰HK²_6|7.1MB/s|GPT⁺|YT|NF|D+|GM|8%|KeepHistory
+    server: xctransfer1st.cokecloud.top
+    port: 38630
+    uuid: 16bdb787-7a82-4e35-a7a3-e0821b3a50bf
+    alterId: 0
+    network: tcp
+    cipher: auto
+  - type: vmess
+    name: 🇭🇰HK²_3|4.3MB/s|GPT⁺|YT|NF|D+|GM|8%
+    server: xctransfer1st.cokecloud.top
+    port: 33575
+    uuid: 16bdb787-7a82-4e35-a7a3-e0821b3a50bf
+    alterId: 0
+    network: tcp
+    cipher: auto
+  - type: ss
+    name: 🇨🇳_CN_中国_9
+    server: cokecloudjp.cokecloud.top
+    port: 40793
+    cipher: chacha20-ietf-poly1305
+    password: 16bdb787-7a82-4e35-a7a3-e0821b3a50bf
+  - type: vmess
+    name: 🇭🇰HK²_10|6.4MB/s|GPT⁺|YT|NF|D+|8%|KeepHistory
+    server: xctransfer1st.cokecloud.top
+    port: 45449
+    uuid: 16bdb787-7a82-4e35-a7a3-e0821b3a50bf
+    alterId: 0
+    network: tcp
+    cipher: auto
+  - type: vmess
+    name: 🇭🇰HK²_4|1.0MB/s|GPT⁺|YT|NF|D+|GM|7%|KeepSucced
+    server: xctransfer1st.cokecloud.top
+    port: 21552
+    uuid: 16bdb787-7a82-4e35-a7a3-e0821b3a50bf
+    alterId: 0
+    network: tcp
+    cipher: auto
+  - type: vless
+    name: 🇺🇸_US_美国_1
+    server: www.wto.org
+    port: 2095
+    uuid: 86c50e3a-5b87-49dd-bd20-03c7f2735e40
+    network: ws
+    servername: fuckingfangbinxing.pusytroller.cf
+    ws-opts:
+      path: /
+      headers:
+        Host: fuckingfangbinxing.pusytroller.cf
+  - type: vmess
+    name: 🇭🇰HK-203.198.28.145-1002
+    server: aflzzul.meiquankongjian.com
+    port: 52513
+    uuid: 342bacfd-2b8f-3f49-a16e-439db5b0b9d5
+    alterId: 0
+    network: ws
+    cipher: auto
+    servername: aflzzul.meiquankongjian.com
+    ws-opts:
+      path: /564dfa20/
+      headers:
+        Host: aflzzul.meiquankongjian.com
+  - type: ss
+    name: 🇨🇳_CN_中国_10
+    server: hg02.gnzzrk001.top
+    port: 12036
+    cipher: chacha20-ietf-poly1305
+    password: dc9ea653-becc-44f1-95f9-16773a0519e9
+  - type: trojan
+    name: 🇨🇳_CN_中国_11
+    server: 36.150.215.245
+    port: 9269
+    password: BxceQaOe
+    network: tcp
+    sni: t.me/ripaojiedian
+    skip-cert-verify: true
+  - type: hysteria2
+    name: 🇷🇺_RU_俄罗斯
+    server: kr2.jueduibupao.top
+    port: 30000
+    password: 4a6bf640-5c5e-41d3-8078-89a12174cf57
+    skip-cert-verify: true
+    sni: kr2.jueduibupao.top
+proxy-groups:
+  - name: 🚀 节点选择
+    type: select
+    proxies:
+      - ♻️ 自动选择
+      - DIRECT
+      - 🇨🇳_CN_中国
+      - 🇨🇳_CN_中国_1
+      - 🇸🇬SG²_1|4.1MB/s|GPT⁺|YT|NF|GM|7%
+      - 🇨🇳_CN_中国_2
+      - 🇨🇳_CN_中国_3
+      - 🇭🇰HK²_2|1.4MB/s|GPT⁺|YT|NF|D+|GM|0%|KeepSucced
+      - 🇫🇷_FR_法国
+      - 🇭🇰HK²_5|7.5MB/s|GPT⁺|YT|NF|D+|2%
+      - 🇹🇼TW²_1|1.2MB/s|GPT⁺|YT|NF|GM|25%|KeepSucced
+      - 🇨🇳_CN_中国_4
+      - 🇭🇰HK²_2|2.5MB/s|GPT⁺|YT|NF|GM|7%
+      - 🇨🇳_CN_中国_5
+      - 🇨🇳_CN_中国_6
+      - 🇨🇳_CN_中国_7
+      - 🇭🇰HK²_8|6.8MB/s|GPT⁺|YT|NF|D+|GM|8%|KeepHistory
+      - 🇺🇸_US_美国
+      - 🇰🇷_KR_韩国
+      - 🇸🇬SG²_2|1.4MB/s|GPT⁺|YT|NF|D+|GM|7%|KeepSucced
+      - 🇨🇳_CN_中国_8
+      - 🇭🇰HK²_6|7.1MB/s|GPT⁺|YT|NF|D+|GM|8%|KeepHistory
+      - 🇭🇰HK²_3|4.3MB/s|GPT⁺|YT|NF|D+|GM|8%
+      - 🇨🇳_CN_中国_9
+      - 🇭🇰HK²_10|6.4MB/s|GPT⁺|YT|NF|D+|8%|KeepHistory
+      - 🇭🇰HK²_4|1.0MB/s|GPT⁺|YT|NF|D+|GM|7%|KeepSucced
+      - 🇺🇸_US_美国_1
+      - 🇭🇰HK-203.198.28.145-1002
+      - 🇨🇳_CN_中国_10
+      - 🇨🇳_CN_中国_11
+      - 🇷🇺_RU_俄罗斯
+  - name: ♻️ 自动选择
+    type: url-test
+    proxies:
+      - 🇨🇳_CN_中国
+      - 🇨🇳_CN_中国_1
+      - 🇸🇬SG²_1|4.1MB/s|GPT⁺|YT|NF|GM|7%
+      - 🇨🇳_CN_中国_2
+      - 🇨🇳_CN_中国_3
+      - 🇭🇰HK²_2|1.4MB/s|GPT⁺|YT|NF|D+|GM|0%|KeepSucced
+      - 🇫🇷_FR_法国
+      - 🇭🇰HK²_5|7.5MB/s|GPT⁺|YT|NF|D+|2%
+      - 🇹🇼TW²_1|1.2MB/s|GPT⁺|YT|NF|GM|25%|KeepSucced
+      - 🇨🇳_CN_中国_4
+      - 🇭🇰HK²_2|2.5MB/s|GPT⁺|YT|NF|GM|7%
+      - 🇨🇳_CN_中国_5
+      - 🇨🇳_CN_中国_6
+      - 🇨🇳_CN_中国_7
+      - 🇭🇰HK²_8|6.8MB/s|GPT⁺|YT|NF|D+|GM|8%|KeepHistory
+      - 🇺🇸_US_美国
+      - 🇰🇷_KR_韩国
+      - 🇸🇬SG²_2|1.4MB/s|GPT⁺|YT|NF|D+|GM|7%|KeepSucced
+      - 🇨🇳_CN_中国_8
+      - 🇭🇰HK²_6|7.1MB/s|GPT⁺|YT|NF|D+|GM|8%|KeepHistory
+      - 🇭🇰HK²_3|4.3MB/s|GPT⁺|YT|NF|D+|GM|8%
+      - 🇨🇳_CN_中国_9
+      - 🇭🇰HK²_10|6.4MB/s|GPT⁺|YT|NF|D+|8%|KeepHistory
+      - 🇭🇰HK²_4|1.0MB/s|GPT⁺|YT|NF|D+|GM|7%|KeepSucced
+      - 🇺🇸_US_美国_1
+      - 🇭🇰HK-203.198.28.145-1002
+      - 🇨🇳_CN_中国_10
+      - 🇨🇳_CN_中国_11
+      - 🇷🇺_RU_俄罗斯
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+  - name: 🎯 全球直连
+    type: select
+    proxies:
+      - DIRECT
+      - 🚀 节点选择
+      - ♻️ 自动选择
+  - name: 🛑 全球拦截
+    type: select
+    proxies:
+      - REJECT
+      - DIRECT
+  - name: 🐟 漏网之鱼
+    type: select
+    proxies:
+      - 🚀 节点选择
+      - 🎯 全球直连
+      - ♻️ 自动选择
+      - 🇨🇳_CN_中国
+      - 🇨🇳_CN_中国_1
+      - 🇸🇬SG²_1|4.1MB/s|GPT⁺|YT|NF|GM|7%
+      - 🇨🇳_CN_中国_2
+      - 🇨🇳_CN_中国_3
+      - 🇭🇰HK²_2|1.4MB/s|GPT⁺|YT|NF|D+|GM|0%|KeepSucced
+      - 🇫🇷_FR_法国
+      - 🇭🇰HK²_5|7.5MB/s|GPT⁺|YT|NF|D+|2%
+      - 🇹🇼TW²_1|1.2MB/s|GPT⁺|YT|NF|GM|25%|KeepSucced
+      - 🇨🇳_CN_中国_4
+      - 🇭🇰HK²_2|2.5MB/s|GPT⁺|YT|NF|GM|7%
+      - 🇨🇳_CN_中国_5
+      - 🇨🇳_CN_中国_6
+      - 🇨🇳_CN_中国_7
+      - 🇭🇰HK²_8|6.8MB/s|GPT⁺|YT|NF|D+|GM|8%|KeepHistory
+      - 🇺🇸_US_美国
+      - 🇰🇷_KR_韩国
+      - 🇸🇬SG²_2|1.4MB/s|GPT⁺|YT|NF|D+|GM|7%|KeepSucced
+      - 🇨🇳_CN_中国_8
+      - 🇭🇰HK²_6|7.1MB/s|GPT⁺|YT|NF|D+|GM|8%|KeepHistory
+      - 🇭🇰HK²_3|4.3MB/s|GPT⁺|YT|NF|D+|GM|8%
+      - 🇨🇳_CN_中国_9
+      - 🇭🇰HK²_10|6.4MB/s|GPT⁺|YT|NF|D+|8%|KeepHistory
+      - 🇭🇰HK²_4|1.0MB/s|GPT⁺|YT|NF|D+|GM|7%|KeepSucced
+      - 🇺🇸_US_美国_1
+      - 🇭🇰HK-203.198.28.145-1002
+      - 🇨🇳_CN_中国_10
+      - 🇨🇳_CN_中国_11
+      - 🇷🇺_RU_俄罗斯
+rule-providers:
+  LocalAreaNetwork:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/LocalAreaNetwork.list
+    path: ./rules/providers/LocalAreaNetwork.list
+    interval: 86400
+  BanAD:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanAD.list
+    path: ./rules/providers/BanAD.list
+    interval: 86400
+  BanProgramAD:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanProgramAD.list
+    path: ./rules/providers/BanProgramAD.list
+    interval: 86400
+  GoogleCN:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/GoogleCN.list
+    path: ./rules/providers/GoogleCN.list
+    interval: 86400
+  SteamCN:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/SteamCN.list
+    path: ./rules/providers/SteamCN.list
+    interval: 86400
+  Telegram:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Telegram.list
+    path: ./rules/providers/Telegram.list
+    interval: 86400
+  ProxyMedia:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ProxyMedia.list
+    path: ./rules/providers/ProxyMedia.list
+    interval: 86400
+  ProxyLite:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ProxyLite.list
+    path: ./rules/providers/ProxyLite.list
+    interval: 86400
+  ChinaDomain:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaDomain.list
+    path: ./rules/providers/ChinaDomain.list
+    interval: 86400
+  ChinaCompanyIp:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaCompanyIp.list
+    path: ./rules/providers/ChinaCompanyIp.list
+    interval: 86400
+
+rules:
+  - RULE-SET,LocalAreaNetwork,🎯 全球直连
+  - RULE-SET,BanAD,🛑 全球拦截
+  - RULE-SET,BanProgramAD,🛑 全球拦截
+  - RULE-SET,GoogleCN,🎯 全球直连
+  - RULE-SET,SteamCN,🎯 全球直连
+  - RULE-SET,Telegram,🚀 节点选择
+  - RULE-SET,ProxyMedia,🚀 节点选择
+  - RULE-SET,ProxyLite,🚀 节点选择
+  - RULE-SET,ChinaDomain,🎯 全球直连
+  - RULE-SET,ChinaCompanyIp,🎯 全球直连
+  - GEOIP,CN,🎯 全球直连
+  - MATCH,🐟 漏网之鱼

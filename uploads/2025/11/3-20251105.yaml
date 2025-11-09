@@ -1,0 +1,255 @@
+mixed-port: 7890
+allow-lan: false
+mode: rule
+ipv6: false
+log-level: info
+external-controller: 0.0.0.0:9090
+dns:
+  enable: true
+  listen: 0.0.0.0:53
+  ipv6: false
+  default-nameserver:
+    - 223.5.5.5
+    - 114.114.114.114
+  nameserver:
+    - 223.5.5.5
+    - 114.114.114.114
+    - 119.29.29.29
+    - 180.76.76.76
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  fake-ip-filter:
+    - "*.lan"
+    - "*.localdomain"
+    - "*.example"
+    - "*.invalid"
+    - "*.localhost"
+    - "*.test"
+    - "*.local"
+    - "*.home.arpa"
+    - router.asus.com
+    - localhost.sec.qq.com
+    - localhost.ptlogin2.qq.com
+    - +.msftconnecttest.com
+tun:
+  enable: true
+  stack: system
+  auto-route: true
+  auto-detect-interface: true
+  dns-hijack:
+    - 114.114.114.114
+    - 180.76.76.76
+    - 119.29.29.29
+    - 223.5.5.5
+    - 8.8.8.8
+    - 8.8.4.4
+    - 1.1.1.1
+    - 1.0.0.1
+
+
+proxies:
+  - type: trojan
+    name: 🇨🇳_CN_中国
+    server: oss-cn-shanghai.letssepub.com
+    port: 20021
+    password: adbac894-90b9-4913-b77e-a715a8d4ebc8
+    network: tcp
+    sni: dingding-doc.com
+    tls: true
+  - type: trojan
+    name: 🇨🇳_CN_中国_1
+    server: 36.151.192.242
+    port: 194
+    password: BxceQaOe
+    network: tcp
+    skip-cert-verify: true
+  - type: trojan
+    name: 🇨🇳_CN_中国_2
+    server: 36.151.192.242
+    port: 4556
+    password: BxceQaOe
+    network: tcp
+    skip-cert-verify: true
+  - type: trojan
+    name: 🇨🇳_CN_中国_3
+    server: 36.150.215.239
+    port: 24392
+    password: BxceQaOe
+    network: tcp
+    skip-cert-verify: true
+  - type: trojan
+    name: 🇨🇳_CN_中国_4
+    server: 36.150.215.239
+    port: 53743
+    password: BxceQaOe
+    network: tcp
+    skip-cert-verify: true
+  - type: vmess
+    name: 🇩🇪 德国 33
+    server: 185.146.173.16
+    port: 80
+    uuid: d967ffca-de90-4daa-bd00-d527e5bae11f
+    alterId: 0
+    network: ws
+    cipher: auto
+    servername: google.whatsapp.snapp.torob.basalam.leoshopping77.ir.
+    ws-opts:
+      path: /?BIA_TELEGRAM (@AZARBAYJAB1) TM (@AZARBAYJAB1) TM (@AZARBAYJAB1) TM
+        (@AZARBAYJAB1) TM (@AZARBAYJAB1) TM (@AZARBAYJAB1)
+      headers:
+        Host: google.whatsapp.snapp.torob.basalam.leoshopping77.ir.
+  - type: vmess
+    name: 🇩🇪 德国 33_1
+    server: 141.101.121.250
+    port: 80
+    uuid: d967ffca-de90-4daa-bd00-d527e5bae11f
+    alterId: 0
+    network: ws
+    cipher: auto
+    servername: google.whatsapp.snapp.torob.basalam.leoshopping77.ir.
+    ws-opts:
+      path: /?BIA_TELEGRAM (@AZARBAYJAB1) TM (@AZARBAYJAB1) TM (@AZARBAYJAB1) TM
+        (@AZARBAYJAB1) TM (@AZARBAYJAB1) TM (@AZARBAYJAB1)
+      headers:
+        Host: google.whatsapp.snapp.torob.basalam.leoshopping77.ir.
+  - type: trojan
+    name: 🇺🇸_US_美国_2
+    server: www.digitalocean.com
+    port: 443
+    password: trojan
+    network: ws
+    sni: azadnet-9ya.pages.dev
+    fingerprint: random
+    tls: true
+    ws-opts:
+      path: /?ed=2560
+      headers:
+        Host: azadnet-9ya.pages.dev
+  - type: vmess
+    name: 🇩🇪 德国 26
+    server: 185.146.173.117
+    port: 80
+    uuid: d967ffca-de90-4daa-bd00-d527e5bae11f
+    alterId: 0
+    network: ws
+    cipher: auto
+    servername: google.whatsapp.snapp.torob.basalam.leoshopping77.ir.
+    ws-opts:
+      path: /?BIA_TELEGRAM (@AZARBAYJAB1) TM (@AZARBAYJAB1) TM (@AZARBAYJAB1) TM
+        (@AZARBAYJAB1) TM (@AZARBAYJAB1) TM (@AZARBAYJAB1)
+      headers:
+        Host: google.whatsapp.snapp.torob.basalam.leoshopping77.ir.
+  - type: vmess
+    name: 🇺🇸 美国 CloudFlare节点
+    server: 104.18.240.238
+    port: 80
+    uuid: d967ffca-de90-4daa-bd00-d527e5bae11f
+    alterId: 0
+    network: ws
+    cipher: auto
+    servername: google.whatsapp.snapp.torob.basalam.leoshopping77.ir.
+    ws-opts:
+      path: /?BIA_TELEGRAM (@AZARBAYJAB1) TM (@AZARBAYJAB1) TM (@AZARBAYJAB1) TM
+        (@AZARBAYJAB1) TM (@AZARBAYJAB1) TM (@AZARBAYJAB1)
+      headers:
+        Host: google.whatsapp.snapp.torob.basalam.leoshopping77.ir.
+  - type: ss
+    name: 🇨🇳_CN_中国_7
+    server: 103.36.91.32
+    port: 8388
+    cipher: chacha20-ietf
+    password: asd123456
+  - type: trojan
+    name: 🇺🇸_US_美国_13
+    server: ip.sb
+    port: 443
+    password: trojan
+    network: ws
+    sni: nixian.pages.dev
+    fingerprint: random
+    tls: true
+    ws-opts:
+      path: /?ed=2560/?Join-sho--Telegram--VITUREY-Join-sho--Telegram--VITUREY-Join-sho--Telegram--VITUREY-Join-sho--Telegram--VITUREY-Join-sho--Telegram--VITUREY-Join-sho--Telegram--VITUREY-Join-sho--Telegram--VITUREY-Join-sho--Telegram--VITUREY-Join-sho--Telegram--VITUREY-Join-sho--Telegram--VITUREY-Join-sho--Telegram--VITUREY-
+      headers:
+        Host: nixian.pages.dev
+  - type: vmess
+    name: 🇩🇪 德国 18
+    server: 185.146.173.24
+    port: 80
+    uuid: d967ffca-de90-4daa-bd00-d527e5bae11f
+    alterId: 0
+    network: ws
+    cipher: auto
+    servername: google.whatsapp.snapp.torob.basalam.leoshopping77.ir.
+    ws-opts:
+      path: /?BIA_TELEGRAM (@AZARBAYJAB1) TM (@AZARBAYJAB1) TM (@AZARBAYJAB1) TM
+        (@AZARBAYJAB1) TM (@AZARBAYJAB1) TM (@AZARBAYJAB1)
+      headers:
+        Host: google.whatsapp.snapp.torob.basalam.leoshopping77.ir.
+proxy-groups:
+  - name: 🚀 节点选择
+    type: select
+    proxies:
+      - ♻️ 自动选择
+      - DIRECT
+      - 🇨🇳_CN_中国
+      - 🇨🇳_CN_中国_1
+      - 🇨🇳_CN_中国_2
+      - 🇨🇳_CN_中国_3
+      - 🇨🇳_CN_中国_4
+      - 🇩🇪 德国 33
+      - 🇩🇪 德国 33_1
+      - 🇺🇸_US_美国_2
+      - 🇩🇪 德国 26
+      - 🇺🇸 美国 CloudFlare节点
+      - 🇨🇳_CN_中国_7
+      - 🇺🇸_US_美国_13
+      - 🇩🇪 德国 18
+  - name: ♻️ 自动选择
+    type: url-test
+    proxies:
+      - 🇨🇳_CN_中国
+      - 🇨🇳_CN_中国_1
+      - 🇨🇳_CN_中国_2
+      - 🇨🇳_CN_中国_3
+      - 🇨🇳_CN_中国_4
+      - 🇩🇪 德国 33
+      - 🇩🇪 德国 33_1
+      - 🇺🇸_US_美国_2
+      - 🇩🇪 德国 26
+      - 🇺🇸 美国 CloudFlare节点
+      - 🇨🇳_CN_中国_7
+      - 🇺🇸_US_美国_13
+      - 🇩🇪 德国 18
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+  - name: 🎯 全球直连
+    type: select
+    proxies:
+      - DIRECT
+      - 🚀 节点选择
+      - ♻️ 自动选择
+  - name: 🛑 全球拦截
+    type: select
+    proxies:
+      - REJECT
+      - DIRECT
+  - name: 🐟 漏网之鱼
+    type: select
+    proxies:
+      - 🚀 节点选择
+      - 🎯 全球直连
+      - ♻️ 自动选择
+      - 🇨🇳_CN_中国
+      - 🇨🇳_CN_中国_1
+      - 🇨🇳_CN_中国_2
+      - 🇨🇳_CN_中国_3
+      - 🇨🇳_CN_中国_4
+      - 🇩🇪 德国 33
+      - 🇩🇪 德国 33_1
+      - 🇺🇸_US_美国_2
+      - 🇩🇪 德国 26
+      - 🇺🇸 美国 CloudFlare节点
+      - 🇨🇳_CN_中国_7
+      - 🇺🇸_US_美国_13
+      - 🇩🇪 德国 18

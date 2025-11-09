@@ -1,0 +1,458 @@
+# ;不要随意改变关键字，否则会导致出错
+# ;acl4SSR规则
+# ;去广告：支持
+# ;自动测速：支持
+# ;微软分流：不支持
+# ;苹果分流：不支持
+# ;增强中国IP段：不支持
+# ;增强国外GFW：不支持
+# ;ruleset=🎯 全球直连,[]GEOIP,LAN
+
+mixed-port: 7890
+allow-lan: false
+mode: rule
+ipv6: false
+log-level: info
+external-controller: 0.0.0.0:9090
+dns:
+  enable: true
+  listen: 0.0.0.0:53
+  ipv6: false
+  default-nameserver:
+    - 223.5.5.5
+    - 114.114.114.114
+  nameserver:
+    - 223.5.5.5
+    - 114.114.114.114
+    - 119.29.29.29
+    - 180.76.76.76
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  fake-ip-filter:
+    - "*.lan"
+    - "*.localdomain"
+    - "*.example"
+    - "*.invalid"
+    - "*.localhost"
+    - "*.test"
+    - "*.local"
+    - "*.home.arpa"
+    - router.asus.com
+    - localhost.sec.qq.com
+    - localhost.ptlogin2.qq.com
+    - +.msftconnecttest.com
+tun:
+  enable: true
+  stack: system
+  auto-route: true
+  auto-detect-interface: true
+  dns-hijack:
+    - 114.114.114.114
+    - 180.76.76.76
+    - 119.29.29.29
+    - 223.5.5.5
+    - 8.8.8.8
+    - 8.8.4.4
+    - 1.1.1.1
+    - 1.0.0.1
+
+
+proxies:
+  - type: trojan
+    name: 🇨🇳_CN_中国
+    server: oss-cn-shanghai.letssepub.com
+    port: 20021
+    password: adbac894-90b9-4913-b77e-a715a8d4ebc8
+    network: tcp
+    sni: dingding-doc.com
+    tls: true
+  - type: ss
+    name: 🇨🇳_CN_中国_1
+    server: future.chenyi.pw
+    port: 23203
+    cipher: chacha20-ietf-poly1305
+    password: 403c8b4f-05cc-4609-9ad5-a46cf84327b1
+  - type: ss
+    name: 🇻🇳_VN_越南
+    server: yue-zz-xy.yuetoto.net
+    port: 22030
+    cipher: 2022-blake3-aes-128-gcm
+    password: ZjZmYjhhMTM3MTYwYzk4ZQ==:MGUzY2RiOWEtYmI2OC00OA==
+  - type: hysteria2
+    name: 🇺🇸_US_美国
+    server: 67e01b04-t3dk00-tcm6ys-deip.la.shifen.uk
+    port: 1743
+    password: 7a2512b4-09ee-11f0-8d46-f23c9313b177
+  - type: vless
+    name: 🇺🇸_US_美国_1
+    server: 104.18.82.55
+    port: 443
+    uuid: 29187857-4a1f-4d1e-88eb-0016771e0dbb
+    network: ws
+    servername: vless.hubp.de
+    tls: true
+    encryption: none
+    ws-opts:
+      headers:
+        Host: vless.hubp.de
+    client-fingerprint: chrome
+    alpn:
+      - h3
+  - type: ss
+    name: 🇻🇳_VN_越南_1
+    server: yue-zz-xy.yuetoto.net
+    port: 22003
+    cipher: 2022-blake3-aes-128-gcm
+    password: ZjZmYjhhMTM3MTYwYzk4ZQ==:MGUzY2RiOWEtYmI2OC00OA==
+  - type: vless
+    name: 🇷🇺_RU_俄罗斯
+    server: 94.247.142.61
+    port: 2096
+    uuid: 12345678-1234-1234-1234-123456789123
+    network: ws
+    servername: vless.hubp.de
+    tls: true
+    encryption: none
+    ws-opts:
+      path: /snippets
+      headers:
+        Host: vless.hubp.de
+    client-fingerprint: chrome
+  - type: ss
+    name: 🇰🇷_KR_韩国
+    server: yue-zz.yuetoto.net
+    port: 22016
+    cipher: 2022-blake3-aes-128-gcm
+    password: ZjZmYjhhMTM3MTYwYzk4ZQ==:MGUzY2RiOWEtYmI2OC00OA==
+  - type: vless
+    name: 🇺🇸_US_美国_2
+    server: 104.18.13.51
+    port: 443
+    uuid: 4710b85a-66e6-411b-b492-0e0f7366ad21
+    network: ws
+    servername: rAyAn-cOnFiG-fr-2.pArSa.dPdNs.oRg
+    tls: true
+    encryption: none
+    ws-opts:
+      path: /ws
+      headers:
+        Host: rAyAn-cOnFiG-fr-2.pArSa.dPdNs.oRg
+    client-fingerprint: chrome
+  - type: vless
+    name: 🇺🇸_US_美国_3
+    server: ipe3.alighan.ir
+    port: 8443
+    uuid: af9fdedf-dca8-405d-9aa4-98ebcc99e84b
+    network: ws
+    servername: ipe4.alighan.ir
+    tls: true
+    encryption: none
+    ws-opts:
+      path: /?ed=2048
+      headers:
+        Host: s.alighan.ir
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+  - type: hysteria2
+    name: 🇬🇧_GB_英国
+    server: de1.jueduibupao.top
+    port: 48961
+    password: 73746dab-cdf5-4ff5-9313-a1f4c55edd49
+    skip-cert-verify: true
+    sni: de1.jueduibupao.top
+  - type: trojan
+    name: 🇨🇳_CN_中国_2
+    server: 58.152.53.42
+    port: 443
+    password: bca467b8c15211d189008a93c7519d3b
+    network: tcp
+    sni: www.nintendogames.net
+  - type: hysteria2
+    name: 🏳️_unKnow_未知
+    server: usm1.473221.xyz
+    port: 8080
+    password: cd9aec4d-3343-4808-aab0-d49cbc311a0d
+    sni: usm1.473221.xyz
+  - type: hysteria2
+    name: 🇮🇷_IR_伊朗
+    server: banmabanmabanmabanmabanmabanma1.wanlidag.top
+    port: 54265
+    password: a9feb139-7578-49c7-abe7-509dadc71dc3
+    skip-cert-verify: true
+    sni: banmabanmabanmabanmabanmabanma1.wanlidag.top
+  - type: hysteria2
+    name: 🇺🇸_US_美国_4
+    server: cc65f71a-t4v9c0-t5waci-4550.la.shifen.uk
+    port: 1743
+    password: 6286105c-fb6d-11ef-be96-f23c93136cb3
+  - type: ss
+    name: 🇰🇷_KR_韩国_1
+    server: yue-zz.yuetoto.net
+    port: 22021
+    cipher: 2022-blake3-aes-128-gcm
+    password: ZjZmYjhhMTM3MTYwYzk4ZQ==:MGUzY2RiOWEtYmI2OC00OA==
+  - type: hysteria2
+    name: 🇺🇸_US_美国_5
+    server: 6adab57e-t53wg0-tdvgqe-2gok.la.shifen.uk
+    port: 1743
+    password: 17cdeb6c-f046-11ee-bdac-f23c93141fad
+  - type: hysteria2
+    name: 🇺🇸_US_美国_6
+    server: 68407ef0-t3dk00-tcl9of-5fdt.la.shifen.uk
+    port: 1743
+    password: 712bdc36-24be-11ee-be53-f23c9313b177
+  - type: vless
+    name: 🇺🇸_US_美国_7
+    server: check-host.net
+    port: 443
+    uuid: ddab5550-3938-4aba-943c-f23a08d07dc5
+    network: ws
+    servername: rAyAn-cOnFiG-pl-1.pArIsA.DpDnS.OrG
+    tls: true
+    encryption: none
+    ws-opts:
+      path: /ws
+      headers:
+        Host: rAyAn-cOnFiG-pl-1.pArIsA.DpDnS.OrG
+    client-fingerprint: chrome
+  - type: vmess
+    name: 🏁RELAY-104.21.46.90-0774
+    server: ea596492-e849-fedb-4940-add11fdfa131.freevpnatm.dpdns.org
+    port: 80
+    uuid: 34a7da0c-a43a-49b8-a8d0-64b43100090e
+    alterId: 0
+    network: ws
+    cipher: auto
+    servername: ea596492-e849-fedb-4940-add11fdfa131.freevpnatm.dpdns.org
+    ws-opts:
+      path: /e7JS5ETJeA85VyjPCYXwETL
+      headers:
+        Host: ea596492-e849-fedb-4940-add11fdfa131.freevpnatm.dpdns.org
+  - type: hysteria2
+    name: 🇺🇸_US_美国_8
+    server: eb8d3417-t4teo0-tdtx5w-au6.la.shifen.uk
+    port: 1743
+    password: 1b609740-eec2-11ef-8543-f23c93136cb3
+  - type: ss
+    name: 🇰🇷_KR_韩国_2
+    server: yue-zz.yuetoto.net
+    port: 22040
+    cipher: 2022-blake3-aes-128-gcm
+    password: ZjZmYjhhMTM3MTYwYzk4ZQ==:MGUzY2RiOWEtYmI2OC00OA==
+  - type: hysteria2
+    name: 🇺🇸_US_美国_9
+    server: fecc1dc4-t4v9c0-t5ht86-dnss.la.shifen.uk
+    port: 1743
+    password: 16955d72-1794-11f0-a035-f23c95b6f51d
+  - type: hysteria2
+    name: 🇺🇸_US_美国_10
+    server: 98f4acfe-t4un40-tdini3-cdfn.la.shifen.uk
+    port: 1743
+    password: 94931862-1484-11f0-9ab7-f23c95b6f51d
+  - type: vless
+    name: 🇧🇷_BR_巴西
+    server: 188.114.96.3
+    port: 443
+    uuid: 0ec8c120-33fa-4658-9bed-3a51cb04c55c
+    network: ws
+    servername: net2026cd.zanddynastyofpersia.org
+    tls: true
+    encryption: none
+    ws-opts:
+      path: /eJsVXFVZ6iavNx1EFxOyH861WH?ed=2048
+      headers:
+        Host: net2026cd.zanddynastyofpersia.org
+  - type: vless
+    name: 🇺🇸_US_美国_11
+    server: 104.21.9.137
+    port: 443
+    uuid: e159a810-7d2c-4ce6-bc22-9727feb12fac
+    network: ws
+    servername: ec51ebe7-9b61-2397-41bf-1f00f6163852.huangshang.site
+    tls: true
+    ws-opts:
+      path: /0SCvfqSaeeB74kgXZ
+      headers:
+        Host: ec51ebe7-9b61-2397-41bf-1f00f6163852.huangshang.site
+proxy-groups:
+  - name: 🚀 节点选择
+    type: select
+    proxies:
+      - ♻️ 自动选择
+      - DIRECT
+      - 🇨🇳_CN_中国
+      - 🇨🇳_CN_中国_1
+      - 🇻🇳_VN_越南
+      - 🇺🇸_US_美国
+      - 🇺🇸_US_美国_1
+      - 🇻🇳_VN_越南_1
+      - 🇷🇺_RU_俄罗斯
+      - 🇰🇷_KR_韩国
+      - 🇺🇸_US_美国_2
+      - 🇺🇸_US_美国_3
+      - 🇬🇧_GB_英国
+      - 🇨🇳_CN_中国_2
+      - 🏳️_unKnow_未知
+      - 🇮🇷_IR_伊朗
+      - 🇺🇸_US_美国_4
+      - 🇰🇷_KR_韩国_1
+      - 🇺🇸_US_美国_5
+      - 🇺🇸_US_美国_6
+      - 🇺🇸_US_美国_7
+      - 🏁RELAY-104.21.46.90-0774
+      - 🇺🇸_US_美国_8
+      - 🇰🇷_KR_韩国_2
+      - 🇺🇸_US_美国_9
+      - 🇺🇸_US_美国_10
+      - 🇧🇷_BR_巴西
+      - 🇺🇸_US_美国_11
+  - name: ♻️ 自动选择
+    type: url-test
+    proxies:
+      - 🇨🇳_CN_中国
+      - 🇨🇳_CN_中国_1
+      - 🇻🇳_VN_越南
+      - 🇺🇸_US_美国
+      - 🇺🇸_US_美国_1
+      - 🇻🇳_VN_越南_1
+      - 🇷🇺_RU_俄罗斯
+      - 🇰🇷_KR_韩国
+      - 🇺🇸_US_美国_2
+      - 🇺🇸_US_美国_3
+      - 🇬🇧_GB_英国
+      - 🇨🇳_CN_中国_2
+      - 🏳️_unKnow_未知
+      - 🇮🇷_IR_伊朗
+      - 🇺🇸_US_美国_4
+      - 🇰🇷_KR_韩国_1
+      - 🇺🇸_US_美国_5
+      - 🇺🇸_US_美国_6
+      - 🇺🇸_US_美国_7
+      - 🏁RELAY-104.21.46.90-0774
+      - 🇺🇸_US_美国_8
+      - 🇰🇷_KR_韩国_2
+      - 🇺🇸_US_美国_9
+      - 🇺🇸_US_美国_10
+      - 🇧🇷_BR_巴西
+      - 🇺🇸_US_美国_11
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+  - name: 🎯 全球直连
+    type: select
+    proxies:
+      - DIRECT
+      - 🚀 节点选择
+      - ♻️ 自动选择
+  - name: 🛑 全球拦截
+    type: select
+    proxies:
+      - REJECT
+      - DIRECT
+  - name: 🐟 漏网之鱼
+    type: select
+    proxies:
+      - 🚀 节点选择
+      - 🎯 全球直连
+      - ♻️ 自动选择
+      - 🇨🇳_CN_中国
+      - 🇨🇳_CN_中国_1
+      - 🇻🇳_VN_越南
+      - 🇺🇸_US_美国
+      - 🇺🇸_US_美国_1
+      - 🇻🇳_VN_越南_1
+      - 🇷🇺_RU_俄罗斯
+      - 🇰🇷_KR_韩国
+      - 🇺🇸_US_美国_2
+      - 🇺🇸_US_美国_3
+      - 🇬🇧_GB_英国
+      - 🇨🇳_CN_中国_2
+      - 🏳️_unKnow_未知
+      - 🇮🇷_IR_伊朗
+      - 🇺🇸_US_美国_4
+      - 🇰🇷_KR_韩国_1
+      - 🇺🇸_US_美国_5
+      - 🇺🇸_US_美国_6
+      - 🇺🇸_US_美国_7
+      - 🏁RELAY-104.21.46.90-0774
+      - 🇺🇸_US_美国_8
+      - 🇰🇷_KR_韩国_2
+      - 🇺🇸_US_美国_9
+      - 🇺🇸_US_美国_10
+      - 🇧🇷_BR_巴西
+      - 🇺🇸_US_美国_11
+rule-providers:
+  LocalAreaNetwork:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/LocalAreaNetwork.list
+    path: ./rules/providers/LocalAreaNetwork.list
+    interval: 86400
+  BanAD:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanAD.list
+    path: ./rules/providers/BanAD.list
+    interval: 86400
+  BanProgramAD:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanProgramAD.list
+    path: ./rules/providers/BanProgramAD.list
+    interval: 86400
+  GoogleCN:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/GoogleCN.list
+    path: ./rules/providers/GoogleCN.list
+    interval: 86400
+  SteamCN:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/SteamCN.list
+    path: ./rules/providers/SteamCN.list
+    interval: 86400
+  Telegram:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Telegram.list
+    path: ./rules/providers/Telegram.list
+    interval: 86400
+  ProxyMedia:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ProxyMedia.list
+    path: ./rules/providers/ProxyMedia.list
+    interval: 86400
+  ProxyLite:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ProxyLite.list
+    path: ./rules/providers/ProxyLite.list
+    interval: 86400
+  ChinaDomain:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaDomain.list
+    path: ./rules/providers/ChinaDomain.list
+    interval: 86400
+  ChinaCompanyIp:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaCompanyIp.list
+    path: ./rules/providers/ChinaCompanyIp.list
+    interval: 86400
+
+rules:
+  - RULE-SET,LocalAreaNetwork,🎯 全球直连
+  - RULE-SET,BanAD,🛑 全球拦截
+  - RULE-SET,BanProgramAD,🛑 全球拦截
+  - RULE-SET,GoogleCN,🎯 全球直连
+  - RULE-SET,SteamCN,🎯 全球直连
+  - RULE-SET,Telegram,🚀 节点选择
+  - RULE-SET,ProxyMedia,🚀 节点选择
+  - RULE-SET,ProxyLite,🚀 节点选择
+  - RULE-SET,ChinaDomain,🎯 全球直连
+  - RULE-SET,ChinaCompanyIp,🎯 全球直连
+  - GEOIP,CN,🎯 全球直连
+  - MATCH,🐟 漏网之鱼
