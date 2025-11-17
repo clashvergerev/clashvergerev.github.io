@@ -1,0 +1,444 @@
+# ;不要随意改变关键字，否则会导致出错
+# ;acl4SSR规则
+# ;去广告：支持
+# ;自动测速：支持
+# ;微软分流：不支持
+# ;苹果分流：不支持
+# ;增强中国IP段：不支持
+# ;增强国外GFW：不支持
+# ;ruleset=🎯 全球直连,[]GEOIP,LAN
+
+mixed-port: 7890
+allow-lan: false
+mode: rule
+ipv6: false
+log-level: info
+external-controller: 0.0.0.0:9090
+dns:
+  enable: true
+  listen: 0.0.0.0:53
+  ipv6: false
+  default-nameserver:
+    - 223.5.5.5
+    - 114.114.114.114
+  nameserver:
+    - 223.5.5.5
+    - 114.114.114.114
+    - 119.29.29.29
+    - 180.76.76.76
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  fake-ip-filter:
+    - "*.lan"
+    - "*.localdomain"
+    - "*.example"
+    - "*.invalid"
+    - "*.localhost"
+    - "*.test"
+    - "*.local"
+    - "*.home.arpa"
+    - router.asus.com
+    - localhost.sec.qq.com
+    - localhost.ptlogin2.qq.com
+    - +.msftconnecttest.com
+tun:
+  enable: true
+  stack: system
+  auto-route: true
+  auto-detect-interface: true
+  dns-hijack:
+    - 114.114.114.114
+    - 180.76.76.76
+    - 119.29.29.29
+    - 223.5.5.5
+    - 8.8.8.8
+    - 8.8.4.4
+    - 1.1.1.1
+    - 1.0.0.1
+
+
+proxies:
+  - type: trojan
+    name: 🇨🇳_CN_中国
+    server: 58.152.53.186
+    port: 443
+    password: BxceQaOe
+    network: tcp
+    sni: t.me/ripaojiedian
+    skip-cert-verify: true
+  - type: trojan
+    name: 🇨🇳_CN_中国_1
+    server: 36.150.215.248
+    port: 4492
+    password: BxceQaOe
+    network: tcp
+    sni: t.me/ripaojiedian
+    skip-cert-verify: true
+  - type: trojan
+    name: 🇨🇳_CN_中国_2
+    server: 36.151.251.38
+    port: 25891
+    password: BxceQaOe
+    network: tcp
+    sni: t.me/ripaojiedian
+    skip-cert-verify: true
+  - type: vmess
+    name: 🇮🇳IN²_2|GPT⁺|GM|YT|TK-FR|NF|X
+    server: 1762596741.bilibiliapp.cn
+    port: 443
+    uuid: f744cd83-ecc4-46c5-a2ad-cf3dfa9e12a0
+    alterId: 0
+    network: ws
+    cipher: auto
+    servername: mrotr1mrl.speed.ydindda.cccp.useraaca.pp.ua
+    ws-opts:
+      path: /
+      headers:
+        Host: mrotr1mrl.speed.ydindda.cccp.useraaca.pp.ua
+    tls: true
+  - type: trojan
+    name: 🇨🇳_CN_中国_3
+    server: 117.172.176.22
+    port: 373
+    password: 1b57001bd214304027025a740b6cf1ac
+    network: tcp
+    sni: www.nintendogames.net
+  - type: vless
+    name: defaultName
+    server: ef87bb2b.meti-e9q.pages.dev
+    port: 443
+    uuid: 923509aa-bfb0-4758-a5a1-a6c2d0468169
+    network: ws
+    servername: ef87bb2b.meti-e9q.pages.dev
+    tls: true
+    encryption: none
+    ws-opts:
+      path: /ck2vlelfdajoybac
+      headers:
+        Host: ef87bb2b.meti-e9q.pages.dev
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+  - type: trojan
+    name: 🇺🇸_US_美国
+    server: 69.84.182.108
+    port: 8443
+    password: 06ce4048-f18e-4e14-b897-dc1f570cb263
+    network: ws
+    sni: cdn-node-oss-64.paofu.de
+    tls: true
+    ws-opts:
+      path: /profile/sharenode
+      headers:
+        Host: cdn-node-oss-64.paofu.de
+  - type: hysteria2
+    name: 🇺🇸_US_美国_1
+    server: 5bedbab5-t3bpc0-t49cd4-4550.la.shifen.uk
+    port: 1743
+    password: 6286105c-fb6d-11ef-be96-f23c93136cb3
+  - type: hysteria2
+    name: 🇺🇸_US_美国_2
+    server: 026b10f5-t4whs0-t5vo4i-4550.la.shifen.uk
+    port: 1743
+    password: 6286105c-fb6d-11ef-be96-f23c93136cb3
+    sni: 026b10f5-t4whs0-t5vo4i-4550.la.shifen.uk
+  - type: trojan
+    name: 🇨🇳_CN_中国_4
+    server: 203.198.122.194
+    port: 443
+    password: 1b57001bd214304027025a740b6cf1ac
+    network: tcp
+    sni: www.nintendogames.net
+  - type: vless
+    name: 🇺🇸_US_美国_3
+    server: axe.soyet2j.ir
+    port: 443
+    uuid: 4fdf51d5-4731-41de-a07f-42a0a9ee9f1c
+    network: ws
+    servername: menu.gejeh683bm.ir
+    tls: true
+    encryption: none
+    ws-opts:
+      path: /77d76f3d-5da8-4198-b5d2-9634d3059ad0
+      headers:
+        Host: menu.gejeh683bm.ir
+    client-fingerprint: chrome
+    alpn:
+      - h2
+  - type: vmess
+    name: 36@oneclickvpnkeys
+    server: 69.84.182.108
+    port: 2053
+    uuid: 06ce4048-f18e-4e14-b897-dc1f570cb263
+    alterId: 0
+    network: ws
+    cipher: auto
+    servername: cdn-node-oss-76.paofu.de
+    ws-opts:
+      path: /profile/sharenode
+      headers:
+        Host: cdn-node-oss-76.paofu.de
+    tls: true
+  - type: hysteria2
+    name: 🇺🇸_US_美国_4
+    server: fe1d6996-t4v9c0-tcl9of-5fdt.la.shifen.uk
+    port: 1743
+    password: 712bdc36-24be-11ee-be53-f23c9313b177
+  - type: vmess
+    name: 38@oneclickvpnkeys
+    server: 104.18.20.69
+    port: 2053
+    uuid: 06ce4048-f18e-4e14-b897-dc1f570cb263
+    alterId: 0
+    network: ws
+    cipher: auto
+    servername: cdn-node-oss-76.paofu.de
+    ws-opts:
+      path: /profile/sharenode
+      headers:
+        Host: cdn-node-oss-76.paofu.de
+    tls: true
+  - type: vmess
+    name: 🇮🇹IT²_1|31%|GPT⁺|X|KeepSucced
+    server: v5.heduian.link
+    port: 30805
+    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+    alterId: 2
+    network: tcp
+    cipher: auto
+  - type: vless
+    name: 🇺🇸_US_美国_5
+    server: rhdheysy-463252636-fryhuhhd.poshakhowdy.ir
+    port: 2095
+    uuid: 4676aae9-d466-4ad2-e5ed-db2ac4051d02
+    network: ws
+    servername: uevsievsusg-82828isbshshs.poshakhowdy.ir
+    ws-opts:
+      path: /
+      headers:
+        Host: uevsievsusg-82828isbshshs.poshakhowdy.ir
+  - type: hysteria2
+    name: 🇺🇸_US_美国_6
+    server: 68407ef0-t3dk00-tcl9of-5fdt.la.shifen.uk
+    port: 1743
+    password: 712bdc36-24be-11ee-be53-f23c9313b177
+    sni: 68407ef0-t3dk00-tcl9of-5fdt.la.shifen.uk
+  - type: hysteria2
+    name: 🇫🇷_FR_法国
+    server: 163.172.21.105
+    port: 5355
+    password: dongtaiwang.com
+    skip-cert-verify: true
+    sni: www.bing.com
+  - type: tuic
+    name: 🇨🇳_CN_中国_5
+    server: jptuic01.yydzx.xyz
+    port: 14081
+    uuid: 4e084535-bd62-458b-84a2-a0dc57c957aa
+    password: 4e084535-bd62-458b-84a2-a0dc57c957aa
+    sni: jptuic01.yydzx.xyz
+    congestion-controller: bbr
+  - type: hysteria2
+    name: 🇺🇸_US_美国_7
+    server: c0a37350-t4x400-tdtx5w-au6.la.shifen.uk
+    port: 1743
+    ports: 20000-50000
+    password: 1b609740-eec2-11ef-8543-f23c93136cb3
+    sni: c0a37350-t4x400-tdtx5w-au6.la.shifen.uk
+  - type: hysteria2
+    name: 🇺🇸_US_美国_8
+    server: 9edb1f6e-t56dc0-t9lxaa-1glq.la.shifen.uk
+    port: 1743
+    ports: 20000-50000
+    password: df7bed3c-06eb-11f0-8ebc-f23c93141fad
+    sni: 9edb1f6e-t56dc0-t9lxaa-1glq.la.shifen.uk
+  - type: hysteria2
+    name: 🇺🇸_US_美国_9
+    server: 98f4acfe-t4un40-tdini3-cdfn.la.shifen.uk
+    port: 1743
+    password: 94931862-1484-11f0-9ab7-f23c95b6f51d
+  - type: vless
+    name: 🇸🇦_SA_沙特阿拉伯
+    server: 77.110.119.225
+    port: 443
+    uuid: 4819860c-0e62-4804-9c59-967e5c2bed7a
+    network: tcp
+    servername: st.ozone.ru
+    tls: true
+    reality-opts:
+      public-key: hnec5SxCD6Os-u0FNi_YS5CML1a_oWb0niZJ1mGuFBo
+      short-id: 07e904766d29b958
+    client-fingerprint: chrome
+    flow: xtls-rprx-vision
+proxy-groups:
+  - name: 🚀 节点选择
+    type: select
+    proxies:
+      - ♻️ 自动选择
+      - DIRECT
+      - 🇨🇳_CN_中国
+      - 🇨🇳_CN_中国_1
+      - 🇨🇳_CN_中国_2
+      - 🇮🇳IN²_2|GPT⁺|GM|YT|TK-FR|NF|X
+      - 🇨🇳_CN_中国_3
+      - defaultName
+      - 🇺🇸_US_美国
+      - 🇺🇸_US_美国_1
+      - 🇺🇸_US_美国_2
+      - 🇨🇳_CN_中国_4
+      - 🇺🇸_US_美国_3
+      - 36@oneclickvpnkeys
+      - 🇺🇸_US_美国_4
+      - 38@oneclickvpnkeys
+      - 🇮🇹IT²_1|31%|GPT⁺|X|KeepSucced
+      - 🇺🇸_US_美国_5
+      - 🇺🇸_US_美国_6
+      - 🇫🇷_FR_法国
+      - 🇨🇳_CN_中国_5
+      - 🇺🇸_US_美国_7
+      - 🇺🇸_US_美国_8
+      - 🇺🇸_US_美国_9
+      - 🇸🇦_SA_沙特阿拉伯
+  - name: ♻️ 自动选择
+    type: url-test
+    proxies:
+      - 🇨🇳_CN_中国
+      - 🇨🇳_CN_中国_1
+      - 🇨🇳_CN_中国_2
+      - 🇮🇳IN²_2|GPT⁺|GM|YT|TK-FR|NF|X
+      - 🇨🇳_CN_中国_3
+      - defaultName
+      - 🇺🇸_US_美国
+      - 🇺🇸_US_美国_1
+      - 🇺🇸_US_美国_2
+      - 🇨🇳_CN_中国_4
+      - 🇺🇸_US_美国_3
+      - 36@oneclickvpnkeys
+      - 🇺🇸_US_美国_4
+      - 38@oneclickvpnkeys
+      - 🇮🇹IT²_1|31%|GPT⁺|X|KeepSucced
+      - 🇺🇸_US_美国_5
+      - 🇺🇸_US_美国_6
+      - 🇫🇷_FR_法国
+      - 🇨🇳_CN_中国_5
+      - 🇺🇸_US_美国_7
+      - 🇺🇸_US_美国_8
+      - 🇺🇸_US_美国_9
+      - 🇸🇦_SA_沙特阿拉伯
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+  - name: 🎯 全球直连
+    type: select
+    proxies:
+      - DIRECT
+      - 🚀 节点选择
+      - ♻️ 自动选择
+  - name: 🛑 全球拦截
+    type: select
+    proxies:
+      - REJECT
+      - DIRECT
+  - name: 🐟 漏网之鱼
+    type: select
+    proxies:
+      - 🚀 节点选择
+      - 🎯 全球直连
+      - ♻️ 自动选择
+      - 🇨🇳_CN_中国
+      - 🇨🇳_CN_中国_1
+      - 🇨🇳_CN_中国_2
+      - 🇮🇳IN²_2|GPT⁺|GM|YT|TK-FR|NF|X
+      - 🇨🇳_CN_中国_3
+      - defaultName
+      - 🇺🇸_US_美国
+      - 🇺🇸_US_美国_1
+      - 🇺🇸_US_美国_2
+      - 🇨🇳_CN_中国_4
+      - 🇺🇸_US_美国_3
+      - 36@oneclickvpnkeys
+      - 🇺🇸_US_美国_4
+      - 38@oneclickvpnkeys
+      - 🇮🇹IT²_1|31%|GPT⁺|X|KeepSucced
+      - 🇺🇸_US_美国_5
+      - 🇺🇸_US_美国_6
+      - 🇫🇷_FR_法国
+      - 🇨🇳_CN_中国_5
+      - 🇺🇸_US_美国_7
+      - 🇺🇸_US_美国_8
+      - 🇺🇸_US_美国_9
+      - 🇸🇦_SA_沙特阿拉伯
+rule-providers:
+  LocalAreaNetwork:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/LocalAreaNetwork.list
+    path: ./rules/providers/LocalAreaNetwork.list
+    interval: 86400
+  BanAD:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanAD.list
+    path: ./rules/providers/BanAD.list
+    interval: 86400
+  BanProgramAD:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanProgramAD.list
+    path: ./rules/providers/BanProgramAD.list
+    interval: 86400
+  GoogleCN:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/GoogleCN.list
+    path: ./rules/providers/GoogleCN.list
+    interval: 86400
+  SteamCN:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/SteamCN.list
+    path: ./rules/providers/SteamCN.list
+    interval: 86400
+  Telegram:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Telegram.list
+    path: ./rules/providers/Telegram.list
+    interval: 86400
+  ProxyMedia:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ProxyMedia.list
+    path: ./rules/providers/ProxyMedia.list
+    interval: 86400
+  ProxyLite:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ProxyLite.list
+    path: ./rules/providers/ProxyLite.list
+    interval: 86400
+  ChinaDomain:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaDomain.list
+    path: ./rules/providers/ChinaDomain.list
+    interval: 86400
+  ChinaCompanyIp:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaCompanyIp.list
+    path: ./rules/providers/ChinaCompanyIp.list
+    interval: 86400
+
+rules:
+  - RULE-SET,LocalAreaNetwork,🎯 全球直连
+  - RULE-SET,BanAD,🛑 全球拦截
+  - RULE-SET,BanProgramAD,🛑 全球拦截
+  - RULE-SET,GoogleCN,🎯 全球直连
+  - RULE-SET,SteamCN,🎯 全球直连
+  - RULE-SET,Telegram,🚀 节点选择
+  - RULE-SET,ProxyMedia,🚀 节点选择
+  - RULE-SET,ProxyLite,🚀 节点选择
+  - RULE-SET,ChinaDomain,🎯 全球直连
+  - RULE-SET,ChinaCompanyIp,🎯 全球直连
+  - GEOIP,CN,🎯 全球直连
+  - MATCH,🐟 漏网之鱼

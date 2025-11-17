@@ -152,9 +152,9 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
     </div>
 <h4>FAQ</h4>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>VMess 协议的动态端口功能是什么？</h5></div>
+    <div class="panel-heading"><h5>Netch 如何区分全局代理和规则代理？</h5></div>
     <div class="panel-body">
-        VMess 支持动态端口（port hopping）功能，能在一定范围内自动变更通信端口。此机制可有效防止防火墙基于端口的封锁策略，提高节点长期稳定性。<hr />    </div>
+        全局代理会将所有流量通过节点转发，而规则代理仅对指定 IP、端口或应用生效。用户可根据需求选择代理模式，实现流量优化和不同应用的最佳网络体验。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>如何为 Vmess 节点生成安全的 UUID？</h5></div>
@@ -162,9 +162,29 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
         UUID 应使用标准的 128 位格式，可使用系统命令如 `uuidgen` 或在线 UUID 生成器生成随机、唯一的 ID；不要使用默认或弱随机值，定期更换以降低被滥用或泄露的风险。<hr />    </div>
 </div>
 <div class="panel panel-default">
+    <div class="panel-heading"><h5>PassWall2 策略组如何自动优化网络访问？</h5></div>
+    <div class="panel-body">
+        PassWall2 结合策略组和延迟检测功能，自动选择最佳节点处理网页、视频和游戏流量。无需手动切换，保证访问速度和稳定性，提升整体网络体验。<hr />    </div>
+</div>
+<div class="panel panel-default">
     <div class="panel-heading"><h5>WinXray 的 PAC 模式适合哪些场景？</h5></div>
     <div class="panel-body">
         PAC 模式通过规则动态决定流量是否走代理。适合访问国内外混合网站环境，无需手动切换节点，自动分流提高网络访问效率和连接稳定性。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Clash 如何实现节点健康监测？</h5></div>
+    <div class="panel-body">
+        Clash 支持定期测速节点延迟和丢包率，将节点状态显示在客户端。结合策略组，可以自动选择健康节点进行访问，避免访问高延迟或失效节点，提高网络稳定性和效率。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>VMess 协议的动态端口功能是什么？</h5></div>
+    <div class="panel-body">
+        VMess 支持动态端口（port hopping）功能，能在一定范围内自动变更通信端口。此机制可有效防止防火墙基于端口的封锁策略，提高节点长期稳定性。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>VMess 配置 TLS+WebSocket 有哪些性能优势？</h5></div>
+    <div class="panel-body">
+        TLS+WebSocket 可伪装 HTTPS 流量，增强抗封锁能力，同时降低被检测风险。结合策略组和节点延迟检测，可保证访问速度和连接稳定性，特别适合视频和游戏场景。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>如何在路由器上使用 PassWall2 为不同设备设置不同策略？</h5></div>
@@ -177,29 +197,9 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
         避免使用常见端口（如 80、443）直接暴露 V2Ray 服务；若必须使用 443，建议通过 Web 服务器反代或使用 CDN；同时启用 fail2ban 与 iptables 限制异常连接频率，减少被扫描发现的风险。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>PassWall2 策略组如何自动优化网络访问？</h5></div>
-    <div class="panel-body">
-        PassWall2 结合策略组和延迟检测功能，自动选择最佳节点处理网页、视频和游戏流量。无需手动切换，保证访问速度和稳定性，提升整体网络体验。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Clash 如何实现节点健康监测？</h5></div>
-    <div class="panel-body">
-        Clash 支持定期测速节点延迟和丢包率，将节点状态显示在客户端。结合策略组，可以自动选择健康节点进行访问，避免访问高延迟或失效节点，提高网络稳定性和效率。<hr />    </div>
-</div>
-<div class="panel panel-default">
     <div class="panel-heading"><h5>Sing-box 如何按 IP 段实现智能分流？</h5></div>
     <div class="panel-body">
-        Sing-box 支持根据 IP 段匹配流量，将国内流量直连、国外流量走代理。结合策略组和规则文件，实现精细化流量管理，保证访问速度和稳定性，同时提高节点使用效率。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Netch 如何区分全局代理和规则代理？</h5></div>
-    <div class="panel-body">
-        全局代理会将所有流量通过节点转发，而规则代理仅对指定 IP、端口或应用生效。用户可根据需求选择代理模式，实现流量优化和不同应用的最佳网络体验。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>VMess 配置 TLS+WebSocket 有哪些性能优势？</h5></div>
-    <div class="panel-body">
-        TLS+WebSocket 可伪装 HTTPS 流量，增强抗封锁能力，同时降低被检测风险。结合策略组和节点延迟检测，可保证访问速度和连接稳定性，特别适合视频和游戏场景。    </div>
+        Sing-box 支持根据 IP 段匹配流量，将国内流量直连、国外流量走代理。结合策略组和规则文件，实现精细化流量管理，保证访问速度和稳定性，同时提高节点使用效率。    </div>
 </div>
 <div class="panel panel-default mt-5">
     <div class="panel-heading">
@@ -228,16 +228,16 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2025-10-19-free-node-subscribe-links.htm" title="「10月19日」最高速度19.2M/S，2025年Clsah Verge每天更新免费节点订阅地址">「10月19日」最高速度19.2M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-10-27-clash-verge-rev-github.htm" title="「10月27日」最高速度21.7M/S，2025年Clsah Verge每天更新免费节点订阅地址">「10月27日」最高速度21.7M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-10-21-clash-verge-rev-nodes.htm" title="「10月21日」最高速度21.2M/S，2025年Clsah Verge每天更新免费节点订阅地址">「10月21日」最高速度21.2M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-10-16-latest-clash-verge-rev-node.htm" title="「10月16日」最高速度19.5M/S，2025年Clsah Verge每天更新免费节点订阅地址">「10月16日」最高速度19.5M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-10-10-free-node-subscribe.htm" title="「10月10日」最高速度22.4M/S，2025年Clsah Verge每天更新免费节点订阅地址">「10月10日」最高速度22.4M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-10-14-free-high-speed-nodes.htm" title="「10月14日」最高速度21.9M/S，2025年Clsah Verge每天更新免费节点订阅地址">「10月14日」最高速度21.9M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-10-6-free-node-subscribe-links.htm" title="「10月6日」最高速度18.4M/S，2025年Clsah Verge每天更新免费节点订阅地址">「10月6日」最高速度18.4M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-11-2-free-subscribe-node.htm" title="「11月2日」最高速度19.3M/S，2025年Clsah Verge每天更新免费节点订阅地址">「11月2日」最高速度19.3M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-10-31-clash-verge-rev-node.htm" title="「10月31日」最高速度21.7M/S，2025年Clsah Verge每天更新免费节点订阅地址">「10月31日」最高速度21.7M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-11-7-clash-verge-rev-node-share.htm" title="「11月7日」最高速度20.9M/S，2025年Clsah Verge每天更新免费节点订阅地址">「11月7日」最高速度20.9M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-8-clash-verge-rev-nodes.htm" title="「11月8日」最高速度18.8M/S，2025年Clsah Verge每天更新免费节点订阅地址">「11月8日」最高速度18.8M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-13-free-subscribe-node.htm" title="「11月13日」最高速度18.1M/S，2025年Clsah Verge每天更新免费节点订阅地址">「11月13日」最高速度18.1M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-10-12-free-node-subscribe.htm" title="「10月12日」最高速度19.1M/S，2025年Clsah Verge每天更新免费节点订阅地址">「10月12日」最高速度19.1M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-15-clash-verge-rev-node.htm" title="「11月15日」最高速度18M/S，2025年Clsah Verge每天更新免费节点订阅地址">「11月15日」最高速度18M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-10-3-clash-verge-rev-windows.htm" title="「10月3日」最高速度19.6M/S，2025年Clsah Verge每天更新免费节点订阅地址">「10月3日」最高速度19.6M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-10-24-clash-verge-rev-github.htm" title="「10月24日」最高速度22.2M/S，2025年Clsah Verge每天更新免费节点订阅地址">「10月24日」最高速度22.2M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-10-23-clash-verge-rev-node-share.htm" title="「10月23日」最高速度22.6M/S，2025年Clsah Verge每天更新免费节点订阅地址">「10月23日」最高速度22.6M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-5-latest-clash-verge-rev-node.htm" title="「11月5日」最高速度19.8M/S，2025年Clsah Verge每天更新免费节点订阅地址">「11月5日」最高速度19.8M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-10-9-clash-verge-rev-node.htm" title="「10月9日」最高速度20.6M/S，2025年Clsah Verge每天更新免费节点订阅地址">「10月9日」最高速度20.6M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-10-13-free-clash-verge-rev-node.htm" title="「10月13日」最高速度18.7M/S，2025年Clsah Verge每天更新免费节点订阅地址">「10月13日」最高速度18.7M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
                     </ul>
     </div>
 </div>
@@ -249,7 +249,7 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">9</span> <a href="/date/2025-11/" title="2025-11 归档">2025-11</a></h4>
+                <h4><span class="badge" style="float: right;">16</span> <a href="/date/2025-11/" title="2025-11 归档">2025-11</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">26</span> <a href="/date/2025-10/" title="2025-10 归档">2025-10</a></h4>

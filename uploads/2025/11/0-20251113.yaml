@@ -1,0 +1,417 @@
+# ;不要随意改变关键字，否则会导致出错
+# ;acl4SSR规则
+# ;去广告：支持
+# ;自动测速：支持
+# ;微软分流：不支持
+# ;苹果分流：不支持
+# ;增强中国IP段：不支持
+# ;增强国外GFW：不支持
+# ;ruleset=🎯 全球直连,[]GEOIP,LAN
+
+mixed-port: 7890
+allow-lan: false
+mode: rule
+ipv6: false
+log-level: info
+external-controller: 0.0.0.0:9090
+dns:
+  enable: true
+  listen: 0.0.0.0:53
+  ipv6: false
+  default-nameserver:
+    - 223.5.5.5
+    - 114.114.114.114
+  nameserver:
+    - 223.5.5.5
+    - 114.114.114.114
+    - 119.29.29.29
+    - 180.76.76.76
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  fake-ip-filter:
+    - "*.lan"
+    - "*.localdomain"
+    - "*.example"
+    - "*.invalid"
+    - "*.localhost"
+    - "*.test"
+    - "*.local"
+    - "*.home.arpa"
+    - router.asus.com
+    - localhost.sec.qq.com
+    - localhost.ptlogin2.qq.com
+    - +.msftconnecttest.com
+tun:
+  enable: true
+  stack: system
+  auto-route: true
+  auto-detect-interface: true
+  dns-hijack:
+    - 114.114.114.114
+    - 180.76.76.76
+    - 119.29.29.29
+    - 223.5.5.5
+    - 8.8.8.8
+    - 8.8.4.4
+    - 1.1.1.1
+    - 1.0.0.1
+
+
+proxies:
+  - type: vmess
+    name: 解锁奈飞/TikTok/ChatGPT
+    server: n1744453320.lie5d.cyou
+    port: 443
+    uuid: 8889a08a-09f8-4c97-bed2-df31b62fcf23
+    alterId: 0
+    network: ws
+    cipher: auto
+    servername: n1744453320.lie5d.cyou
+    ws-opts:
+      path: /
+      headers:
+        Host: n1744453320.lie5d.cyou
+    tls: true
+  - type: trojan
+    name: 🇨🇳_CN_中国
+    server: 36.150.215.147
+    port: 4666
+    password: BxceQaOe
+    network: tcp
+    sni: t.me/ripaojiedian
+    skip-cert-verify: true
+  - type: vless
+    name: 🇺🇸_US_美国
+    server: 1760516058.tencentapp.cn
+    port: 443
+    uuid: 6911bb2c-a220-45a6-94fb-1ea8d9a1e94e
+    network: ws
+    servername: stall3.sni2026.netlib.re
+    tls: true
+    encryption: none
+    ws-opts:
+      path: /proxyip=tw.soso.edu.kg:43
+      headers:
+        Host: stall3.sni2026.netlib.re
+    client-fingerprint: random
+    alpn:
+      - h3
+  - type: vless
+    name: 🇺🇸_US_美国_1
+    server: 38.47.122.75
+    port: 30005
+    uuid: 6911bb2c-a220-45a6-94fb-1ea8d9a1e94e
+    network: ws
+    servername: stall3.sni2026.netlib.re
+    tls: true
+    encryption: none
+    ws-opts:
+      path: /proxyip=tw.soso.edu.kg:43
+      headers:
+        Host: stall3.sni2026.netlib.re
+    client-fingerprint: random
+    alpn:
+      - h3
+  - type: trojan
+    name: 🇨🇳_CN_中国_1
+    server: 36.150.215.246
+    port: 5156
+    password: BxceQaOe
+    network: tcp
+    sni: t.me/ripaojiedian
+    skip-cert-verify: true
+  - type: vless
+    name: 🇺🇸_US_美国_2
+    server: 8.35.211.250
+    port: 2083
+    uuid: 6911bb2c-a220-45a6-94fb-1ea8d9a1e94e
+    network: ws
+    servername: stall3.sni2026.netlib.re
+    tls: true
+    encryption: none
+    ws-opts:
+      path: /proxyip=tw.soso.edu.kg:43
+      headers:
+        Host: stall3.sni2026.netlib.re
+    client-fingerprint: random
+    alpn:
+      - h3
+  - type: vless
+    name: 🇲🇩_MD_摩尔多瓦
+    server: pq.vmjp3.yydjc.top
+    port: 443
+    uuid: de81cf6b-0d2f-42be-ac60-a3b734216739
+    network: tcp
+    servername: iosapps.itunes.apple.com
+    tls: true
+    reality-opts:
+      public-key: pR8CV43xvSgvzSXPVLCVomjw-yZvNyqU32kietO2pEc
+      short-id: a6115a2c
+    client-fingerprint: ios
+    flow: xtls-rprx-vision
+  - type: vmess
+    name: 🇺🇸US²_1|5.1MB/s|47%|GPT⁺|YT-CN|TK|NF|X
+    server: yg1.ygkkk.dpdns.org
+    port: 443
+    uuid: c934d81c-bacb-4ff2-8780-da9668cd0fba
+    alterId: 0
+    network: ws
+    cipher: auto
+    servername: rn1.alwaysme.ggff.net
+    ws-opts:
+      path: /c934d81c-bacb-4ff2-8780-da9668cd0fba-vm?ed=2048
+      headers:
+        Host: rn1.alwaysme.ggff.net
+    tls: true
+  - type: vless
+    name: 🇺🇸_US_美国_3
+    server: 172.64.144.19
+    port: 443
+    uuid: db2c8a95-f751-46e3-b05e-d2def66850fb
+    network: ws
+    servername: ayanamirei.11160321.xyz
+    tls: true
+    ws-opts:
+      path: /socks5://test123:test123@122.10.144.6:1080/
+      headers:
+        Host: ayanamirei.11160321.xyz
+    client-fingerprint: randomized
+  - type: vless
+    name: 🇺🇸_US_美国_4
+    server: 23.185.168.144
+    port: 8602
+    uuid: 6911bb2c-a220-45a6-94fb-1ea8d9a1e94e
+    network: ws
+    servername: stall3.sni2026.netlib.re
+    tls: true
+    encryption: none
+    ws-opts:
+      path: /proxyip=tw.soso.edu.kg:43
+      headers:
+        Host: stall3.sni2026.netlib.re
+    client-fingerprint: random
+    alpn:
+      - h3
+  - type: vless
+    name: 🇺🇸_US_美国_5
+    server: 172.66.156.81
+    port: 80
+    uuid: 91aa6fff-ef91-4f7b-9aac-e3b7cac44c83
+    network: ws
+    servername: websocket.network.www.speedtest.net.flutter.dev.russia.pyt.digitalcity5.xyz.
+    encryption: none
+    ws-opts:
+      path: /@Shh_Proxy----@Shh_Proxy----@Shh_Proxy----@Shh_Proxy----@Shh_Proxy----@Shh_Proxy----@Shh_Proxy----@Shh_Proxy----@Shh_Proxy----@Shh_Proxy----@Shh_Proxy----@Shh_Proxy
+      headers:
+        Host: websocket.network.www.speedtest.net.flutter.dev.russia.pyt.digitalcity5.xyz.
+  - type: hysteria2
+    name: 🇺🇸_US_美国_6
+    server: cc65f71a-t4v9c0-t5waci-4550.la.shifen.uk
+    port: 1743
+    password: 6286105c-fb6d-11ef-be96-f23c93136cb3
+    sni: cc65f71a-t4v9c0-t5waci-4550.la.shifen.uk
+  - type: hysteria2
+    name: 🇺🇸_US_美国_7
+    server: 70555517-t3bpc0-t9lxaa-1glq.la.shifen.uk
+    port: 1743
+    password: df7bed3c-06eb-11f0-8ebc-f23c93141fad
+    sni: 70555517-t3bpc0-t9lxaa-1glq.la.shifen.uk
+  - type: vless
+    name: 🇺🇸_US_美国_8
+    server: 172.67.133.33
+    port: 8443
+    uuid: e0976e35-a651-4f34-b5b1-c9ac9f75cb74
+    network: ws
+    servername: private.besttotaldns.com
+    tls: true
+    encryption: none
+    ws-opts:
+      path: /J5aKLOY1R7ONXYCM
+      headers:
+        Host: private.besttotaldns.com
+  - type: vless
+    name: 🇺🇸_US_美国_9
+    server: 69.84.182.108
+    port: 443
+    uuid: de81cf6b-0d2f-42be-ac60-a3b734216739
+    network: ws
+    servername: pq-us4.globals-download.com
+    tls: true
+    ws-opts:
+      path: /pq/us4
+      headers:
+        Host: pq-us4.globals-download.com
+    client-fingerprint: chrome
+  - type: vless
+    name: 🇺🇸_US_美国_10
+    server: uuk2v.tok8888.com
+    port: 8443
+    uuid: 9132154a-95b8-4627-9363-9d078f1dbcfe
+    network: tcp
+    servername: businessmadesimple.com
+    tls: true
+    reality-opts:
+      public-key: GcOtIhZbkznrBYohK7rvjV0oVoQvC4y38VIExs6KUwA
+    client-fingerprint: ios
+    flow: xtls-rprx-vision
+  - type: hysteria2
+    name: 🇷🇺_RU_俄罗斯
+    server: ny.jueduibupao.top
+    port: 50001
+    password: f051d9ed-f74d-4438-b368-033d80f6ae45
+    skip-cert-verify: true
+    sni: ny.jueduibupao.top
+proxy-groups:
+  - name: 🚀 节点选择
+    type: select
+    proxies:
+      - ♻️ 自动选择
+      - DIRECT
+      - 解锁奈飞/TikTok/ChatGPT
+      - 🇨🇳_CN_中国
+      - 🇺🇸_US_美国
+      - 🇺🇸_US_美国_1
+      - 🇨🇳_CN_中国_1
+      - 🇺🇸_US_美国_2
+      - 🇲🇩_MD_摩尔多瓦
+      - 🇺🇸US²_1|5.1MB/s|47%|GPT⁺|YT-CN|TK|NF|X
+      - 🇺🇸_US_美国_3
+      - 🇺🇸_US_美国_4
+      - 🇺🇸_US_美国_5
+      - 🇺🇸_US_美国_6
+      - 🇺🇸_US_美国_7
+      - 🇺🇸_US_美国_8
+      - 🇺🇸_US_美国_9
+      - 🇺🇸_US_美国_10
+      - 🇷🇺_RU_俄罗斯
+  - name: ♻️ 自动选择
+    type: url-test
+    proxies:
+      - 解锁奈飞/TikTok/ChatGPT
+      - 🇨🇳_CN_中国
+      - 🇺🇸_US_美国
+      - 🇺🇸_US_美国_1
+      - 🇨🇳_CN_中国_1
+      - 🇺🇸_US_美国_2
+      - 🇲🇩_MD_摩尔多瓦
+      - 🇺🇸US²_1|5.1MB/s|47%|GPT⁺|YT-CN|TK|NF|X
+      - 🇺🇸_US_美国_3
+      - 🇺🇸_US_美国_4
+      - 🇺🇸_US_美国_5
+      - 🇺🇸_US_美国_6
+      - 🇺🇸_US_美国_7
+      - 🇺🇸_US_美国_8
+      - 🇺🇸_US_美国_9
+      - 🇺🇸_US_美国_10
+      - 🇷🇺_RU_俄罗斯
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+  - name: 🎯 全球直连
+    type: select
+    proxies:
+      - DIRECT
+      - 🚀 节点选择
+      - ♻️ 自动选择
+  - name: 🛑 全球拦截
+    type: select
+    proxies:
+      - REJECT
+      - DIRECT
+  - name: 🐟 漏网之鱼
+    type: select
+    proxies:
+      - 🚀 节点选择
+      - 🎯 全球直连
+      - ♻️ 自动选择
+      - 解锁奈飞/TikTok/ChatGPT
+      - 🇨🇳_CN_中国
+      - 🇺🇸_US_美国
+      - 🇺🇸_US_美国_1
+      - 🇨🇳_CN_中国_1
+      - 🇺🇸_US_美国_2
+      - 🇲🇩_MD_摩尔多瓦
+      - 🇺🇸US²_1|5.1MB/s|47%|GPT⁺|YT-CN|TK|NF|X
+      - 🇺🇸_US_美国_3
+      - 🇺🇸_US_美国_4
+      - 🇺🇸_US_美国_5
+      - 🇺🇸_US_美国_6
+      - 🇺🇸_US_美国_7
+      - 🇺🇸_US_美国_8
+      - 🇺🇸_US_美国_9
+      - 🇺🇸_US_美国_10
+      - 🇷🇺_RU_俄罗斯
+rule-providers:
+  LocalAreaNetwork:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/LocalAreaNetwork.list
+    path: ./rules/providers/LocalAreaNetwork.list
+    interval: 86400
+  BanAD:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanAD.list
+    path: ./rules/providers/BanAD.list
+    interval: 86400
+  BanProgramAD:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanProgramAD.list
+    path: ./rules/providers/BanProgramAD.list
+    interval: 86400
+  GoogleCN:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/GoogleCN.list
+    path: ./rules/providers/GoogleCN.list
+    interval: 86400
+  SteamCN:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/SteamCN.list
+    path: ./rules/providers/SteamCN.list
+    interval: 86400
+  Telegram:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Telegram.list
+    path: ./rules/providers/Telegram.list
+    interval: 86400
+  ProxyMedia:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ProxyMedia.list
+    path: ./rules/providers/ProxyMedia.list
+    interval: 86400
+  ProxyLite:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ProxyLite.list
+    path: ./rules/providers/ProxyLite.list
+    interval: 86400
+  ChinaDomain:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaDomain.list
+    path: ./rules/providers/ChinaDomain.list
+    interval: 86400
+  ChinaCompanyIp:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaCompanyIp.list
+    path: ./rules/providers/ChinaCompanyIp.list
+    interval: 86400
+
+rules:
+  - RULE-SET,LocalAreaNetwork,🎯 全球直连
+  - RULE-SET,BanAD,🛑 全球拦截
+  - RULE-SET,BanProgramAD,🛑 全球拦截
+  - RULE-SET,GoogleCN,🎯 全球直连
+  - RULE-SET,SteamCN,🎯 全球直连
+  - RULE-SET,Telegram,🚀 节点选择
+  - RULE-SET,ProxyMedia,🚀 节点选择
+  - RULE-SET,ProxyLite,🚀 节点选择
+  - RULE-SET,ChinaDomain,🎯 全球直连
+  - RULE-SET,ChinaCompanyIp,🎯 全球直连
+  - GEOIP,CN,🎯 全球直连
+  - MATCH,🐟 漏网之鱼

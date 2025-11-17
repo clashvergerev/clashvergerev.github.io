@@ -1,0 +1,422 @@
+# ;不要随意改变关键字，否则会导致出错
+# ;acl4SSR规则
+# ;去广告：支持
+# ;自动测速：支持
+# ;微软分流：不支持
+# ;苹果分流：不支持
+# ;增强中国IP段：不支持
+# ;增强国外GFW：不支持
+# ;ruleset=🎯 全球直连,[]GEOIP,LAN
+
+mixed-port: 7890
+allow-lan: false
+mode: rule
+ipv6: false
+log-level: info
+external-controller: 0.0.0.0:9090
+dns:
+  enable: true
+  listen: 0.0.0.0:53
+  ipv6: false
+  default-nameserver:
+    - 223.5.5.5
+    - 114.114.114.114
+  nameserver:
+    - 223.5.5.5
+    - 114.114.114.114
+    - 119.29.29.29
+    - 180.76.76.76
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  fake-ip-filter:
+    - "*.lan"
+    - "*.localdomain"
+    - "*.example"
+    - "*.invalid"
+    - "*.localhost"
+    - "*.test"
+    - "*.local"
+    - "*.home.arpa"
+    - router.asus.com
+    - localhost.sec.qq.com
+    - localhost.ptlogin2.qq.com
+    - +.msftconnecttest.com
+tun:
+  enable: true
+  stack: system
+  auto-route: true
+  auto-detect-interface: true
+  dns-hijack:
+    - 114.114.114.114
+    - 180.76.76.76
+    - 119.29.29.29
+    - 223.5.5.5
+    - 8.8.8.8
+    - 8.8.4.4
+    - 1.1.1.1
+    - 1.0.0.1
+
+
+proxies:
+  - type: trojan
+    name: 🇨🇳_CN_中国
+    server: 116.49.237.130
+    port: 518
+    password: BxceQaOe
+    network: tcp
+    sni: t.me/ripaojiedian
+    skip-cert-verify: true
+  - type: trojan
+    name: 🇨🇳_CN_中国_1
+    server: 36.150.215.246
+    port: 4011
+    password: BxceQaOe
+    network: tcp
+    sni: t.me/ripaojiedian
+    skip-cert-verify: true
+  - type: trojan
+    name: 🇨🇳_CN_中国_2
+    server: 116.49.237.130
+    port: 2173
+    password: BxceQaOe
+    network: tcp
+    sni: t.me/ripaojiedian
+    skip-cert-verify: true
+  - type: trojan
+    name: 🇨🇳_CN_中国_3
+    server: 219.77.239.35
+    port: 443
+    password: BxceQaOe
+    network: tcp
+    sni: t.me/ripaojiedian
+    skip-cert-verify: true
+  - type: vless
+    name: 🇺🇸_US_美国
+    server: 152.53.84.101
+    port: 20579
+    uuid: 93cd7e0f-8a81-4076-be8b-6d3bf3f8f810
+    network: tcp
+    servername: ilovepdf.com
+    tls: true
+    encryption: none
+    reality-opts:
+      public-key: mT6lh-gtbEuWk3Zk6XGF_hYvpLwxTyvwtH7F-_fRbxI
+      short-id: 89f1da93
+    client-fingerprint: chrome
+    flow: xtls-rprx-vision
+  - type: vless
+    name: 🇸🇦_SA_沙特阿拉伯
+    server: 77.110.119.225
+    port: 443
+    uuid: 4819860c-0e62-4804-9c59-967e5c2bed7a
+    network: tcp
+    servername: st.ozone.ru
+    tls: true
+    reality-opts:
+      public-key: hnec5SxCD6Os-u0FNi_YS5CML1a_oWb0niZJ1mGuFBo
+      short-id: 07e904766d29b958
+    client-fingerprint: chrome
+    flow: xtls-rprx-vision
+  - type: vless
+    name: 🇷🇴_RO_罗马尼亚
+    server: zeusolympus.fonixapp.org
+    port: 45714
+    uuid: 00077dbc-4430-4c2d-baa7-878720254c97
+    network: tcp
+    servername: ilovepdf.com
+    tls: true
+    encryption: none
+    reality-opts:
+      public-key: 0GENC9ZpilKBLqipubONSKa0QjIDIYkrILHExjfy91Q
+      short-id: 54387a
+      spider-x: /
+    client-fingerprint: firefox
+    flow: xtls-rprx-vision
+  - type: vless
+    name: 🇺🇸_US_美国_1
+    server: graygoat.fonixapp.org
+    port: 48983
+    uuid: 75c18b2c-9f28-44e5-9fde-02c00b6d30a0
+    network: tcp
+    servername: smallpdf.com
+    tls: true
+    encryption: none
+    reality-opts:
+      public-key: 7hoSQsWXvX5kVe1gUt5mLIpbfiIp3017V3S6Ym0hqW0
+      short-id: 509af44ce1
+      spider-x: /
+    client-fingerprint: firefox
+    flow: xtls-rprx-vision
+  - type: trojan
+    name: 🇺🇸_US_美国_2
+    server: ip.sb
+    port: 8443
+    password: trojan
+    network: ws
+    sni: fofang.pages.dev
+    tls: true
+    ws-opts:
+      path: /
+  - type: vless
+    name: 🇺🇸_US_美国_3
+    server: 172.67.185.98
+    port: 8443
+    uuid: 635dfb8e-3d28-40c2-bd27-9b85e7bc6bb6
+    network: ws
+    servername: ion.api-music-fa.com
+    tls: true
+    ws-opts:
+      path: /J5aKLOY1R9ONWYCM
+      headers:
+        Host: ion.api-music-fa.com
+    client-fingerprint: chrome
+  - type: trojan
+    name: 🇷🇺_RU_俄罗斯
+    server: 77.221.141.207
+    port: 443
+    password: edeff73d-065d-4b0a-b848-aad9d3380223
+    network: ws
+    sni: joss.dus.biz.id
+    fingerprint: randomized
+    tls: true
+    ws-opts:
+      path: /Free-VPN-CF-Geo-Project/77.221.141.207=443
+      headers:
+        Host: joss.dus.biz.id
+  - type: hysteria2
+    name: 🇷🇺_RU_俄罗斯_1
+    server: 147.45.49.251
+    port: 45183
+    password: 4a6bf640-5c5e-41d3-8078-89a12174cf57
+    skip-cert-verify: true
+    sni: linjp1.jueduibupao.top
+  - type: trojan
+    name: 🇺🇸_US_美国_4
+    server: 104.25.254.4
+    port: 2087
+    password: d0298536-d670-4045-bbb1-ddd5ea68683e
+    network: ws
+    sni: azadnet-bdr.pages.dev
+    tls: true
+    ws-opts:
+      path: /azadnet-bdr.pages.dev/?ed=2560&PROT_TYPE=trojan
+      headers:
+        Host: azadnet-bdr.pages.dev
+  - type: trojan
+    name: 🇺🇸_US_美国_5
+    server: kfjdi.pages.dev
+    port: 443
+    password: er668
+    network: ws
+    tls: true
+    ws-opts:
+      path: /
+  - type: vless
+    name: 🇭🇺_HU_匈牙利
+    server: helsinki.fonixapp.org
+    port: 54978
+    uuid: a79d31ed-99d6-4116-8f50-fa46957ac6a0
+    network: tcp
+    servername: study.com
+    tls: true
+    encryption: none
+    reality-opts:
+      public-key: clfoV7PyfUylden53xvv2FuAoSYFBeZ2JdP0ZzC2ISo
+      short-id: cc58ae21d5
+      spider-x: /
+    client-fingerprint: firefox
+    flow: xtls-rprx-vision
+  - type: trojan
+    name: 🇺🇸_US_美国_6
+    server: 65.109.227.138
+    port: 2053
+    password: 7d82af32-915f-4619-aa9c-7d3b612d33ff
+    network: ws
+    sni: joss.dus.biz.id
+    fingerprint: randomized
+    tls: true
+    ws-opts:
+      path: /Free-VPN-CF-Geo-Project/65.109.227.138=2053
+      headers:
+        Host: joss.dus.biz.id
+  - type: trojan
+    name: 🇳🇱_NL_荷兰
+    server: 86.107.197.239
+    port: 443
+    password: 5ad5fe82-6b60-4f59-977b-93910ef7a9ca
+    network: ws
+    sni: joss.dus.biz.id
+    tls: true
+    ws-opts:
+      path: /Free-VPN-CF-Geo-Project/86.107.197.239=443
+      headers:
+        Host: joss.dus.biz.id
+  - type: trojan
+    name: 🇺🇸_US_美国_7
+    server: 51.89.128.93
+    port: 44004
+    password: 6b5b50ff-7798-40dc-9888-b4dd581e5435
+    network: ws
+    sni: joss.dus.biz.id
+    tls: true
+    ws-opts:
+      path: /Free-VPN-CF-Geo-Project/51.89.128.93=44004
+      headers:
+        Host: joss.dus.biz.id
+proxy-groups:
+  - name: 🚀 节点选择
+    type: select
+    proxies:
+      - ♻️ 自动选择
+      - DIRECT
+      - 🇨🇳_CN_中国
+      - 🇨🇳_CN_中国_1
+      - 🇨🇳_CN_中国_2
+      - 🇨🇳_CN_中国_3
+      - 🇺🇸_US_美国
+      - 🇸🇦_SA_沙特阿拉伯
+      - 🇷🇴_RO_罗马尼亚
+      - 🇺🇸_US_美国_1
+      - 🇺🇸_US_美国_2
+      - 🇺🇸_US_美国_3
+      - 🇷🇺_RU_俄罗斯
+      - 🇷🇺_RU_俄罗斯_1
+      - 🇺🇸_US_美国_4
+      - 🇺🇸_US_美国_5
+      - 🇭🇺_HU_匈牙利
+      - 🇺🇸_US_美国_6
+      - 🇳🇱_NL_荷兰
+      - 🇺🇸_US_美国_7
+  - name: ♻️ 自动选择
+    type: url-test
+    proxies:
+      - 🇨🇳_CN_中国
+      - 🇨🇳_CN_中国_1
+      - 🇨🇳_CN_中国_2
+      - 🇨🇳_CN_中国_3
+      - 🇺🇸_US_美国
+      - 🇸🇦_SA_沙特阿拉伯
+      - 🇷🇴_RO_罗马尼亚
+      - 🇺🇸_US_美国_1
+      - 🇺🇸_US_美国_2
+      - 🇺🇸_US_美国_3
+      - 🇷🇺_RU_俄罗斯
+      - 🇷🇺_RU_俄罗斯_1
+      - 🇺🇸_US_美国_4
+      - 🇺🇸_US_美国_5
+      - 🇭🇺_HU_匈牙利
+      - 🇺🇸_US_美国_6
+      - 🇳🇱_NL_荷兰
+      - 🇺🇸_US_美国_7
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+  - name: 🎯 全球直连
+    type: select
+    proxies:
+      - DIRECT
+      - 🚀 节点选择
+      - ♻️ 自动选择
+  - name: 🛑 全球拦截
+    type: select
+    proxies:
+      - REJECT
+      - DIRECT
+  - name: 🐟 漏网之鱼
+    type: select
+    proxies:
+      - 🚀 节点选择
+      - 🎯 全球直连
+      - ♻️ 自动选择
+      - 🇨🇳_CN_中国
+      - 🇨🇳_CN_中国_1
+      - 🇨🇳_CN_中国_2
+      - 🇨🇳_CN_中国_3
+      - 🇺🇸_US_美国
+      - 🇸🇦_SA_沙特阿拉伯
+      - 🇷🇴_RO_罗马尼亚
+      - 🇺🇸_US_美国_1
+      - 🇺🇸_US_美国_2
+      - 🇺🇸_US_美国_3
+      - 🇷🇺_RU_俄罗斯
+      - 🇷🇺_RU_俄罗斯_1
+      - 🇺🇸_US_美国_4
+      - 🇺🇸_US_美国_5
+      - 🇭🇺_HU_匈牙利
+      - 🇺🇸_US_美国_6
+      - 🇳🇱_NL_荷兰
+      - 🇺🇸_US_美国_7
+rule-providers:
+  LocalAreaNetwork:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/LocalAreaNetwork.list
+    path: ./rules/providers/LocalAreaNetwork.list
+    interval: 86400
+  BanAD:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanAD.list
+    path: ./rules/providers/BanAD.list
+    interval: 86400
+  BanProgramAD:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanProgramAD.list
+    path: ./rules/providers/BanProgramAD.list
+    interval: 86400
+  GoogleCN:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/GoogleCN.list
+    path: ./rules/providers/GoogleCN.list
+    interval: 86400
+  SteamCN:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/SteamCN.list
+    path: ./rules/providers/SteamCN.list
+    interval: 86400
+  Telegram:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Telegram.list
+    path: ./rules/providers/Telegram.list
+    interval: 86400
+  ProxyMedia:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ProxyMedia.list
+    path: ./rules/providers/ProxyMedia.list
+    interval: 86400
+  ProxyLite:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ProxyLite.list
+    path: ./rules/providers/ProxyLite.list
+    interval: 86400
+  ChinaDomain:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaDomain.list
+    path: ./rules/providers/ChinaDomain.list
+    interval: 86400
+  ChinaCompanyIp:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaCompanyIp.list
+    path: ./rules/providers/ChinaCompanyIp.list
+    interval: 86400
+
+rules:
+  - RULE-SET,LocalAreaNetwork,🎯 全球直连
+  - RULE-SET,BanAD,🛑 全球拦截
+  - RULE-SET,BanProgramAD,🛑 全球拦截
+  - RULE-SET,GoogleCN,🎯 全球直连
+  - RULE-SET,SteamCN,🎯 全球直连
+  - RULE-SET,Telegram,🚀 节点选择
+  - RULE-SET,ProxyMedia,🚀 节点选择
+  - RULE-SET,ProxyLite,🚀 节点选择
+  - RULE-SET,ChinaDomain,🎯 全球直连
+  - RULE-SET,ChinaCompanyIp,🎯 全球直连
+  - GEOIP,CN,🎯 全球直连
+  - MATCH,🐟 漏网之鱼
