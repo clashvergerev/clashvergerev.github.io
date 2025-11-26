@@ -1,0 +1,526 @@
+# ;不要随意改变关键字，否则会导致出错
+# ;acl4SSR规则
+# ;去广告：支持
+# ;自动测速：支持
+# ;微软分流：不支持
+# ;苹果分流：不支持
+# ;增强中国IP段：不支持
+# ;增强国外GFW：不支持
+# ;ruleset=🎯 全球直连,[]GEOIP,LAN
+
+mixed-port: 7890
+allow-lan: false
+mode: rule
+ipv6: false
+log-level: info
+external-controller: 0.0.0.0:9090
+dns:
+  enable: true
+  listen: 0.0.0.0:53
+  ipv6: false
+  default-nameserver:
+    - 223.5.5.5
+    - 114.114.114.114
+  nameserver:
+    - 223.5.5.5
+    - 114.114.114.114
+    - 119.29.29.29
+    - 180.76.76.76
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  fake-ip-filter:
+    - "*.lan"
+    - "*.localdomain"
+    - "*.example"
+    - "*.invalid"
+    - "*.localhost"
+    - "*.test"
+    - "*.local"
+    - "*.home.arpa"
+    - router.asus.com
+    - localhost.sec.qq.com
+    - localhost.ptlogin2.qq.com
+    - +.msftconnecttest.com
+tun:
+  enable: true
+  stack: system
+  auto-route: true
+  auto-detect-interface: true
+  dns-hijack:
+    - 114.114.114.114
+    - 180.76.76.76
+    - 119.29.29.29
+    - 223.5.5.5
+    - 8.8.8.8
+    - 8.8.4.4
+    - 1.1.1.1
+    - 1.0.0.1
+
+
+proxies:
+  - type: vless
+    name: 🇦🇺_AU_澳大利亚
+    server: 43.161.227.251
+    port: 60006
+    uuid: 69228a95-e9cb-b1ff-40d2-7315d9d4b9b7
+    network: ws
+    servername: s3.sni565.netlib.re
+    tls: true
+    encryption: none
+    ws-opts:
+      path: /proxyip=tw.sni2025.netlib.re
+      headers:
+        Host: s3.sni565.netlib.re
+    client-fingerprint: chrome
+    alpn:
+      - h3
+  - type: vless
+    name: 🇨🇳_CN_中国
+    server: 8.218.189.27
+    port: 443
+    uuid: 69228a95-e9cb-b1ff-40d2-7315d9d4b9b7
+    network: ws
+    servername: s3.sni565.netlib.re
+    tls: true
+    encryption: none
+    ws-opts:
+      path: /proxyip=tw.sni2025.netlib.re
+      headers:
+        Host: s3.sni565.netlib.re
+    client-fingerprint: chrome
+    alpn:
+      - h3
+  - type: trojan
+    name: 🇺🇸_US_美国
+    server: wangcai.cf.877774.xyz
+    port: 2096
+    password: 12345678-1234-1234-1234-123456789123
+    network: ws
+    sni: joss.gpj1.web.id
+    ws-opts:
+      path: /Free-VPN-CF-Geo-Project/HK?Telegram🇨🇳 @WangCai2
+      headers:
+        Host: joss.gpj1.web.id
+  - type: vless
+    name: 🇰🇷_KR_韩国
+    server: 211.195.83.140
+    port: 50003
+    uuid: 69228a95-e9cb-b1ff-40d2-7315d9d4b9b7
+    network: ws
+    servername: s3.sni565.netlib.re
+    tls: true
+    encryption: none
+    ws-opts:
+      path: /proxyip=tw.sni2025.netlib.re
+      headers:
+        Host: s3.sni565.netlib.re
+    client-fingerprint: chrome
+    alpn:
+      - h3
+  - type: vless
+    name: 🇺🇸_US_美国_1
+    server: wangcai.cf.877774.xyz
+    port: 2096
+    uuid: d78d48df-b788-4a95-9e9f-77c9b2f69822
+    network: ws
+    servername: joss.gpj1.web.id
+    tls: true
+    ws-opts:
+      path: /Free-VPN-CF-Geo-Project/HK?Telegram🇨🇳 @WangCai2
+      headers:
+        Host: joss.gpj1.web.id
+  - type: vless
+    name: 🇨🇳_CN_中国_1
+    server: 220.128.110.108
+    port: 43
+    uuid: 69228a95-e9cb-b1ff-40d2-7315d9d4b9b7
+    network: ws
+    servername: s3.sni565.netlib.re
+    tls: true
+    encryption: none
+    ws-opts:
+      path: /proxyip=tw.sni2025.netlib.re
+      headers:
+        Host: s3.sni565.netlib.re
+    client-fingerprint: chrome
+    alpn:
+      - h3
+  - type: vless
+    name: 🇺🇸_US_美国_2
+    server: 108.162.198.24
+    port: 2096
+    uuid: 5aba5b77-48eb-4ae2-b60d-5bfee7ac169e
+    network: ws
+    servername: kuangbao.xiejiang.dpdns.org
+    tls: true
+    ws-opts:
+      path: /?ed=2560
+      headers:
+        Host: kuangbao.xiejiang.dpdns.org
+  - type: vless
+    name: 🇰🇷_KR_韩国_1
+    server: 106.242.64.238
+    port: 50000
+    uuid: 6923b959-c65f-764c-b072-94711382d716
+    network: ws
+    servername: s2.sni565.netlib.re
+    tls: true
+    encryption: none
+    ws-opts:
+      path: /proxyip=tw.sni2025.netlib.re
+      headers:
+        Host: s2.sni565.netlib.re
+    client-fingerprint: chrome
+    alpn:
+      - h3
+  - type: vless
+    name: 🇯🇵_JP_日本
+    server: 54.95.79.44
+    port: 443
+    uuid: 5aba5b77-48eb-4ae2-b60d-5bfee7ac169e
+    network: ws
+    servername: kuangbao.xiejiang.dpdns.org
+    tls: true
+    ws-opts:
+      path: /?ed=2560
+      headers:
+        Host: kuangbao.xiejiang.dpdns.org
+  - type: vless
+    name: 🇰🇷_KR_韩国_2
+    server: 115.90.84.220
+    port: 50001
+    uuid: 69228a95-e9cb-b1ff-40d2-7315d9d4b9b7
+    network: ws
+    servername: s3.sni565.netlib.re
+    tls: true
+    encryption: none
+    ws-opts:
+      path: /proxyip=tw.sni2025.netlib.re
+      headers:
+        Host: s3.sni565.netlib.re
+    client-fingerprint: chrome
+    alpn:
+      - h3
+  - type: trojan
+    name: 🇺🇸_US_美国_3
+    server: 162.159.42.58
+    port: 443
+    password: "0"
+    network: ws
+    sni: c03237cb.ba73fe85.netlib.re
+    alpn:
+      - http/1.1
+    skip-cert-verify: true
+    fingerprint: random
+    tls: true
+    ws-opts:
+      path: /
+      headers:
+        Host: c03237cb.ba73fe85.netlib.re
+  - type: vless
+    name: 🇺🇸_US_美国_4
+    server: 130.33.68.45
+    port: 443
+    uuid: 69228a95-e9cb-b1ff-40d2-7315d9d4b9b7
+    network: ws
+    servername: s3.sni565.netlib.re
+    tls: true
+    encryption: none
+    ws-opts:
+      path: /proxyip=tw.sni2025.netlib.re
+      headers:
+        Host: s3.sni565.netlib.re
+    client-fingerprint: chrome
+    alpn:
+      - h3
+  - type: vless
+    name: 🇯🇵_JP_日本_1
+    server: 54.249.169.40
+    port: 443
+    uuid: 5aba5b77-48eb-4ae2-b60d-5bfee7ac169e
+    network: ws
+    servername: kuangbao.xiejiang.dpdns.org
+    tls: true
+    ws-opts:
+      path: /?ed=2560
+      headers:
+        Host: kuangbao.xiejiang.dpdns.org
+  - type: vless
+    name: 🇷🇺_RU_俄罗斯
+    server: 193.124.18.13
+    port: 443
+    uuid: 5aba5b77-48eb-4ae2-b60d-5bfee7ac169e
+    network: ws
+    servername: kuangbao.xiejiang.dpdns.org
+    tls: true
+    ws-opts:
+      path: /?ed=2560
+      headers:
+        Host: kuangbao.xiejiang.dpdns.org
+  - type: vmess
+    name: 🇺🇸US²_5|4.5MB/s|57%|GPT⁺|GM|YT|TK|NF|X
+    server: okl5i3.zeeoomboom.de
+    port: 443
+    uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+    alterId: 0
+    network: ws
+    cipher: auto
+    ws-opts:
+      path: /video/pmi58yp5.m3u8
+    tls: true
+  - type: vless
+    name: 🇺🇸_US_美国_5
+    server: 172.66.156.81
+    port: 80
+    uuid: 0267b737-c79b-4092-95ad-74694cbbce32
+    network: ws
+    servername: websocket.network.www.speedtest.net.flutter.dev.russia.pyt.digitalcity5.xyz.
+    encryption: none
+    ws-opts:
+      path: /@Shh_Proxy----@Shh_Proxy----@Shh_Proxy----@Shh_Proxy----@Shh_Proxy----@Shh_Proxy----@Shh_Proxy----@Shh_Proxy----@Shh_Proxy----@Shh_Proxy----@Shh_Proxy----@Shh_Proxy
+      headers:
+        Host: websocket.network.www.speedtest.net.flutter.dev.russia.pyt.digitalcity5.xyz.
+  - type: trojan
+    name: 🇨🇳_CN_中国_2
+    server: 36.50.90.241
+    port: 35951
+    password: c6b96097-fe2d-487d-b9ef-60c994b90db2
+    network: ws
+    sni: joss.gpj1.web.id
+    fingerprint: randomized
+    tls: true
+    ws-opts:
+      path: /Free-VPN-CF-Geo-Project/36.50.90.241=35951
+      headers:
+        Host: joss.gpj1.web.id
+  - type: vmess
+    name: 🇫🇷FR²_4|4.2MB/s|100%|GPT⁺|YT|TK|NF|X
+    server: n5vaz1.zeeoomboom.de
+    port: 443
+    uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+    alterId: 0
+    network: ws
+    cipher: auto
+    ws-opts:
+      path: /video/i3o7f0yh.m3u8
+    tls: true
+  - type: vmess
+    name: 🇺🇸US²_12|5.1MB/s|100%|GPT⁺|YT|TK|NF|X
+    server: a3fyst.zeeoomboom.de
+    port: 443
+    uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+    alterId: 0
+    network: ws
+    cipher: auto
+    ws-opts:
+      path: /video/d4kapx2v.m3u8
+    tls: true
+  - type: vmess
+    name: 🇭🇰HK¹⁺_1|0.5MB/s|2%|YT|D+|X|KeepSucceed
+    server: 36.50.90.241
+    port: 35951
+    uuid: f282b878-8711-45a1-8c69-5564172123c1
+    alterId: 0
+    network: ws
+    cipher: zero
+    servername: vm.gpj1.web.id
+    ws-opts:
+      path: /Geo-Project/36.50.90.241-35951
+      headers:
+        Host: vm.gpj1.web.id
+    tls: true
+  - type: vmess
+    name: 🇺🇸US²_6|4.1MB/s|100%|GPT⁺|YT|TK|NF|X
+    server: xyst5w.teeoomboom.de
+    port: 443
+    uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+    alterId: 0
+    network: ws
+    cipher: auto
+    ws-opts:
+      path: /video/g5petez.m3u8
+    tls: true
+  - type: ss
+    name: 🇫🇷_FR_法国
+    server: 35.181.172.34
+    port: 443
+    cipher: aes-256-cfb
+    password: amazonskr05
+  - type: ss
+    name: 🇩🇪_DE_德国
+    server: 45.87.175.166
+    port: 443
+    cipher: chacha20-ietf-poly1305
+    password: 1RWwXhwfAB5gAEozU4G2Pg
+proxy-groups:
+  - name: 🚀 节点选择
+    type: select
+    proxies:
+      - ♻️ 自动选择
+      - DIRECT
+      - 🇦🇺_AU_澳大利亚
+      - 🇨🇳_CN_中国
+      - 🇺🇸_US_美国
+      - 🇰🇷_KR_韩国
+      - 🇺🇸_US_美国_1
+      - 🇨🇳_CN_中国_1
+      - 🇺🇸_US_美国_2
+      - 🇰🇷_KR_韩国_1
+      - 🇯🇵_JP_日本
+      - 🇰🇷_KR_韩国_2
+      - 🇺🇸_US_美国_3
+      - 🇺🇸_US_美国_4
+      - 🇯🇵_JP_日本_1
+      - 🇷🇺_RU_俄罗斯
+      - 🇺🇸US²_5|4.5MB/s|57%|GPT⁺|GM|YT|TK|NF|X
+      - 🇺🇸_US_美国_5
+      - 🇨🇳_CN_中国_2
+      - 🇫🇷FR²_4|4.2MB/s|100%|GPT⁺|YT|TK|NF|X
+      - 🇺🇸US²_12|5.1MB/s|100%|GPT⁺|YT|TK|NF|X
+      - 🇭🇰HK¹⁺_1|0.5MB/s|2%|YT|D+|X|KeepSucceed
+      - 🇺🇸US²_6|4.1MB/s|100%|GPT⁺|YT|TK|NF|X
+      - 🇫🇷_FR_法国
+      - 🇩🇪_DE_德国
+  - name: ♻️ 自动选择
+    type: url-test
+    proxies:
+      - 🇦🇺_AU_澳大利亚
+      - 🇨🇳_CN_中国
+      - 🇺🇸_US_美国
+      - 🇰🇷_KR_韩国
+      - 🇺🇸_US_美国_1
+      - 🇨🇳_CN_中国_1
+      - 🇺🇸_US_美国_2
+      - 🇰🇷_KR_韩国_1
+      - 🇯🇵_JP_日本
+      - 🇰🇷_KR_韩国_2
+      - 🇺🇸_US_美国_3
+      - 🇺🇸_US_美国_4
+      - 🇯🇵_JP_日本_1
+      - 🇷🇺_RU_俄罗斯
+      - 🇺🇸US²_5|4.5MB/s|57%|GPT⁺|GM|YT|TK|NF|X
+      - 🇺🇸_US_美国_5
+      - 🇨🇳_CN_中国_2
+      - 🇫🇷FR²_4|4.2MB/s|100%|GPT⁺|YT|TK|NF|X
+      - 🇺🇸US²_12|5.1MB/s|100%|GPT⁺|YT|TK|NF|X
+      - 🇭🇰HK¹⁺_1|0.5MB/s|2%|YT|D+|X|KeepSucceed
+      - 🇺🇸US²_6|4.1MB/s|100%|GPT⁺|YT|TK|NF|X
+      - 🇫🇷_FR_法国
+      - 🇩🇪_DE_德国
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+  - name: 🎯 全球直连
+    type: select
+    proxies:
+      - DIRECT
+      - 🚀 节点选择
+      - ♻️ 自动选择
+  - name: 🛑 全球拦截
+    type: select
+    proxies:
+      - REJECT
+      - DIRECT
+  - name: 🐟 漏网之鱼
+    type: select
+    proxies:
+      - 🚀 节点选择
+      - 🎯 全球直连
+      - ♻️ 自动选择
+      - 🇦🇺_AU_澳大利亚
+      - 🇨🇳_CN_中国
+      - 🇺🇸_US_美国
+      - 🇰🇷_KR_韩国
+      - 🇺🇸_US_美国_1
+      - 🇨🇳_CN_中国_1
+      - 🇺🇸_US_美国_2
+      - 🇰🇷_KR_韩国_1
+      - 🇯🇵_JP_日本
+      - 🇰🇷_KR_韩国_2
+      - 🇺🇸_US_美国_3
+      - 🇺🇸_US_美国_4
+      - 🇯🇵_JP_日本_1
+      - 🇷🇺_RU_俄罗斯
+      - 🇺🇸US²_5|4.5MB/s|57%|GPT⁺|GM|YT|TK|NF|X
+      - 🇺🇸_US_美国_5
+      - 🇨🇳_CN_中国_2
+      - 🇫🇷FR²_4|4.2MB/s|100%|GPT⁺|YT|TK|NF|X
+      - 🇺🇸US²_12|5.1MB/s|100%|GPT⁺|YT|TK|NF|X
+      - 🇭🇰HK¹⁺_1|0.5MB/s|2%|YT|D+|X|KeepSucceed
+      - 🇺🇸US²_6|4.1MB/s|100%|GPT⁺|YT|TK|NF|X
+      - 🇫🇷_FR_法国
+      - 🇩🇪_DE_德国
+rule-providers:
+  LocalAreaNetwork:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/LocalAreaNetwork.list
+    path: ./rules/providers/LocalAreaNetwork.list
+    interval: 86400
+  BanAD:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanAD.list
+    path: ./rules/providers/BanAD.list
+    interval: 86400
+  BanProgramAD:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanProgramAD.list
+    path: ./rules/providers/BanProgramAD.list
+    interval: 86400
+  GoogleCN:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/GoogleCN.list
+    path: ./rules/providers/GoogleCN.list
+    interval: 86400
+  SteamCN:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/SteamCN.list
+    path: ./rules/providers/SteamCN.list
+    interval: 86400
+  Telegram:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Telegram.list
+    path: ./rules/providers/Telegram.list
+    interval: 86400
+  ProxyMedia:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ProxyMedia.list
+    path: ./rules/providers/ProxyMedia.list
+    interval: 86400
+  ProxyLite:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ProxyLite.list
+    path: ./rules/providers/ProxyLite.list
+    interval: 86400
+  ChinaDomain:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaDomain.list
+    path: ./rules/providers/ChinaDomain.list
+    interval: 86400
+  ChinaCompanyIp:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaCompanyIp.list
+    path: ./rules/providers/ChinaCompanyIp.list
+    interval: 86400
+
+rules:
+  - RULE-SET,LocalAreaNetwork,🎯 全球直连
+  - RULE-SET,BanAD,🛑 全球拦截
+  - RULE-SET,BanProgramAD,🛑 全球拦截
+  - RULE-SET,GoogleCN,🎯 全球直连
+  - RULE-SET,SteamCN,🎯 全球直连
+  - RULE-SET,Telegram,🚀 节点选择
+  - RULE-SET,ProxyMedia,🚀 节点选择
+  - RULE-SET,ProxyLite,🚀 节点选择
+  - RULE-SET,ChinaDomain,🎯 全球直连
+  - RULE-SET,ChinaCompanyIp,🎯 全球直连
+  - GEOIP,CN,🎯 全球直连
+  - MATCH,🐟 漏网之鱼

@@ -1,0 +1,387 @@
+# ;不要随意改变关键字，否则会导致出错
+# ;acl4SSR规则
+# ;去广告：支持
+# ;自动测速：支持
+# ;微软分流：不支持
+# ;苹果分流：不支持
+# ;增强中国IP段：不支持
+# ;增强国外GFW：不支持
+# ;ruleset=🎯 全球直连,[]GEOIP,LAN
+
+mixed-port: 7890
+allow-lan: false
+mode: rule
+ipv6: false
+log-level: info
+external-controller: 0.0.0.0:9090
+dns:
+  enable: true
+  listen: 0.0.0.0:53
+  ipv6: false
+  default-nameserver:
+    - 223.5.5.5
+    - 114.114.114.114
+  nameserver:
+    - 223.5.5.5
+    - 114.114.114.114
+    - 119.29.29.29
+    - 180.76.76.76
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  fake-ip-filter:
+    - "*.lan"
+    - "*.localdomain"
+    - "*.example"
+    - "*.invalid"
+    - "*.localhost"
+    - "*.test"
+    - "*.local"
+    - "*.home.arpa"
+    - router.asus.com
+    - localhost.sec.qq.com
+    - localhost.ptlogin2.qq.com
+    - +.msftconnecttest.com
+tun:
+  enable: true
+  stack: system
+  auto-route: true
+  auto-detect-interface: true
+  dns-hijack:
+    - 114.114.114.114
+    - 180.76.76.76
+    - 119.29.29.29
+    - 223.5.5.5
+    - 8.8.8.8
+    - 8.8.4.4
+    - 1.1.1.1
+    - 1.0.0.1
+
+
+proxies:
+  - type: vmess
+    name: 🏁RELAY-104.21.30.167-0827
+    server: sssssssxxxx.2032.pp.ua
+    port: 443
+    uuid: 4174b95d-115e-4d39-add6-1f8db95bb860
+    alterId: 0
+    network: ws
+    cipher: auto
+    servername: sssssssxxxx.2032.pp.ua
+    ws-opts:
+      path: /6We3U9Df1WGxgFnoFPw1
+      headers:
+        Host: sssssssxxxx.2032.pp.ua
+    tls: true
+  - type: trojan
+    name: 🇨🇳_CN_中国
+    server: 219.79.165.55
+    port: 443
+    password: BxceQaOe
+    network: tcp
+    sni: t.me/ripaojiedian
+    skip-cert-verify: true
+  - type: vless
+    name: 🇸🇦_SA_沙特阿拉伯
+    server: 77.110.119.225
+    port: 443
+    uuid: 4819860c-0e62-4804-9c59-967e5c2bed7a
+    network: tcp
+    servername: st.ozone.ru
+    tls: true
+    reality-opts:
+      public-key: hnec5SxCD6Os-u0FNi_YS5CML1a_oWb0niZJ1mGuFBo
+      short-id: 07e904766d29b958
+    client-fingerprint: chrome
+    flow: xtls-rprx-vision
+  - type: vless
+    name: 🇸🇦_SA_沙特阿拉伯_1
+    server: 77.110.101.240
+    port: 443
+    uuid: cf97c9a9-441e-43e1-9bd2-f66a198cd87b
+    network: tcp
+    servername: kinopoisk.ru
+    tls: true
+    encryption: none
+    reality-opts:
+      public-key: 4Y3V5AIralE3HIAYXCe3beUGsUiBei0mCmbhPXGAgHg
+      short-id: 2fc1abafec7cb87b
+    client-fingerprint: chrome
+    flow: xtls-rprx-vision
+  - type: trojan
+    name: 🇷🇺_RU_俄罗斯
+    server: 91.103.253.193
+    port: 443
+    password: 1a758d17-149a-47f3-9336-d1cc33232cc9
+    network: ws
+    sni: joss.gpj1.web.id
+    fingerprint: chrome
+    tls: true
+    ws-opts:
+      path: /Free-VPN-CF-Geo-Project/91.103.253.193=443
+      headers:
+        Host: joss.gpj1.web.id
+  - type: vless
+    name: 🇸🇦_SA_沙特阿拉伯_2
+    server: usa1.tunnelx.space
+    port: 2087
+    uuid: 393040206-client-475
+    network: ws
+    servername: ws.usa1.tunnelx.space
+    encryption: none
+    ws-opts:
+      path: /assets/img/banner_v3.webp/#@V2RAY_SPATIAL,@V2RAY_SPATIAL,@V2RAY_SPATIAL,@V2RAY_SPATIAL,@V2RAY_SPATIAL,@V2RAY_SPATIAL,@V2RAY_SPATIAL,@V2RAY_SPATIAL,@V2RAY_SPATIAL,@V2RAY_SPATIAL,@V2RAY_SPATIAL,@V2RAY_SPATIAL
+      headers:
+        Host: ws.usa1.tunnelx.space
+  - type: vmess
+    name: 🇬🇧 英国 01
+    server: v36.heduian.link
+    port: 30836
+    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+    alterId: 2
+    network: tcp
+    cipher: auto
+    servername: v36.heduian.link
+  - type: vless
+    name: 🇷🇺_RU_俄罗斯_1
+    server: 81.161.98.228
+    port: 1443
+    uuid: 00f02ab2-6f2d-449f-a089-d182a2fac59a
+    network: ws
+    servername: cdn.filterai.ru
+    tls: true
+    ws-opts:
+      path: /websocketpl
+      headers:
+        Host: cdn.filterai.ru
+    client-fingerprint: chrome
+  - type: ss
+    name: 🇨🇳_CN_中国_1
+    server: 103.219.103.217
+    port: 23344
+    cipher: aes-128-gcm
+    password: 79ad2852-eb76-4c3e-ba4d-3668ee5ece74
+  - type: vless
+    name: 🇷🇺_RU_俄罗斯_2
+    server: 92.51.38.205
+    port: 443
+    uuid: acb2c1bd-8f2e-4567-bd06-9243feaacfdc
+    network: tcp
+    servername: id.sber.ru
+    tls: true
+    encryption: none
+    reality-opts:
+      public-key: a7pE0PrtV-p1g975c57xFrQ8MBI4G_Ozd7eWiq4L6lU
+      short-id: f1d00cbbb31154b1
+    client-fingerprint: chrome
+    flow: xtls-rprx-vision
+  - type: vless
+    name: 🇷🇺_RU_俄罗斯_3
+    server: 147.45.234.51
+    port: 443
+    uuid: fd0718a1-c463-4297-8ba9-a7f4b93ce436
+    network: tcp
+    servername: www.vk.com
+    tls: true
+    encryption: none
+    reality-opts:
+      public-key: GjFTD96cethyxcRuToHUwv741QoDB9-V7LRsxEh6jTU
+      short-id: ab1cd2
+      spider-x: /
+    client-fingerprint: chrome
+    flow: xtls-rprx-vision
+  - type: ss
+    name: 🇨🇳_CN_中国_2
+    server: 103.219.103.217
+    port: 21712
+    cipher: aes-128-gcm
+    password: 79ad2852-eb76-4c3e-ba4d-3668ee5ece74
+  - type: vless
+    name: 🇺🇸_US_美国
+    server: 64.23.189.238
+    port: 443
+    uuid: a7e04b44-855e-4fe7-8fa0-31894e928bce
+    network: tcp
+    servername: www.gstatic.com
+    tls: true
+    reality-opts:
+      public-key: RYsjWbL0kjpi144PPllR_2C_KK3a071iGBPUUCsHH1A
+      short-id: a4844ba7
+    client-fingerprint: chrome
+    flow: xtls-rprx-vision
+  - type: vless
+    name: 🇷🇺_RU_俄罗斯_4
+    server: 151.236.93.64
+    port: 4249
+    uuid: cf97c9a9-441e-43e1-9bd2-f66a198cd87b
+    network: tcp
+    servername: sun6-22.userapi.com
+    tls: true
+    encryption: none
+    reality-opts:
+      public-key: B59-Z34-VHLbRz8jdcSBCvtVrfyCH7VU4Zyw3aSVUGQ
+      short-id: a20d3ed244c76426
+    client-fingerprint: chrome
+    flow: xtls-rprx-vision
+  - type: vless
+    name: 🇧🇬_BG_保加利亚
+    server: nl-2.shvurgceo.online
+    port: 54746
+    uuid: a596c0ec-4754-407d-a161-9ff6ff8b105f
+    network: tcp
+    servername: vk.com
+    tls: true
+    encryption: none
+    reality-opts:
+      public-key: DvKMFkm82Jkp6Jk_7pXYb0fMXq1MsLMNxDeQfcCSbEA
+      short-id: ab12cd34
+      spider-x: /
+    client-fingerprint: chrome
+    flow: xtls-rprx-vision
+proxy-groups:
+  - name: 🚀 节点选择
+    type: select
+    proxies:
+      - ♻️ 自动选择
+      - DIRECT
+      - 🏁RELAY-104.21.30.167-0827
+      - 🇨🇳_CN_中国
+      - 🇸🇦_SA_沙特阿拉伯
+      - 🇸🇦_SA_沙特阿拉伯_1
+      - 🇷🇺_RU_俄罗斯
+      - 🇸🇦_SA_沙特阿拉伯_2
+      - 🇬🇧 英国 01
+      - 🇷🇺_RU_俄罗斯_1
+      - 🇨🇳_CN_中国_1
+      - 🇷🇺_RU_俄罗斯_2
+      - 🇷🇺_RU_俄罗斯_3
+      - 🇨🇳_CN_中国_2
+      - 🇺🇸_US_美国
+      - 🇷🇺_RU_俄罗斯_4
+      - 🇧🇬_BG_保加利亚
+  - name: ♻️ 自动选择
+    type: url-test
+    proxies:
+      - 🏁RELAY-104.21.30.167-0827
+      - 🇨🇳_CN_中国
+      - 🇸🇦_SA_沙特阿拉伯
+      - 🇸🇦_SA_沙特阿拉伯_1
+      - 🇷🇺_RU_俄罗斯
+      - 🇸🇦_SA_沙特阿拉伯_2
+      - 🇬🇧 英国 01
+      - 🇷🇺_RU_俄罗斯_1
+      - 🇨🇳_CN_中国_1
+      - 🇷🇺_RU_俄罗斯_2
+      - 🇷🇺_RU_俄罗斯_3
+      - 🇨🇳_CN_中国_2
+      - 🇺🇸_US_美国
+      - 🇷🇺_RU_俄罗斯_4
+      - 🇧🇬_BG_保加利亚
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+  - name: 🎯 全球直连
+    type: select
+    proxies:
+      - DIRECT
+      - 🚀 节点选择
+      - ♻️ 自动选择
+  - name: 🛑 全球拦截
+    type: select
+    proxies:
+      - REJECT
+      - DIRECT
+  - name: 🐟 漏网之鱼
+    type: select
+    proxies:
+      - 🚀 节点选择
+      - 🎯 全球直连
+      - ♻️ 自动选择
+      - 🏁RELAY-104.21.30.167-0827
+      - 🇨🇳_CN_中国
+      - 🇸🇦_SA_沙特阿拉伯
+      - 🇸🇦_SA_沙特阿拉伯_1
+      - 🇷🇺_RU_俄罗斯
+      - 🇸🇦_SA_沙特阿拉伯_2
+      - 🇬🇧 英国 01
+      - 🇷🇺_RU_俄罗斯_1
+      - 🇨🇳_CN_中国_1
+      - 🇷🇺_RU_俄罗斯_2
+      - 🇷🇺_RU_俄罗斯_3
+      - 🇨🇳_CN_中国_2
+      - 🇺🇸_US_美国
+      - 🇷🇺_RU_俄罗斯_4
+      - 🇧🇬_BG_保加利亚
+rule-providers:
+  LocalAreaNetwork:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/LocalAreaNetwork.list
+    path: ./rules/providers/LocalAreaNetwork.list
+    interval: 86400
+  BanAD:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanAD.list
+    path: ./rules/providers/BanAD.list
+    interval: 86400
+  BanProgramAD:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanProgramAD.list
+    path: ./rules/providers/BanProgramAD.list
+    interval: 86400
+  GoogleCN:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/GoogleCN.list
+    path: ./rules/providers/GoogleCN.list
+    interval: 86400
+  SteamCN:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/SteamCN.list
+    path: ./rules/providers/SteamCN.list
+    interval: 86400
+  Telegram:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Telegram.list
+    path: ./rules/providers/Telegram.list
+    interval: 86400
+  ProxyMedia:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ProxyMedia.list
+    path: ./rules/providers/ProxyMedia.list
+    interval: 86400
+  ProxyLite:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ProxyLite.list
+    path: ./rules/providers/ProxyLite.list
+    interval: 86400
+  ChinaDomain:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaDomain.list
+    path: ./rules/providers/ChinaDomain.list
+    interval: 86400
+  ChinaCompanyIp:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaCompanyIp.list
+    path: ./rules/providers/ChinaCompanyIp.list
+    interval: 86400
+
+rules:
+  - RULE-SET,LocalAreaNetwork,🎯 全球直连
+  - RULE-SET,BanAD,🛑 全球拦截
+  - RULE-SET,BanProgramAD,🛑 全球拦截
+  - RULE-SET,GoogleCN,🎯 全球直连
+  - RULE-SET,SteamCN,🎯 全球直连
+  - RULE-SET,Telegram,🚀 节点选择
+  - RULE-SET,ProxyMedia,🚀 节点选择
+  - RULE-SET,ProxyLite,🚀 节点选择
+  - RULE-SET,ChinaDomain,🎯 全球直连
+  - RULE-SET,ChinaCompanyIp,🎯 全球直连
+  - GEOIP,CN,🎯 全球直连
+  - MATCH,🐟 漏网之鱼
