@@ -1,0 +1,394 @@
+# ;不要随意改变关键字，否则会导致出错
+# ;acl4SSR规则
+# ;去广告：支持
+# ;自动测速：支持
+# ;微软分流：不支持
+# ;苹果分流：不支持
+# ;增强中国IP段：不支持
+# ;增强国外GFW：不支持
+# ;ruleset=🎯 全球直连,[]GEOIP,LAN
+
+mixed-port: 7890
+allow-lan: false
+mode: rule
+ipv6: false
+log-level: info
+external-controller: 0.0.0.0:9090
+dns:
+  enable: true
+  listen: 0.0.0.0:53
+  ipv6: false
+  default-nameserver:
+    - 223.5.5.5
+    - 114.114.114.114
+  nameserver:
+    - 223.5.5.5
+    - 114.114.114.114
+    - 119.29.29.29
+    - 180.76.76.76
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  fake-ip-filter:
+    - "*.lan"
+    - "*.localdomain"
+    - "*.example"
+    - "*.invalid"
+    - "*.localhost"
+    - "*.test"
+    - "*.local"
+    - "*.home.arpa"
+    - router.asus.com
+    - localhost.sec.qq.com
+    - localhost.ptlogin2.qq.com
+    - +.msftconnecttest.com
+tun:
+  enable: true
+  stack: system
+  auto-route: true
+  auto-detect-interface: true
+  dns-hijack:
+    - 114.114.114.114
+    - 180.76.76.76
+    - 119.29.29.29
+    - 223.5.5.5
+    - 8.8.8.8
+    - 8.8.4.4
+    - 1.1.1.1
+    - 1.0.0.1
+
+
+proxies:
+  - type: vless
+    name: 🇰🇷_KR_韩国
+    server: 59.2.75.64
+    port: 50001
+    uuid: 6923b959-c65f-764c-b072-94711382d716
+    network: ws
+    servername: s2.sni565.netlib.re
+    tls: true
+    encryption: none
+    ws-opts:
+      path: /proxyip=tw.sni2025.netlib.re
+      headers:
+        Host: s2.sni565.netlib.re
+    client-fingerprint: random
+    alpn:
+      - h3
+  - type: vless
+    name: 🇦🇺_AU_澳大利亚
+    server: 43.161.227.251
+    port: 60006
+    uuid: 69228a95-e9cb-b1ff-40d2-7315d9d4b9b7
+    network: ws
+    servername: s3.sni565.netlib.re
+    tls: true
+    encryption: none
+    ws-opts:
+      path: /proxyip=tw.sni2025.netlib.re
+      headers:
+        Host: s3.sni565.netlib.re
+    client-fingerprint: chrome
+    alpn:
+      - h3
+  - type: vless
+    name: 🇨🇳_CN_中国
+    server: 220.128.110.108
+    port: 43
+    uuid: 69228a95-e9cb-b1ff-40d2-7315d9d4b9b7
+    network: ws
+    servername: s3.sni565.netlib.re
+    tls: true
+    encryption: none
+    ws-opts:
+      path: /proxyip=tw.sni2025.netlib.re
+      headers:
+        Host: s3.sni565.netlib.re
+    client-fingerprint: chrome
+    alpn:
+      - h3
+  - type: vless
+    name: 🇦🇺_AU_澳大利亚_1
+    server: 43.161.227.251
+    port: 60007
+    uuid: 69228a95-e9cb-b1ff-40d2-7315d9d4b9b7
+    network: ws
+    servername: s3.sni565.netlib.re
+    tls: true
+    encryption: none
+    ws-opts:
+      path: /proxyip=tw.sni2025.netlib.re
+      headers:
+        Host: s3.sni565.netlib.re
+    client-fingerprint: chrome
+    alpn:
+      - h3
+  - type: vmess
+    name: 【机场推荐：https://a0a.xyz/】45
+    server: 144.48.180.187
+    port: 30812
+    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+    alterId: 0
+    network: tcp
+    cipher: auto
+  - type: vless
+    name: 🇰🇷_KR_韩国_1
+    server: 119.64.242.60
+    port: 60002
+    uuid: 69228a95-e9cb-b1ff-40d2-7315d9d4b9b7
+    network: ws
+    servername: s3.sni565.netlib.re
+    tls: true
+    encryption: none
+    ws-opts:
+      path: /proxyip=tw.sni2025.netlib.re
+      headers:
+        Host: s3.sni565.netlib.re
+    client-fingerprint: chrome
+    alpn:
+      - h3
+  - type: vless
+    name: 🇬🇧_GB_英国
+    server: 83.229.123.87
+    port: 443
+    uuid: 6923b959-c65f-764c-b072-94711382d716
+    network: ws
+    servername: s2.sni565.netlib.re
+    tls: true
+    encryption: none
+    ws-opts:
+      path: /proxyip=tw.sni2025.netlib.re
+      headers:
+        Host: s2.sni565.netlib.re
+    client-fingerprint: chrome
+    alpn:
+      - h3
+  - type: vless
+    name: 🇺🇸_US_美国
+    server: 68.64.176.135
+    port: 443
+    uuid: 5aba5b77-48eb-4ae2-b60d-5bfee7ac169e
+    network: ws
+    servername: kuangbao.xiejiang.dpdns.org
+    tls: true
+    ws-opts:
+      path: /?ed=2560
+      headers:
+        Host: kuangbao.xiejiang.dpdns.org
+    client-fingerprint: random
+    alpn:
+      - h3
+  - type: vless
+    name: 🇷🇺_RU_俄罗斯
+    server: 193.124.18.13
+    port: 443
+    uuid: 5aba5b77-48eb-4ae2-b60d-5bfee7ac169e
+    network: ws
+    servername: kuangbao.xiejiang.dpdns.org
+    tls: true
+    ws-opts:
+      path: /?ed=2560
+      headers:
+        Host: kuangbao.xiejiang.dpdns.org
+  - type: vless
+    name: 🇨🇭_CH_瑞士
+    server: 64.110.104.30
+    port: 443
+    uuid: 6923b959-c65f-764c-b072-94711382d716
+    network: ws
+    servername: s2.sni565.netlib.re
+    tls: true
+    encryption: none
+    ws-opts:
+      path: /proxyip=tw.sni2025.netlib.re
+      headers:
+        Host: s2.sni565.netlib.re
+    client-fingerprint: random
+    alpn:
+      - h3
+  - type: vmess
+    name: 🇳🇱 荷兰 05
+    server: v30.hdacd.com
+    port: 30830
+    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+    alterId: 0
+    network: tcp
+    cipher: auto
+    servername: v30.hdacd.com
+  - type: vmess
+    name: 🇺🇸US²_3|1.1MB/s|54%|GPT⁺|TK-GB|NF|X|KeepHistory
+    server: v36.hdacd.com
+    port: 30836
+    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+    alterId: 2
+    network: tcp
+    cipher: auto
+  - type: trojan
+    name: 🇰🇷_KR_韩国_2
+    server: hk3.t.sgateway.link
+    port: 5223
+    password: Q9gofGxinwLv0TfDfdKmdttdPGxrhKQS
+    network: tcp
+    sni: pod-hk-z1.psusercontent.com
+  - type: vmess
+    name: 🇩🇪 德国 24
+    server: v33.hdacd.com
+    port: 30833
+    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+    alterId: 2
+    network: tcp
+    cipher: auto
+    servername: v33.hdacd.com
+  - type: ss
+    name: 🇺🇸_US_美国_1
+    server: 3.76.39.215
+    port: 443
+    cipher: aes-256-cfb
+    password: amazonskr05
+proxy-groups:
+  - name: 🚀 节点选择
+    type: select
+    proxies:
+      - ♻️ 自动选择
+      - DIRECT
+      - 🇰🇷_KR_韩国
+      - 🇦🇺_AU_澳大利亚
+      - 🇨🇳_CN_中国
+      - 🇦🇺_AU_澳大利亚_1
+      - 【机场推荐：https://a0a.xyz/】45
+      - 🇰🇷_KR_韩国_1
+      - 🇬🇧_GB_英国
+      - 🇺🇸_US_美国
+      - 🇷🇺_RU_俄罗斯
+      - 🇨🇭_CH_瑞士
+      - 🇳🇱 荷兰 05
+      - 🇺🇸US²_3|1.1MB/s|54%|GPT⁺|TK-GB|NF|X|KeepHistory
+      - 🇰🇷_KR_韩国_2
+      - 🇩🇪 德国 24
+      - 🇺🇸_US_美国_1
+  - name: ♻️ 自动选择
+    type: url-test
+    proxies:
+      - 🇰🇷_KR_韩国
+      - 🇦🇺_AU_澳大利亚
+      - 🇨🇳_CN_中国
+      - 🇦🇺_AU_澳大利亚_1
+      - 【机场推荐：https://a0a.xyz/】45
+      - 🇰🇷_KR_韩国_1
+      - 🇬🇧_GB_英国
+      - 🇺🇸_US_美国
+      - 🇷🇺_RU_俄罗斯
+      - 🇨🇭_CH_瑞士
+      - 🇳🇱 荷兰 05
+      - 🇺🇸US²_3|1.1MB/s|54%|GPT⁺|TK-GB|NF|X|KeepHistory
+      - 🇰🇷_KR_韩国_2
+      - 🇩🇪 德国 24
+      - 🇺🇸_US_美国_1
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+  - name: 🎯 全球直连
+    type: select
+    proxies:
+      - DIRECT
+      - 🚀 节点选择
+      - ♻️ 自动选择
+  - name: 🛑 全球拦截
+    type: select
+    proxies:
+      - REJECT
+      - DIRECT
+  - name: 🐟 漏网之鱼
+    type: select
+    proxies:
+      - 🚀 节点选择
+      - 🎯 全球直连
+      - ♻️ 自动选择
+      - 🇰🇷_KR_韩国
+      - 🇦🇺_AU_澳大利亚
+      - 🇨🇳_CN_中国
+      - 🇦🇺_AU_澳大利亚_1
+      - 【机场推荐：https://a0a.xyz/】45
+      - 🇰🇷_KR_韩国_1
+      - 🇬🇧_GB_英国
+      - 🇺🇸_US_美国
+      - 🇷🇺_RU_俄罗斯
+      - 🇨🇭_CH_瑞士
+      - 🇳🇱 荷兰 05
+      - 🇺🇸US²_3|1.1MB/s|54%|GPT⁺|TK-GB|NF|X|KeepHistory
+      - 🇰🇷_KR_韩国_2
+      - 🇩🇪 德国 24
+      - 🇺🇸_US_美国_1
+rule-providers:
+  LocalAreaNetwork:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/LocalAreaNetwork.list
+    path: ./rules/providers/LocalAreaNetwork.list
+    interval: 86400
+  BanAD:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanAD.list
+    path: ./rules/providers/BanAD.list
+    interval: 86400
+  BanProgramAD:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanProgramAD.list
+    path: ./rules/providers/BanProgramAD.list
+    interval: 86400
+  GoogleCN:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/GoogleCN.list
+    path: ./rules/providers/GoogleCN.list
+    interval: 86400
+  SteamCN:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/SteamCN.list
+    path: ./rules/providers/SteamCN.list
+    interval: 86400
+  Telegram:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Telegram.list
+    path: ./rules/providers/Telegram.list
+    interval: 86400
+  ProxyMedia:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ProxyMedia.list
+    path: ./rules/providers/ProxyMedia.list
+    interval: 86400
+  ProxyLite:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ProxyLite.list
+    path: ./rules/providers/ProxyLite.list
+    interval: 86400
+  ChinaDomain:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaDomain.list
+    path: ./rules/providers/ChinaDomain.list
+    interval: 86400
+  ChinaCompanyIp:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaCompanyIp.list
+    path: ./rules/providers/ChinaCompanyIp.list
+    interval: 86400
+
+rules:
+  - RULE-SET,LocalAreaNetwork,🎯 全球直连
+  - RULE-SET,BanAD,🛑 全球拦截
+  - RULE-SET,BanProgramAD,🛑 全球拦截
+  - RULE-SET,GoogleCN,🎯 全球直连
+  - RULE-SET,SteamCN,🎯 全球直连
+  - RULE-SET,Telegram,🚀 节点选择
+  - RULE-SET,ProxyMedia,🚀 节点选择
+  - RULE-SET,ProxyLite,🚀 节点选择
+  - RULE-SET,ChinaDomain,🎯 全球直连
+  - RULE-SET,ChinaCompanyIp,🎯 全球直连
+  - GEOIP,CN,🎯 全球直连
+  - MATCH,🐟 漏网之鱼
