@@ -152,39 +152,9 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
     </div>
 <h4>FAQ</h4>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>WinXray 的多节点同时使用会影响性能吗？</h5></div>
-    <div class="panel-body">
-        同时使用多个节点会占用更多系统资源和带宽，可能对性能有一定影响。通过策略组和分流规则合理安排流量，可以降低资源占用，同时保持网络稳定和速度。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>何时应选择 VLess 而非 Vmess？</h5></div>
-    <div class="panel-body">
-        若追求更轻量、高性能的连接且采用外部 TLS 或 XTLS 进行加密，建议选择 VLess。VLess 去除了内嵌加密，能更好配合现代传输（XTLS/Reality）实现更低延迟与更好扩展性。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Hysteria2 的多路复用功能有哪些好处？</h5></div>
-    <div class="panel-body">
-        多路复用允许多个短连接共享同一 QUIC 通道，减少握手延迟和资源消耗。在高并发或频繁短连接场景下，能显著提升吞吐量和稳定性，尤其适合游戏或即时通讯应用。<hr />    </div>
-</div>
-<div class="panel panel-default">
     <div class="panel-heading"><h5>Netch 全局代理与规则代理的适用场景是什么？</h5></div>
     <div class="panel-body">
         全局代理适合游戏或全局科学上网，将所有流量通过节点；规则代理适合只对特定应用或网站进行代理。用户可根据需求选择，提高带宽利用和网络效率。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Mihomo 的 Rule-Set 与 Clash Premium 是否兼容？</h5></div>
-    <div class="panel-body">
-        Mihomo 完全兼容 Clash Premium 的 Rule-Set 格式，支持相同的远程规则订阅与策略分组。用户可直接迁移原 Clash 配置，无需额外修改或转换。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>如何给 Clash 或 Sing-box 添加本地广告屏蔽规则？</h5></div>
-    <div class="panel-body">
-        可导入公共广告域名列表（如 ads、trackers）并将其指向 `REJECT` 或 `DIRECT`（根据需求）；还可以使用 rule-provider 自动更新广告规则，并结合 hosts 或 DNS 层面进行联合拦截以提升屏蔽效果。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>如何给 Clash 添加自定义域名白名单以提升访问体验？</h5></div>
-    <div class="panel-body">
-        在 rules 中添加 `DOMAIN-SUFFIX,example.com,DIRECT` 或 `DOMAIN-KEYWORD,example,DIRECT` 条目，将常用且可靠的站点设为直连，可减少代理绕行延迟并避免因代理造成的登录/验证问题。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>VMess AEAD 加密能防止哪些风险？</h5></div>
@@ -192,9 +162,39 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
         AEAD 加密可防止数据篡改、重放攻击和流量特征泄露。在高封锁环境下使用，有助于保持节点长期可用，保证数据安全和连接稳定性。<hr />    </div>
 </div>
 <div class="panel panel-default">
+    <div class="panel-heading"><h5>如何给 Clash 或 Sing-box 添加本地广告屏蔽规则？</h5></div>
+    <div class="panel-body">
+        可导入公共广告域名列表（如 ads、trackers）并将其指向 `REJECT` 或 `DIRECT`（根据需求）；还可以使用 rule-provider 自动更新广告规则，并结合 hosts 或 DNS 层面进行联合拦截以提升屏蔽效果。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>何时应选择 VLess 而非 Vmess？</h5></div>
+    <div class="panel-body">
+        若追求更轻量、高性能的连接且采用外部 TLS 或 XTLS 进行加密，建议选择 VLess。VLess 去除了内嵌加密，能更好配合现代传输（XTLS/Reality）实现更低延迟与更好扩展性。<hr />    </div>
+</div>
+<div class="panel panel-default">
     <div class="panel-heading"><h5>Vmess 与 Trojan 哪个更快？</h5></div>
     <div class="panel-body">
         在相同环境下，Trojan 通常连接更快，因为它使用原生 TLS 通道；Vmess 则稍有额外的协议开销。但在配置合理的情况下，两者的速度差距不大，主要取决于服务器线路质量。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>WinXray 的多节点同时使用会影响性能吗？</h5></div>
+    <div class="panel-body">
+        同时使用多个节点会占用更多系统资源和带宽，可能对性能有一定影响。通过策略组和分流规则合理安排流量，可以降低资源占用，同时保持网络稳定和速度。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Mihomo 的 Rule-Set 与 Clash Premium 是否兼容？</h5></div>
+    <div class="panel-body">
+        Mihomo 完全兼容 Clash Premium 的 Rule-Set 格式，支持相同的远程规则订阅与策略分组。用户可直接迁移原 Clash 配置，无需额外修改或转换。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Hysteria2 的多路复用功能有哪些好处？</h5></div>
+    <div class="panel-body">
+        多路复用允许多个短连接共享同一 QUIC 通道，减少握手延迟和资源消耗。在高并发或频繁短连接场景下，能显著提升吞吐量和稳定性，尤其适合游戏或即时通讯应用。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>如何给 Clash 添加自定义域名白名单以提升访问体验？</h5></div>
+    <div class="panel-body">
+        在 rules 中添加 `DOMAIN-SUFFIX,example.com,DIRECT` 或 `DOMAIN-KEYWORD,example,DIRECT` 条目，将常用且可靠的站点设为直连，可减少代理绕行延迟并避免因代理造成的登录/验证问题。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Vmess 是什么协议？</h5></div>
@@ -228,16 +228,16 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2025-10-24-clash-verge-rev-github.htm" title="「10月24日」最高速度22.2M/S，2025年Clsah Verge每天更新免费节点订阅地址">「10月24日」最高速度22.2M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-11-10-clash-verge-rev-nodes.htm" title="「11月10日」最高速度22.2M/S，2025年Clsah Verge每天更新免费节点订阅地址">「11月10日」最高速度22.2M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-10-21-clash-verge-rev-nodes.htm" title="「10月21日」最高速度21.2M/S，2025年Clsah Verge每天更新免费节点订阅地址">「10月21日」最高速度21.2M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-23-node-share.htm" title="「11月23日」最高速度19.2M/S，2025年Clsah Verge每天更新免费节点订阅地址">「11月23日」最高速度19.2M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-5-latest-clash-verge-rev-node.htm" title="「11月5日」最高速度19.8M/S，2025年Clsah Verge每天更新免费节点订阅地址">「11月5日」最高速度19.8M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
                         <li class="py-2"><a href="/free-nodes/2025-11-28-latest-clash-verge-rev-node.htm" title="「11月28日」最高速度19.2M/S，2025年Clsah Verge每天更新免费节点订阅地址">「11月28日」最高速度19.2M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-11-14-clash-verge-rev-node-share.htm" title="「11月14日」最高速度21.4M/S，2025年Clsah Verge每天更新免费节点订阅地址">「11月14日」最高速度21.4M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-11-8-clash-verge-rev-nodes.htm" title="「11月8日」最高速度18.8M/S，2025年Clsah Verge每天更新免费节点订阅地址">「11月8日」最高速度18.8M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-13-free-subscribe-node.htm" title="「11月13日」最高速度18.1M/S，2025年Clsah Verge每天更新免费节点订阅地址">「11月13日」最高速度18.1M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
                         <li class="py-2"><a href="/free-nodes/2025-11-17-today-clash-verge-rev-node.htm" title="「11月17日」最高速度19.1M/S，2025年Clsah Verge每天更新免费节点订阅地址">「11月17日」最高速度19.1M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-11-11-free-clash-verge-rev-node.htm" title="「11月11日」最高速度22M/S，2025年Clsah Verge每天更新免费节点订阅地址">「11月11日」最高速度22M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-10-4-free-subscribe-node.htm" title="「10月4日」最高速度22.7M/S，2025年Clsah Verge每天更新免费节点订阅地址">「10月4日」最高速度22.7M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-10-18-clash-verge-rev-windows.htm" title="「10月18日」最高速度22.8M/S，2025年Clsah Verge每天更新免费节点订阅地址">「10月18日」最高速度22.8M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-12-1-clash-verge-rev-github.htm" title="「12月1日」最高速度21.9M/S，2025年Clsah Verge每天更新免费节点订阅地址">「12月1日」最高速度21.9M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-19-free-node-subscribe.htm" title="「11月19日」最高速度22.8M/S，2025年Clsah Verge每天更新免费节点订阅地址">「11月19日」最高速度22.8M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-20-free-node-subscribe-links.htm" title="「11月20日」最高速度21.9M/S，2025年Clsah Verge每天更新免费节点订阅地址">「11月20日」最高速度21.9M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-8-clash-verge-rev-nodes.htm" title="「11月8日」最高速度18.8M/S，2025年Clsah Verge每天更新免费节点订阅地址">「11月8日」最高速度18.8M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-27-node-share.htm" title="「11月27日」最高速度19.4M/S，2025年Clsah Verge每天更新免费节点订阅地址">「11月27日」最高速度19.4M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
                     </ul>
     </div>
 </div>
@@ -249,13 +249,10 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">3</span> <a href="/date/2025-12/" title="2025-12 归档">2025-12</a></h4>
+                <h4><span class="badge" style="float: right;">10</span> <a href="/date/2025-12/" title="2025-12 归档">2025-12</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2025-11/" title="2025-11 归档">2025-11</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">26</span> <a href="/date/2025-10/" title="2025-10 归档">2025-10</a></h4>
+                <h4><span class="badge" style="float: right;">23</span> <a href="/date/2025-11/" title="2025-11 归档">2025-11</a></h4>
             </li>
                     </ul>
     </div>

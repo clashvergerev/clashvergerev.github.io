@@ -152,29 +152,9 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
     </div>
 <h4>FAQ</h4>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>V2Ray 的流量分流如何与防火墙配合使用？</h5></div>
+    <div class="panel-heading"><h5>Netch 是否支持系统代理？</h5></div>
     <div class="panel-body">
-        通过 V2Ray 的路由规则，可将指定流量通过代理出口，而防火墙限制其他流量直连。结合防火墙规则可以实现对内部网络访问和外部代理流量的精准控制。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Nekobox 能否使用订阅链接？</h5></div>
-    <div class="panel-body">
-        Nekobox 支持通过订阅 URL 导入节点。用户在应用中选择“添加订阅”，输入链接后系统会自动更新节点数据，并支持定期刷新，确保始终使用最新线路。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>VMess 的 gRPC 传输适合移动网络吗？</h5></div>
-    <div class="panel-body">
-        gRPC 传输支持长连接和多路复用，减少握手次数，降低延迟。对于移动网络和高延迟环境，它能提供稳定和高速的访问体验，同时降低掉线和延迟波动风险。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>QuantumultX 支持哪些类型的重写脚本？</h5></div>
-    <div class="panel-body">
-        QuantumultX 支持 JavaScript 脚本，可修改请求头、响应内容、自动跳转、广告屏蔽和定制流量处理。结合策略组，可实现高度个性化的网络访问控制和优化。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Sing-box 的策略组如何实现按域名分流？</h5></div>
-    <div class="panel-body">
-        Sing-box 支持根据域名规则匹配流量，将不同网站或应用流量分配到指定节点。结合策略组自动切换低延迟节点，可优化访问速度，保证网络稳定性和流畅体验。<hr />    </div>
+        Netch 不直接修改系统代理，而是通过虚拟网卡（TAP 驱动）实现透明代理。这种方式不会影响浏览器设置，适合游戏和应用程序需要 UDP 支持的场景。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>如何判断节点是否支持 UDP 转发以便游戏加速？</h5></div>
@@ -182,9 +162,9 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
         可通过客户端的协议与节点说明确认是否支持 UDP（例如支持 UDP Relay 或 TUN/TAP 模式）。也可实际用 UDP 测试工具或直接用目标游戏连接进行延迟/丢包测试以验证是否可用。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Netch 是否支持系统代理？</h5></div>
+    <div class="panel-heading"><h5>VLESS Reality 模式与 XTLS 模式有何不同？</h5></div>
     <div class="panel-body">
-        Netch 不直接修改系统代理，而是通过虚拟网卡（TAP 驱动）实现透明代理。这种方式不会影响浏览器设置，适合游戏和应用程序需要 UDP 支持的场景。<hr />    </div>
+        VLESS Reality 通过伪造握手和真实网站的 TLS 指纹实现高仿真加密，而 XTLS 强调高性能传输。Reality 更注重隐蔽性，适合高安全需求环境；XTLS 则偏重传输效率。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>如何在 Windows 上安装 Clash for Windows？</h5></div>
@@ -192,14 +172,34 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
         在 Windows 上安装 Clash for Windows 十分简单。只需前往官方 GitHub 页面下载最新版安装包，运行安装程序后导入订阅链接或配置文件即可。安装完成后，用户可以通过图形化界面方便地切换节点、编辑规则和控制代理模式。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>VLESS Reality 模式与 XTLS 模式有何不同？</h5></div>
+    <div class="panel-heading"><h5>VMess 的 gRPC 传输适合移动网络吗？</h5></div>
     <div class="panel-body">
-        VLESS Reality 通过伪造握手和真实网站的 TLS 指纹实现高仿真加密，而 XTLS 强调高性能传输。Reality 更注重隐蔽性，适合高安全需求环境；XTLS 则偏重传输效率。<hr />    </div>
+        gRPC 传输支持长连接和多路复用，减少握手次数，降低延迟。对于移动网络和高延迟环境，它能提供稳定和高速的访问体验，同时降低掉线和延迟波动风险。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Nekobox 能否使用订阅链接？</h5></div>
+    <div class="panel-body">
+        Nekobox 支持通过订阅 URL 导入节点。用户在应用中选择“添加订阅”，输入链接后系统会自动更新节点数据，并支持定期刷新，确保始终使用最新线路。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Clash 的策略组可设置延迟阈值吗？</h5></div>
     <div class="panel-body">
-        可以。用户可定义延迟阈值，当节点延迟超过设定值时，策略组会自动切换至其他低延迟节点，提高网络速度和稳定性，优化访问体验。    </div>
+        可以。用户可定义延迟阈值，当节点延迟超过设定值时，策略组会自动切换至其他低延迟节点，提高网络速度和稳定性，优化访问体验。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>QuantumultX 支持哪些类型的重写脚本？</h5></div>
+    <div class="panel-body">
+        QuantumultX 支持 JavaScript 脚本，可修改请求头、响应内容、自动跳转、广告屏蔽和定制流量处理。结合策略组，可实现高度个性化的网络访问控制和优化。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>V2Ray 的流量分流如何与防火墙配合使用？</h5></div>
+    <div class="panel-body">
+        通过 V2Ray 的路由规则，可将指定流量通过代理出口，而防火墙限制其他流量直连。结合防火墙规则可以实现对内部网络访问和外部代理流量的精准控制。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Sing-box 的策略组如何实现按域名分流？</h5></div>
+    <div class="panel-body">
+        Sing-box 支持根据域名规则匹配流量，将不同网站或应用流量分配到指定节点。结合策略组自动切换低延迟节点，可优化访问速度，保证网络稳定性和流畅体验。    </div>
 </div>
 <div class="panel panel-default mt-5">
     <div class="panel-heading">
@@ -228,16 +228,16 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-12-3-clash-verge-rev-github.htm" title="「12月3日」最高速度21.6M/S，2025年Clsah Verge每天更新免费节点订阅地址">「12月3日」最高速度21.6M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
                         <li class="py-2"><a href="/free-nodes/2025-11-17-today-clash-verge-rev-node.htm" title="「11月17日」最高速度19.1M/S，2025年Clsah Verge每天更新免费节点订阅地址">「11月17日」最高速度19.1M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-10-18-clash-verge-rev-windows.htm" title="「10月18日」最高速度22.8M/S，2025年Clsah Verge每天更新免费节点订阅地址">「10月18日」最高速度22.8M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-10-5-free-node-subscribe.htm" title="「10月5日」最高速度18.8M/S，2025年Clsah Verge每天更新免费节点订阅地址">「10月5日」最高速度18.8M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-10-14-free-high-speed-nodes.htm" title="「10月14日」最高速度21.9M/S，2025年Clsah Verge每天更新免费节点订阅地址">「10月14日」最高速度21.9M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-11-11-free-clash-verge-rev-node.htm" title="「11月11日」最高速度22M/S，2025年Clsah Verge每天更新免费节点订阅地址">「11月11日」最高速度22M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-10-15-clash-verge-rev-github.htm" title="「10月15日」最高速度20.2M/S，2025年Clsah Verge每天更新免费节点订阅地址">「10月15日」最高速度20.2M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-30-clash-verge-rev-windows.htm" title="「11月30日」最高速度21.1M/S，2025年Clsah Verge每天更新免费节点订阅地址">「11月30日」最高速度21.1M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-23-node-share.htm" title="「11月23日」最高速度19.2M/S，2025年Clsah Verge每天更新免费节点订阅地址">「11月23日」最高速度19.2M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-9-clash-verge-rev-node-share.htm" title="「11月9日」最高速度19M/S，2025年Clsah Verge每天更新免费节点订阅地址">「11月9日」最高速度19M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-28-latest-clash-verge-rev-node.htm" title="「11月28日」最高速度19.2M/S，2025年Clsah Verge每天更新免费节点订阅地址">「11月28日」最高速度19.2M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-13-free-subscribe-node.htm" title="「11月13日」最高速度18.1M/S，2025年Clsah Verge每天更新免费节点订阅地址">「11月13日」最高速度18.1M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
                         <li class="py-2"><a href="/free-nodes/2025-11-15-clash-verge-rev-node.htm" title="「11月15日」最高速度18M/S，2025年Clsah Verge每天更新免费节点订阅地址">「11月15日」最高速度18M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-10-4-free-subscribe-node.htm" title="「10月4日」最高速度22.7M/S，2025年Clsah Verge每天更新免费节点订阅地址">「10月4日」最高速度22.7M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-10-23-clash-verge-rev-node-share.htm" title="「10月23日」最高速度22.6M/S，2025年Clsah Verge每天更新免费节点订阅地址">「10月23日」最高速度22.6M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-10-3-clash-verge-rev-windows.htm" title="「10月3日」最高速度19.6M/S，2025年Clsah Verge每天更新免费节点订阅地址">「10月3日」最高速度19.6M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-5-latest-clash-verge-rev-node.htm" title="「11月5日」最高速度19.8M/S，2025年Clsah Verge每天更新免费节点订阅地址">「11月5日」最高速度19.8M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-8-clash-verge-rev-nodes.htm" title="「11月8日」最高速度18.8M/S，2025年Clsah Verge每天更新免费节点订阅地址">「11月8日」最高速度18.8M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
                     </ul>
     </div>
 </div>
@@ -249,10 +249,10 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">16</span> <a href="/date/2025-11/" title="2025-11 归档">2025-11</a></h4>
+                <h4><span class="badge" style="float: right;">4</span> <a href="/date/2025-12/" title="2025-12 归档">2025-12</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">26</span> <a href="/date/2025-10/" title="2025-10 归档">2025-10</a></h4>
+                <h4><span class="badge" style="float: right;">23</span> <a href="/date/2025-11/" title="2025-11 归档">2025-11</a></h4>
             </li>
                     </ul>
     </div>

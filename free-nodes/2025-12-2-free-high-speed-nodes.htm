@@ -157,39 +157,9 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
     </div>
 <h4>FAQ</h4>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Matsuri 日志太多如何调整日志级别？</h5></div>
+    <div class="panel-heading"><h5>如何优化 Clash DNS 解析速度？</h5></div>
     <div class="panel-body">
-        在 Matsuri 或其内核配置中修改日志级别参数（如从 debug 降为 info 或 warning），同时限制日志轮转与最大文件大小。生产环境建议关闭 debug 日志以减少磁盘 I/O 与性能影响。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>VLESS + XTLS 模式能减少握手延迟吗？</h5></div>
-    <div class="panel-body">
-        XTLS 通过减少握手次数和加密开销，降低延迟，特别适合短连接或高并发场景。结合策略组，可保证连接稳定性和访问速度，适用于移动网络和游戏环境。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Nekobox 与 Hiddify Next 有什么区别？</h5></div>
-    <div class="panel-body">
-        Nekobox 更注重轻量化和本地化，界面简洁，支持多协议基础功能；而 Hiddify Next 则整合了订阅转换、测速、规则分流等高级功能，更适合技术用户使用。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>SSR 协议的多路复用功能如何提升性能？</h5></div>
-    <div class="panel-body">
-        SSR 多路复用允许多个短连接共享同一通道，减少握手次数和加密开销。适合游戏、即时通讯等高频短连接场景，提升网络吞吐量和连接稳定性，提高整体上网体验。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>VLESS 在高封锁环境下的优势是什么？</h5></div>
-    <div class="panel-body">
-        VLESS 去掉了内置加密，依赖 TLS 层安全，减少被 DPI 检测的特征。结合 XTLS 或 Reality 模式，可以更好地隐藏流量，提高在高封锁网络中的稳定性与隐蔽性。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>V2Ray 使用 mKCP 有哪些适合场景？</h5></div>
-    <div class="panel-body">
-        mKCP 是基于 UDP 的传输协议，适合高丢包或不稳定网络环境。结合策略组使用，可优化网页浏览、视频播放和游戏体验，减少延迟和掉线，提高连接稳定性。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>如何识别节点是否被封锁或限速？</h5></div>
-    <div class="panel-body">
-        通过对比不同节点的 speedtest、ping、下载测速以及 traceroute 路由变化来判断；若多个节点同时异常可能是本地网络问题，单个节点异常则可能被封锁或运营商限速，应尝试更换端口或传输方式。<hr />    </div>
+        可在配置文件中启用 fake-ip 模式或使用高质量的 DoH 服务（如 Cloudflare、AliDNS）。同时将 `fallback-filter.geoip` 设置为 true，避免国内域名被错误解析到境外，提高解析效率。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>V2Ray 如何隐藏真实 IP？</h5></div>
@@ -197,9 +167,39 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
         通过启用 TLS、Reality 或 WebSocket + CDN 转发，V2Ray 可有效隐藏真实服务器 IP。这样外部监测只能看到中转节点，从而提升匿名性与安全性。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>如何优化 Clash DNS 解析速度？</h5></div>
+    <div class="panel-heading"><h5>Matsuri 日志太多如何调整日志级别？</h5></div>
     <div class="panel-body">
-        可在配置文件中启用 fake-ip 模式或使用高质量的 DoH 服务（如 Cloudflare、AliDNS）。同时将 `fallback-filter.geoip` 设置为 true，避免国内域名被错误解析到境外，提高解析效率。<hr />    </div>
+        在 Matsuri 或其内核配置中修改日志级别参数（如从 debug 降为 info 或 warning），同时限制日志轮转与最大文件大小。生产环境建议关闭 debug 日志以减少磁盘 I/O 与性能影响。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Nekobox 与 Hiddify Next 有什么区别？</h5></div>
+    <div class="panel-body">
+        Nekobox 更注重轻量化和本地化，界面简洁，支持多协议基础功能；而 Hiddify Next 则整合了订阅转换、测速、规则分流等高级功能，更适合技术用户使用。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>如何识别节点是否被封锁或限速？</h5></div>
+    <div class="panel-body">
+        通过对比不同节点的 speedtest、ping、下载测速以及 traceroute 路由变化来判断；若多个节点同时异常可能是本地网络问题，单个节点异常则可能被封锁或运营商限速，应尝试更换端口或传输方式。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>V2Ray 使用 mKCP 有哪些适合场景？</h5></div>
+    <div class="panel-body">
+        mKCP 是基于 UDP 的传输协议，适合高丢包或不稳定网络环境。结合策略组使用，可优化网页浏览、视频播放和游戏体验，减少延迟和掉线，提高连接稳定性。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>VLESS 在高封锁环境下的优势是什么？</h5></div>
+    <div class="panel-body">
+        VLESS 去掉了内置加密，依赖 TLS 层安全，减少被 DPI 检测的特征。结合 XTLS 或 Reality 模式，可以更好地隐藏流量，提高在高封锁网络中的稳定性与隐蔽性。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>VLESS + XTLS 模式能减少握手延迟吗？</h5></div>
+    <div class="panel-body">
+        XTLS 通过减少握手次数和加密开销，降低延迟，特别适合短连接或高并发场景。结合策略组，可保证连接稳定性和访问速度，适用于移动网络和游戏环境。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>SSR 协议的多路复用功能如何提升性能？</h5></div>
+    <div class="panel-body">
+        SSR 多路复用允许多个短连接共享同一通道，减少握手次数和加密开销。适合游戏、即时通讯等高频短连接场景，提升网络吞吐量和连接稳定性，提高整体上网体验。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>SSR 的协议插件如何增强安全性？</h5></div>
@@ -233,16 +233,16 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2025-11-8-clash-verge-rev-nodes.htm" title="「11月8日」最高速度18.8M/S，2025年Clsah Verge每天更新免费节点订阅地址">「11月8日」最高速度18.8M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-11-22-node-share-links.htm" title="「11月22日」最高速度19.9M/S，2025年Clsah Verge每天更新免费节点订阅地址">「11月22日」最高速度19.9M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-10-18-clash-verge-rev-windows.htm" title="「10月18日」最高速度22.8M/S，2025年Clsah Verge每天更新免费节点订阅地址">「10月18日」最高速度22.8M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
                         <li class="py-2"><a href="/free-nodes/2025-11-20-free-node-subscribe-links.htm" title="「11月20日」最高速度21.9M/S，2025年Clsah Verge每天更新免费节点订阅地址">「11月20日」最高速度21.9M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-11-27-node-share.htm" title="「11月27日」最高速度19.4M/S，2025年Clsah Verge每天更新免费节点订阅地址">「11月27日」最高速度19.4M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-11-10-clash-verge-rev-nodes.htm" title="「11月10日」最高速度22.2M/S，2025年Clsah Verge每天更新免费节点订阅地址">「11月10日」最高速度22.2M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-11-3-clash-verge-rev-github.htm" title="「11月3日」最高速度21.8M/S，2025年Clsah Verge每天更新免费节点订阅地址">「11月3日」最高速度21.8M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-11-4-free-node-subscribe-links.htm" title="「11月4日」最高速度18.1M/S，2025年Clsah Verge每天更新免费节点订阅地址">「11月4日」最高速度18.1M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-10-24-clash-verge-rev-github.htm" title="「10月24日」最高速度22.2M/S，2025年Clsah Verge每天更新免费节点订阅地址">「10月24日」最高速度22.2M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-11-30-clash-verge-rev-windows.htm" title="「11月30日」最高速度21.1M/S，2025年Clsah Verge每天更新免费节点订阅地址">「11月30日」最高速度21.1M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-29-clash-verge-rev-github.htm" title="「11月29日」最高速度20.7M/S，2025年Clsah Verge每天更新免费节点订阅地址">「11月29日」最高速度20.7M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-12-7-today-clash-verge-rev-node.htm" title="「12月7日」最高速度18.4M/S，2025年Clsah Verge每天更新免费节点订阅地址">「12月7日」最高速度18.4M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-13-free-subscribe-node.htm" title="「11月13日」最高速度18.1M/S，2025年Clsah Verge每天更新免费节点订阅地址">「11月13日」最高速度18.1M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-12-1-clash-verge-rev-github.htm" title="「12月1日」最高速度21.9M/S，2025年Clsah Verge每天更新免费节点订阅地址">「12月1日」最高速度21.9M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-12-4-clash-verge-rev-node-github.htm" title="「12月4日」最高速度18.7M/S，2025年Clsah Verge每天更新免费节点订阅地址">「12月4日」最高速度18.7M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-28-latest-clash-verge-rev-node.htm" title="「11月28日」最高速度19.2M/S，2025年Clsah Verge每天更新免费节点订阅地址">「11月28日」最高速度19.2M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-17-today-clash-verge-rev-node.htm" title="「11月17日」最高速度19.1M/S，2025年Clsah Verge每天更新免费节点订阅地址">「11月17日」最高速度19.1M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-12-3-clash-verge-rev-github.htm" title="「12月3日」最高速度21.6M/S，2025年Clsah Verge每天更新免费节点订阅地址">「12月3日」最高速度21.6M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-23-node-share.htm" title="「11月23日」最高速度19.2M/S，2025年Clsah Verge每天更新免费节点订阅地址">「11月23日」最高速度19.2M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
                     </ul>
     </div>
 </div>
@@ -254,13 +254,10 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">3</span> <a href="/date/2025-12/" title="2025-12 归档">2025-12</a></h4>
+                <h4><span class="badge" style="float: right;">10</span> <a href="/date/2025-12/" title="2025-12 归档">2025-12</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2025-11/" title="2025-11 归档">2025-11</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">26</span> <a href="/date/2025-10/" title="2025-10 归档">2025-10</a></h4>
+                <h4><span class="badge" style="float: right;">23</span> <a href="/date/2025-11/" title="2025-11 归档">2025-11</a></h4>
             </li>
                     </ul>
     </div>

@@ -152,14 +152,14 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
     </div>
 <h4>FAQ</h4>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>VMess 使用 TLS+WebSocket 的好处是什么？</h5></div>
+    <div class="panel-heading"><h5>Mellow 的 TUN 模式与系统代理有何区别？</h5></div>
     <div class="panel-body">
-        TLS+WebSocket 可伪装成正常 HTTPS 流量，增强抗封锁能力和隐蔽性。结合域名伪装和策略组使用，可在高封锁网络环境下保持安全、稳定和高速的网络访问体验。<hr />    </div>
+        TUN 模式拦截系统 IP 层流量，实现全局代理，而系统代理通常只影响支持代理的应用。TUN 更适合游戏、视频和全局科学上网场景，保证所有流量通过节点，提高稳定性和速度。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Shadowrocket 的重写功能有什么用途？</h5></div>
+    <div class="panel-heading"><h5>Mellow 能与 Clash 共存吗？</h5></div>
     <div class="panel-body">
-        Shadowrocket 的重写功能允许用户在请求阶段修改 HTTP 头、响应内容或重定向 URL。这一功能常用于屏蔽广告、解锁区域限制或调试网页请求，非常灵活强大。<hr />    </div>
+        可以。Mellow 与 Clash 核心不同，前者采用透明代理技术，后者通过系统代理生效。两者配置端口不冲突的情况下可共存运行，用于不同的流量处理场景。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Mellow 的 TUN 模式与 SOCKS5 代理区别是什么？</h5></div>
@@ -167,9 +167,29 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
         TUN 模式拦截系统 IP 层流量，实现全局代理；SOCKS5 代理通常只影响特定应用。TUN 更适合全局加速、游戏和视频应用，保证所有流量走节点，提高网络稳定性和速度。<hr />    </div>
 </div>
 <div class="panel panel-default">
+    <div class="panel-heading"><h5>PassWall2 如何根据延迟自动切换节点？</h5></div>
+    <div class="panel-body">
+        PassWall2 会定期测试节点延迟，并结合策略组自动切换到延迟最低的节点。无需用户手动操作，即可保证网页、视频和游戏流量的高速稳定访问，提高整体网络体验。<hr />    </div>
+</div>
+<div class="panel panel-default">
     <div class="panel-heading"><h5>Matsuri 节点排序功能如何提升访问效率？</h5></div>
     <div class="panel-body">
         Matsuri 会定期测速节点延迟，并结合策略组自动选择延迟低、稳定性高的节点处理不同流量。提升网页浏览、视频播放和游戏访问速度，减少掉线和卡顿。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Shadowrocket 的重写功能有什么用途？</h5></div>
+    <div class="panel-body">
+        Shadowrocket 的重写功能允许用户在请求阶段修改 HTTP 头、响应内容或重定向 URL。这一功能常用于屏蔽广告、解锁区域限制或调试网页请求，非常灵活强大。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>VLESS + XTLS 模式在移动网络下的优势是什么？</h5></div>
+    <div class="panel-body">
+        XTLS 模式减少握手次数和加密开销，适合高延迟或不稳定的移动网络。结合策略组和多出口节点使用，可提高访问速度和连接稳定性，保证用户体验流畅可靠。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>VMess 使用 TLS+WebSocket 的好处是什么？</h5></div>
+    <div class="panel-body">
+        TLS+WebSocket 可伪装成正常 HTTPS 流量，增强抗封锁能力和隐蔽性。结合域名伪装和策略组使用，可在高封锁网络环境下保持安全、稳定和高速的网络访问体验。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>WinXray 的本地 PAC 模式与全局模式有什么区别？</h5></div>
@@ -179,27 +199,7 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Clash 的 Proxy Group 能实现哪些策略？</h5></div>
     <div class="panel-body">
-        Proxy Group 可以定义多种策略，如按延迟选择、随机、轮询或手动选择节点。结合分流规则，可实现针对不同网站或应用的智能代理，提高网络体验。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>PassWall2 如何根据延迟自动切换节点？</h5></div>
-    <div class="panel-body">
-        PassWall2 会定期测试节点延迟，并结合策略组自动切换到延迟最低的节点。无需用户手动操作，即可保证网页、视频和游戏流量的高速稳定访问，提高整体网络体验。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>VLESS + XTLS 模式在移动网络下的优势是什么？</h5></div>
-    <div class="panel-body">
-        XTLS 模式减少握手次数和加密开销，适合高延迟或不稳定的移动网络。结合策略组和多出口节点使用，可提高访问速度和连接稳定性，保证用户体验流畅可靠。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Mellow 的 TUN 模式与系统代理有何区别？</h5></div>
-    <div class="panel-body">
-        TUN 模式拦截系统 IP 层流量，实现全局代理，而系统代理通常只影响支持代理的应用。TUN 更适合游戏、视频和全局科学上网场景，保证所有流量通过节点，提高稳定性和速度。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Mellow 能与 Clash 共存吗？</h5></div>
-    <div class="panel-body">
-        可以。Mellow 与 Clash 核心不同，前者采用透明代理技术，后者通过系统代理生效。两者配置端口不冲突的情况下可共存运行，用于不同的流量处理场景。    </div>
+        Proxy Group 可以定义多种策略，如按延迟选择、随机、轮询或手动选择节点。结合分流规则，可实现针对不同网站或应用的智能代理，提高网络体验。    </div>
 </div>
 <div class="panel panel-default mt-5">
     <div class="panel-heading">
@@ -228,16 +228,16 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2025-11-14-clash-verge-rev-node-share.htm" title="「11月14日」最高速度21.4M/S，2025年Clsah Verge每天更新免费节点订阅地址">「11月14日」最高速度21.4M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-10-22-clash-verge-rev-node.htm" title="「10月22日」最高速度22.5M/S，2025年Clsah Verge每天更新免费节点订阅地址">「10月22日」最高速度22.5M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-10-15-clash-verge-rev-github.htm" title="「10月15日」最高速度20.2M/S，2025年Clsah Verge每天更新免费节点订阅地址">「10月15日」最高速度20.2M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-11-27-node-share.htm" title="「11月27日」最高速度19.4M/S，2025年Clsah Verge每天更新免费节点订阅地址">「11月27日」最高速度19.4M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-11-30-clash-verge-rev-windows.htm" title="「11月30日」最高速度21.1M/S，2025年Clsah Verge每天更新免费节点订阅地址">「11月30日」最高速度21.1M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-11-1-node-share-links.htm" title="「11月1日」最高速度18.1M/S，2025年Clsah Verge每天更新免费节点订阅地址">「11月1日」最高速度18.1M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-10-24-clash-verge-rev-github.htm" title="「10月24日」最高速度22.2M/S，2025年Clsah Verge每天更新免费节点订阅地址">「10月24日」最高速度22.2M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-10-14-free-high-speed-nodes.htm" title="「10月14日」最高速度21.9M/S，2025年Clsah Verge每天更新免费节点订阅地址">「10月14日」最高速度21.9M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-20-free-node-subscribe-links.htm" title="「11月20日」最高速度21.9M/S，2025年Clsah Verge每天更新免费节点订阅地址">「11月20日」最高速度21.9M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-18-clash-verge-rev-node-share.htm" title="「11月18日」最高速度18.4M/S，2025年Clsah Verge每天更新免费节点订阅地址">「11月18日」最高速度18.4M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-12-2-free-high-speed-nodes.htm" title="「12月2日」最高速度19M/S，2025年Clsah Verge每天更新免费节点订阅地址">「12月2日」最高速度19M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-11-free-clash-verge-rev-node.htm" title="「11月11日」最高速度22M/S，2025年Clsah Verge每天更新免费节点订阅地址">「11月11日」最高速度22M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-12-4-clash-verge-rev-node-github.htm" title="「12月4日」最高速度18.7M/S，2025年Clsah Verge每天更新免费节点订阅地址">「12月4日」最高速度18.7M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-23-node-share.htm" title="「11月23日」最高速度19.2M/S，2025年Clsah Verge每天更新免费节点订阅地址">「11月23日」最高速度19.2M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
                         <li class="py-2"><a href="/free-nodes/2025-11-28-latest-clash-verge-rev-node.htm" title="「11月28日」最高速度19.2M/S，2025年Clsah Verge每天更新免费节点订阅地址">「11月28日」最高速度19.2M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-11-3-clash-verge-rev-github.htm" title="「11月3日」最高速度21.8M/S，2025年Clsah Verge每天更新免费节点订阅地址">「11月3日」最高速度21.8M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-5-latest-clash-verge-rev-node.htm" title="「11月5日」最高速度19.8M/S，2025年Clsah Verge每天更新免费节点订阅地址">「11月5日」最高速度19.8M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-14-clash-verge-rev-node-share.htm" title="「11月14日」最高速度21.4M/S，2025年Clsah Verge每天更新免费节点订阅地址">「11月14日」最高速度21.4M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-15-clash-verge-rev-node.htm" title="「11月15日」最高速度18M/S，2025年Clsah Verge每天更新免费节点订阅地址">「11月15日」最高速度18M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
                     </ul>
     </div>
 </div>
@@ -249,13 +249,10 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">3</span> <a href="/date/2025-12/" title="2025-12 归档">2025-12</a></h4>
+                <h4><span class="badge" style="float: right;">4</span> <a href="/date/2025-12/" title="2025-12 归档">2025-12</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2025-11/" title="2025-11 归档">2025-11</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">26</span> <a href="/date/2025-10/" title="2025-10 归档">2025-10</a></h4>
+                <h4><span class="badge" style="float: right;">23</span> <a href="/date/2025-11/" title="2025-11 归档">2025-11</a></h4>
             </li>
                     </ul>
     </div>

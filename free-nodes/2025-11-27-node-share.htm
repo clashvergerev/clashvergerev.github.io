@@ -280,6 +280,21 @@ A：稳定性主要取决于服务商提供的节点质量。建议使用Trojan�
     </div>
 <h4>FAQ</h4>
 <div class="panel panel-default">
+    <div class="panel-heading"><h5>Surfboard 如何实现按应用分流？</h5></div>
+    <div class="panel-body">
+        Surfboard 支持通过策略组和规则文件按应用分流，将不同应用的流量分配到不同节点。这样可保证游戏或视频走低延迟节点，提高访问速度并优化网络体验。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>PassWall2 支持哪些内核？</h5></div>
+    <div class="panel-body">
+        PassWall2 支持多种代理内核，如 Xray、V2Ray、Sing-box、Trojan-go、Hysteria2 等。用户可在插件管理中切换所需内核，以获得不同协议与性能的支持。部分内核需手动下载并启用。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Nekobox 是否能与其他客户端共存？</h5></div>
+    <div class="panel-body">
+        可以。Nekobox 配置独立，不影响其他客户端的运行。用户可同时安装 Clash、Mellow 或 Shadowrocket，按需切换使用，互不干扰。<hr />    </div>
+</div>
+<div class="panel panel-default">
     <div class="panel-heading"><h5>Nekobox 如何设置分流规则？</h5></div>
     <div class="panel-body">
         Nekobox 提供图形化规则编辑界面，可基于 IP、域名、地区等条件创建分流规则。例如可设置国内直连、国外代理、特定网站走特定节点，操作直观。<hr />    </div>
@@ -290,29 +305,19 @@ A：稳定性主要取决于服务商提供的节点质量。建议使用Trojan�
         策略组会根据节点延迟和丢包率自动选择最优节点。结合路由规则，可保证国内流量直连、海外流量走最佳节点，提高访问速度和连接稳定性，优化整体网络体验。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>QuantumultX 与 Shadowrocket 相比的最大区别是什么？</h5></div>
-    <div class="panel-body">
-        QuantumultX 在规则系统和自动化脚本上更灵活，支持丰富的 rewrite 与 filter 功能，而 Shadowrocket 则更轻便易用，适合普通用户快速切换节点。二者可根据使用习惯与功能需求选择。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Quantumult X 可以用脚本自动切换节点吗？</h5></div>
-    <div class="panel-body">
-        可以。Quantumult X 支持通过脚本逻辑判断网络延迟或连接失败情况，并自动切换节点。用户可以编写自定义 JS 规则，从而实现智能代理与按需分流，适合高级用户使用。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Surfboard 如何实现按应用分流？</h5></div>
-    <div class="panel-body">
-        Surfboard 支持通过策略组和规则文件按应用分流，将不同应用的流量分配到不同节点。这样可保证游戏或视频走低延迟节点，提高访问速度并优化网络体验。<hr />    </div>
-</div>
-<div class="panel panel-default">
     <div class="panel-heading"><h5>V2Ray 服务器启动后提示端口被占用，该如何处理？</h5></div>
     <div class="panel-body">
         先用 netstat 或 ss 工具查看占用该端口的进程（例如 `ss -ltnp`），确认是旧进程或其他服务占用。停止占用进程或修改 V2Ray 配置端口，然后重启服务并检查防火墙规则是否开放了新端口。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Nekobox 是否能与其他客户端共存？</h5></div>
+    <div class="panel-heading"><h5>V2Ray 支持哪些传输层协议？</h5></div>
     <div class="panel-body">
-        可以。Nekobox 配置独立，不影响其他客户端的运行。用户可同时安装 Clash、Mellow 或 Shadowrocket，按需切换使用，互不干扰。<hr />    </div>
+        V2Ray 支持多种传输层，包括 TCP、mKCP、WebSocket、gRPC、QUIC 等。每种传输方式都有不同的性能特点，例如 TCP 稳定、WS 兼容 CDN、QUIC 延迟低。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>QuantumultX 与 Shadowrocket 相比的最大区别是什么？</h5></div>
+    <div class="panel-body">
+        QuantumultX 在规则系统和自动化脚本上更灵活，支持丰富的 rewrite 与 filter 功能，而 Shadowrocket 则更轻便易用，适合普通用户快速切换节点。二者可根据使用习惯与功能需求选择。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Sing-box 可以替换 Clash 的 YAML 配置吗？</h5></div>
@@ -320,14 +325,9 @@ A：稳定性主要取决于服务商提供的节点质量。建议使用Trojan�
         可以。Sing-box 原生支持解析 Clash YAML 配置，并自动转换为自身 JSON 结构。节点和规则基本兼容，但部分脚本和自定义插件可能需要手动调整。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>PassWall2 支持哪些内核？</h5></div>
+    <div class="panel-heading"><h5>Quantumult X 可以用脚本自动切换节点吗？</h5></div>
     <div class="panel-body">
-        PassWall2 支持多种代理内核，如 Xray、V2Ray、Sing-box、Trojan-go、Hysteria2 等。用户可在插件管理中切换所需内核，以获得不同协议与性能的支持。部分内核需手动下载并启用。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>V2Ray 支持哪些传输层协议？</h5></div>
-    <div class="panel-body">
-        V2Ray 支持多种传输层，包括 TCP、mKCP、WebSocket、gRPC、QUIC 等。每种传输方式都有不同的性能特点，例如 TCP 稳定、WS 兼容 CDN、QUIC 延迟低。    </div>
+        可以。Quantumult X 支持通过脚本逻辑判断网络延迟或连接失败情况，并自动切换节点。用户可以编写自定义 JS 规则，从而实现智能代理与按需分流，适合高级用户使用。    </div>
 </div>
 <div class="panel panel-default mt-5">
     <div class="panel-heading">
@@ -356,16 +356,16 @@ A：稳定性主要取决于服务商提供的节点质量。建议使用Trojan�
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2025-10-22-clash-verge-rev-node.htm" title="「10月22日」最高速度22.5M/S，2025年Clsah Verge每天更新免费节点订阅地址">「10月22日」最高速度22.5M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-12-2-free-high-speed-nodes.htm" title="「12月2日」最高速度19M/S，2025年Clsah Verge每天更新免费节点订阅地址">「12月2日」最高速度19M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-11-10-clash-verge-rev-nodes.htm" title="「11月10日」最高速度22.2M/S，2025年Clsah Verge每天更新免费节点订阅地址">「11月10日」最高速度22.2M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-10-8-clash-verge-rev-windows.htm" title="「10月8日」最高速度20.1M/S，2025年Clsah Verge每天更新免费节点订阅地址">「10月8日」最高速度20.1M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-10-21-clash-verge-rev-nodes.htm" title="「10月21日」最高速度21.2M/S，2025年Clsah Verge每天更新免费节点订阅地址">「10月21日」最高速度21.2M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-10-15-clash-verge-rev-github.htm" title="「10月15日」最高速度20.2M/S，2025年Clsah Verge每天更新免费节点订阅地址">「10月15日」最高速度20.2M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-9-clash-verge-rev-node-share.htm" title="「11月9日」最高速度19M/S，2025年Clsah Verge每天更新免费节点订阅地址">「11月9日」最高速度19M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-14-clash-verge-rev-node-share.htm" title="「11月14日」最高速度21.4M/S，2025年Clsah Verge每天更新免费节点订阅地址">「11月14日」最高速度21.4M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
                         <li class="py-2"><a href="/free-nodes/2025-11-12-free-subscribe-node.htm" title="「11月12日」最高速度21.6M/S，2025年Clsah Verge每天更新免费节点订阅地址">「11月12日」最高速度21.6M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-11-30-clash-verge-rev-windows.htm" title="「11月30日」最高速度21.1M/S，2025年Clsah Verge每天更新免费节点订阅地址">「11月30日」最高速度21.1M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-11-3-clash-verge-rev-github.htm" title="「11月3日」最高速度21.8M/S，2025年Clsah Verge每天更新免费节点订阅地址">「11月3日」最高速度21.8M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-11-18-clash-verge-rev-node-share.htm" title="「11月18日」最高速度18.4M/S，2025年Clsah Verge每天更新免费节点订阅地址">「11月18日」最高速度18.4M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-28-latest-clash-verge-rev-node.htm" title="「11月28日」最高速度19.2M/S，2025年Clsah Verge每天更新免费节点订阅地址">「11月28日」最高速度19.2M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-22-node-share-links.htm" title="「11月22日」最高速度19.9M/S，2025年Clsah Verge每天更新免费节点订阅地址">「11月22日」最高速度19.9M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-23-node-share.htm" title="「11月23日」最高速度19.2M/S，2025年Clsah Verge每天更新免费节点订阅地址">「11月23日」最高速度19.2M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-8-clash-verge-rev-nodes.htm" title="「11月8日」最高速度18.8M/S，2025年Clsah Verge每天更新免费节点订阅地址">「11月8日」最高速度18.8M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-29-clash-verge-rev-github.htm" title="「11月29日」最高速度20.7M/S，2025年Clsah Verge每天更新免费节点订阅地址">「11月29日」最高速度20.7M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-21-clash-verge-rev-node.htm" title="「11月21日」最高速度21.3M/S，2025年Clsah Verge每天更新免费节点订阅地址">「11月21日」最高速度21.3M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-13-free-subscribe-node.htm" title="「11月13日」最高速度18.1M/S，2025年Clsah Verge每天更新免费节点订阅地址">「11月13日」最高速度18.1M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
                     </ul>
     </div>
 </div>
@@ -377,13 +377,10 @@ A：稳定性主要取决于服务商提供的节点质量。建议使用Trojan�
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">3</span> <a href="/date/2025-12/" title="2025-12 归档">2025-12</a></h4>
+                <h4><span class="badge" style="float: right;">4</span> <a href="/date/2025-12/" title="2025-12 归档">2025-12</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2025-11/" title="2025-11 归档">2025-11</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">26</span> <a href="/date/2025-10/" title="2025-10 归档">2025-10</a></h4>
+                <h4><span class="badge" style="float: right;">23</span> <a href="/date/2025-11/" title="2025-11 归档">2025-11</a></h4>
             </li>
                     </ul>
     </div>
