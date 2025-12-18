@@ -1,0 +1,477 @@
+# ;不要随意改变关键字，否则会导致出错
+# ;acl4SSR规则
+# ;去广告：支持
+# ;自动测速：支持
+# ;微软分流：不支持
+# ;苹果分流：不支持
+# ;增强中国IP段：不支持
+# ;增强国外GFW：不支持
+# ;ruleset=🎯 全球直连,[]GEOIP,LAN
+
+mixed-port: 7890
+allow-lan: false
+mode: rule
+ipv6: false
+log-level: info
+external-controller: 0.0.0.0:9090
+dns:
+  enable: true
+  listen: 0.0.0.0:53
+  ipv6: false
+  default-nameserver:
+    - 223.5.5.5
+    - 114.114.114.114
+  nameserver:
+    - 223.5.5.5
+    - 114.114.114.114
+    - 119.29.29.29
+    - 180.76.76.76
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  fake-ip-filter:
+    - "*.lan"
+    - "*.localdomain"
+    - "*.example"
+    - "*.invalid"
+    - "*.localhost"
+    - "*.test"
+    - "*.local"
+    - "*.home.arpa"
+    - router.asus.com
+    - localhost.sec.qq.com
+    - localhost.ptlogin2.qq.com
+    - +.msftconnecttest.com
+tun:
+  enable: true
+  stack: system
+  auto-route: true
+  auto-detect-interface: true
+  dns-hijack:
+    - 114.114.114.114
+    - 180.76.76.76
+    - 119.29.29.29
+    - 223.5.5.5
+    - 8.8.8.8
+    - 8.8.4.4
+    - 1.1.1.1
+    - 1.0.0.1
+
+
+proxies:
+  - type: hysteria
+    name: 🇺🇸_US_美国
+    server: 51.159.226.1
+    port: 49003
+    auth-str: dongtaiwang.com
+    protocol: udp
+    sni: apple.com
+    up: "11"
+    down: "55"
+    skip-cert-verify: true
+    alpn:
+      - h3
+  - type: ss
+    name: 🇨🇳_CN_中国
+    server: 103.149.182.203
+    port: 8388
+    cipher: chacha20-ietf
+    password: asd123456
+  - type: hysteria
+    name: 🇫🇷_FR_法国
+    server: 62.210.10.186
+    port: 50011
+    auth-str: dongtaiwang.com
+    protocol: udp
+    sni: apple.com
+    up: 11 Mbps
+    down: 55 Mbps
+    skip-cert-verify: true
+    alpn:
+      - h3
+  - type: hysteria
+    name: 🇫🇷_FR_法国_1
+    server: 62.210.10.186
+    port: 35511
+    auth-str: dongtaiwang.com
+    protocol: udp
+    sni: apple.com
+    up: "11"
+    down: "55"
+    skip-cert-verify: true
+    alpn:
+      - h3
+  - type: vless
+    name: 🇷🇺_RU_俄罗斯
+    server: 83.166.255.72
+    port: 443
+    uuid: eb162ab1-a006-4931-b1b3-8fc88a22b10e
+    network: tcp
+    servername: 01.img.avito.st
+    tls: true
+    encryption: none
+    reality-opts:
+      public-key: zkeQCEkz7LlrzwzeG26Ae_HEk3_QlgM9CbiWJx5iWh0
+    client-fingerprint: chrome
+    flow: xtls-rprx-vision
+  - type: vmess
+    name: 🇯🇵JP²_1|4.7MB/s|4%|GPT⁺|YT|TK|NF|X|KeepSucceed
+    server: yg1.ygkkk.dpdns.org
+    port: 443
+    uuid: 7a88d322-eb4a-4a59-8c62-8c60d76abf4b
+    alterId: 0
+    network: ws
+    cipher: auto
+    servername: jporacleyg.336697.xyz
+    ws-opts:
+      path: /7a88d322-eb4a-4a59-8c62-8c60d76abf4b-vm?ed=2048
+      headers:
+        Host: jporacleyg.336697.xyz
+    tls: true
+  - type: ss
+    name: 🇷🇴_RO_罗马尼亚
+    server: 86.106.84.195
+    port: 13262
+    cipher: aes-128-gcm
+    password: kfuzkwdg4oynv495aywc
+  - type: vless
+    name: 🇺🇸_US_美国_1
+    server: cosmin.ns.cloudflare.com
+    port: 443
+    uuid: b5605766-6abe-4f5f-85e1-0f6f447eae66
+    network: ws
+    servername: 639013098070588901.macan-amsjd.info
+    tls: true
+    encryption: none
+    ws-opts:
+      path: /hdwvmtws
+      headers:
+        Host: 639013098070588901.macan-amsjd.info
+    client-fingerprint: chrome
+  - type: trojan
+    name: 🇪🇸_ES_西班牙
+    server: 109.234.211.66
+    port: 8443
+    password: trojan
+    network: ws
+    sni: store.timimi.dpdns.org
+    tls: true
+    ws-opts:
+      path: /
+      headers:
+        Host: store.timimi.dpdns.org
+  - type: vless
+    name: 🇮🇷_IR_伊朗
+    server: de.u-team.ir
+    port: 5679
+    uuid: bc66129c-bb06-0dac-a7fc-3d35b38f87e5
+    network: tcp
+    servername: refersion.com
+    tls: true
+    encryption: none
+    reality-opts:
+      public-key: mKzDPCMzVSSDRLoXQzPZ9bxWacxNKNj4UjRP1vXBCBA
+      short-id: d59f3cc6a68619e8
+    client-fingerprint: firefox
+  - type: vmess
+    name: 🇷🇺 俄罗斯 03
+    server: yx1.xn--11x.org
+    port: 2052
+    uuid: 705a4b47-c2d7-4c0e-8963-e52a18a4070b
+    alterId: 0
+    network: ws
+    cipher: auto
+    servername: 2112136940.online.video.downloader.0123456789ru.xn--11x.org
+    ws-opts:
+      path: /
+      headers:
+        Host: 2112136940.online.video.downloader.0123456789ru.xn--11x.org
+  - type: vless
+    name: 🇺🇸_US_美国_2
+    server: brenna.ns.cloudflare.com
+    port: 443
+    uuid: 4a5b69b4-8f1c-48b8-a7d1-2f00ddb2e2d5
+    network: ws
+    servername: 639013098070217402.macan-amsjd.info
+    tls: true
+    ws-opts:
+      path: /zmiuyqws
+      headers:
+        Host: 639013098070217402.macan-amsjd.info
+    client-fingerprint: chrome
+  - type: vless
+    name: 🇮🇷_IR_伊朗_1
+    server: de.u-team.ir
+    port: 5678
+    uuid: bc66129c-bb06-0dac-a7fc-3d35b38f87e5
+    network: tcp
+    servername: refersion.com
+    tls: true
+    encryption: none
+    reality-opts:
+      public-key: mKzDPCMzVSSDRLoXQzPZ9bxWacxNKNj4UjRP1vXBCBA
+      short-id: d59f3cc6a68619e8
+    client-fingerprint: firefox
+  - type: vmess
+    name: 【机场推荐：https://a0a.xyz/】_5
+    server: v12.hdacd.com
+    port: 30812
+    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+    alterId: 0
+    network: tcp
+    cipher: auto
+  - type: ss
+    name: 🇷🇺_RU_俄罗斯_1
+    server: 45.14.245.2
+    port: 443
+    cipher: chacha20-ietf-poly1305
+    password: 17ZDORWIliQHuO6WRGHChXYMzdRtAYVP
+  - type: vless
+    name: 🇺🇸_US_美国_3
+    server: norman.ns.cloudflare.com
+    port: 443
+    uuid: d2cc2dfa-42c4-4565-b22b-09676c42ef84
+    network: ws
+    servername: 639013025178527795.legacy-amsjd.info
+    tls: true
+    encryption: none
+    ws-opts:
+      path: /jdjqbfws
+      headers:
+        Host: 639013025178527795.legacy-amsjd.info
+  - type: vless
+    name: 🇷🇺_RU_俄罗斯_2
+    server: jrghxqxyoy-518237151-direct.bahame.co
+    port: 443
+    uuid: jrghxqxyoy
+    network: tcp
+    servername: jrghxqxyoy-518237151-direct.bahame.co
+    tls: true
+    encryption: none
+    client-fingerprint: chrome
+    flow: xtls-rprx-vision
+    alpn:
+      - h2
+      - http/1.1
+  - type: vmess
+    name: 🇺🇸 US²_5|6.9MB/s|51%|GPT⁺|GM|YT|TK|NF|X|KeepHistory
+    server: v8.hdacd.com
+    port: 30808
+    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+    alterId: 2
+    network: tcp
+    cipher: auto
+    servername: v8.hdacd.com
+  - type: vless
+    name: 🇨🇳_CN_中国_1
+    server: 62.60.148.21
+    port: 443
+    uuid: 39e5cc2f-1294-4a42-bb58-306a8be785e1
+    network: tcp
+    servername: st.ozone.ru
+    tls: true
+    encryption: none
+    reality-opts:
+      public-key: BkAG_uWeUj7BCHqYjrz1JyH0TMvO_KywubV7WJN17ho
+      short-id: ee6f3e8f44b1f0b6
+    client-fingerprint: chrome
+    flow: xtls-rprx-vision
+  - type: vless
+    name: 🇵🇱_PL_波兰
+    server: 185.136.132.171
+    port: 24170
+    uuid: fe21e399-ec6f-4cb5-8441-e911178665b1
+    network: tcp
+    servername: speedtest.net
+    tls: true
+    encryption: none
+    reality-opts:
+      public-key: VsmNi1ZMXVOwhCWpbCp51w-D_DzrxWX4jgfpcU0S9G4
+      short-id: 2fb2106a629b
+      spider-x: /
+    client-fingerprint: chrome
+  - type: vmess
+    name: 英国 - Slough - DigitalOcean, LLC - 1
+    server: v36.hdacd.com
+    port: 30836
+    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+    alterId: 2
+    network: tcp
+    cipher: auto
+    servername: v36.hdacd.com
+  - type: vmess
+    name: 🇺🇸 机场推荐:dafei.de 美国 05
+    server: v29.hdacd.com
+    port: 30829
+    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+    alterId: 2
+    network: tcp
+    cipher: auto
+proxy-groups:
+  - name: 🚀 节点选择
+    type: select
+    proxies:
+      - ♻️ 自动选择
+      - DIRECT
+      - 🇺🇸_US_美国
+      - 🇨🇳_CN_中国
+      - 🇫🇷_FR_法国
+      - 🇫🇷_FR_法国_1
+      - 🇷🇺_RU_俄罗斯
+      - 🇯🇵JP²_1|4.7MB/s|4%|GPT⁺|YT|TK|NF|X|KeepSucceed
+      - 🇷🇴_RO_罗马尼亚
+      - 🇺🇸_US_美国_1
+      - 🇪🇸_ES_西班牙
+      - 🇮🇷_IR_伊朗
+      - 🇷🇺 俄罗斯 03
+      - 🇺🇸_US_美国_2
+      - 🇮🇷_IR_伊朗_1
+      - 【机场推荐：https://a0a.xyz/】_5
+      - 🇷🇺_RU_俄罗斯_1
+      - 🇺🇸_US_美国_3
+      - 🇷🇺_RU_俄罗斯_2
+      - 🇺🇸 US²_5|6.9MB/s|51%|GPT⁺|GM|YT|TK|NF|X|KeepHistory
+      - 🇨🇳_CN_中国_1
+      - 🇵🇱_PL_波兰
+      - 英国 - Slough - DigitalOcean, LLC - 1
+      - 🇺🇸 机场推荐:dafei.de 美国 05
+  - name: ♻️ 自动选择
+    type: url-test
+    proxies:
+      - 🇺🇸_US_美国
+      - 🇨🇳_CN_中国
+      - 🇫🇷_FR_法国
+      - 🇫🇷_FR_法国_1
+      - 🇷🇺_RU_俄罗斯
+      - 🇯🇵JP²_1|4.7MB/s|4%|GPT⁺|YT|TK|NF|X|KeepSucceed
+      - 🇷🇴_RO_罗马尼亚
+      - 🇺🇸_US_美国_1
+      - 🇪🇸_ES_西班牙
+      - 🇮🇷_IR_伊朗
+      - 🇷🇺 俄罗斯 03
+      - 🇺🇸_US_美国_2
+      - 🇮🇷_IR_伊朗_1
+      - 【机场推荐：https://a0a.xyz/】_5
+      - 🇷🇺_RU_俄罗斯_1
+      - 🇺🇸_US_美国_3
+      - 🇷🇺_RU_俄罗斯_2
+      - 🇺🇸 US²_5|6.9MB/s|51%|GPT⁺|GM|YT|TK|NF|X|KeepHistory
+      - 🇨🇳_CN_中国_1
+      - 🇵🇱_PL_波兰
+      - 英国 - Slough - DigitalOcean, LLC - 1
+      - 🇺🇸 机场推荐:dafei.de 美国 05
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+  - name: 🎯 全球直连
+    type: select
+    proxies:
+      - DIRECT
+      - 🚀 节点选择
+      - ♻️ 自动选择
+  - name: 🛑 全球拦截
+    type: select
+    proxies:
+      - REJECT
+      - DIRECT
+  - name: 🐟 漏网之鱼
+    type: select
+    proxies:
+      - 🚀 节点选择
+      - 🎯 全球直连
+      - ♻️ 自动选择
+      - 🇺🇸_US_美国
+      - 🇨🇳_CN_中国
+      - 🇫🇷_FR_法国
+      - 🇫🇷_FR_法国_1
+      - 🇷🇺_RU_俄罗斯
+      - 🇯🇵JP²_1|4.7MB/s|4%|GPT⁺|YT|TK|NF|X|KeepSucceed
+      - 🇷🇴_RO_罗马尼亚
+      - 🇺🇸_US_美国_1
+      - 🇪🇸_ES_西班牙
+      - 🇮🇷_IR_伊朗
+      - 🇷🇺 俄罗斯 03
+      - 🇺🇸_US_美国_2
+      - 🇮🇷_IR_伊朗_1
+      - 【机场推荐：https://a0a.xyz/】_5
+      - 🇷🇺_RU_俄罗斯_1
+      - 🇺🇸_US_美国_3
+      - 🇷🇺_RU_俄罗斯_2
+      - 🇺🇸 US²_5|6.9MB/s|51%|GPT⁺|GM|YT|TK|NF|X|KeepHistory
+      - 🇨🇳_CN_中国_1
+      - 🇵🇱_PL_波兰
+      - 英国 - Slough - DigitalOcean, LLC - 1
+      - 🇺🇸 机场推荐:dafei.de 美国 05
+rule-providers:
+  LocalAreaNetwork:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/LocalAreaNetwork.list
+    path: ./rules/providers/LocalAreaNetwork.list
+    interval: 86400
+  BanAD:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanAD.list
+    path: ./rules/providers/BanAD.list
+    interval: 86400
+  BanProgramAD:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanProgramAD.list
+    path: ./rules/providers/BanProgramAD.list
+    interval: 86400
+  GoogleCN:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/GoogleCN.list
+    path: ./rules/providers/GoogleCN.list
+    interval: 86400
+  SteamCN:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/SteamCN.list
+    path: ./rules/providers/SteamCN.list
+    interval: 86400
+  Telegram:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Telegram.list
+    path: ./rules/providers/Telegram.list
+    interval: 86400
+  ProxyMedia:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ProxyMedia.list
+    path: ./rules/providers/ProxyMedia.list
+    interval: 86400
+  ProxyLite:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ProxyLite.list
+    path: ./rules/providers/ProxyLite.list
+    interval: 86400
+  ChinaDomain:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaDomain.list
+    path: ./rules/providers/ChinaDomain.list
+    interval: 86400
+  ChinaCompanyIp:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaCompanyIp.list
+    path: ./rules/providers/ChinaCompanyIp.list
+    interval: 86400
+
+rules:
+  - RULE-SET,LocalAreaNetwork,🎯 全球直连
+  - RULE-SET,BanAD,🛑 全球拦截
+  - RULE-SET,BanProgramAD,🛑 全球拦截
+  - RULE-SET,GoogleCN,🎯 全球直连
+  - RULE-SET,SteamCN,🎯 全球直连
+  - RULE-SET,Telegram,🚀 节点选择
+  - RULE-SET,ProxyMedia,🚀 节点选择
+  - RULE-SET,ProxyLite,🚀 节点选择
+  - RULE-SET,ChinaDomain,🎯 全球直连
+  - RULE-SET,ChinaCompanyIp,🎯 全球直连
+  - GEOIP,CN,🎯 全球直连
+  - MATCH,🐟 漏网之鱼

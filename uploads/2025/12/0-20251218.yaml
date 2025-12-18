@@ -1,0 +1,595 @@
+# ;不要随意改变关键字，否则会导致出错
+# ;acl4SSR规则
+# ;去广告：支持
+# ;自动测速：支持
+# ;微软分流：不支持
+# ;苹果分流：不支持
+# ;增强中国IP段：不支持
+# ;增强国外GFW：不支持
+# ;ruleset=🎯 全球直连,[]GEOIP,LAN
+
+mixed-port: 7890
+allow-lan: false
+mode: rule
+ipv6: false
+log-level: info
+external-controller: 0.0.0.0:9090
+dns:
+  enable: true
+  listen: 0.0.0.0:53
+  ipv6: false
+  default-nameserver:
+    - 223.5.5.5
+    - 114.114.114.114
+  nameserver:
+    - 223.5.5.5
+    - 114.114.114.114
+    - 119.29.29.29
+    - 180.76.76.76
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  fake-ip-filter:
+    - "*.lan"
+    - "*.localdomain"
+    - "*.example"
+    - "*.invalid"
+    - "*.localhost"
+    - "*.test"
+    - "*.local"
+    - "*.home.arpa"
+    - router.asus.com
+    - localhost.sec.qq.com
+    - localhost.ptlogin2.qq.com
+    - +.msftconnecttest.com
+tun:
+  enable: true
+  stack: system
+  auto-route: true
+  auto-detect-interface: true
+  dns-hijack:
+    - 114.114.114.114
+    - 180.76.76.76
+    - 119.29.29.29
+    - 223.5.5.5
+    - 8.8.8.8
+    - 8.8.4.4
+    - 1.1.1.1
+    - 1.0.0.1
+
+
+proxies:
+  - type: vmess
+    name: 中国 阿里云
+    server: 8.218.116.26
+    port: 32228
+    uuid: e4767e9f-ed00-4f31-a984-a918bdd9b09c
+    alterId: 0
+    network: none
+    cipher: auto
+  - type: ss
+    name: 🇨🇳_CN_中国
+    server: 103.149.183.154
+    port: 8388
+    cipher: chacha20-ietf
+    password: asd123456
+  - type: hysteria
+    name: 🇫🇷_FR_法国
+    server: 62.210.10.186
+    port: 50011
+    auth-str: dongtaiwang.com
+    protocol: udp
+    sni: apple.com
+    up: 11 Mbps
+    down: 55 Mbps
+    skip-cert-verify: true
+    alpn:
+      - h3
+  - type: hysteria
+    name: 🇫🇷_FR_法国_1
+    server: 62.210.10.186
+    port: 35511
+    auth-str: dongtaiwang.com
+    protocol: udp
+    sni: apple.com
+    up: "11"
+    down: "55"
+    skip-cert-verify: true
+    alpn:
+      - h3
+  - type: vless
+    name: 🇨🇳_CN_中国_1
+    server: 8.222.134.143
+    port: 443
+    uuid: 3e7f67de-648e-4871-b51a-a225214d41ee
+    network: tcp
+    servername: www.primevideo.com
+    tls: true
+    encryption: none
+    reality-opts:
+      public-key: TRP10HqKUXEQ3O-cfsq93DycfBmbJe9KM36yvSa8Mmw
+    client-fingerprint: chrome
+  - type: vmess
+    name: 🇭🇰HK²_2|11.0MB/s|2%|GPT|YT|NF|D+|X
+    server: e66ecabe-t7h340-tq9o8d-1d3bw.hkt.gotochinatown.net
+    port: 80
+    uuid: 0fcf5a7a-e1b7-11ec-a352-f23c91cfbbc9
+    alterId: 2
+    network: ws
+    cipher: auto
+    servername: e66ecabe-t7h340-tq9o8d-1d3bw.hkt.gotochinatown.net
+    ws-opts:
+      path: /
+      headers:
+        Host: e66ecabe-t7h340-tq9o8d-1d3bw.hkt.gotochinatown.net
+  - type: vless
+    name: 🇺🇸_US_美国
+    server: notability.com
+    port: 2053
+    uuid: 69413f01-c5ae-edb7-66e7-0a9e11caf2c9
+    network: ws
+    servername: ss.saaas.de5.net
+    tls: true
+    ws-opts:
+      path: /proxyip=sjc.o00o.ooo
+      headers:
+        Host: ss.saaas.de5.net
+    client-fingerprint: chrome
+  - type: vless
+    name: 🇺🇸_US_美国_1
+    server: www.gov.se
+    port: 2053
+    uuid: 69413f01-c5ae-edb7-66e7-0a9e11caf2c9
+    network: ws
+    servername: ss.saaas.de5.net
+    tls: true
+    ws-opts:
+      path: /proxyip=sjc.o00o.ooo
+      headers:
+        Host: ss.saaas.de5.net
+    client-fingerprint: chrome
+  - type: vless
+    name: 🇺🇸_US_美国_2
+    server: quick-edit.devprod.cloudflare.dev
+    port: 2053
+    uuid: 69413f01-c5ae-edb7-66e7-0a9e11caf2c9
+    network: ws
+    servername: ss.saaas.de5.net
+    tls: true
+    ws-opts:
+      path: /proxyip=sjc.o00o.ooo
+      headers:
+        Host: ss.saaas.de5.net
+    client-fingerprint: chrome
+  - type: vless
+    name: 🇺🇸_US_美国_3
+    server: 162.159.254.137
+    port: 2053
+    uuid: 69413f01-c5ae-edb7-66e7-0a9e11caf2c9
+    network: ws
+    servername: ss.saaas.de5.net
+    tls: true
+    ws-opts:
+      path: /proxyip=sjc.o00o.ooo
+      headers:
+        Host: ss.saaas.de5.net
+    client-fingerprint: chrome
+  - type: vless
+    name: 🇺🇸_US_美国_4
+    server: delivr.com
+    port: 2053
+    uuid: 69413f01-c5ae-edb7-66e7-0a9e11caf2c9
+    network: ws
+    servername: ss.saaas.de5.net
+    tls: true
+    ws-opts:
+      path: /proxyip=sjc.o00o.ooo
+      headers:
+        Host: ss.saaas.de5.net
+    client-fingerprint: chrome
+  - type: vless
+    name: 🇺🇸_US_美国_5
+    server: www.speedtest.net
+    port: 443
+    uuid: 73856b73-19d2-47e6-b991-5eaa421161ea
+    network: ws
+    servername: DigiOCmaMooSHawSFOrVisitINGmAMaVlwS.MMogAmES.iR.
+    tls: true
+    ws-opts:
+      path: /admin?ed=1024
+      headers:
+        Host: DigiOCmaMooSHawSFOrVisitINGmAMaVlwS.MMogAmES.iR.
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+  - type: vless
+    name: 🇺🇸_US_美国_6
+    server: cloudflare.tv
+    port: 2053
+    uuid: 69413f01-c5ae-edb7-66e7-0a9e11caf2c9
+    network: ws
+    servername: ss.saaas.de5.net
+    tls: true
+    ws-opts:
+      path: /proxyip=sjc.o00o.ooo
+      headers:
+        Host: ss.saaas.de5.net
+    client-fingerprint: chrome
+  - type: vless
+    name: 🇺🇸_US_美国_7
+    server: 104.19.73.126
+    port: 2053
+    uuid: 69413f01-c5ae-edb7-66e7-0a9e11caf2c9
+    network: ws
+    servername: ss.saaas.de5.net
+    tls: true
+    ws-opts:
+      path: /proxyip=sjc.o00o.ooo
+      headers:
+        Host: ss.saaas.de5.net
+    client-fingerprint: chrome
+  - type: vless
+    name: 🏳️_unKnow_未知
+    server: platform.wise.com
+    port: 2053
+    uuid: 69413f01-c5ae-edb7-66e7-0a9e11caf2c9
+    network: ws
+    servername: ss.saaas.de5.net
+    tls: true
+    ws-opts:
+      path: /proxyip=sjc.o00o.ooo
+      headers:
+        Host: ss.saaas.de5.net
+    client-fingerprint: chrome
+  - type: vless
+    name: 🇺🇸_US_美国_8
+    server: shops.myshopify.com
+    port: 443
+    uuid: 69413f01-c5ae-edb7-66e7-0a9e11caf2c9
+    network: ws
+    servername: ss.saaas.de5.net
+    tls: true
+    ws-opts:
+      path: /proxyip=sjc.o00o.ooo
+      headers:
+        Host: ss.saaas.de5.net
+    client-fingerprint: chrome
+  - type: vless
+    name: 🇷🇺_RU_俄罗斯
+    server: 83.166.255.72
+    port: 443
+    uuid: eb162ab1-a006-4931-b1b3-8fc88a22b10e
+    network: tcp
+    servername: 01.img.avito.st
+    tls: true
+    encryption: none
+    reality-opts:
+      public-key: zkeQCEkz7LlrzwzeG26Ae_HEk3_QlgM9CbiWJx5iWh0
+    client-fingerprint: chrome
+    flow: xtls-rprx-vision
+  - type: ss
+    name: 🇨🇳_CN_中国_2
+    server: 103.149.183.113
+    port: 8388
+    cipher: chacha20-ietf
+    password: asd123456
+  - type: vless
+    name: 🇺🇸_US_美国_9
+    server: cfxr.eu.org
+    port: 2053
+    uuid: 69413f01-c5ae-edb7-66e7-0a9e11caf2c9
+    network: ws
+    servername: ss.saaas.de5.net
+    tls: true
+    ws-opts:
+      path: /proxyip=sjc.o00o.ooo
+      headers:
+        Host: ss.saaas.de5.net
+    client-fingerprint: chrome
+  - type: vless
+    name: 🇯🇵_JP_日本
+    server: 116.80.44.144
+    port: 27724
+    uuid: ebd8539d-e249-4a39-8f90-e8585e8cc35e
+    network: tcp
+    servername: www.yahoo.co.jp
+    tls: true
+    reality-opts:
+      public-key: rYH4wPTVzSwtpXgI3U7YxppIP6oudD-425vT7pyhj1w
+    client-fingerprint: firefox
+    flow: xtls-rprx-vision
+  - type: vless
+    name: 🇺🇸_US_美国_10
+    server: convera.com
+    port: 2053
+    uuid: 69413f01-c5ae-edb7-66e7-0a9e11caf2c9
+    network: ws
+    servername: ss.saaas.de5.net
+    tls: true
+    ws-opts:
+      path: /proxyip=sjc.o00o.ooo
+      headers:
+        Host: ss.saaas.de5.net
+    client-fingerprint: chrome
+  - type: vless
+    name: 🇺🇸_US_美国_11
+    server: staticdelivery.nexusmods.com
+    port: 2087
+    uuid: f7d0f5f5-a9ec-4095-9596-d948f43d5de2
+    network: ws
+    servername: vpsfr.00666600.xyz
+    tls: true
+    ws-opts:
+      path: /1aioh50
+      headers:
+        Host: vpsfr.00666600.xyz
+    client-fingerprint: chrome
+    alpn:
+      - h2
+      - http/1.1
+  - type: vmess
+    name: 🇺🇸US²_3|0.9MB/s|52%|GPT⁺|TK|NF|X|KeepHistory
+    server: v29.hdacd.com
+    port: 30829
+    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+    alterId: 2
+    network: tcp
+    cipher: auto
+  - type: vless
+    name: 🇸🇦_SA_沙特阿拉伯
+    server: us01-vlr01-gmn03.vpnvezdehod.net
+    port: 443
+    uuid: 2ca07504-c06a-41a4-b26b-99807a7d24cf
+    network: tcp
+    servername: hls-svod.itunes.apple.com
+    tls: true
+    reality-opts:
+      public-key: mLmBhbVFfNuo2eUgBh6r9-5Koz9mUCn3aSzlR6IejUg
+      short-id: 48720c
+    client-fingerprint: chrome
+    flow: xtls-rprx-vision
+  - type: vless
+    name: 🇵🇱_PL_波兰
+    server: 185.136.132.171
+    port: 24170
+    uuid: fe21e399-ec6f-4cb5-8441-e911178665b1
+    network: tcp
+    servername: speedtest.net
+    tls: true
+    encryption: none
+    reality-opts:
+      public-key: VsmNi1ZMXVOwhCWpbCp51w-D_DzrxWX4jgfpcU0S9G4
+      short-id: 2fb2106a629b
+      spider-x: /
+    client-fingerprint: chrome
+  - type: vless
+    name: 🇩🇰_DK_丹麦
+    server: hajimamadvpnjoinsho.fast199.hosting-ip.com
+    port: 80
+    uuid: b727aa5e-27bd-4fe5-bd95-7db682992637
+    network: ws
+    servername: downloadha.global.ssl.fastly.net
+    ws-opts:
+      path: /Join----HAJIMAMADVPN---Join----HAJIMAMADVPN---Join----HAJIMAMADVPN---Join----HAJIMAMADVPN---Join----HAJIMAMADVPN---Join----HAJIMAMADVPN---Join----HAJIMAMADVPN
+      headers:
+        Host: downloadha.global.ssl.fastly.net
+  - type: vmess
+    name: 🇭🇰HK²_3|9.9MB/s|2%|GPT⁺|YT|NF|D+|X
+    server: 6af671a9-t70f40-t7c05o-n09f.hkt.gotochinatown.net
+    port: 80
+    uuid: 89b0ea8c-806b-11ed-94ba-f23c913c8d2b
+    alterId: 2
+    network: ws
+    cipher: auto
+    servername: 6af671a9-t70f40-t7c05o-n09f.hkt.gotochinatown.net
+    ws-opts:
+      path: /
+      headers:
+        Host: 6af671a9-t70f40-t7c05o-n09f.hkt.gotochinatown.net
+  - type: vmess
+    name: 🇬🇧 英国 - Slough - DigitalOcean, LLC - 1
+    server: v36.hdacd.com
+    port: 30836
+    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+    alterId: 2
+    network: tcp
+    cipher: auto
+    servername: v36.hdacd.com
+  - type: vmess
+    name: 中国 V2CROSS.COM
+    server: v30.hdacd.com
+    port: 30830
+    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+    alterId: 0
+    network: tcp
+    cipher: auto
+    servername: v30.hdacd.com
+proxy-groups:
+  - name: 🚀 节点选择
+    type: select
+    proxies:
+      - ♻️ 自动选择
+      - DIRECT
+      - 中国 阿里云
+      - 🇨🇳_CN_中国
+      - 🇫🇷_FR_法国
+      - 🇫🇷_FR_法国_1
+      - 🇨🇳_CN_中国_1
+      - 🇭🇰HK²_2|11.0MB/s|2%|GPT|YT|NF|D+|X
+      - 🇺🇸_US_美国
+      - 🇺🇸_US_美国_1
+      - 🇺🇸_US_美国_2
+      - 🇺🇸_US_美国_3
+      - 🇺🇸_US_美国_4
+      - 🇺🇸_US_美国_5
+      - 🇺🇸_US_美国_6
+      - 🇺🇸_US_美国_7
+      - 🏳️_unKnow_未知
+      - 🇺🇸_US_美国_8
+      - 🇷🇺_RU_俄罗斯
+      - 🇨🇳_CN_中国_2
+      - 🇺🇸_US_美国_9
+      - 🇯🇵_JP_日本
+      - 🇺🇸_US_美国_10
+      - 🇺🇸_US_美国_11
+      - 🇺🇸US²_3|0.9MB/s|52%|GPT⁺|TK|NF|X|KeepHistory
+      - 🇸🇦_SA_沙特阿拉伯
+      - 🇵🇱_PL_波兰
+      - 🇩🇰_DK_丹麦
+      - 🇭🇰HK²_3|9.9MB/s|2%|GPT⁺|YT|NF|D+|X
+      - 🇬🇧 英国 - Slough - DigitalOcean, LLC - 1
+      - 中国 V2CROSS.COM
+  - name: ♻️ 自动选择
+    type: url-test
+    proxies:
+      - 中国 阿里云
+      - 🇨🇳_CN_中国
+      - 🇫🇷_FR_法国
+      - 🇫🇷_FR_法国_1
+      - 🇨🇳_CN_中国_1
+      - 🇭🇰HK²_2|11.0MB/s|2%|GPT|YT|NF|D+|X
+      - 🇺🇸_US_美国
+      - 🇺🇸_US_美国_1
+      - 🇺🇸_US_美国_2
+      - 🇺🇸_US_美国_3
+      - 🇺🇸_US_美国_4
+      - 🇺🇸_US_美国_5
+      - 🇺🇸_US_美国_6
+      - 🇺🇸_US_美国_7
+      - 🏳️_unKnow_未知
+      - 🇺🇸_US_美国_8
+      - 🇷🇺_RU_俄罗斯
+      - 🇨🇳_CN_中国_2
+      - 🇺🇸_US_美国_9
+      - 🇯🇵_JP_日本
+      - 🇺🇸_US_美国_10
+      - 🇺🇸_US_美国_11
+      - 🇺🇸US²_3|0.9MB/s|52%|GPT⁺|TK|NF|X|KeepHistory
+      - 🇸🇦_SA_沙特阿拉伯
+      - 🇵🇱_PL_波兰
+      - 🇩🇰_DK_丹麦
+      - 🇭🇰HK²_3|9.9MB/s|2%|GPT⁺|YT|NF|D+|X
+      - 🇬🇧 英国 - Slough - DigitalOcean, LLC - 1
+      - 中国 V2CROSS.COM
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+  - name: 🎯 全球直连
+    type: select
+    proxies:
+      - DIRECT
+      - 🚀 节点选择
+      - ♻️ 自动选择
+  - name: 🛑 全球拦截
+    type: select
+    proxies:
+      - REJECT
+      - DIRECT
+  - name: 🐟 漏网之鱼
+    type: select
+    proxies:
+      - 🚀 节点选择
+      - 🎯 全球直连
+      - ♻️ 自动选择
+      - 中国 阿里云
+      - 🇨🇳_CN_中国
+      - 🇫🇷_FR_法国
+      - 🇫🇷_FR_法国_1
+      - 🇨🇳_CN_中国_1
+      - 🇭🇰HK²_2|11.0MB/s|2%|GPT|YT|NF|D+|X
+      - 🇺🇸_US_美国
+      - 🇺🇸_US_美国_1
+      - 🇺🇸_US_美国_2
+      - 🇺🇸_US_美国_3
+      - 🇺🇸_US_美国_4
+      - 🇺🇸_US_美国_5
+      - 🇺🇸_US_美国_6
+      - 🇺🇸_US_美国_7
+      - 🏳️_unKnow_未知
+      - 🇺🇸_US_美国_8
+      - 🇷🇺_RU_俄罗斯
+      - 🇨🇳_CN_中国_2
+      - 🇺🇸_US_美国_9
+      - 🇯🇵_JP_日本
+      - 🇺🇸_US_美国_10
+      - 🇺🇸_US_美国_11
+      - 🇺🇸US²_3|0.9MB/s|52%|GPT⁺|TK|NF|X|KeepHistory
+      - 🇸🇦_SA_沙特阿拉伯
+      - 🇵🇱_PL_波兰
+      - 🇩🇰_DK_丹麦
+      - 🇭🇰HK²_3|9.9MB/s|2%|GPT⁺|YT|NF|D+|X
+      - 🇬🇧 英国 - Slough - DigitalOcean, LLC - 1
+      - 中国 V2CROSS.COM
+rule-providers:
+  LocalAreaNetwork:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/LocalAreaNetwork.list
+    path: ./rules/providers/LocalAreaNetwork.list
+    interval: 86400
+  BanAD:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanAD.list
+    path: ./rules/providers/BanAD.list
+    interval: 86400
+  BanProgramAD:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanProgramAD.list
+    path: ./rules/providers/BanProgramAD.list
+    interval: 86400
+  GoogleCN:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/GoogleCN.list
+    path: ./rules/providers/GoogleCN.list
+    interval: 86400
+  SteamCN:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/SteamCN.list
+    path: ./rules/providers/SteamCN.list
+    interval: 86400
+  Telegram:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Telegram.list
+    path: ./rules/providers/Telegram.list
+    interval: 86400
+  ProxyMedia:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ProxyMedia.list
+    path: ./rules/providers/ProxyMedia.list
+    interval: 86400
+  ProxyLite:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ProxyLite.list
+    path: ./rules/providers/ProxyLite.list
+    interval: 86400
+  ChinaDomain:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaDomain.list
+    path: ./rules/providers/ChinaDomain.list
+    interval: 86400
+  ChinaCompanyIp:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaCompanyIp.list
+    path: ./rules/providers/ChinaCompanyIp.list
+    interval: 86400
+
+rules:
+  - RULE-SET,LocalAreaNetwork,🎯 全球直连
+  - RULE-SET,BanAD,🛑 全球拦截
+  - RULE-SET,BanProgramAD,🛑 全球拦截
+  - RULE-SET,GoogleCN,🎯 全球直连
+  - RULE-SET,SteamCN,🎯 全球直连
+  - RULE-SET,Telegram,🚀 节点选择
+  - RULE-SET,ProxyMedia,🚀 节点选择
+  - RULE-SET,ProxyLite,🚀 节点选择
+  - RULE-SET,ChinaDomain,🎯 全球直连
+  - RULE-SET,ChinaCompanyIp,🎯 全球直连
+  - GEOIP,CN,🎯 全球直连
+  - MATCH,🐟 漏网之鱼
