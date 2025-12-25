@@ -1,0 +1,412 @@
+# ;不要随意改变关键字，否则会导致出错
+# ;acl4SSR规则
+# ;去广告：支持
+# ;自动测速：支持
+# ;微软分流：不支持
+# ;苹果分流：不支持
+# ;增强中国IP段：不支持
+# ;增强国外GFW：不支持
+# ;ruleset=🎯 全球直连,[]GEOIP,LAN
+
+mixed-port: 7890
+allow-lan: false
+mode: rule
+ipv6: false
+log-level: info
+external-controller: 0.0.0.0:9090
+dns:
+  enable: true
+  listen: 0.0.0.0:53
+  ipv6: false
+  default-nameserver:
+    - 223.5.5.5
+    - 114.114.114.114
+  nameserver:
+    - 223.5.5.5
+    - 114.114.114.114
+    - 119.29.29.29
+    - 180.76.76.76
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  fake-ip-filter:
+    - "*.lan"
+    - "*.localdomain"
+    - "*.example"
+    - "*.invalid"
+    - "*.localhost"
+    - "*.test"
+    - "*.local"
+    - "*.home.arpa"
+    - router.asus.com
+    - localhost.sec.qq.com
+    - localhost.ptlogin2.qq.com
+    - +.msftconnecttest.com
+tun:
+  enable: true
+  stack: system
+  auto-route: true
+  auto-detect-interface: true
+  dns-hijack:
+    - 114.114.114.114
+    - 180.76.76.76
+    - 119.29.29.29
+    - 223.5.5.5
+    - 8.8.8.8
+    - 8.8.4.4
+    - 1.1.1.1
+    - 1.0.0.1
+
+
+proxies:
+  - type: hysteria
+    name: 🇫🇷_FR_法国
+    server: 62.210.196.68
+    port: 26691
+    auth-str: dongtaiwang.com
+    protocol: udp
+    sni: apple.com
+    up: 11 Mbps
+    down: 55 Mbps
+    skip-cert-verify: true
+    alpn:
+      - h3
+  - type: vless
+    name: 🇺🇸_US_美国
+    server: root.api-music-fa.com
+    port: 2053
+    uuid: db162b74-0da8-4c69-8b17-2d89defabc24
+    network: ws
+    tls: true
+    encryption: none
+    ws-opts:
+      path: /J5aLQOY1R9ONWYCM
+  - type: hysteria
+    name: 🇫🇷_FR_法国_1
+    server: 62.210.10.186
+    port: 50011
+    auth-str: dongtaiwang.com
+    protocol: udp
+    sni: apple.com
+    up: 11 Mbps
+    down: 55 Mbps
+    skip-cert-verify: true
+    alpn:
+      - h3
+  - type: vless
+    name: 🇺🇸_US_美国_1
+    server: Www.speedtest.net
+    port: 8880
+    uuid: 49aefaed-ad06-4ce9-ad25-b75b6b489b0c
+    network: ws
+    servername: mx.mmadvip8563.ir
+    encryption: none
+    ws-opts:
+      path: /?ed=2048
+      headers:
+        Host: mx.mmadvip8563.ir
+  - type: hysteria
+    name: 🇫🇷_FR_法国_2
+    server: 62.210.10.186
+    port: 35511
+    auth-str: dongtaiwang.com
+    protocol: udp
+    sni: apple.com
+    up: "11"
+    down: "55"
+    skip-cert-verify: true
+    alpn:
+      - h3
+  - type: ss
+    name: 🇮🇷_IR_伊朗
+    server: 151.242.251.152
+    port: 8080
+    cipher: chacha20-ietf-poly1305
+    password: k1dBOmOB4oqi7Ump37a1bQ
+  - type: vless
+    name: 🇺🇸_US_美国_2
+    server: 104.17.147.22
+    port: 8080
+    uuid: Parsashonam-Bot-41
+    network: ws
+    servername: Fi.Parsashonam.CfD.
+    encryption: none
+    ws-opts:
+      path: /Parsashonam-Parsashonam-Parsashonam-Parsashonam-Parsashonam-Parsashonam-Parsashonam-Parsashonam-Parsashonam-Parsashonam-Parsashonam-Parsashonam-Parsashonam-Parsashonam-Parsashonam-Parsashonam?ed=2056
+      headers:
+        Host: Fi.Parsashonam.CfD.
+  - type: ss
+    name: 🇮🇷_IR_伊朗_1
+    server: 217.60.249.112
+    port: 443
+    cipher: chacha20-ietf-poly1305
+    password: 0eC4ZBvStOgQEzTpCYjWN5
+  - type: ss
+    name: 🇺🇸_US_美国_3
+    server: 51.159.106.175
+    port: 989
+    cipher: aes-256-cfb
+    password: f8f7aCzcPKbsF8p3
+  - type: vless
+    name: 🇵🇱_PL_波兰
+    server: 185.136.132.171
+    port: 24170
+    uuid: fe21e399-ec6f-4cb5-8441-e911178665b1
+    network: tcp
+    servername: speedtest.net
+    tls: true
+    encryption: none
+    reality-opts:
+      public-key: VsmNi1ZMXVOwhCWpbCp51w-D_DzrxWX4jgfpcU0S9G4
+      short-id: 2fb2106a629b
+      spider-x: /
+    client-fingerprint: chrome
+  - type: vmess
+    name: 🇺🇸US²_5|4.2MB/s|33%|GPT⁺|GM|YT|TK|NF|X
+    server: 172.233.229.91
+    port: 14102
+    uuid: 27ba87fc-583f-4763-9060-83cf0b9264db
+    alterId: 0
+    network: tcp
+    cipher: auto
+  - type: vless
+    name: 🇺🇸_US_美国_4
+    server: 104.17.147.22
+    port: 8880
+    uuid: Parsashonam-Bot-41
+    network: ws
+    servername: Fi.Parsashonam.CfD.
+    encryption: none
+    ws-opts:
+      path: /Parsashonam-Parsashonam-Parsashonam-Parsashonam-Parsashonam-Parsashonam-Parsashonam-Parsashonam-Parsashonam-Parsashonam-Parsashonam-Parsashonam-Parsashonam-Parsashonam-Parsashonam-Parsashonam?ed=2056
+      headers:
+        Host: Fi.Parsashonam.CfD.
+  - type: ss
+    name: 🇪🇪_EE_爱沙尼亚
+    server: est01-ss01.tcp-reset-club.net
+    port: 8444
+    cipher: chacha20-ietf-poly1305
+    password: AWNeHjukGQWwuFXadw2r6qH7gh4hZ9cj
+  - type: ss
+    name: 🇬🇧_GB_英国
+    server: 146.70.61.37
+    port: 8080
+    cipher: rc4-md5
+    password: 14fFPrbezE3HDZzsMOr6
+  - type: vless
+    name: 🇷🇺_RU_俄罗斯
+    server: 178.154.205.131
+    port: 443
+    uuid: fd4b0117-d752-46fd-9a94-21a21e360fdb
+    network: tcp
+    servername: ads.x5.ru
+    tls: true
+    encryption: none
+    reality-opts:
+      public-key: r5WB5FnSCt4eeBC1FJMfkWHbzsMuabo0Rc6wuAhlZUs
+      short-id: 672ff0
+    client-fingerprint: chrome
+    flow: xtls-rprx-vision
+  - type: ss
+    name: 🇨🇿_CZ_捷克
+    server: 79.127.200.169
+    port: 990
+    cipher: chacha20-ietf-poly1305
+    password: ARgvGZywA+gacgGV26Bvmu05+wZmRW/j+AdU+Z8Bt44=
+  - type: vless
+    name: 🇬🇧_GB_英国_1
+    server: 51.250.10.228
+    port: 443
+    uuid: fd4b0117-d752-46fd-9a94-21a21e360fdb
+    network: tcp
+    servername: sun6-21.userapi.com
+    tls: true
+    encryption: none
+    reality-opts:
+      public-key: r5WB5FnSCt4eeBC1FJMfkWHbzsMuabo0Rc6wuAhlZUs
+      short-id: 65c7748be8
+    client-fingerprint: qq
+    flow: xtls-rprx-vision
+  - type: ss
+    name: 🇲🇩_MD_摩尔多瓦
+    server: 176.123.5.253
+    port: 990
+    cipher: chacha20-ietf-poly1305
+    password: ARgvGZywA+gacgGV26Bvmu05+wZmRW/j+AdU+Z8Bt44=
+  - type: ss
+    name: 🇺🇸_US_美国_5
+    server: 38.165.231.25
+    port: 990
+    cipher: chacha20-ietf-poly1305
+    password: ARgvGZywA+gacgGV26Bvmu05+wZmRW/j+AdU+Z8Bt44=
+  - type: vmess
+    name: "Channel id: @ShadowProxy66 🇮🇳"
+    server: 103.97.203.220
+    port: 550
+    uuid: 9e0e83ca-0fbc-44b1-8024-0eb8f9414156
+    alterId: 0
+    network: tcp
+    cipher: auto
+    servername: t.me/v2Line
+proxy-groups:
+  - name: 🚀 节点选择
+    type: select
+    proxies:
+      - ♻️ 自动选择
+      - DIRECT
+      - 🇫🇷_FR_法国
+      - 🇺🇸_US_美国
+      - 🇫🇷_FR_法国_1
+      - 🇺🇸_US_美国_1
+      - 🇫🇷_FR_法国_2
+      - 🇮🇷_IR_伊朗
+      - 🇺🇸_US_美国_2
+      - 🇮🇷_IR_伊朗_1
+      - 🇺🇸_US_美国_3
+      - 🇵🇱_PL_波兰
+      - 🇺🇸US²_5|4.2MB/s|33%|GPT⁺|GM|YT|TK|NF|X
+      - 🇺🇸_US_美国_4
+      - 🇪🇪_EE_爱沙尼亚
+      - 🇬🇧_GB_英国
+      - 🇷🇺_RU_俄罗斯
+      - 🇨🇿_CZ_捷克
+      - 🇬🇧_GB_英国_1
+      - 🇲🇩_MD_摩尔多瓦
+      - 🇺🇸_US_美国_5
+      - "Channel id: @ShadowProxy66 🇮🇳"
+  - name: ♻️ 自动选择
+    type: url-test
+    proxies:
+      - 🇫🇷_FR_法国
+      - 🇺🇸_US_美国
+      - 🇫🇷_FR_法国_1
+      - 🇺🇸_US_美国_1
+      - 🇫🇷_FR_法国_2
+      - 🇮🇷_IR_伊朗
+      - 🇺🇸_US_美国_2
+      - 🇮🇷_IR_伊朗_1
+      - 🇺🇸_US_美国_3
+      - 🇵🇱_PL_波兰
+      - 🇺🇸US²_5|4.2MB/s|33%|GPT⁺|GM|YT|TK|NF|X
+      - 🇺🇸_US_美国_4
+      - 🇪🇪_EE_爱沙尼亚
+      - 🇬🇧_GB_英国
+      - 🇷🇺_RU_俄罗斯
+      - 🇨🇿_CZ_捷克
+      - 🇬🇧_GB_英国_1
+      - 🇲🇩_MD_摩尔多瓦
+      - 🇺🇸_US_美国_5
+      - "Channel id: @ShadowProxy66 🇮🇳"
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+  - name: 🎯 全球直连
+    type: select
+    proxies:
+      - DIRECT
+      - 🚀 节点选择
+      - ♻️ 自动选择
+  - name: 🛑 全球拦截
+    type: select
+    proxies:
+      - REJECT
+      - DIRECT
+  - name: 🐟 漏网之鱼
+    type: select
+    proxies:
+      - 🚀 节点选择
+      - 🎯 全球直连
+      - ♻️ 自动选择
+      - 🇫🇷_FR_法国
+      - 🇺🇸_US_美国
+      - 🇫🇷_FR_法国_1
+      - 🇺🇸_US_美国_1
+      - 🇫🇷_FR_法国_2
+      - 🇮🇷_IR_伊朗
+      - 🇺🇸_US_美国_2
+      - 🇮🇷_IR_伊朗_1
+      - 🇺🇸_US_美国_3
+      - 🇵🇱_PL_波兰
+      - 🇺🇸US²_5|4.2MB/s|33%|GPT⁺|GM|YT|TK|NF|X
+      - 🇺🇸_US_美国_4
+      - 🇪🇪_EE_爱沙尼亚
+      - 🇬🇧_GB_英国
+      - 🇷🇺_RU_俄罗斯
+      - 🇨🇿_CZ_捷克
+      - 🇬🇧_GB_英国_1
+      - 🇲🇩_MD_摩尔多瓦
+      - 🇺🇸_US_美国_5
+      - "Channel id: @ShadowProxy66 🇮🇳"
+rule-providers:
+  LocalAreaNetwork:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/LocalAreaNetwork.list
+    path: ./rules/providers/LocalAreaNetwork.list
+    interval: 86400
+  BanAD:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanAD.list
+    path: ./rules/providers/BanAD.list
+    interval: 86400
+  BanProgramAD:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanProgramAD.list
+    path: ./rules/providers/BanProgramAD.list
+    interval: 86400
+  GoogleCN:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/GoogleCN.list
+    path: ./rules/providers/GoogleCN.list
+    interval: 86400
+  SteamCN:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/SteamCN.list
+    path: ./rules/providers/SteamCN.list
+    interval: 86400
+  Telegram:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Telegram.list
+    path: ./rules/providers/Telegram.list
+    interval: 86400
+  ProxyMedia:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ProxyMedia.list
+    path: ./rules/providers/ProxyMedia.list
+    interval: 86400
+  ProxyLite:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ProxyLite.list
+    path: ./rules/providers/ProxyLite.list
+    interval: 86400
+  ChinaDomain:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaDomain.list
+    path: ./rules/providers/ChinaDomain.list
+    interval: 86400
+  ChinaCompanyIp:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaCompanyIp.list
+    path: ./rules/providers/ChinaCompanyIp.list
+    interval: 86400
+
+rules:
+  - RULE-SET,LocalAreaNetwork,🎯 全球直连
+  - RULE-SET,BanAD,🛑 全球拦截
+  - RULE-SET,BanProgramAD,🛑 全球拦截
+  - RULE-SET,GoogleCN,🎯 全球直连
+  - RULE-SET,SteamCN,🎯 全球直连
+  - RULE-SET,Telegram,🚀 节点选择
+  - RULE-SET,ProxyMedia,🚀 节点选择
+  - RULE-SET,ProxyLite,🚀 节点选择
+  - RULE-SET,ChinaDomain,🎯 全球直连
+  - RULE-SET,ChinaCompanyIp,🎯 全球直连
+  - GEOIP,CN,🎯 全球直连
+  - MATCH,🐟 漏网之鱼
