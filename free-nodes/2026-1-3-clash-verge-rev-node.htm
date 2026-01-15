@@ -369,29 +369,14 @@ A：请避免多重系统代理设置，例如Clash、Surge等并行运行时可
     </div>
 <h4>FAQ</h4>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Shadowrocket 的分流规则如何支持视频加速？</h5></div>
-    <div class="panel-body">
-        通过分流规则，将流媒体域名匹配到高速节点，其他网站走普通节点。这样可以保证视频播放流畅，同时节约带宽资源，提高整体网络效率和体验。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>如何安全地在服务器上部署 V2Ray（最小权限原则）？</h5></div>
-    <div class="panel-body">
-        使用独立非 root 用户运行 V2Ray，限制服务访问端口并仅开放必要端口；配置防火墙规则与 Fail2ban 限制暴力登录；定期更新内核与 V2Ray 版本，并关闭不必要的系统服务以减少攻击面。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>SSR 的端口转发功能如何开启？</h5></div>
-    <div class="panel-body">
-        在服务器端配置文件中启用 port_forwarding 参数并指定目标端口与地址。确保防火墙开放转发端口，客户端使用对应端口连接即可实现流量中继。此功能常用于内网穿透或端口复用。<hr />    </div>
-</div>
-<div class="panel panel-default">
     <div class="panel-heading"><h5>如何防止租用服务器被用作滥发或代理滥用？</h5></div>
     <div class="panel-body">
         限制对外端口与协议，使用防火墙与入侵检测（如 fail2ban），监控流量异常并设置告警，定期审计登录行为，及时阻断滥用源并与服务商沟通封禁滥用账户以防引起供应商封禁整台机。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Potatso Lite 可以设置自定义 DNS 吗？</h5></div>
+    <div class="panel-heading"><h5>Shadowrocket 的分流规则如何支持视频加速？</h5></div>
     <div class="panel-body">
-        支持自定义 DNS，可配置本地或远程 DNS 服务器，包括 DoH/DoT。正确配置可提升解析速度、防止 DNS 污染，提高访问稳定性和安全性。<hr />    </div>
+        通过分流规则，将流媒体域名匹配到高速节点，其他网站走普通节点。这样可以保证视频播放流畅，同时节约带宽资源，提高整体网络效率和体验。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Matsuri 节点延迟排序如何优化网络流量？</h5></div>
@@ -399,14 +384,29 @@ A：请避免多重系统代理设置，例如Clash、Surge等并行运行时可
         Matsuri 会定期测速节点延迟，并结合策略组自动选择延迟最低节点。无需手动切换，确保网页、视频和游戏流量通过最优节点，提高访问速度和网络稳定性。<hr />    </div>
 </div>
 <div class="panel panel-default">
+    <div class="panel-heading"><h5>Matsuri 日志太多如何调整日志级别？</h5></div>
+    <div class="panel-body">
+        在 Matsuri 或其内核配置中修改日志级别参数（如从 debug 降为 info 或 warning），同时限制日志轮转与最大文件大小。生产环境建议关闭 debug 日志以减少磁盘 I/O 与性能影响。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>如何安全地在服务器上部署 V2Ray（最小权限原则）？</h5></div>
+    <div class="panel-body">
+        使用独立非 root 用户运行 V2Ray，限制服务访问端口并仅开放必要端口；配置防火墙规则与 Fail2ban 限制暴力登录；定期更新内核与 V2Ray 版本，并关闭不必要的系统服务以减少攻击面。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>VLESS 的 XTLS 模式如何提升性能？</h5></div>
+    <div class="panel-body">
+        VLESS + XTLS 模式可以在加密传输中减少 TLS 握手和数据复制过程，从而显著降低延迟并减少 CPU 占用。这种优化特别适合高带宽或高并发的场景。<hr />    </div>
+</div>
+<div class="panel panel-default">
     <div class="panel-heading"><h5>VLESS + XTLS 模式在高并发下有什么优势？</h5></div>
     <div class="panel-body">
         XTLS 模式减少握手次数和加密冗余，提高 CPU 利用率和吞吐量。在高并发场景下能保持连接稳定，适合游戏、流媒体和频繁请求的网络环境，提升整体性能。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Matsuri 日志太多如何调整日志级别？</h5></div>
+    <div class="panel-heading"><h5>Potatso Lite 可以设置自定义 DNS 吗？</h5></div>
     <div class="panel-body">
-        在 Matsuri 或其内核配置中修改日志级别参数（如从 debug 降为 info 或 warning），同时限制日志轮转与最大文件大小。生产环境建议关闭 debug 日志以减少磁盘 I/O 与性能影响。<hr />    </div>
+        支持自定义 DNS，可配置本地或远程 DNS 服务器，包括 DoH/DoT。正确配置可提升解析速度、防止 DNS 污染，提高访问稳定性和安全性。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Hysteria2 多路复用如何优化高频短连接？</h5></div>
@@ -414,9 +414,9 @@ A：请避免多重系统代理设置，例如Clash、Surge等并行运行时可
         多路复用允许多个短连接共享同一通道，减少握手次数和加密开销。适合游戏和即时通讯等高频短连接场景，提高吞吐量和连接稳定性，保证流量快速传输。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>VLESS 的 XTLS 模式如何提升性能？</h5></div>
+    <div class="panel-heading"><h5>SSR 的端口转发功能如何开启？</h5></div>
     <div class="panel-body">
-        VLESS + XTLS 模式可以在加密传输中减少 TLS 握手和数据复制过程，从而显著降低延迟并减少 CPU 占用。这种优化特别适合高带宽或高并发的场景。    </div>
+        在服务器端配置文件中启用 port_forwarding 参数并指定目标端口与地址。确保防火墙开放转发端口，客户端使用对应端口连接即可实现流量中继。此功能常用于内网穿透或端口复用。    </div>
 </div>
 <div class="panel panel-default mt-5">
     <div class="panel-heading">
@@ -445,16 +445,16 @@ A：请避免多重系统代理设置，例如Clash、Surge等并行运行时可
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2025-12-11-clash-verge-rev-node-share.htm" title="「12月11日」最高速度22.1M/S，2025年Clsah Verge每天更新免费节点订阅地址">「12月11日」最高速度22.1M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-11-22-node-share-links.htm" title="「11月22日」最高速度19.9M/S，2025年Clsah Verge每天更新免费节点订阅地址">「11月22日」最高速度19.9M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-12-19-clash-verge-rev-windows.htm" title="「12月19日」最高速度21.1M/S，2025年Clsah Verge每天更新免费节点订阅地址">「12月19日」最高速度21.1M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-12-9-node-share-links.htm" title="「12月9日」最高速度19.4M/S，2025年Clsah Verge每天更新免费节点订阅地址">「12月9日」最高速度19.4M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-11-21-clash-verge-rev-node.htm" title="「11月21日」最高速度21.3M/S，2025年Clsah Verge每天更新免费节点订阅地址">「11月21日」最高速度21.3M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-12-27-clash-verge-rev-node-github.htm" title="「12月27日」最高速度18.2M/S，2025年Clsah Verge每天更新免费节点订阅地址">「12月27日」最高速度18.2M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-11-11-free-clash-verge-rev-node.htm" title="「11月11日」最高速度22M/S，2025年Clsah Verge每天更新免费节点订阅地址">「11月11日」最高速度22M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-1-7-free-subscribe-node.htm" title="「1月7日」最高速度20M/S，2025年Clsah Verge每天更新免费节点订阅地址">「1月7日」最高速度20M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-12-23-clash-verge-rev-windows.htm" title="「12月23日」最高速度20.3M/S，2025年Clsah Verge每天更新免费节点订阅地址">「12月23日」最高速度20.3M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-12-22-latest-clash-verge-rev-node.htm" title="「12月22日」最高速度22.6M/S，2025年Clsah Verge每天更新免费节点订阅地址">「12月22日」最高速度22.6M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-12-14-clash-verge-rev-node-share.htm" title="「12月14日」最高速度20.9M/S，2025年Clsah Verge每天更新免费节点订阅地址">「12月14日」最高速度20.9M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-12-25-clash-verge-rev-nodes.htm" title="「12月25日」最高速度20.6M/S，2025年Clsah Verge每天更新免费节点订阅地址">「12月25日」最高速度20.6M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
                         <li class="py-2"><a href="/free-nodes/2025-12-26-clash-verge-rev-node-github.htm" title="「12月26日」最高速度19M/S，2025年Clsah Verge每天更新免费节点订阅地址">「12月26日」最高速度19M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-12-18-clash-verge-rev-node.htm" title="「12月18日」最高速度20.7M/S，2025年Clsah Verge每天更新免费节点订阅地址">「12月18日」最高速度20.7M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-11-13-free-subscribe-node.htm" title="「11月13日」最高速度18.1M/S，2025年Clsah Verge每天更新免费节点订阅地址">「11月13日」最高速度18.1M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-12-31-clash-verge-rev-nodes.htm" title="「12月31日」最高速度21.6M/S，2025年Clsah Verge每天更新免费节点订阅地址">「12月31日」最高速度21.6M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-12-13-node-share.htm" title="「12月13日」最高速度19.7M/S，2025年Clsah Verge每天更新免费节点订阅地址">「12月13日」最高速度19.7M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-1-2-node-share-links.htm" title="「1月2日」最高速度18.9M/S，2025年Clsah Verge每天更新免费节点订阅地址">「1月2日」最高速度18.9M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-1-5-clash-verge-rev-node-github.htm" title="「1月5日」最高速度18.5M/S，2025年Clsah Verge每天更新免费节点订阅地址">「1月5日」最高速度18.5M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></li>
                     </ul>
     </div>
 </div>
@@ -469,10 +469,7 @@ A：请避免多重系统代理设置，例如Clash、Surge等并行运行时可
                 <h4><span class="badge" style="float: right;">7</span> <a href="/date/2026-01/" title="2026-01 归档">2026-01</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2025-12/" title="2025-12 归档">2025-12</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">23</span> <a href="/date/2025-11/" title="2025-11 归档">2025-11</a></h4>
+                <h4><span class="badge" style="float: right;">19</span> <a href="/date/2025-12/" title="2025-12 归档">2025-12</a></h4>
             </li>
                     </ul>
     </div>

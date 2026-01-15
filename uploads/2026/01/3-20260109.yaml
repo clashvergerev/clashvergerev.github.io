@@ -1,0 +1,302 @@
+mixed-port: 7890
+allow-lan: true
+mode: rule
+log-level: info
+ipv6: false
+external-controller: 0.0.0.0:9090
+dns:
+  enable: true
+  listen: 0.0.0.0:53
+  ipv6: false
+  default-nameserver:
+    - 223.5.5.5
+    - 114.114.114.114
+  nameserver:
+    - 223.5.5.5
+    - 114.114.114.114
+    - 119.29.29.29
+    - 180.76.76.76
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  fake-ip-filter:
+    - "*.lan"
+    - "*.localdomain"
+    - "*.example"
+    - "*.invalid"
+    - "*.localhost"
+    - "*.test"
+    - "*.local"
+    - "*.home.arpa"
+    - router.asus.com
+    - localhost.sec.qq.com
+    - localhost.ptlogin2.qq.com
+    - +.msftconnecttest.com
+tun:
+  enable: true
+  stack: system
+  auto-route: true
+  auto-detect-interface: true
+  dns-hijack:
+    - 114.114.114.114
+    - 180.76.76.76
+    - 119.29.29.29
+    - 223.5.5.5
+    - 8.8.8.8
+    - 8.8.4.4
+    - 1.1.1.1
+    - 1.0.0.1
+proxies:
+  - name: 🇰🇷_KR_韩国
+    type: ss
+    server: 221.150.109.89
+    port: 43231
+    cipher: aes-256-cfb
+    password: qwerREWQ@@
+  - name: 🇰🇷_KR_韩国_1
+    type: ss
+    server: 168.126.234.233
+    port: 28860
+    cipher: aes-256-cfb
+    password: qwerREWQ@@
+  - name: 🇺🇸_US_美国_2
+    type: trojan
+    server: kfjdi.pages.dev
+    port: 443
+    password: er668
+    skip-cert-verify: false
+    tls: false
+    ws-opts:
+      path: 🔒
+  - name: 🇰🇷_KR_韩国_2
+    type: ss
+    server: 218.38.103.150
+    port: 39502
+    cipher: aes-256-cfb
+    password: qwerREWQ@@
+  - name: 🇰🇷_KR_韩国_3
+    type: ss
+    server: 121.170.203.147
+    port: 61417
+    cipher: aes-256-cfb
+    password: qwerREWQ@@
+  - name: 🇰🇷_KR_韩国_4
+    type: ss
+    server: 211.201.169.70
+    port: 19307
+    cipher: aes-256-cfb
+    password: qwerREWQ@@
+  - name: 🇰🇷_KR_韩国_5
+    type: ss
+    server: 218.234.149.9
+    port: 4483
+    cipher: aes-256-cfb
+    password: qwerREWQ@@
+  - name: 🇨🇳_CN_中国
+    type: ss
+    server: 156.244.36.105
+    port: 11201
+    cipher: chacha20-ietf-poly1305
+    password: 34bafa5f59fc339f
+  - name: 🇳🇱_NL_荷兰_1
+    type: ss
+    server: fl3.cowjuice.me
+    port: 9443
+    cipher: chacha20-ietf-poly1305
+    password: X36TIi4C3NH6Oln3TdGyjg
+  - name: 🇭🇺_HU_匈牙利
+    type: ss
+    server: 109.61.39.150
+    port: 11201
+    cipher: chacha20-ietf-poly1305
+    password: 01dc0d7cbb650bc3
+  - name: 🇯🇴_JO_约旦
+    type: ss
+    server: 91.106.109.74
+    port: 11201
+    cipher: chacha20-ietf-poly1305
+    password: 11bf054dcc0342cd
+  - name: 🇨🇳_CN_中国_1
+    type: ss
+    server: 154.205.147.237
+    port: 11201
+    cipher: chacha20-ietf-poly1305
+    password: 2272de48c53e0a57
+  - name: 中国 - 香港 - PCCW IMS Limited - 45
+    type: vmess
+    server: 5804d996-t70f40-tonrmx-8n27.hkt.gotochinatown.net
+    port: 80
+    uuid: 5dc6fa05-a601-aba6-7761-ecde22d2b0fc
+    alterId: 2
+    tls: false
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        Host: 5804d996-t70f40-tonrmx-8n27.hkt.gotochinatown.net
+  - name: 🇭🇰 HK²_23|2.8MB/s|0%|GPT⁺|YT|X|History|[原生|住宅]
+    type: vmess
+    server: 010ece56-t6r5s0-thd0h1-1rz5s.hkt.gotochinatown.net
+    port: 80
+    uuid: 40e084d6-0316-11f0-90e2-f23c913c8d2b
+    alterId: 2
+    tls: false
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        Host: 010ece56-t6r5s0-thd0h1-1rz5s.hkt.gotochinatown.net
+proxy-groups:
+  - name: 🚀 节点选择
+    type: select
+    proxies:
+      - ♻️ 自动选择
+      - DIRECT
+      - 🇰🇷_KR_韩国
+      - 🇰🇷_KR_韩国_1
+      - 🇺🇸_US_美国_2
+      - 🇰🇷_KR_韩国_2
+      - 🇰🇷_KR_韩国_3
+      - 🇰🇷_KR_韩国_4
+      - 🇰🇷_KR_韩国_5
+      - 🇨🇳_CN_中国
+      - 🇳🇱_NL_荷兰_1
+      - 🇭🇺_HU_匈牙利
+      - 🇯🇴_JO_约旦
+      - 🇨🇳_CN_中国_1
+      - 中国 - 香港 - PCCW IMS Limited - 45
+      - 🇭🇰 HK²_23|2.8MB/s|0%|GPT⁺|YT|X|History|[原生|住宅]
+  - name: ♻️ 自动选择
+    type: url-test
+    proxies:
+      - 🇰🇷_KR_韩国
+      - 🇰🇷_KR_韩国_1
+      - 🇺🇸_US_美国_2
+      - 🇰🇷_KR_韩国_2
+      - 🇰🇷_KR_韩国_3
+      - 🇰🇷_KR_韩国_4
+      - 🇰🇷_KR_韩国_5
+      - 🇨🇳_CN_中国
+      - 🇳🇱_NL_荷兰_1
+      - 🇭🇺_HU_匈牙利
+      - 🇯🇴_JO_约旦
+      - 🇨🇳_CN_中国_1
+      - 中国 - 香港 - PCCW IMS Limited - 45
+      - 🇭🇰 HK²_23|2.8MB/s|0%|GPT⁺|YT|X|History|[原生|住宅]
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+  - name: 🌍 国外媒体
+    type: select
+    proxies:
+      - 🚀 节点选择
+      - ♻️ 自动选择
+      - 🎯 全球直连
+      - 🇰🇷_KR_韩国
+      - 🇰🇷_KR_韩国_1
+      - 🇺🇸_US_美国_2
+      - 🇰🇷_KR_韩国_2
+      - 🇰🇷_KR_韩国_3
+      - 🇰🇷_KR_韩国_4
+      - 🇰🇷_KR_韩国_5
+      - 🇨🇳_CN_中国
+      - 🇳🇱_NL_荷兰_1
+      - 🇭🇺_HU_匈牙利
+      - 🇯🇴_JO_约旦
+      - 🇨🇳_CN_中国_1
+      - 中国 - 香港 - PCCW IMS Limited - 45
+      - 🇭🇰 HK²_23|2.8MB/s|0%|GPT⁺|YT|X|History|[原生|住宅]
+  - name: 📲 电报信息
+    type: select
+    proxies:
+      - 🚀 节点选择
+      - 🎯 全球直连
+      - 🇰🇷_KR_韩国
+      - 🇰🇷_KR_韩国_1
+      - 🇺🇸_US_美国_2
+      - 🇰🇷_KR_韩国_2
+      - 🇰🇷_KR_韩国_3
+      - 🇰🇷_KR_韩国_4
+      - 🇰🇷_KR_韩国_5
+      - 🇨🇳_CN_中国
+      - 🇳🇱_NL_荷兰_1
+      - 🇭🇺_HU_匈牙利
+      - 🇯🇴_JO_约旦
+      - 🇨🇳_CN_中国_1
+      - 中国 - 香港 - PCCW IMS Limited - 45
+      - 🇭🇰 HK²_23|2.8MB/s|0%|GPT⁺|YT|X|History|[原生|住宅]
+  - name: Ⓜ️ 微软服务
+    type: select
+    proxies:
+      - 🎯 全球直连
+      - 🚀 节点选择
+      - 🇰🇷_KR_韩国
+      - 🇰🇷_KR_韩国_1
+      - 🇺🇸_US_美国_2
+      - 🇰🇷_KR_韩国_2
+      - 🇰🇷_KR_韩国_3
+      - 🇰🇷_KR_韩国_4
+      - 🇰🇷_KR_韩国_5
+      - 🇨🇳_CN_中国
+      - 🇳🇱_NL_荷兰_1
+      - 🇭🇺_HU_匈牙利
+      - 🇯🇴_JO_约旦
+      - 🇨🇳_CN_中国_1
+      - 中国 - 香港 - PCCW IMS Limited - 45
+      - 🇭🇰 HK²_23|2.8MB/s|0%|GPT⁺|YT|X|History|[原生|住宅]
+  - name: 🍎 苹果服务
+    type: select
+    proxies:
+      - 🚀 节点选择
+      - 🎯 全球直连
+      - 🇰🇷_KR_韩国
+      - 🇰🇷_KR_韩国_1
+      - 🇺🇸_US_美国_2
+      - 🇰🇷_KR_韩国_2
+      - 🇰🇷_KR_韩国_3
+      - 🇰🇷_KR_韩国_4
+      - 🇰🇷_KR_韩国_5
+      - 🇨🇳_CN_中国
+      - 🇳🇱_NL_荷兰_1
+      - 🇭🇺_HU_匈牙利
+      - 🇯🇴_JO_约旦
+      - 🇨🇳_CN_中国_1
+      - 中国 - 香港 - PCCW IMS Limited - 45
+      - 🇭🇰 HK²_23|2.8MB/s|0%|GPT⁺|YT|X|History|[原生|住宅]
+  - name: 🎯 全球直连
+    type: select
+    proxies:
+      - DIRECT
+      - 🚀 节点选择
+      - ♻️ 自动选择
+  - name: 🛑 全球拦截
+    type: select
+    proxies:
+      - REJECT
+      - DIRECT
+  - name: 🍃 应用净化
+    type: select
+    proxies:
+      - REJECT
+      - DIRECT
+  - name: 🐟 漏网之鱼
+    type: select
+    proxies:
+      - 🚀 节点选择
+      - 🎯 全球直连
+      - ♻️ 自动选择
+      - 🇰🇷_KR_韩国
+      - 🇰🇷_KR_韩国_1
+      - 🇺🇸_US_美国_2
+      - 🇰🇷_KR_韩国_2
+      - 🇰🇷_KR_韩国_3
+      - 🇰🇷_KR_韩国_4
+      - 🇰🇷_KR_韩国_5
+      - 🇨🇳_CN_中国
+      - 🇳🇱_NL_荷兰_1
+      - 🇭🇺_HU_匈牙利
+      - 🇯🇴_JO_约旦
+      - 🇨🇳_CN_中国_1
+      - 中国 - 香港 - PCCW IMS Limited - 45
+      - 🇭🇰 HK²_23|2.8MB/s|0%|GPT⁺|YT|X|History|[原生|住宅]
