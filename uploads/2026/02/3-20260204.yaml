@@ -1,0 +1,676 @@
+mixed-port: 7890
+allow-lan: true
+mode: rule
+log-level: info
+ipv6: false
+external-controller: 0.0.0.0:9090
+dns:
+  enable: true
+  listen: 0.0.0.0:53
+  ipv6: false
+  default-nameserver:
+    - 223.5.5.5
+    - 114.114.114.114
+  nameserver:
+    - 223.5.5.5
+    - 114.114.114.114
+    - 119.29.29.29
+    - 180.76.76.76
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  fake-ip-filter:
+    - "*.lan"
+    - "*.localdomain"
+    - "*.example"
+    - "*.invalid"
+    - "*.localhost"
+    - "*.test"
+    - "*.local"
+    - "*.home.arpa"
+    - router.asus.com
+    - localhost.sec.qq.com
+    - localhost.ptlogin2.qq.com
+    - +.msftconnecttest.com
+tun:
+  enable: true
+  stack: system
+  auto-route: true
+  auto-detect-interface: true
+  dns-hijack:
+    - 114.114.114.114
+    - 180.76.76.76
+    - 119.29.29.29
+    - 223.5.5.5
+    - 8.8.8.8
+    - 8.8.4.4
+    - 1.1.1.1
+    - 1.0.0.1
+proxies:
+  - name: 🇻🇪_VE_委内瑞拉
+    type: vless
+    server: 158.160.221.132
+    port: 51102
+    uuid: d4d031ec-0ba6-486a-aa0c-dce2b7cb8933
+    servername: yandex.ru
+    tls: true
+    flow: xtls-rprx-vision
+    client-fingerprint: chrome
+    reality-opts:
+      public-key: Qddpg8luihgzgx4g4uMJklXzlrMCd8L1igJSWrRUvSc
+      short-id: 887c0d72e771a934
+  - name: 🇺🇸_US_美国
+    type: vless
+    server: 172.67.160.192
+    port: 443
+    uuid: 2bcfbfba-b446-4ad5-93ad-72af9e008f61
+    network: ws
+    servername: nuclear.us.kg
+    tls: true
+    ws-opts:
+      path: /free/103.101.153.32:443
+      headers:
+        Host: nuclear.us.kg
+  - name: 🇺🇸_US_美国_1
+    type: vless
+    server: 144.31.111.182
+    port: 8443
+    uuid: 9f4ffa56-6813-430c-8cac-159cc469086a
+    servername: cloudlane.xyz
+    tls: true
+    flow: xtls-rprx-vision
+    client-fingerprint: chrome
+    reality-opts:
+      public-key: nGpFJVvSeovPXUN32QWht5nxg16Mwus--TLdY0JBHjY
+      short-id: 5a53bd202e47bab8
+  - name: 🇨🇳_CN_中国
+    type: vmess
+    server: a97f4a24-t9w4g0-tn57fp-5ifr.hkt.gotochinatown.net
+    port: 80
+    uuid: ecfab6c8-df5b-11ed-98a7-f23c913c8d2b
+    alterId: 2
+    cipher: auto
+    tls: false
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        Host: broadcastlv.chat.bilibili.com
+  - name: 🇺🇸_US_美国_2
+    type: vless
+    server: 141.101.123.40
+    port: 443
+    uuid: 8388434b-bbc8-4e00-b497-69a7f56f6e24
+    network: ws
+    servername: rAyAn-cOnFiG-it-1.pAriSa.dPdNs.oRg
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /ws
+      headers:
+        Host: rAyAn-cOnFiG-it-1.pAriSa.dPdNs.oRg
+  - name: 🇨🇳_CN_中国_1
+    type: vmess
+    server: c31c955e-t63340-tao3bn-ggww.hkt.gotochinatown.net
+    port: 80
+    uuid: bcc58e88-e147-11ec-b286-f23c91cfbbc9
+    alterId: 2
+    cipher: auto
+    tls: false
+    skip-cert-verify: false
+    servername: broadcastlv.chat.bilibili.com
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        Host: c31c955e-t63340-tao3bn-ggww.hkt.gotochinatown.net
+  - name: 🇨🇳_CN_中国_2
+    type: vmess
+    server: 5545a4de-t8lts0-tasors-1tdqt.hkt.gotochinatown.net
+    port: 80
+    uuid: 167db97c-ee01-11ef-b737-f23c91cfbbc9
+    alterId: 2
+    cipher: auto
+    tls: false
+    skip-cert-verify: false
+    servername: 5545a4de-t8lts0-tasors-1tdqt.hkt.gotochinatown.net
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        Host: 5545a4de-t8lts0-tasors-1tdqt.hkt.gotochinatown.net
+  - name: 🇺🇸_US_美国_3
+    type: vless
+    server: 173.245.59.121
+    port: 443
+    uuid: 979b6822-d65a-400d-89f8-30391903ac20
+    network: ws
+    servername: rAyAn-cOnFiG-uk-1.pAriSa.dPdNs.oRg
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /ws
+      headers:
+        Host: rAyAn-cOnFiG-uk-1.pAriSa.dPdNs.oRg
+  - name: 🇧🇷_BR_巴西->🇺🇸_US_美国
+    type: vless
+    server: cdn.halazzon.ir
+    port: 443
+    uuid: a75cf6f3-10fb-461b-a5a5-a934f6039cce
+    network: ws
+    servername: afrcloud4.c01.kr
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /36.95.152.58=12137
+      headers:
+        Host: afrcloud4.c01.kr
+  - name: 🇨🇳_CN_中国_3
+    type: vmess
+    server: 92c73b3e-t9w4g0-thd0h1-1rz5s.hkt.gotochinatown.net
+    port: 80
+    uuid: 40e084d6-0316-11f0-90e2-f23c913c8d2b
+    alterId: 2
+    cipher: auto
+    tls: false
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        Host: broadcastlv.chat.bilibili.com
+  - name: 🇷🇺_RU_俄罗斯
+    type: vless
+    server: russia7.yourbot.me
+    port: 443
+    uuid: 15d5ef21-f4cd-4812-bb30-f998051c5dc1
+    servername: ftp.debian.org
+    tls: true
+    flow: xtls-rprx-vision
+    client-fingerprint: chrome
+    reality-opts:
+      public-key: 6EHTqOektSiQ8OMDU-5I1RWpFWw22N_N1aJCJdymXCA
+      short-id: 199939d7
+  - name: 🇷🇺_RU_俄罗斯->🇵🇱_PL_波兰
+    type: vless
+    server: 83.166.238.183
+    port: 8443
+    uuid: d4d031ec-0ba6-486a-aa0c-dce2b7cb8933
+    servername: m.vk.ru
+    tls: true
+    flow: xtls-rprx-vision
+    client-fingerprint: chrome
+    reality-opts:
+      public-key: Qddpg8luihgzgx4g4uMJklXzlrMCd8L1igJSWrRUvSc
+      short-id: 887c0d72e771a934
+  - name: 🇷🇺_RU_俄罗斯->🇺🇸_US_美国
+    type: vless
+    server: 89.169.162.214
+    port: 8443
+    uuid: 2ad6bd90-51fd-41d2-985b-b7aab5cd77c8
+    servername: yandex.ru
+    tls: true
+    flow: xtls-rprx-vision
+    client-fingerprint: chrome
+    reality-opts:
+      public-key: zii4nGNapnFKL6SN8GzWNqFlElBvUCUFUThEP0kFH04
+      short-id: 205748bc0f24a747
+  - name: 未知
+    type: ss
+    server: 103.186.155.127
+    port: 38388
+    cipher: aes-256-cfb
+    password: Xn8jKdmDM00IeO%#$#fJAMtsEAEUOpH/YWYtYqDFnT0SV
+  - name: 🇺🇸_US_美国_4
+    type: ss
+    server: admin.c2.havij.co
+    port: 443
+    cipher: chacha20-ietf-poly1305
+    password: kaQH3hGdcP80XEDI
+  - name: 🇺🇸_US_美国->🇳🇱_NL_荷兰
+    type: vless
+    server: cloud2.turkserver.ir
+    port: 2096
+    uuid: 77cb6e9e-f83f-40e5-b4da-90e25d75123e
+    network: ws
+    servername: javani-nol.ip-venzo.com.
+    tls: true
+    ws-opts:
+      path: /
+      headers:
+        Host: javani-nol.ip-venzo.com.
+  - name: 🇧🇷_BR_巴西->🇩🇪_DE_德国
+    type: vless
+    server: my.montago-shop.ir
+    port: 443
+    uuid: 929c6e27-4c24-4775-bc51-0e6117dabd4b
+    network: ws
+    servername: mx.mahoshid.ir
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /?ed=2560
+      headers:
+        Host: mx.mahoshid.ir
+  - name: 🇷🇺_RU_俄罗斯_1
+    type: vless
+    server: 0ru84.tcpdoor.net
+    port: 443
+    uuid: 40ecece1-edd9-4543-99c7-529ee594135d
+    servername: 0ru84.tcpdoor.net
+    tls: true
+    client-fingerprint: firefox
+    reality-opts:
+      public-key: RHUQAGJ_MYNKsZt2XO_DATEm1cQh0Rdpz83DTCGSKl0
+      short-id: 740d6f2e
+  - name: 🇨🇳_CN_中国_4
+    type: vmess
+    server: 51f142c0-t9w4g0-tart0c-g3b3.hkt.gotochinatown.net
+    port: 80
+    uuid: 9ad05870-d8c5-11ef-9f1c-f23c913c8d2b
+    alterId: 2
+    cipher: auto
+    tls: false
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        Host: broadcastlv.chat.bilibili.com
+  - name: 🇺🇸_US_美国->🇫🇷_FR_法国
+    type: vless
+    server: 104.24.69.114
+    port: 443
+    uuid: 85462399-8624-4e5c-bbb0-f95d84ca8256
+    network: ws
+    servername: rAyAn-cOnFiG-fr-1.pAriSa.dPdNs.oRg
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /ws
+      headers:
+        Host: rAyAn-cOnFiG-fr-1.pAriSa.dPdNs.oRg
+  - name: 🇺🇸_US_美国->🇩🇪_DE_德国
+    type: vless
+    server: nx.cloud1.hosting-ip.zulagaming.icu
+    port: 2052
+    uuid: 1f00970a-14c1-40d0-9c06-43f513975be1
+    network: ws
+    tls: false
+    ws-opts:
+      path: /?ed=2560
+      headers:
+        Host: rizai.blogasak.fun.zulagaming.icu.blog.zulagaming.icu
+  - name: 🇺🇸_US_美国->🇫🇮_FI_芬兰
+    type: vless
+    server: FASTLY.COM
+    port: 80
+    uuid: c805b05e-339d-40e0-8787-432d97a27345
+    network: ws
+    tls: false
+    ws-opts:
+      path: /
+      headers:
+        Host: mihan-germar2.global.ssl.fastly.net
+  - name: 🇺🇸_US_美国->🇳🇱_NL_荷兰_1
+    type: vless
+    server: rus-0001-xr.packet-drop-society.net
+    port: 443
+    uuid: ba77276e-9939-4c6c-a73e-90e02b6faf13
+    servername: hls-svod.itunes.apple.com
+    tls: true
+    flow: xtls-rprx-vision
+    client-fingerprint: chrome
+    reality-opts:
+      public-key: llaiqC-oIhL_bjc236FPq26LSn7IVhIa4cIC6OVytws
+      short-id: 8453e5fd9af927
+  - name: 🇬🇧_GB_英国
+    type: vless
+    server: 5.188.142.230
+    port: 8081
+    uuid: 148fcfad-46d5-40c1-8045-52c4f626fc8a
+    servername: eh.vk.com
+    tls: true
+    client-fingerprint: chrome
+    reality-opts:
+      public-key: EJKcPSl0dv7mtU26gg6tUmKPw_aDvO2AHraRgNn6B14
+      short-id: 425ba80cd1a821a8
+  - name: 🇨🇳_CN_中国_5
+    type: vmess
+    server: c3d192c0-t9w4g0-tb5nzx-1mqag.hkt.gotochinatown.net
+    port: 80
+    uuid: b585dac6-dc69-11ef-9f1c-f23c913c8d2b
+    alterId: 2
+    cipher: auto
+    tls: false
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        Host: broadcastlv.chat.bilibili.com
+  - name: 🇩🇪_DE_德国
+    type: vless
+    server: secdn17.suio.me
+    port: 443
+    uuid: a7a9f670-44c0-45a9-8047-69db0203c142
+    servername: secdn17.suio.me
+    tls: true
+  - name: 🇺🇸_US_美国_5
+    type: vless
+    server: 190.93.245.102
+    port: 443
+    uuid: f521fa2c-835e-43e7-b4dc-a1fd6f2ed1dd
+    network: ws
+    servername: rAyAn-cOnFiG-tr-1.pAriSa.dPdNs.oRg
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /ws
+      headers:
+        Host: rAyAn-cOnFiG-tr-1.pAriSa.dPdNs.oRg
+  - name: 🇷🇺_RU_俄罗斯->🇺🇸_US_美国_1
+    type: vless
+    server: 217.16.25.173
+    port: 443
+    uuid: 0bdf406a-84a5-46a0-baf8-c1d85ad30d6b
+    servername: eh.vk.ru
+    tls: true
+    flow: xtls-rprx-vision
+    client-fingerprint: chrome
+    reality-opts:
+      public-key: mhS5tgy6bzzFw_sOpdAGuKVS5MF1e0FjzimA92KnPUE
+  - name: 🇨🇳_CN_中国_6
+    type: vmess
+    server: 967d835d-t9w4g0-tysu9z-1nq4g.hkt.gotochinatown.net
+    port: 80
+    uuid: 80aa5178-f936-11ed-8ce6-f23c91369f2d
+    alterId: 2
+    cipher: auto
+    tls: false
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        Host: broadcastlv.chat.bilibili.com
+  - name: 🇨🇳_CN_中国_7
+    type: vmess
+    server: dd1b8960-t70f40-t7fz1r-8rja.hkt.gotochinatown.net
+    port: 80
+    uuid: d18bcaf4-1323-11ec-a0fc-f23c913c8d2b
+    alterId: 2
+    cipher: auto
+    tls: false
+    skip-cert-verify: false
+    servername: broadcastlv.chat.bilibili.com
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        Host: dd1b8960-t70f40-t7fz1r-8rja.hkt.gotochinatown.net
+proxy-groups:
+  - name: 🚀 节点选择
+    type: select
+    proxies:
+      - ♻️ 自动选择
+      - DIRECT
+      - 🇻🇪_VE_委内瑞拉
+      - 🇺🇸_US_美国
+      - 🇺🇸_US_美国_1
+      - 🇨🇳_CN_中国
+      - 🇺🇸_US_美国_2
+      - 🇨🇳_CN_中国_1
+      - 🇨🇳_CN_中国_2
+      - 🇺🇸_US_美国_3
+      - 🇧🇷_BR_巴西->🇺🇸_US_美国
+      - 🇨🇳_CN_中国_3
+      - 🇷🇺_RU_俄罗斯
+      - 🇷🇺_RU_俄罗斯->🇵🇱_PL_波兰
+      - 🇷🇺_RU_俄罗斯->🇺🇸_US_美国
+      - 未知
+      - 🇺🇸_US_美国_4
+      - 🇺🇸_US_美国->🇳🇱_NL_荷兰
+      - 🇧🇷_BR_巴西->🇩🇪_DE_德国
+      - 🇷🇺_RU_俄罗斯_1
+      - 🇨🇳_CN_中国_4
+      - 🇺🇸_US_美国->🇫🇷_FR_法国
+      - 🇺🇸_US_美国->🇩🇪_DE_德国
+      - 🇺🇸_US_美国->🇫🇮_FI_芬兰
+      - 🇺🇸_US_美国->🇳🇱_NL_荷兰_1
+      - 🇬🇧_GB_英国
+      - 🇨🇳_CN_中国_5
+      - 🇩🇪_DE_德国
+      - 🇺🇸_US_美国_5
+      - 🇷🇺_RU_俄罗斯->🇺🇸_US_美国_1
+      - 🇨🇳_CN_中国_6
+      - 🇨🇳_CN_中国_7
+  - name: ♻️ 自动选择
+    type: url-test
+    proxies:
+      - 🇻🇪_VE_委内瑞拉
+      - 🇺🇸_US_美国
+      - 🇺🇸_US_美国_1
+      - 🇨🇳_CN_中国
+      - 🇺🇸_US_美国_2
+      - 🇨🇳_CN_中国_1
+      - 🇨🇳_CN_中国_2
+      - 🇺🇸_US_美国_3
+      - 🇧🇷_BR_巴西->🇺🇸_US_美国
+      - 🇨🇳_CN_中国_3
+      - 🇷🇺_RU_俄罗斯
+      - 🇷🇺_RU_俄罗斯->🇵🇱_PL_波兰
+      - 🇷🇺_RU_俄罗斯->🇺🇸_US_美国
+      - 未知
+      - 🇺🇸_US_美国_4
+      - 🇺🇸_US_美国->🇳🇱_NL_荷兰
+      - 🇧🇷_BR_巴西->🇩🇪_DE_德国
+      - 🇷🇺_RU_俄罗斯_1
+      - 🇨🇳_CN_中国_4
+      - 🇺🇸_US_美国->🇫🇷_FR_法国
+      - 🇺🇸_US_美国->🇩🇪_DE_德国
+      - 🇺🇸_US_美国->🇫🇮_FI_芬兰
+      - 🇺🇸_US_美国->🇳🇱_NL_荷兰_1
+      - 🇬🇧_GB_英国
+      - 🇨🇳_CN_中国_5
+      - 🇩🇪_DE_德国
+      - 🇺🇸_US_美国_5
+      - 🇷🇺_RU_俄罗斯->🇺🇸_US_美国_1
+      - 🇨🇳_CN_中国_6
+      - 🇨🇳_CN_中国_7
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+  - name: 🌍 国外媒体
+    type: select
+    proxies:
+      - 🚀 节点选择
+      - ♻️ 自动选择
+      - 🎯 全球直连
+      - 🇻🇪_VE_委内瑞拉
+      - 🇺🇸_US_美国
+      - 🇺🇸_US_美国_1
+      - 🇨🇳_CN_中国
+      - 🇺🇸_US_美国_2
+      - 🇨🇳_CN_中国_1
+      - 🇨🇳_CN_中国_2
+      - 🇺🇸_US_美国_3
+      - 🇧🇷_BR_巴西->🇺🇸_US_美国
+      - 🇨🇳_CN_中国_3
+      - 🇷🇺_RU_俄罗斯
+      - 🇷🇺_RU_俄罗斯->🇵🇱_PL_波兰
+      - 🇷🇺_RU_俄罗斯->🇺🇸_US_美国
+      - 未知
+      - 🇺🇸_US_美国_4
+      - 🇺🇸_US_美国->🇳🇱_NL_荷兰
+      - 🇧🇷_BR_巴西->🇩🇪_DE_德国
+      - 🇷🇺_RU_俄罗斯_1
+      - 🇨🇳_CN_中国_4
+      - 🇺🇸_US_美国->🇫🇷_FR_法国
+      - 🇺🇸_US_美国->🇩🇪_DE_德国
+      - 🇺🇸_US_美国->🇫🇮_FI_芬兰
+      - 🇺🇸_US_美国->🇳🇱_NL_荷兰_1
+      - 🇬🇧_GB_英国
+      - 🇨🇳_CN_中国_5
+      - 🇩🇪_DE_德国
+      - 🇺🇸_US_美国_5
+      - 🇷🇺_RU_俄罗斯->🇺🇸_US_美国_1
+      - 🇨🇳_CN_中国_6
+      - 🇨🇳_CN_中国_7
+  - name: 📲 电报信息
+    type: select
+    proxies:
+      - 🚀 节点选择
+      - 🎯 全球直连
+      - 🇻🇪_VE_委内瑞拉
+      - 🇺🇸_US_美国
+      - 🇺🇸_US_美国_1
+      - 🇨🇳_CN_中国
+      - 🇺🇸_US_美国_2
+      - 🇨🇳_CN_中国_1
+      - 🇨🇳_CN_中国_2
+      - 🇺🇸_US_美国_3
+      - 🇧🇷_BR_巴西->🇺🇸_US_美国
+      - 🇨🇳_CN_中国_3
+      - 🇷🇺_RU_俄罗斯
+      - 🇷🇺_RU_俄罗斯->🇵🇱_PL_波兰
+      - 🇷🇺_RU_俄罗斯->🇺🇸_US_美国
+      - 未知
+      - 🇺🇸_US_美国_4
+      - 🇺🇸_US_美国->🇳🇱_NL_荷兰
+      - 🇧🇷_BR_巴西->🇩🇪_DE_德国
+      - 🇷🇺_RU_俄罗斯_1
+      - 🇨🇳_CN_中国_4
+      - 🇺🇸_US_美国->🇫🇷_FR_法国
+      - 🇺🇸_US_美国->🇩🇪_DE_德国
+      - 🇺🇸_US_美国->🇫🇮_FI_芬兰
+      - 🇺🇸_US_美国->🇳🇱_NL_荷兰_1
+      - 🇬🇧_GB_英国
+      - 🇨🇳_CN_中国_5
+      - 🇩🇪_DE_德国
+      - 🇺🇸_US_美国_5
+      - 🇷🇺_RU_俄罗斯->🇺🇸_US_美国_1
+      - 🇨🇳_CN_中国_6
+      - 🇨🇳_CN_中国_7
+  - name: Ⓜ️ 微软服务
+    type: select
+    proxies:
+      - 🎯 全球直连
+      - 🚀 节点选择
+      - 🇻🇪_VE_委内瑞拉
+      - 🇺🇸_US_美国
+      - 🇺🇸_US_美国_1
+      - 🇨🇳_CN_中国
+      - 🇺🇸_US_美国_2
+      - 🇨🇳_CN_中国_1
+      - 🇨🇳_CN_中国_2
+      - 🇺🇸_US_美国_3
+      - 🇧🇷_BR_巴西->🇺🇸_US_美国
+      - 🇨🇳_CN_中国_3
+      - 🇷🇺_RU_俄罗斯
+      - 🇷🇺_RU_俄罗斯->🇵🇱_PL_波兰
+      - 🇷🇺_RU_俄罗斯->🇺🇸_US_美国
+      - 未知
+      - 🇺🇸_US_美国_4
+      - 🇺🇸_US_美国->🇳🇱_NL_荷兰
+      - 🇧🇷_BR_巴西->🇩🇪_DE_德国
+      - 🇷🇺_RU_俄罗斯_1
+      - 🇨🇳_CN_中国_4
+      - 🇺🇸_US_美国->🇫🇷_FR_法国
+      - 🇺🇸_US_美国->🇩🇪_DE_德国
+      - 🇺🇸_US_美国->🇫🇮_FI_芬兰
+      - 🇺🇸_US_美国->🇳🇱_NL_荷兰_1
+      - 🇬🇧_GB_英国
+      - 🇨🇳_CN_中国_5
+      - 🇩🇪_DE_德国
+      - 🇺🇸_US_美国_5
+      - 🇷🇺_RU_俄罗斯->🇺🇸_US_美国_1
+      - 🇨🇳_CN_中国_6
+      - 🇨🇳_CN_中国_7
+  - name: 🍎 苹果服务
+    type: select
+    proxies:
+      - 🚀 节点选择
+      - 🎯 全球直连
+      - 🇻🇪_VE_委内瑞拉
+      - 🇺🇸_US_美国
+      - 🇺🇸_US_美国_1
+      - 🇨🇳_CN_中国
+      - 🇺🇸_US_美国_2
+      - 🇨🇳_CN_中国_1
+      - 🇨🇳_CN_中国_2
+      - 🇺🇸_US_美国_3
+      - 🇧🇷_BR_巴西->🇺🇸_US_美国
+      - 🇨🇳_CN_中国_3
+      - 🇷🇺_RU_俄罗斯
+      - 🇷🇺_RU_俄罗斯->🇵🇱_PL_波兰
+      - 🇷🇺_RU_俄罗斯->🇺🇸_US_美国
+      - 未知
+      - 🇺🇸_US_美国_4
+      - 🇺🇸_US_美国->🇳🇱_NL_荷兰
+      - 🇧🇷_BR_巴西->🇩🇪_DE_德国
+      - 🇷🇺_RU_俄罗斯_1
+      - 🇨🇳_CN_中国_4
+      - 🇺🇸_US_美国->🇫🇷_FR_法国
+      - 🇺🇸_US_美国->🇩🇪_DE_德国
+      - 🇺🇸_US_美国->🇫🇮_FI_芬兰
+      - 🇺🇸_US_美国->🇳🇱_NL_荷兰_1
+      - 🇬🇧_GB_英国
+      - 🇨🇳_CN_中国_5
+      - 🇩🇪_DE_德国
+      - 🇺🇸_US_美国_5
+      - 🇷🇺_RU_俄罗斯->🇺🇸_US_美国_1
+      - 🇨🇳_CN_中国_6
+      - 🇨🇳_CN_中国_7
+  - name: 🎯 全球直连
+    type: select
+    proxies:
+      - DIRECT
+      - 🚀 节点选择
+      - ♻️ 自动选择
+  - name: 🛑 全球拦截
+    type: select
+    proxies:
+      - REJECT
+      - DIRECT
+  - name: 🍃 应用净化
+    type: select
+    proxies:
+      - REJECT
+      - DIRECT
+  - name: 🐟 漏网之鱼
+    type: select
+    proxies:
+      - 🚀 节点选择
+      - 🎯 全球直连
+      - ♻️ 自动选择
+      - 🇻🇪_VE_委内瑞拉
+      - 🇺🇸_US_美国
+      - 🇺🇸_US_美国_1
+      - 🇨🇳_CN_中国
+      - 🇺🇸_US_美国_2
+      - 🇨🇳_CN_中国_1
+      - 🇨🇳_CN_中国_2
+      - 🇺🇸_US_美国_3
+      - 🇧🇷_BR_巴西->🇺🇸_US_美国
+      - 🇨🇳_CN_中国_3
+      - 🇷🇺_RU_俄罗斯
+      - 🇷🇺_RU_俄罗斯->🇵🇱_PL_波兰
+      - 🇷🇺_RU_俄罗斯->🇺🇸_US_美国
+      - 未知
+      - 🇺🇸_US_美国_4
+      - 🇺🇸_US_美国->🇳🇱_NL_荷兰
+      - 🇧🇷_BR_巴西->🇩🇪_DE_德国
+      - 🇷🇺_RU_俄罗斯_1
+      - 🇨🇳_CN_中国_4
+      - 🇺🇸_US_美国->🇫🇷_FR_法国
+      - 🇺🇸_US_美国->🇩🇪_DE_德国
+      - 🇺🇸_US_美国->🇫🇮_FI_芬兰
+      - 🇺🇸_US_美国->🇳🇱_NL_荷兰_1
+      - 🇬🇧_GB_英国
+      - 🇨🇳_CN_中国_5
+      - 🇩🇪_DE_德国
+      - 🇺🇸_US_美国_5
+      - 🇷🇺_RU_俄罗斯->🇺🇸_US_美国_1
+      - 🇨🇳_CN_中国_6
+      - 🇨🇳_CN_中国_7
