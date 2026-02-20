@@ -1,0 +1,517 @@
+mixed-port: 7890
+allow-lan: true
+mode: rule
+log-level: info
+ipv6: false
+external-controller: 0.0.0.0:9090
+dns:
+  enable: true
+  listen: 0.0.0.0:53
+  ipv6: false
+  default-nameserver:
+    - 223.5.5.5
+    - 114.114.114.114
+  nameserver:
+    - 223.5.5.5
+    - 114.114.114.114
+    - 119.29.29.29
+    - 180.76.76.76
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  fake-ip-filter:
+    - "*.lan"
+    - "*.localdomain"
+    - "*.example"
+    - "*.invalid"
+    - "*.localhost"
+    - "*.test"
+    - "*.local"
+    - "*.home.arpa"
+    - router.asus.com
+    - localhost.sec.qq.com
+    - localhost.ptlogin2.qq.com
+    - +.msftconnecttest.com
+tun:
+  enable: true
+  stack: system
+  auto-route: true
+  auto-detect-interface: true
+  dns-hijack:
+    - 114.114.114.114
+    - 180.76.76.76
+    - 119.29.29.29
+    - 223.5.5.5
+    - 8.8.8.8
+    - 8.8.4.4
+    - 1.1.1.1
+    - 1.0.0.1
+proxies:
+  - name: 🇦🇿_AZ_阿塞拜疆->🇱🇻_LV_拉脱维亚
+    type: vless
+    server: 46.32.184.75
+    port: 443
+    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+    network: ws
+    servername: sni.111000.indevs.in
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /?ed=2560&Telegram🇨🇳@@jdfxq
+      headers:
+        Host: sni.111000.indevs.in
+  - name: 🇸🇬_SG_新加坡
+    type: vmess
+    server: 128.199.128.117
+    port: 443
+    uuid: a88a71fa-ed7c-48d3-89e0-74a00d605d88
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: false
+    servername: sg.dalxy.eu.org
+    network: ws
+    ws-opts:
+      path: a88a71fa-ed7c-48d3-89e0-74a00d605d88-vm
+      headers:
+        Host: sg.dalxy.eu.org
+  - name: 🇮🇷_IR_伊朗->🏳️_unKnow_未知
+    type: vless
+    server: ger4.azadrah.drpingi.shop
+    port: 443
+    uuid: 743a3bc7-ff11-4be5-8eed-0da3d7ccdeda
+    tls: false
+  - name: 🇧🇪_BE_比利时->🇺🇸_US_美国
+    type: vless
+    server: 143.20.213.206
+    port: 8443
+    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+    network: ws
+    servername: sni.111000.indevs.in
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /?ed=2560&Telegram🇨🇳@WangCai2
+      headers:
+        Host: sni.111000.indevs.in
+  - name: 🇺🇸_US_美国->🇸🇬_SG_新加坡
+    type: vmess
+    server: 172.236.154.50
+    port: 443
+    uuid: a88a71fa-ed7c-48d3-89e0-74a00d605d88
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: false
+    servername: sg.dalxy.eu.org
+    network: ws
+    ws-opts:
+      path: a88a71fa-ed7c-48d3-89e0-74a00d605d88-vm
+      headers:
+        Host: sg.dalxy.eu.org
+  - name: 🇺🇸_US_美国
+    type: vless
+    server: 104.18.151.172
+    port: 443
+    uuid: 04c808e2-0b59-47b0-a54b-32fc7ef1c902
+    network: ws
+    servername: cf.cloudip.ggff.net
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /pyip=proxyip.cmliussss.net
+      headers:
+        Host: cf.cloudip.ggff.net
+  - name: 🇳🇱_NL_荷兰
+    type: vless
+    server: nl.mobilezahra.lat
+    port: 443
+    uuid: 325a32a1-d88d-4f97-67ed-504eed5d6ec0
+    servername: excoino.com
+    tls: true
+    flow: xtls-rprx-vision
+    client-fingerprint: firefox
+    reality-opts:
+      public-key: 10afHwCh2N-Qeqsskwvp9gLC0JrOA-CSfuRbgcK7YkA
+      short-id: d9a8dad452a7644f
+  - name: 🇩🇪_DE_德国
+    type: vless
+    server: 37.120.167.164
+    port: 443
+    uuid: aec54bed-2384-4b85-8372-432597aa5518
+    servername: live.com
+    tls: true
+    flow: xtls-rprx-vision
+    client-fingerprint: chrome
+    reality-opts:
+      public-key: ckRcueERkPqqjZABwxqni_J_Nbb70Q6k5fEEUAjoImw
+  - name: 🇺🇸_US_美国_1
+    type: vless
+    server: 142.93.101.216
+    port: 7008
+    uuid: a3ea154c-2827-4ceb-aae7-0fe743ce9f73
+    servername: bebem.com
+    tls: true
+    client-fingerprint: chrome
+    reality-opts:
+      public-key: OYuAdC90TNjvXbmJJyCsP0i9RXjdR1g8nBcjk421Aws
+      short-id: de5765
+  - name: 🇨🇳_CN_中国->🏳️_unKnow_未知
+    type: vless
+    server: 62.60.229.32
+    port: 443
+    uuid: e3379093-7c89-4c8a-be1f-abb92a3305a1
+    servername: web.max.ru
+    tls: true
+    flow: xtls-rprx-vision
+    client-fingerprint: chrome
+    reality-opts:
+      public-key: X6M54TjT_X10PF8zMBxr_m4Djoyy_m4nhP28o-lGKy8
+      short-id: cf563330b1a8ef60
+  - name: 🇺🇸_US_美国_2
+    type: vless
+    server: 172.67.153.156
+    port: 8443
+    uuid: 57ba2ab1-a283-42eb-82ee-dc3561a805b8
+    network: ws
+    servername: ovhwuxian.pai50288.uk
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /57ba2ab1
+      headers:
+        Host: ovhwuxian.pai50288.uk
+  - name: 🇺🇸_US_美国->🇳🇱_NL_荷兰
+    type: vless
+    server: vip3.kaixincloud.top
+    port: 2053
+    uuid: e5f8a9f6-f164-479b-b3b5-b90f213c7145
+    network: ws
+    servername: ir1.airpanel.top
+    tls: true
+    ws-opts:
+      path: /
+      headers:
+        Host: ir1.airpanel.top
+  - name: 🇺🇸_US_美国->🇩🇪_DE_德国
+    type: vless
+    server: de.griffon-guard.com
+    port: 8443
+    uuid: e6ec1d89-17fc-4de7-af89-81cd51022526
+    servername: apple.com
+    tls: true
+    flow: xtls-rprx-vision
+    client-fingerprint: chrome
+    reality-opts:
+      public-key: IBvNLerjNLpF4OpUX-wGJp8YDZrnKoh-gEItUDNT_Bg
+  - name: 🇺🇸_US_美国_3
+    type: vless
+    server: 172.66.128.70
+    port: 2052
+    uuid: f8ae018b-b84d-4c9b-b03b-4642c3a25977
+    network: ws
+    tls: false
+    ws-opts:
+      path: /?ed
+      headers:
+        Host: ExEMplAry-MILkytsxQiQYso.sPortlaNd.CoMPANy.
+  - name: 🇯🇵_JP_日本->🇨🇳_CN_中国
+    type: trojan
+    server: 52.195.8.127
+    port: 3373
+    password: 5fb072e0ddd631cf66cf752b09210480
+    sni: www.nintendogames.net
+    skip-cert-verify: true
+    tls: false
+  - name: 🇺🇸_US_美国->🇩🇪_DE_德国_1
+    type: vless
+    server: 192.200.160.228
+    port: 2083
+    uuid: 9f846e5c-56f9-4670-8be2-5b00d2a107c0
+    network: ws
+    servername: de.elterido.ir
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /api03
+      headers:
+        Host: de.elterido.ir
+  - name: 🇺🇸_US_美国_4
+    type: vless
+    server: vip2.kaixincloud.top
+    port: 443
+    uuid: d89d6641-3b1a-4f51-a194-9c9109fd21b6
+    network: ws
+    servername: DiprOX.pages.DEV
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /assets
+      headers:
+        Host: DiprOX.pages.DEV
+  - name: 🇮🇪_IE_爱尔兰->🇬🇧_GB_英国
+    type: vless
+    server: nl-2.griffon-guard.com
+    port: 443
+    uuid: e6ec1d89-17fc-4de7-af89-81cd51022526
+    servername: apple.com
+    tls: true
+    flow: xtls-rprx-vision
+    client-fingerprint: chrome
+    reality-opts:
+      public-key: IBvNLerjNLpF4OpUX-wGJp8YDZrnKoh-gEItUDNT_Bg
+  - name: 🇺🇸_US_美国->🇬🇧_GB_英国
+    type: vless
+    server: 144.31.92.240
+    port: 8443
+    uuid: e6ec1d89-17fc-4de7-af89-81cd51022526
+    servername: apple.com
+    tls: true
+    flow: xtls-rprx-vision
+    client-fingerprint: chrome
+    reality-opts:
+      public-key: IBvNLerjNLpF4OpUX-wGJp8YDZrnKoh-gEItUDNT_Bg
+  - name: 🇧🇪_BE_比利时
+    type: vless
+    server: fr.locations-service.com
+    port: 3032
+    uuid: e59083aa-d933-4952-8cf0-eec74f718705
+    servername: refersion.com
+    tls: true
+    client-fingerprint: chrome
+    reality-opts:
+      public-key: 21V_VkMUD2XRbyRDg7hjpblUAwxHvlLmbarATdhhJQI
+  - name: 🇺🇸_US_美国_5
+    type: vless
+    server: 103.21.244.201
+    port: 2087
+    uuid: 22fbfcae-8207-475a-8c25-f59d4423546a
+    network: ws
+    servername: ezdriv-server.help
+    tls: true
+    client-fingerprint: random
+    ws-opts:
+      path: /
+      headers:
+        Host: ezdriv-server.help
+  - name: 🇪🇸_ES_西班牙->🏳️_unKnow_未知
+    type: vless
+    server: 185.18.250.252
+    port: 443
+    uuid: fef4a93d-eb4f-4657-b56b-32a0dc060045
+    network: ws
+    servername: dev.twistsparrow.xyz
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /
+      headers:
+        Host: dev.twistsparrow.xyz
+proxy-groups:
+  - name: 🚀 节点选择
+    type: select
+    proxies:
+      - ♻️ 自动选择
+      - DIRECT
+      - 🇦🇿_AZ_阿塞拜疆->🇱🇻_LV_拉脱维亚
+      - 🇸🇬_SG_新加坡
+      - 🇮🇷_IR_伊朗->🏳️_unKnow_未知
+      - 🇧🇪_BE_比利时->🇺🇸_US_美国
+      - 🇺🇸_US_美国->🇸🇬_SG_新加坡
+      - 🇺🇸_US_美国
+      - 🇳🇱_NL_荷兰
+      - 🇩🇪_DE_德国
+      - 🇺🇸_US_美国_1
+      - 🇨🇳_CN_中国->🏳️_unKnow_未知
+      - 🇺🇸_US_美国_2
+      - 🇺🇸_US_美国->🇳🇱_NL_荷兰
+      - 🇺🇸_US_美国->🇩🇪_DE_德国
+      - 🇺🇸_US_美国_3
+      - 🇯🇵_JP_日本->🇨🇳_CN_中国
+      - 🇺🇸_US_美国->🇩🇪_DE_德国_1
+      - 🇺🇸_US_美国_4
+      - 🇮🇪_IE_爱尔兰->🇬🇧_GB_英国
+      - 🇺🇸_US_美国->🇬🇧_GB_英国
+      - 🇧🇪_BE_比利时
+      - 🇺🇸_US_美国_5
+      - 🇪🇸_ES_西班牙->🏳️_unKnow_未知
+  - name: ♻️ 自动选择
+    type: url-test
+    proxies:
+      - 🇦🇿_AZ_阿塞拜疆->🇱🇻_LV_拉脱维亚
+      - 🇸🇬_SG_新加坡
+      - 🇮🇷_IR_伊朗->🏳️_unKnow_未知
+      - 🇧🇪_BE_比利时->🇺🇸_US_美国
+      - 🇺🇸_US_美国->🇸🇬_SG_新加坡
+      - 🇺🇸_US_美国
+      - 🇳🇱_NL_荷兰
+      - 🇩🇪_DE_德国
+      - 🇺🇸_US_美国_1
+      - 🇨🇳_CN_中国->🏳️_unKnow_未知
+      - 🇺🇸_US_美国_2
+      - 🇺🇸_US_美国->🇳🇱_NL_荷兰
+      - 🇺🇸_US_美国->🇩🇪_DE_德国
+      - 🇺🇸_US_美国_3
+      - 🇯🇵_JP_日本->🇨🇳_CN_中国
+      - 🇺🇸_US_美国->🇩🇪_DE_德国_1
+      - 🇺🇸_US_美国_4
+      - 🇮🇪_IE_爱尔兰->🇬🇧_GB_英国
+      - 🇺🇸_US_美国->🇬🇧_GB_英国
+      - 🇧🇪_BE_比利时
+      - 🇺🇸_US_美国_5
+      - 🇪🇸_ES_西班牙->🏳️_unKnow_未知
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+  - name: 🌍 国外媒体
+    type: select
+    proxies:
+      - 🚀 节点选择
+      - ♻️ 自动选择
+      - 🎯 全球直连
+      - 🇦🇿_AZ_阿塞拜疆->🇱🇻_LV_拉脱维亚
+      - 🇸🇬_SG_新加坡
+      - 🇮🇷_IR_伊朗->🏳️_unKnow_未知
+      - 🇧🇪_BE_比利时->🇺🇸_US_美国
+      - 🇺🇸_US_美国->🇸🇬_SG_新加坡
+      - 🇺🇸_US_美国
+      - 🇳🇱_NL_荷兰
+      - 🇩🇪_DE_德国
+      - 🇺🇸_US_美国_1
+      - 🇨🇳_CN_中国->🏳️_unKnow_未知
+      - 🇺🇸_US_美国_2
+      - 🇺🇸_US_美国->🇳🇱_NL_荷兰
+      - 🇺🇸_US_美国->🇩🇪_DE_德国
+      - 🇺🇸_US_美国_3
+      - 🇯🇵_JP_日本->🇨🇳_CN_中国
+      - 🇺🇸_US_美国->🇩🇪_DE_德国_1
+      - 🇺🇸_US_美国_4
+      - 🇮🇪_IE_爱尔兰->🇬🇧_GB_英国
+      - 🇺🇸_US_美国->🇬🇧_GB_英国
+      - 🇧🇪_BE_比利时
+      - 🇺🇸_US_美国_5
+      - 🇪🇸_ES_西班牙->🏳️_unKnow_未知
+  - name: 📲 电报信息
+    type: select
+    proxies:
+      - 🚀 节点选择
+      - 🎯 全球直连
+      - 🇦🇿_AZ_阿塞拜疆->🇱🇻_LV_拉脱维亚
+      - 🇸🇬_SG_新加坡
+      - 🇮🇷_IR_伊朗->🏳️_unKnow_未知
+      - 🇧🇪_BE_比利时->🇺🇸_US_美国
+      - 🇺🇸_US_美国->🇸🇬_SG_新加坡
+      - 🇺🇸_US_美国
+      - 🇳🇱_NL_荷兰
+      - 🇩🇪_DE_德国
+      - 🇺🇸_US_美国_1
+      - 🇨🇳_CN_中国->🏳️_unKnow_未知
+      - 🇺🇸_US_美国_2
+      - 🇺🇸_US_美国->🇳🇱_NL_荷兰
+      - 🇺🇸_US_美国->🇩🇪_DE_德国
+      - 🇺🇸_US_美国_3
+      - 🇯🇵_JP_日本->🇨🇳_CN_中国
+      - 🇺🇸_US_美国->🇩🇪_DE_德国_1
+      - 🇺🇸_US_美国_4
+      - 🇮🇪_IE_爱尔兰->🇬🇧_GB_英国
+      - 🇺🇸_US_美国->🇬🇧_GB_英国
+      - 🇧🇪_BE_比利时
+      - 🇺🇸_US_美国_5
+      - 🇪🇸_ES_西班牙->🏳️_unKnow_未知
+  - name: Ⓜ️ 微软服务
+    type: select
+    proxies:
+      - 🎯 全球直连
+      - 🚀 节点选择
+      - 🇦🇿_AZ_阿塞拜疆->🇱🇻_LV_拉脱维亚
+      - 🇸🇬_SG_新加坡
+      - 🇮🇷_IR_伊朗->🏳️_unKnow_未知
+      - 🇧🇪_BE_比利时->🇺🇸_US_美国
+      - 🇺🇸_US_美国->🇸🇬_SG_新加坡
+      - 🇺🇸_US_美国
+      - 🇳🇱_NL_荷兰
+      - 🇩🇪_DE_德国
+      - 🇺🇸_US_美国_1
+      - 🇨🇳_CN_中国->🏳️_unKnow_未知
+      - 🇺🇸_US_美国_2
+      - 🇺🇸_US_美国->🇳🇱_NL_荷兰
+      - 🇺🇸_US_美国->🇩🇪_DE_德国
+      - 🇺🇸_US_美国_3
+      - 🇯🇵_JP_日本->🇨🇳_CN_中国
+      - 🇺🇸_US_美国->🇩🇪_DE_德国_1
+      - 🇺🇸_US_美国_4
+      - 🇮🇪_IE_爱尔兰->🇬🇧_GB_英国
+      - 🇺🇸_US_美国->🇬🇧_GB_英国
+      - 🇧🇪_BE_比利时
+      - 🇺🇸_US_美国_5
+      - 🇪🇸_ES_西班牙->🏳️_unKnow_未知
+  - name: 🍎 苹果服务
+    type: select
+    proxies:
+      - 🚀 节点选择
+      - 🎯 全球直连
+      - 🇦🇿_AZ_阿塞拜疆->🇱🇻_LV_拉脱维亚
+      - 🇸🇬_SG_新加坡
+      - 🇮🇷_IR_伊朗->🏳️_unKnow_未知
+      - 🇧🇪_BE_比利时->🇺🇸_US_美国
+      - 🇺🇸_US_美国->🇸🇬_SG_新加坡
+      - 🇺🇸_US_美国
+      - 🇳🇱_NL_荷兰
+      - 🇩🇪_DE_德国
+      - 🇺🇸_US_美国_1
+      - 🇨🇳_CN_中国->🏳️_unKnow_未知
+      - 🇺🇸_US_美国_2
+      - 🇺🇸_US_美国->🇳🇱_NL_荷兰
+      - 🇺🇸_US_美国->🇩🇪_DE_德国
+      - 🇺🇸_US_美国_3
+      - 🇯🇵_JP_日本->🇨🇳_CN_中国
+      - 🇺🇸_US_美国->🇩🇪_DE_德国_1
+      - 🇺🇸_US_美国_4
+      - 🇮🇪_IE_爱尔兰->🇬🇧_GB_英国
+      - 🇺🇸_US_美国->🇬🇧_GB_英国
+      - 🇧🇪_BE_比利时
+      - 🇺🇸_US_美国_5
+      - 🇪🇸_ES_西班牙->🏳️_unKnow_未知
+  - name: 🎯 全球直连
+    type: select
+    proxies:
+      - DIRECT
+      - 🚀 节点选择
+      - ♻️ 自动选择
+  - name: 🛑 全球拦截
+    type: select
+    proxies:
+      - REJECT
+      - DIRECT
+  - name: 🍃 应用净化
+    type: select
+    proxies:
+      - REJECT
+      - DIRECT
+  - name: 🐟 漏网之鱼
+    type: select
+    proxies:
+      - 🚀 节点选择
+      - 🎯 全球直连
+      - ♻️ 自动选择
+      - 🇦🇿_AZ_阿塞拜疆->🇱🇻_LV_拉脱维亚
+      - 🇸🇬_SG_新加坡
+      - 🇮🇷_IR_伊朗->🏳️_unKnow_未知
+      - 🇧🇪_BE_比利时->🇺🇸_US_美国
+      - 🇺🇸_US_美国->🇸🇬_SG_新加坡
+      - 🇺🇸_US_美国
+      - 🇳🇱_NL_荷兰
+      - 🇩🇪_DE_德国
+      - 🇺🇸_US_美国_1
+      - 🇨🇳_CN_中国->🏳️_unKnow_未知
+      - 🇺🇸_US_美国_2
+      - 🇺🇸_US_美国->🇳🇱_NL_荷兰
+      - 🇺🇸_US_美国->🇩🇪_DE_德国
+      - 🇺🇸_US_美国_3
+      - 🇯🇵_JP_日本->🇨🇳_CN_中国
+      - 🇺🇸_US_美国->🇩🇪_DE_德国_1
+      - 🇺🇸_US_美国_4
+      - 🇮🇪_IE_爱尔兰->🇬🇧_GB_英国
+      - 🇺🇸_US_美国->🇬🇧_GB_英国
+      - 🇧🇪_BE_比利时
+      - 🇺🇸_US_美国_5
+      - 🇪🇸_ES_西班牙->🏳️_unKnow_未知
