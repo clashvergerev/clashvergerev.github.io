@@ -1,4 +1,4 @@
-# 「4月27日」最高速度20.3M/S，2025年Clsah Verge每天更新免费节点订阅地址  更新时间 2026-04-27 09:29:14
+# 「5月4日」最高速度20M/S，2025年Clsah Verge每天更新免费节点订阅地址  更新时间 2026-05-04 09:39:12
 所有免费clash节点都爬取自网络，请勿用于非法用途 。节点地址：<a href="https://clashvergerev.github.io" target="_blank">点击跳转</a>
 
 ## clash使用教程：
@@ -9,23 +9,23 @@
 
 ### 免费Clash节点订阅链接
 
-- https://clashvergerev.github.io/uploads/2026/04/0-20260427.yaml
-- https://clashvergerev.github.io/uploads/2026/04/1-20260427.yaml
-- https://clashvergerev.github.io/uploads/2026/04/2-20260427.yaml
-- https://clashvergerev.github.io/uploads/2026/04/3-20260427.yaml
-- https://clashvergerev.github.io/uploads/2026/04/4-20260427.yaml
+- https://clashvergerev.github.io/uploads/2026/05/0-20260504.yaml
+- https://clashvergerev.github.io/uploads/2026/05/1-20260504.yaml
+- https://clashvergerev.github.io/uploads/2026/05/2-20260504.yaml
+- https://clashvergerev.github.io/uploads/2026/05/3-20260504.yaml
+- https://clashvergerev.github.io/uploads/2026/05/4-20260504.yaml
 
 ### 免费V2ray节点订阅链接
 
-- https://clashvergerev.github.io/uploads/2026/04/0-20260427.txt
-- https://clashvergerev.github.io/uploads/2026/04/1-20260427.txt
-- https://clashvergerev.github.io/uploads/2026/04/2-20260427.txt
-- https://clashvergerev.github.io/uploads/2026/04/3-20260427.txt
-- https://clashvergerev.github.io/uploads/2026/04/4-20260427.txt
+- https://clashvergerev.github.io/uploads/2026/05/0-20260504.txt
+- https://clashvergerev.github.io/uploads/2026/05/1-20260504.txt
+- https://clashvergerev.github.io/uploads/2026/05/2-20260504.txt
+- https://clashvergerev.github.io/uploads/2026/05/3-20260504.txt
+- https://clashvergerev.github.io/uploads/2026/05/4-20260504.txt
 
 ### 免费Sing-box节点订阅链接
 
-- https://clashvergerev.github.io/uploads/2026/04/20260427.json
+- https://clashvergerev.github.io/uploads/2026/05/20260504.json
 
 ## 更多Clash节点订阅 ：
 
@@ -48,10 +48,23 @@
 - 网站注册地址：【<a href="https://www.xiyou666.xyz/?path=register&code=7WiPAwPs" target="_blank">西游云（点击注册）</a>】
 
 
-### 高速机场推荐4【<a href="https://www.dginv.click/#/register?code=G6yPcu5e" target="_blank">狗狗加速</a>】
+### 高速机场推荐4【<a href="https://www.laocunzhang.net/#/register?code=OMZAblTs" target="_blank">老村长机场</a>】
+
+- 无视高峰，全天4K秒开，机房遍布全球，IP多多益善，99%流媒体解锁，油管、葫芦、奈菲，小电影丝般顺滑！ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选择，现在注册即可免费试用！
+- 网站注册地址：【<a href="https://www.laocunzhang.net/#/register?code=OMZAblTs" target="_blank">老村长机场（点击注册）</a>】
+
+
+### 高速机场推荐5【<a href="https://qqq.nfsq.us/#/register?code=UTg5SIHV" target="_blank">农夫山泉</a>】
+
+- 无视高峰，全天4K秒开，机房遍布全球，IP多多益善，99%流媒体解锁，油管、葫芦、奈菲，小电影丝般顺滑！ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选择，现在注册即可免费试用！
+- 网站注册地址：【<a href="https://qqq.nfsq.us/#/register?code=UTg5SIHV" target="_blank">农夫山泉（点击注册）</a>】
+
+
+### 高速机场推荐6【<a href="https://www.dginv.click/#/register?code=G6yPcu5e" target="_blank">狗狗加速</a>】
 
 - 狗狗加速作为第一家上线Hysteria1协议的机场，目前已经全面上线Hysteria2协议；不同于hy1，hy2全面优化了链接速度(0-RTT)，进一步降低延迟；同时使用全新的带宽控制方式；能发挥您带宽的最大潜能！全天4K秒开，机房遍布全球，IP多多益善，99%流媒体解锁，油管、葫芦、奈菲，小电影丝般顺滑！ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选择，现在注册即可免费试用！
 - 网站注册地址：【<a href="https://www.dginv.click/#/register?code=G6yPcu5e" target="_blank">狗狗加速（点击注册）</a>】
+
 
 ## 工具推荐
 
