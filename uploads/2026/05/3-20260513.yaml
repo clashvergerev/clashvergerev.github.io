@@ -1,0 +1,622 @@
+mixed-port: 7890
+allow-lan: true
+mode: rule
+log-level: info
+ipv6: false
+external-controller: 0.0.0.0:9090
+dns:
+  enable: true
+  listen: 0.0.0.0:53
+  ipv6: false
+  default-nameserver:
+    - 223.5.5.5
+    - 114.114.114.114
+  nameserver:
+    - 223.5.5.5
+    - 114.114.114.114
+    - 119.29.29.29
+    - 180.76.76.76
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  fake-ip-filter:
+    - "*.lan"
+    - "*.localdomain"
+    - "*.example"
+    - "*.invalid"
+    - "*.localhost"
+    - "*.test"
+    - "*.local"
+    - "*.home.arpa"
+    - router.asus.com
+    - localhost.sec.qq.com
+    - localhost.ptlogin2.qq.com
+    - +.msftconnecttest.com
+tun:
+  enable: true
+  stack: system
+  auto-route: true
+  auto-detect-interface: true
+  dns-hijack:
+    - 114.114.114.114
+    - 180.76.76.76
+    - 119.29.29.29
+    - 223.5.5.5
+    - 8.8.8.8
+    - 8.8.4.4
+    - 1.1.1.1
+    - 1.0.0.1
+proxies:
+  - name: 🇨🇳_CN_中国->🇮🇹_IT_意大利
+    type: vless
+    server: 222.167.202.32
+    port: 7443
+    uuid: 06ef598c-1555-4887-b3f9-08214a2f6792
+    network: ws
+    servername: 2026.hhhhh.eu.org
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /222.167.202.32:7443
+      headers:
+        Host: 2026.hhhhh.eu.org
+  - name: 🇨🇳_CN_中国->🇺🇸_US_美国
+    type: vless
+    server: 222.167.202.47
+    port: 7443
+    uuid: 06ef598c-1555-4887-b3f9-08214a2f6792
+    network: ws
+    servername: 2026.hhhhh.eu.org
+    tls: true
+    ws-opts:
+      path: /222.167.202.47:7443
+      headers:
+        Host: 2026.hhhhh.eu.org
+  - name: 🇨🇭_CH_瑞士
+    type: vless
+    server: nl1.samovargate.com
+    port: 443
+    uuid: 82b5b465-3307-4a25-acef-abd1649bbedf
+    servername: www.microsoft.com
+    tls: true
+    flow: xtls-rprx-vision
+    client-fingerprint: chrome
+    reality-opts:
+      public-key: gwuAehnMX6e-n1fxIenfjx43j3qXXi7Cb4wfnW5VyBQ
+      short-id: f04729f65b9ea261
+  - name: 🇩🇪_DE_德国
+    type: vless
+    server: 89.58.40.177
+    port: 8443
+    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+    network: ws
+    servername: sni.111000.v6.navy
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /
+      headers:
+        Host: sni.111000.v6.navy
+  - name: 🇨🇳_CN_中国->🇮🇹_IT_意大利_1
+    type: vless
+    server: 222.167.202.60
+    port: 7443
+    uuid: 06ef598c-1555-4887-b3f9-08214a2f6792
+    network: ws
+    servername: 2026.hhhhh.eu.org
+    tls: true
+    ws-opts:
+      path: /222.167.202.60:7443
+      headers:
+        Host: 2026.hhhhh.eu.org
+  - name: 🇮🇷_IR_伊朗->🇱🇹_LT_立陶宛
+    type: vless
+    server: 5.34.209.231
+    port: 8443
+    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+    network: ws
+    servername: sni.111000.v6.navy
+    tls: true
+    ws-opts:
+      path: /
+      headers:
+        Host: sni.111000.v6.navy
+  - name: 🇨🇳_CN_中国->🇺🇸_US_美国_1
+    type: vless
+    server: 222.167.202.3
+    port: 7443
+    uuid: 06ef598c-1555-4887-b3f9-08214a2f6792
+    network: ws
+    servername: 2026.hhhhh.eu.org
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /222.167.202.3:7443
+      headers:
+        Host: 2026.hhhhh.eu.org
+  - name: 🇺🇸_US_美国
+    type: vless
+    server: 104.19.58.118
+    port: 443
+    uuid: 340dee85-bfd7-4395-8d2e-87dbc2781a13
+    network: ws
+    servername: us1-us1.aiopen.sbs
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /kbjc/us1
+      headers:
+        Host: us1-us1.aiopen.sbs
+  - name: 🇨🇳_CN_中国->🇮🇹_IT_意大利_2
+    type: vless
+    server: 222.167.202.21
+    port: 7443
+    uuid: 06ef598c-1555-4887-b3f9-08214a2f6792
+    network: ws
+    servername: 2026.hhhhh.eu.org
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /222.167.202.21:7443
+      headers:
+        Host: 2026.hhhhh.eu.org
+  - name: 🇨🇳_CN_中国->🇮🇹_IT_意大利_3
+    type: vless
+    server: 222.167.202.70
+    port: 7443
+    uuid: 06ef598c-1555-4887-b3f9-08214a2f6792
+    network: ws
+    servername: 2026.hhhhh.eu.org
+    tls: true
+    ws-opts:
+      path: /222.167.202.70:7443
+      headers:
+        Host: 2026.hhhhh.eu.org
+  - name: 🇨🇳_CN_中国->🇺🇸_US_美国_2
+    type: vless
+    server: 222.167.202.23
+    port: 7443
+    uuid: 06ef598c-1555-4887-b3f9-08214a2f6792
+    network: ws
+    servername: 2026.hhhhh.eu.org
+    tls: true
+    ws-opts:
+      path: /222.167.202.23:7443
+      headers:
+        Host: 2026.hhhhh.eu.org
+  - name: 未知
+    type: ss
+    server: 103.186.154.173
+    port: 38388
+    cipher: aes-256-cfb
+    password: Xn8jKdmDM00IeO%#$#fJAMtsEAEUOpH/YWYtYqDFnT0SV
+  - name: 🇨🇳_CN_中国->🇺🇸_US_美国_3
+    type: vless
+    server: 222.167.202.50
+    port: 7443
+    uuid: 06ef598c-1555-4887-b3f9-08214a2f6792
+    network: ws
+    servername: 2026.hhhhh.eu.org
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /222.167.202.50:7443
+      headers:
+        Host: 2026.hhhhh.eu.org
+  - name: 🇨🇳_CN_中国->🇮🇹_IT_意大利_4
+    type: vless
+    server: 222.167.202.35
+    port: 7443
+    uuid: 06ef598c-1555-4887-b3f9-08214a2f6792
+    network: ws
+    servername: 2026.hhhhh.eu.org
+    tls: true
+    ws-opts:
+      path: /222.167.202.35:7443
+      headers:
+        Host: 2026.hhhhh.eu.org
+  - name: 🇫🇷_FR_法国
+    type: vless
+    server: 146.59.230.8
+    port: 8443
+    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+    network: ws
+    servername: sni.111000.v6.navy
+    tls: true
+    ws-opts:
+      headers:
+        Host: sni.111000.v6.navy
+  - name: 未知_1
+    type: ss
+    server: 103.186.155.30
+    port: 38388
+    cipher: aes-256-cfb
+    password: Xn8jKdmDM00IeO%#$#fJAMtsEAEUOpH/YWYtYqDFnT0SV
+  - name: 未知_2
+    type: ss
+    server: 103.186.155.75
+    port: 38388
+    cipher: aes-256-cfb
+    password: Xn8jKdmDM00IeO%#$#fJAMtsEAEUOpH/YWYtYqDFnT0SV
+  - name: 🇨🇳_CN_中国->🇮🇹_IT_意大利_5
+    type: vless
+    server: 222.167.202.36
+    port: 7443
+    uuid: 06ef598c-1555-4887-b3f9-08214a2f6792
+    network: ws
+    servername: 2026.hhhhh.eu.org
+    tls: true
+    ws-opts:
+      path: /222.167.202.36:7443
+      headers:
+        Host: 2026.hhhhh.eu.org
+  - name: 🇨🇳_CN_中国->🇺🇸_US_美国_4
+    type: vless
+    server: 222.167.202.22
+    port: 7443
+    uuid: 06ef598c-1555-4887-b3f9-08214a2f6792
+    network: ws
+    servername: 2026.hhhhh.eu.org
+    tls: true
+    ws-opts:
+      path: /222.167.202.22:7443
+      headers:
+        Host: 2026.hhhhh.eu.org
+  - name: 未知_3
+    type: ss
+    server: 103.186.155.62
+    port: 38388
+    cipher: aes-256-cfb
+    password: Xn8jKdmDM00IeO%#$#fJAMtsEAEUOpH/YWYtYqDFnT0SV
+  - name: 🇨🇳_CN_中国->🇮🇹_IT_意大利_6
+    type: vless
+    server: 222.167.202.4
+    port: 7443
+    uuid: 06ef598c-1555-4887-b3f9-08214a2f6792
+    network: ws
+    servername: 2026.hhhhh.eu.org
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /222.167.202.4:7443
+      headers:
+        Host: 2026.hhhhh.eu.org
+  - name: 🇨🇳_CN_中国->🇮🇹_IT_意大利_7
+    type: vless
+    server: 222.167.202.52
+    port: 7443
+    uuid: 06ef598c-1555-4887-b3f9-08214a2f6792
+    network: ws
+    servername: 2026.hhhhh.eu.org
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /222.167.202.52:7443
+      headers:
+        Host: 2026.hhhhh.eu.org
+  - name: 🇨🇳_CN_中国->🇺🇸_US_美国_5
+    type: vless
+    server: 222.167.202.33
+    port: 7443
+    uuid: 06ef598c-1555-4887-b3f9-08214a2f6792
+    network: ws
+    servername: 2026.hhhhh.eu.org
+    tls: true
+    ws-opts:
+      path: /222.167.202.33:7443
+      headers:
+        Host: 2026.hhhhh.eu.org
+  - name: 🇺🇸_US_美国_1
+    type: vless
+    server: 156.229.161.107
+    port: 10001
+    uuid: 9c79aceb-4649-44ea-9698-b5e9ecf6d6da
+    servername: www.icloud.com
+    tls: true
+    flow: xtls-rprx-vision
+    client-fingerprint: chrome
+    reality-opts:
+      public-key: 4jNz4Bw-FZlaX-WtfAdwK0hegY28W_k8AttGd-7hZn4
+      short-id: fb2c6678
+  - name: 🇨🇳_CN_中国->🇺🇸_US_美国_6
+    type: vless
+    server: 222.167.202.10
+    port: 7443
+    uuid: 06ef598c-1555-4887-b3f9-08214a2f6792
+    network: ws
+    servername: 2026.hhhhh.eu.org
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /222.167.202.10:7443
+      headers:
+        Host: 2026.hhhhh.eu.org
+  - name: 🇨🇳_CN_中国->🇺🇸_US_美国_7
+    type: vless
+    server: 222.167.202.16
+    port: 7443
+    uuid: 06ef598c-1555-4887-b3f9-08214a2f6792
+    network: ws
+    servername: 2026.hhhhh.eu.org
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /222.167.202.16:7443
+      headers:
+        Host: 2026.hhhhh.eu.org
+  - name: 🇺🇸_US_美国->🇱🇹_LT_立陶宛
+    type: vless
+    server: 45.43.76.184
+    port: 2053
+    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+    network: ws
+    servername: sni.111000.v6.navy
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /?ed=2560
+      headers:
+        Host: sni.111000.v6.navy
+  - name: 🇬🇧_GB_英国->🇳🇱_NL_荷兰
+    type: vless
+    server: 91.84.101.164
+    port: 8443
+    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+    network: ws
+    servername: sni.111000.v6.navy
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /?ed=2560
+      headers:
+        Host: sni.111000.v6.navy
+proxy-groups:
+  - name: 🚀 节点选择
+    type: select
+    proxies:
+      - ♻️ 自动选择
+      - DIRECT
+      - 🇨🇳_CN_中国->🇮🇹_IT_意大利
+      - 🇨🇳_CN_中国->🇺🇸_US_美国
+      - 🇨🇭_CH_瑞士
+      - 🇩🇪_DE_德国
+      - 🇨🇳_CN_中国->🇮🇹_IT_意大利_1
+      - 🇮🇷_IR_伊朗->🇱🇹_LT_立陶宛
+      - 🇨🇳_CN_中国->🇺🇸_US_美国_1
+      - 🇺🇸_US_美国
+      - 🇨🇳_CN_中国->🇮🇹_IT_意大利_2
+      - 🇨🇳_CN_中国->🇮🇹_IT_意大利_3
+      - 🇨🇳_CN_中国->🇺🇸_US_美国_2
+      - 未知
+      - 🇨🇳_CN_中国->🇺🇸_US_美国_3
+      - 🇨🇳_CN_中国->🇮🇹_IT_意大利_4
+      - 🇫🇷_FR_法国
+      - 未知_1
+      - 未知_2
+      - 🇨🇳_CN_中国->🇮🇹_IT_意大利_5
+      - 🇨🇳_CN_中国->🇺🇸_US_美国_4
+      - 未知_3
+      - 🇨🇳_CN_中国->🇮🇹_IT_意大利_6
+      - 🇨🇳_CN_中国->🇮🇹_IT_意大利_7
+      - 🇨🇳_CN_中国->🇺🇸_US_美国_5
+      - 🇺🇸_US_美国_1
+      - 🇨🇳_CN_中国->🇺🇸_US_美国_6
+      - 🇨🇳_CN_中国->🇺🇸_US_美国_7
+      - 🇺🇸_US_美国->🇱🇹_LT_立陶宛
+      - 🇬🇧_GB_英国->🇳🇱_NL_荷兰
+  - name: ♻️ 自动选择
+    type: url-test
+    proxies:
+      - 🇨🇳_CN_中国->🇮🇹_IT_意大利
+      - 🇨🇳_CN_中国->🇺🇸_US_美国
+      - 🇨🇭_CH_瑞士
+      - 🇩🇪_DE_德国
+      - 🇨🇳_CN_中国->🇮🇹_IT_意大利_1
+      - 🇮🇷_IR_伊朗->🇱🇹_LT_立陶宛
+      - 🇨🇳_CN_中国->🇺🇸_US_美国_1
+      - 🇺🇸_US_美国
+      - 🇨🇳_CN_中国->🇮🇹_IT_意大利_2
+      - 🇨🇳_CN_中国->🇮🇹_IT_意大利_3
+      - 🇨🇳_CN_中国->🇺🇸_US_美国_2
+      - 未知
+      - 🇨🇳_CN_中国->🇺🇸_US_美国_3
+      - 🇨🇳_CN_中国->🇮🇹_IT_意大利_4
+      - 🇫🇷_FR_法国
+      - 未知_1
+      - 未知_2
+      - 🇨🇳_CN_中国->🇮🇹_IT_意大利_5
+      - 🇨🇳_CN_中国->🇺🇸_US_美国_4
+      - 未知_3
+      - 🇨🇳_CN_中国->🇮🇹_IT_意大利_6
+      - 🇨🇳_CN_中国->🇮🇹_IT_意大利_7
+      - 🇨🇳_CN_中国->🇺🇸_US_美国_5
+      - 🇺🇸_US_美国_1
+      - 🇨🇳_CN_中国->🇺🇸_US_美国_6
+      - 🇨🇳_CN_中国->🇺🇸_US_美国_7
+      - 🇺🇸_US_美国->🇱🇹_LT_立陶宛
+      - 🇬🇧_GB_英国->🇳🇱_NL_荷兰
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+  - name: 🌍 国外媒体
+    type: select
+    proxies:
+      - 🚀 节点选择
+      - ♻️ 自动选择
+      - 🎯 全球直连
+      - 🇨🇳_CN_中国->🇮🇹_IT_意大利
+      - 🇨🇳_CN_中国->🇺🇸_US_美国
+      - 🇨🇭_CH_瑞士
+      - 🇩🇪_DE_德国
+      - 🇨🇳_CN_中国->🇮🇹_IT_意大利_1
+      - 🇮🇷_IR_伊朗->🇱🇹_LT_立陶宛
+      - 🇨🇳_CN_中国->🇺🇸_US_美国_1
+      - 🇺🇸_US_美国
+      - 🇨🇳_CN_中国->🇮🇹_IT_意大利_2
+      - 🇨🇳_CN_中国->🇮🇹_IT_意大利_3
+      - 🇨🇳_CN_中国->🇺🇸_US_美国_2
+      - 未知
+      - 🇨🇳_CN_中国->🇺🇸_US_美国_3
+      - 🇨🇳_CN_中国->🇮🇹_IT_意大利_4
+      - 🇫🇷_FR_法国
+      - 未知_1
+      - 未知_2
+      - 🇨🇳_CN_中国->🇮🇹_IT_意大利_5
+      - 🇨🇳_CN_中国->🇺🇸_US_美国_4
+      - 未知_3
+      - 🇨🇳_CN_中国->🇮🇹_IT_意大利_6
+      - 🇨🇳_CN_中国->🇮🇹_IT_意大利_7
+      - 🇨🇳_CN_中国->🇺🇸_US_美国_5
+      - 🇺🇸_US_美国_1
+      - 🇨🇳_CN_中国->🇺🇸_US_美国_6
+      - 🇨🇳_CN_中国->🇺🇸_US_美国_7
+      - 🇺🇸_US_美国->🇱🇹_LT_立陶宛
+      - 🇬🇧_GB_英国->🇳🇱_NL_荷兰
+  - name: 📲 电报信息
+    type: select
+    proxies:
+      - 🚀 节点选择
+      - 🎯 全球直连
+      - 🇨🇳_CN_中国->🇮🇹_IT_意大利
+      - 🇨🇳_CN_中国->🇺🇸_US_美国
+      - 🇨🇭_CH_瑞士
+      - 🇩🇪_DE_德国
+      - 🇨🇳_CN_中国->🇮🇹_IT_意大利_1
+      - 🇮🇷_IR_伊朗->🇱🇹_LT_立陶宛
+      - 🇨🇳_CN_中国->🇺🇸_US_美国_1
+      - 🇺🇸_US_美国
+      - 🇨🇳_CN_中国->🇮🇹_IT_意大利_2
+      - 🇨🇳_CN_中国->🇮🇹_IT_意大利_3
+      - 🇨🇳_CN_中国->🇺🇸_US_美国_2
+      - 未知
+      - 🇨🇳_CN_中国->🇺🇸_US_美国_3
+      - 🇨🇳_CN_中国->🇮🇹_IT_意大利_4
+      - 🇫🇷_FR_法国
+      - 未知_1
+      - 未知_2
+      - 🇨🇳_CN_中国->🇮🇹_IT_意大利_5
+      - 🇨🇳_CN_中国->🇺🇸_US_美国_4
+      - 未知_3
+      - 🇨🇳_CN_中国->🇮🇹_IT_意大利_6
+      - 🇨🇳_CN_中国->🇮🇹_IT_意大利_7
+      - 🇨🇳_CN_中国->🇺🇸_US_美国_5
+      - 🇺🇸_US_美国_1
+      - 🇨🇳_CN_中国->🇺🇸_US_美国_6
+      - 🇨🇳_CN_中国->🇺🇸_US_美国_7
+      - 🇺🇸_US_美国->🇱🇹_LT_立陶宛
+      - 🇬🇧_GB_英国->🇳🇱_NL_荷兰
+  - name: Ⓜ️ 微软服务
+    type: select
+    proxies:
+      - 🎯 全球直连
+      - 🚀 节点选择
+      - 🇨🇳_CN_中国->🇮🇹_IT_意大利
+      - 🇨🇳_CN_中国->🇺🇸_US_美国
+      - 🇨🇭_CH_瑞士
+      - 🇩🇪_DE_德国
+      - 🇨🇳_CN_中国->🇮🇹_IT_意大利_1
+      - 🇮🇷_IR_伊朗->🇱🇹_LT_立陶宛
+      - 🇨🇳_CN_中国->🇺🇸_US_美国_1
+      - 🇺🇸_US_美国
+      - 🇨🇳_CN_中国->🇮🇹_IT_意大利_2
+      - 🇨🇳_CN_中国->🇮🇹_IT_意大利_3
+      - 🇨🇳_CN_中国->🇺🇸_US_美国_2
+      - 未知
+      - 🇨🇳_CN_中国->🇺🇸_US_美国_3
+      - 🇨🇳_CN_中国->🇮🇹_IT_意大利_4
+      - 🇫🇷_FR_法国
+      - 未知_1
+      - 未知_2
+      - 🇨🇳_CN_中国->🇮🇹_IT_意大利_5
+      - 🇨🇳_CN_中国->🇺🇸_US_美国_4
+      - 未知_3
+      - 🇨🇳_CN_中国->🇮🇹_IT_意大利_6
+      - 🇨🇳_CN_中国->🇮🇹_IT_意大利_7
+      - 🇨🇳_CN_中国->🇺🇸_US_美国_5
+      - 🇺🇸_US_美国_1
+      - 🇨🇳_CN_中国->🇺🇸_US_美国_6
+      - 🇨🇳_CN_中国->🇺🇸_US_美国_7
+      - 🇺🇸_US_美国->🇱🇹_LT_立陶宛
+      - 🇬🇧_GB_英国->🇳🇱_NL_荷兰
+  - name: 🍎 苹果服务
+    type: select
+    proxies:
+      - 🚀 节点选择
+      - 🎯 全球直连
+      - 🇨🇳_CN_中国->🇮🇹_IT_意大利
+      - 🇨🇳_CN_中国->🇺🇸_US_美国
+      - 🇨🇭_CH_瑞士
+      - 🇩🇪_DE_德国
+      - 🇨🇳_CN_中国->🇮🇹_IT_意大利_1
+      - 🇮🇷_IR_伊朗->🇱🇹_LT_立陶宛
+      - 🇨🇳_CN_中国->🇺🇸_US_美国_1
+      - 🇺🇸_US_美国
+      - 🇨🇳_CN_中国->🇮🇹_IT_意大利_2
+      - 🇨🇳_CN_中国->🇮🇹_IT_意大利_3
+      - 🇨🇳_CN_中国->🇺🇸_US_美国_2
+      - 未知
+      - 🇨🇳_CN_中国->🇺🇸_US_美国_3
+      - 🇨🇳_CN_中国->🇮🇹_IT_意大利_4
+      - 🇫🇷_FR_法国
+      - 未知_1
+      - 未知_2
+      - 🇨🇳_CN_中国->🇮🇹_IT_意大利_5
+      - 🇨🇳_CN_中国->🇺🇸_US_美国_4
+      - 未知_3
+      - 🇨🇳_CN_中国->🇮🇹_IT_意大利_6
+      - 🇨🇳_CN_中国->🇮🇹_IT_意大利_7
+      - 🇨🇳_CN_中国->🇺🇸_US_美国_5
+      - 🇺🇸_US_美国_1
+      - 🇨🇳_CN_中国->🇺🇸_US_美国_6
+      - 🇨🇳_CN_中国->🇺🇸_US_美国_7
+      - 🇺🇸_US_美国->🇱🇹_LT_立陶宛
+      - 🇬🇧_GB_英国->🇳🇱_NL_荷兰
+  - name: 🎯 全球直连
+    type: select
+    proxies:
+      - DIRECT
+      - 🚀 节点选择
+      - ♻️ 自动选择
+  - name: 🛑 全球拦截
+    type: select
+    proxies:
+      - REJECT
+      - DIRECT
+  - name: 🍃 应用净化
+    type: select
+    proxies:
+      - REJECT
+      - DIRECT
+  - name: 🐟 漏网之鱼
+    type: select
+    proxies:
+      - 🚀 节点选择
+      - 🎯 全球直连
+      - ♻️ 自动选择
+      - 🇨🇳_CN_中国->🇮🇹_IT_意大利
+      - 🇨🇳_CN_中国->🇺🇸_US_美国
+      - 🇨🇭_CH_瑞士
+      - 🇩🇪_DE_德国
+      - 🇨🇳_CN_中国->🇮🇹_IT_意大利_1
+      - 🇮🇷_IR_伊朗->🇱🇹_LT_立陶宛
+      - 🇨🇳_CN_中国->🇺🇸_US_美国_1
+      - 🇺🇸_US_美国
+      - 🇨🇳_CN_中国->🇮🇹_IT_意大利_2
+      - 🇨🇳_CN_中国->🇮🇹_IT_意大利_3
+      - 🇨🇳_CN_中国->🇺🇸_US_美国_2
+      - 未知
+      - 🇨🇳_CN_中国->🇺🇸_US_美国_3
+      - 🇨🇳_CN_中国->🇮🇹_IT_意大利_4
+      - 🇫🇷_FR_法国
+      - 未知_1
+      - 未知_2
+      - 🇨🇳_CN_中国->🇮🇹_IT_意大利_5
+      - 🇨🇳_CN_中国->🇺🇸_US_美国_4
+      - 未知_3
+      - 🇨🇳_CN_中国->🇮🇹_IT_意大利_6
+      - 🇨🇳_CN_中国->🇮🇹_IT_意大利_7
+      - 🇨🇳_CN_中国->🇺🇸_US_美国_5
+      - 🇺🇸_US_美国_1
+      - 🇨🇳_CN_中国->🇺🇸_US_美国_6
+      - 🇨🇳_CN_中国->🇺🇸_US_美国_7
+      - 🇺🇸_US_美国->🇱🇹_LT_立陶宛
+      - 🇬🇧_GB_英国->🇳🇱_NL_荷兰
