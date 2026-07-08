@@ -105,7 +105,9 @@
     	},
     	BindTo: function(){
     		$('.js_to').attr('href', 'javascript:;');
-	        $('.js_to').click(function(){
+	        $('.js_to').click(function(e){
+	        	e.preventDefault();
+
 	            var url = $(this).data('url');
 	            var code = $(this).data('code');
 	            var type = $(this).data('type');
@@ -113,16 +115,18 @@
 	            var new_code = G.Fun.check_invite_code(code, type);
 	            new_url += new_code;
 
-	            var domain = 'https://www.freeclashnode.com';
-	            $.post(
-	            	domain + '/index.php/api/xcblog/c',
-	            	{
-	            		url: location.href,
-	            		to_url: new_url,
-	            		code: type,
-	            		ad_code: type
-	            	}
-	            );
+	            if (typeof $.post === 'function') {
+	            	var domain = 'https://www.freeclashnode.com';
+		            $.post(
+		            	domain + '/index.php/api/xcblog/c',
+		            	{
+		            		url: location.href,
+		            		to_url: new_url,
+		            		code: type,
+		            		ad_code: type
+		            	}
+		            );
+		        }
 
 	            window.open(new_url);
 	        })
