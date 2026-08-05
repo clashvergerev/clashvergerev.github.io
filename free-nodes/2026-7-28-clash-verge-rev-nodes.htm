@@ -161,24 +161,9 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
     </div>
 <h4>FAQ</h4>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Sing-box 的 DNS 模块如何工作？</h5></div>
-    <div class="panel-body">
-        Sing-box 内置 DNS 模块，支持 fake-ip 模式和纯直连模式。它可根据规则选择不同的上游 DNS 服务，从而实现国内外域名智能分流，减少访问延迟。<hr />    </div>
-</div>
-<div class="panel panel-default">
     <div class="panel-heading"><h5>Mihomo 的日志功能如何开启？</h5></div>
     <div class="panel-body">
         Mihomo 的日志默认关闭以节省性能。若需调试，可在配置文件中启用 `log-level: debug` 参数，日志将输出详细连接信息与错误提示，便于排查问题。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Surfboard 可以结合规则实现广告屏蔽吗？</h5></div>
-    <div class="panel-body">
-        可以。Surfboard 支持通过规则文件匹配广告域名或 URL，将其阻断或重定向。结合策略组定期更新规则，可以实现自动广告屏蔽，提升网页浏览体验并节省带宽。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>V2Ray 的 outbound freedom 模式有什么作用？</h5></div>
-    <div class="panel-body">
-        freedom 是直连模块，可用于分流策略中实现部分流量直连。用户可在 routing 中设置匹配规则，将国内域名或局域网 IP 指向 freedom 出口，从而减少代理开销和延迟。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>如何给 Clash 添加自定义域名白名单以提升访问体验？</h5></div>
@@ -186,14 +171,34 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
         在 rules 中添加 `DOMAIN-SUFFIX,example.com,DIRECT` 或 `DOMAIN-KEYWORD,example,DIRECT` 条目，将常用且可靠的站点设为直连，可减少代理绕行延迟并避免因代理造成的登录/验证问题。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>SSR 是否还值得使用？</h5></div>
+    <div class="panel-heading"><h5>Surfboard 可以结合规则实现广告屏蔽吗？</h5></div>
     <div class="panel-body">
-        虽然 SSR 的开发早已停止，但由于它配置简单且部分节点仍然兼容，仍有一定使用场景。不过建议用户逐步迁移到更安全的新协议如 VLESS 或 Trojan，以获得更佳性能与隐蔽性。<hr />    </div>
+        可以。Surfboard 支持通过规则文件匹配广告域名或 URL，将其阻断或重定向。结合策略组定期更新规则，可以实现自动广告屏蔽，提升网页浏览体验并节省带宽。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Sing-box 的 DNS 模块如何工作？</h5></div>
+    <div class="panel-body">
+        Sing-box 内置 DNS 模块，支持 fake-ip 模式和纯直连模式。它可根据规则选择不同的上游 DNS 服务，从而实现国内外域名智能分流，减少访问延迟。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>V2Ray 的 outbound freedom 模式有什么作用？</h5></div>
+    <div class="panel-body">
+        freedom 是直连模块，可用于分流策略中实现部分流量直连。用户可在 routing 中设置匹配规则，将国内域名或局域网 IP 指向 freedom 出口，从而减少代理开销和延迟。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Nekoray 的配置文件在哪里保存？</h5></div>
+    <div class="panel-body">
+        Nekoray 的配置文件默认保存在程序目录下的 `config.json` 中。用户可手动备份此文件以迁移配置，也可使用导入导出功能在不同设备间同步节点数据。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Mihomo 启动后 CPU 占用高，有哪些优化建议？</h5></div>
     <div class="panel-body">
         检查是否启用了大量日志或复杂脚本，关闭不必要的规则提供者与日志调试；在多核服务器上启用并发或调整线程数；更新到最新版本以获得性能优化，并监控是否有异常连接导致处理压力。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>SSR 是否还值得使用？</h5></div>
+    <div class="panel-body">
+        虽然 SSR 的开发早已停止，但由于它配置简单且部分节点仍然兼容，仍有一定使用场景。不过建议用户逐步迁移到更安全的新协议如 VLESS 或 Trojan，以获得更佳性能与隐蔽性。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Potatso Lite 在新版 iOS 上无法连接怎么办？</h5></div>
@@ -203,12 +208,7 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
 <div class="panel panel-default">
     <div class="panel-heading"><h5>WinXray 节点延迟检测如何优化访问速度？</h5></div>
     <div class="panel-body">
-        WinXray 会定期测速节点延迟和丢包率，结合策略组自动切换到最佳节点。保证网页、视频和游戏流量走低延迟节点，提升访问速度和连接稳定性。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Nekoray 的配置文件在哪里保存？</h5></div>
-    <div class="panel-body">
-        Nekoray 的配置文件默认保存在程序目录下的 `config.json` 中。用户可手动备份此文件以迁移配置，也可使用导入导出功能在不同设备间同步节点数据。    </div>
+        WinXray 会定期测速节点延迟和丢包率，结合策略组自动切换到最佳节点。保证网页、视频和游戏流量走低延迟节点，提升访问速度和连接稳定性。    </div>
 </div>
 <div class="panel panel-default mt-5">
     <div class="panel-heading">
@@ -256,16 +256,16 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2026-7-6-clash-verge-rev-node-share.htm" title="「7月6日」最高速度22.9M/S，2025年Clsah Verge每天更新免费节点订阅地址">「7月6日」最高速度22.9M/S，2025年Clsah Verge每天更新免费节点订阅地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-7-1-free-node-subscribe-links.htm" title="「7月1日」最高速度20.4M/S，2025年Clsah Verge每天更新免费节点订阅地址">「7月1日」最高速度20.4M/S，2025年Clsah Verge每天更新免费节点订阅地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-7-7-clash-verge-rev-node.htm" title="「7月7日」最高速度20.1M/S，2025年Clsah Verge每天更新免费节点订阅地址">「7月7日」最高速度20.1M/S，2025年Clsah Verge每天更新免费节点订阅地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-6-26-clash-verge-rev-node-share.htm" title="「6月26日」最高速度22.2M/S，2025年Clsah Verge每天更新免费节点订阅地址">「6月26日」最高速度22.2M/S，2025年Clsah Verge每天更新免费节点订阅地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-6-17-free-clash-verge-rev-node.htm" title="「6月17日」最高速度18.9M/S，2025年Clsah Verge每天更新免费节点订阅地址">「6月17日」最高速度18.9M/S，2025年Clsah Verge每天更新免费节点订阅地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/free-high-speed-nodes-2026-8-5.htm" title="「8月5日」最高速度22.6M/S，2025年Clsah Verge每天更新免费节点订阅地址">「8月5日」最高速度22.6M/S，2025年Clsah Verge每天更新免费节点订阅地址</a><hr /></li>
                         <li class="py-2"><a href="/free-nodes/2026-7-28-clash-verge-rev-nodes.htm" title="「7月28日」最高速度20.2M/S，2025年Clsah Verge每天更新免费节点订阅地址">「7月28日」最高速度20.2M/S，2025年Clsah Verge每天更新免费节点订阅地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-7-9-today-clash-verge-rev-node.htm" title="「7月9日」最高速度18.1M/S，2025年Clsah Verge每天更新免费节点订阅地址">「7月9日」最高速度18.1M/S，2025年Clsah Verge每天更新免费节点订阅地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-7-2-clash-verge-rev-nodes.htm" title="「7月2日」最高速度19.9M/S，2025年Clsah Verge每天更新免费节点订阅地址">「7月2日」最高速度19.9M/S，2025年Clsah Verge每天更新免费节点订阅地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-7-17-free-high-speed-nodes.htm" title="「7月17日」最高速度22.9M/S，2025年Clsah Verge每天更新免费节点订阅地址">「7月17日」最高速度22.9M/S，2025年Clsah Verge每天更新免费节点订阅地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-7-25-today-clash-verge-rev-node.htm" title="「7月25日」最高速度20.5M/S，2025年Clsah Verge每天更新免费节点订阅地址">「7月25日」最高速度20.5M/S，2025年Clsah Verge每天更新免费节点订阅地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-6-27-free-node-subscribe-links.htm" title="「6月27日」最高速度22.5M/S，2025年Clsah Verge每天更新免费节点订阅地址">「6月27日」最高速度22.5M/S，2025年Clsah Verge每天更新免费节点订阅地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/clash-verge-rev-github-2026-8-3.htm" title="「8月3日」最高速度20.7M/S，2025年Clsah Verge每天更新免费节点订阅地址">「8月3日」最高速度20.7M/S，2025年Clsah Verge每天更新免费节点订阅地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-7-30-clash-verge-rev-node-share.htm" title="「7月30日」最高速度22.1M/S，2025年Clsah Verge每天更新免费节点订阅地址">「7月30日」最高速度22.1M/S，2025年Clsah Verge每天更新免费节点订阅地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-6-19-free-node-subscribe-links.htm" title="「6月19日」最高速度18.4M/S，2025年Clsah Verge每天更新免费节点订阅地址">「6月19日」最高速度18.4M/S，2025年Clsah Verge每天更新免费节点订阅地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-6-16-clash-verge-rev-windows.htm" title="「6月16日」最高速度22.3M/S，2025年Clsah Verge每天更新免费节点订阅地址">「6月16日」最高速度22.3M/S，2025年Clsah Verge每天更新免费节点订阅地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-7-20-free-subscribe-node.htm" title="「7月20日」最高速度22.7M/S，2025年Clsah Verge每天更新免费节点订阅地址">「7月20日」最高速度22.7M/S，2025年Clsah Verge每天更新免费节点订阅地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/clash-verge-rev-github-2026-8-1.htm" title="「8月1日」最高速度20M/S，2025年Clsah Verge每天更新免费节点订阅地址">「8月1日」最高速度20M/S，2025年Clsah Verge每天更新免费节点订阅地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-6-22-node-share.htm" title="「6月22日」最高速度19.2M/S，2025年Clsah Verge每天更新免费节点订阅地址">「6月22日」最高速度19.2M/S，2025年Clsah Verge每天更新免费节点订阅地址</a><hr /></li>
                     </ul>
     </div>
 </div>
@@ -277,7 +277,10 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">29</span> <a href="/date/2026-07/" title="2026-07 归档">2026-07</a></h4>
+                <h4><span class="badge" style="float: right;">5</span> <a href="/date/2026-08/" title="2026-08 归档">2026-08</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2026-07/" title="2026-07 归档">2026-07</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">23</span> <a href="/date/2026-06/" title="2026-06 归档">2026-06</a></h4>
