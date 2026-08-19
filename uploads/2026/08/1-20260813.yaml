@@ -1,0 +1,3134 @@
+mixed-port: 7890
+allow-lan: false
+mode: rule
+log-level: info
+ipv6: false
+external-controller: 127.0.0.1:9090
+dns:
+  enable: true
+  listen: 127.0.0.1:1053
+  ipv6: false
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  default-nameserver:
+    - 223.5.5.5
+    - 119.29.29.29
+  nameserver:
+    - https://dns.alidns.com/dns-query
+    - https://doh.pub/dns-query
+  proxy-server-nameserver:
+    - https://dns.alidns.com/dns-query
+    - https://doh.pub/dns-query
+  nameserver-policy:
+    geosite:geolocation-!cn:
+      - https://1.1.1.1/dns-query#🚀 节点选择
+      - https://8.8.8.8/dns-query#🚀 节点选择
+proxies:
+  - name: DE德国(mibei77.com 米贝节点分享)
+    type: ss
+    server: autodiscover.fuzzyaytor.cyou
+    port: 42982
+    cipher: chacha20-ietf-poly1305
+    password: yTEXWB6XBHyv9SfQJzCSRWCnRYutFdUXg1wbcbutxPwZE6Uxcurka3GkoatgEdX483XZSHeJp3jXcTShLCRM8rPgMF3vYNfS
+    skip-cert-verify: true
+    udp: true
+  - name: FR法国(mibei77.com 米贝节点分享)
+    type: trojan
+    server: 104.18.152.50
+    port: 443
+    password: humanity
+    sni: www.ignitelimit.com
+    skip-cert-verify: true
+    tls: true
+    ws-opts:
+      path: /assignment
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)
+    type: trojan
+    server: 198.41.223.96
+    port: 443
+    password: humanity
+    sni: www.ignitelimit.com
+    alpn:
+      - http/1.1
+      - h2
+      - h3
+    skip-cert-verify: true
+    tls: true
+    ws-opts:
+      path: /assignment
+    udp: true
+  - name: HK香港(mibei77.com 米贝节点分享)
+    type: trojan
+    server: www.speedtest.org
+    port: 443
+    password: humanity
+    sni: www.ignitelimit.com
+    skip-cert-verify: true
+    tls: true
+    ws-opts:
+      path: /assignment
+    udp: true
+  - name: DE德国(mibei77.com 米贝节点分享)_1
+    type: vless
+    server: 217.163.76.118
+    port: 2086
+    uuid: b7977b65-cfd8-4db9-a029-6ef014a4ae4a
+    network: http
+    tls: false
+    http-opts:
+      path:
+        - /
+      headers:
+        Host:
+          - xvh.andishehparenting.com
+    skip-cert-verify: true
+    udp: true
+  - name: HK香港(mibei77.com 米贝节点分享)_1
+    type: vmess
+    server: 47.83.247.150
+    port: 800
+    uuid: 59c06976-3009-48d5-89f3-bd94d4a120a0
+    alterId: 0
+    cipher: auto
+    tls: false
+    skip-cert-verify: true
+    udp: true
+  - name: FR法国(mibei77.com 米贝节点分享)_1
+    type: trojan
+    server: 104.18.152.219
+    port: 443
+    password: humanity
+    sni: www.ignitelimit.com
+    skip-cert-verify: true
+    tls: true
+    ws-opts:
+      path: /assignment
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_1
+    type: trojan
+    server: 172.67.149.60
+    port: 443
+    password: humanity
+    sni: www.ignitelimit.com
+    skip-cert-verify: true
+    tls: true
+    ws-opts:
+      path: /assignment
+      headers:
+        Host: www.ignitelimit.com
+    udp: true
+  - name: CA加拿大(mibei77.com 米贝节点分享)
+    type: trojan
+    server: 172.67.221.242
+    port: 443
+    password: humanity
+    sni: www.ignitelimit.com
+    alpn:
+      - h3
+      - h2
+      - http/1.1
+    skip-cert-verify: true
+    tls: true
+    ws-opts:
+      path: /assignment
+    udp: true
+  - name: DE德国(mibei77.com 米贝节点分享)_2
+    type: hysteria2
+    server: 86.53.105.117
+    port: 33015
+    password: dbab9df7-5c0a-4726-8574-11e34972b67d
+    sni: www.bing.com
+    skip-cert-verify: true
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_2
+    type: trojan
+    server: 104.16.174.34
+    port: 443
+    password: humanity
+    sni: www.ignitelimit.com
+    skip-cert-verify: true
+    tls: true
+    ws-opts:
+      path: /assignment
+    udp: true
+  - name: FR法国(mibei77.com 米贝节点分享)_2
+    type: trojan
+    server: 104.18.152.210
+    port: 443
+    password: humanity
+    sni: www.ignitelimit.com
+    skip-cert-verify: true
+    tls: true
+    ws-opts:
+      path: /assignment
+    udp: true
+  - name: FR法国(mibei77.com 米贝节点分享)_3
+    type: trojan
+    server: 104.18.152.187
+    port: 443
+    password: humanity
+    sni: www.ignitelimit.com
+    skip-cert-verify: true
+    tls: true
+    ws-opts:
+      path: /assignment
+    udp: true
+  - name: FR法国(mibei77.com 米贝节点分享)_4
+    type: trojan
+    server: 104.16.73.213
+    port: 443
+    password: humanity
+    sni: www.ignitelimit.com
+    skip-cert-verify: true
+    tls: true
+    ws-opts:
+      path: /assignment
+    udp: true
+  - name: FR法国(mibei77.com 米贝节点分享)_5
+    type: trojan
+    server: 104.18.152.159
+    port: 443
+    password: humanity
+    sni: www.ignitelimit.com
+    skip-cert-verify: true
+    tls: true
+    ws-opts:
+      path: /assignment
+    udp: true
+  - name: FR法国(mibei77.com 米贝节点分享)_6
+    type: trojan
+    server: 104.16.174.72
+    port: 443
+    password: humanity
+    sni: www.ignitelimit.com
+    skip-cert-verify: true
+    tls: true
+    ws-opts:
+      path: /assignment
+    udp: true
+  - name: HK香港(mibei77.com 米贝节点分享)_2
+    type: trojan
+    server: 8.6.112.0
+    port: 443
+    password: humanity
+    sni: www.ignitelimit.com
+    skip-cert-verify: true
+    tls: true
+    ws-opts:
+      path: /assignment
+    udp: true
+  - name: FR法国(mibei77.com 米贝节点分享)_7
+    type: trojan
+    server: 8.6.112.6
+    port: 443
+    password: humanity
+    sni: www.ignitelimit.com
+    skip-cert-verify: true
+    tls: true
+    ws-opts:
+      path: /assignment
+    udp: true
+  - name: FR法国(mibei77.com 米贝节点分享)_8
+    type: trojan
+    server: 104.18.152.175
+    port: 443
+    password: humanity
+    sni: www.ignitelimit.com
+    skip-cert-verify: true
+    tls: true
+    ws-opts:
+      path: /assignment
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_3
+    type: trojan
+    server: 104.16.174.46
+    port: 443
+    password: humanity
+    sni: www.ignitelimit.com
+    skip-cert-verify: true
+    tls: true
+    ws-opts:
+      path: /assignment
+    udp: true
+  - name: 西班牙(mibei77.com 米贝节点分享)
+    type: trojan
+    server: 104.18.152.133
+    port: 443
+    password: humanity
+    sni: www.ignitelimit.com
+    skip-cert-verify: true
+    tls: true
+    ws-opts:
+      path: /assignment
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_4
+    type: trojan
+    server: 104.21.46.3
+    port: 443
+    password: humanity
+    sni: www.ignitelimit.com
+    alpn:
+      - h3
+      - h2
+      - http/1.1
+    skip-cert-verify: true
+    tls: true
+    ws-opts:
+      path: /assignment
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_5
+    type: trojan
+    server: 104.21.46.3
+    port: 443
+    password: humanity
+    sni: www.ignitelimit.com
+    skip-cert-verify: true
+    tls: true
+    ws-opts:
+      path: /assignment
+    udp: true
+  - name: HK香港(mibei77.com 米贝节点分享)_3
+    type: trojan
+    server: 104.18.152.187
+    port: 443
+    password: humanity
+    sni: www.ignitelimit.com
+    skip-cert-verify: true
+    tls: true
+    ws-opts:
+      path: /assignment
+    udp: true
+  - name: FR法国(mibei77.com 米贝节点分享)_9
+    type: trojan
+    server: 104.18.152.133
+    port: 443
+    password: humanity
+    sni: www.ignitelimit.com
+    skip-cert-verify: true
+    tls: true
+    ws-opts:
+      path: /assignment
+    udp: true
+  - name: FR法国(mibei77.com 米贝节点分享)_10
+    type: trojan
+    server: 104.16.73.213
+    port: 443
+    password: humanity
+    sni: www.ignitelimit.com
+    skip-cert-verify: true
+    tls: true
+    ws-opts:
+      path: /assignment
+    udp: true
+  - name: FR法国(mibei77.com 米贝节点分享)_11
+    type: trojan
+    server: 104.16.7.70
+    port: 443
+    password: humanity
+    sni: www.ignitelimit.com
+    skip-cert-verify: true
+    tls: true
+    ws-opts:
+      path: /assignment
+    udp: true
+  - name: HK香港(mibei77.com 米贝节点分享)_4
+    type: trojan
+    server: 104.18.152.207
+    port: 443
+    password: humanity
+    sni: www.ignitelimit.com
+    skip-cert-verify: true
+    tls: true
+    ws-opts:
+      path: /assignment
+    udp: true
+  - name: HK香港(mibei77.com 米贝节点分享)_5
+    type: trojan
+    server: 104.18.152.108
+    port: 443
+    password: humanity
+    sni: www.ignitelimit.com
+    skip-cert-verify: true
+    tls: true
+    ws-opts:
+      path: /assignment
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_6
+    type: trojan
+    server: 104.18.152.246
+    port: 443
+    password: humanity
+    sni: www.ignitelimit.com
+    skip-cert-verify: true
+    tls: true
+    ws-opts:
+      path: /assignment
+      headers:
+        Host: www.ignitelimit.com
+    udp: true
+  - name: 伊朗(mibei77.com 米贝节点分享)
+    type: trojan
+    server: 2.144.21.150
+    port: 2000
+    password: humanity
+    sni: www.ignitelimit.com
+    skip-cert-verify: true
+    tls: true
+    ws-opts:
+      path: /assignment
+    udp: true
+  - name: FR法国(mibei77.com 米贝节点分享)_12
+    type: trojan
+    server: 86.38.214.205
+    port: 443
+    password: humanity
+    sni: www.ignitelimit.com
+    skip-cert-verify: true
+    tls: true
+    ws-opts:
+      path: /assignment
+    udp: true
+  - name: NL荷兰(mibei77.com 米贝节点分享)
+    type: trojan
+    server: 104.18.152.219
+    port: 443
+    password: humanity
+    sni: www.ignitelimit.com
+    skip-cert-verify: true
+    tls: true
+    ws-opts:
+      path: /assignment
+      headers:
+        Host: www.ignitelimit.com
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_7
+    type: trojan
+    server: 104.18.152.103
+    port: 443
+    password: humanity
+    sni: www.ignitelimit.com
+    skip-cert-verify: true
+    tls: true
+    ws-opts:
+      path: /assignment
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_8
+    type: trojan
+    server: 104.18.152.159
+    port: 443
+    password: humanity
+    sni: www.ignitelimit.com
+    skip-cert-verify: true
+    tls: true
+    ws-opts:
+      path: /assignment
+      headers:
+        Host: www.ignitelimit.com
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_9
+    type: trojan
+    server: 104.18.152.97
+    port: 443
+    password: humanity
+    sni: www.ignitelimit.com
+    skip-cert-verify: true
+    tls: true
+    ws-opts:
+      path: /assignment
+    udp: true
+  - name: DE德国(mibei77.com 米贝节点分享)_3
+    type: tuic
+    server: 86.53.105.117
+    port: 33014
+    uuid: dbab9df7-5c0a-4726-8574-11e34972b67d
+    password: dbab9df7-5c0a-4726-8574-11e34972b67d
+    sni: www.bing.com
+    alpn:
+      - h3
+    congestion-controller: bbr
+    skip-cert-verify: true
+    disable-sni: false
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_10
+    type: trojan
+    server: 104.18.152.246
+    port: 443
+    password: humanity
+    sni: www.ignitelimit.com
+    skip-cert-verify: true
+    tls: true
+    ws-opts:
+      path: /assignment
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_11
+    type: trojan
+    server: 104.18.152.246
+    port: 443
+    password: humanity
+    sni: www.ignitelimit.com
+    skip-cert-verify: true
+    tls: true
+    ws-opts:
+      path: /assignment
+    udp: true
+  - name: HK香港(mibei77.com 米贝节点分享)_6
+    type: trojan
+    server: 104.18.152.77
+    port: 443
+    password: humanity
+    sni: www.ignitelimit.com
+    skip-cert-verify: true
+    tls: true
+    ws-opts:
+      path: /assignment
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_12
+    type: trojan
+    server: 104.18.152.50
+    port: 443
+    password: humanity
+    sni: www.ignitelimit.com
+    skip-cert-verify: true
+    tls: true
+    ws-opts:
+      path: /assignment
+    udp: true
+  - name: HK香港(mibei77.com 米贝节点分享)_7
+    type: trojan
+    server: 104.18.152.229
+    port: 443
+    password: humanity
+    sni: www.ignitelimit.com
+    skip-cert-verify: true
+    tls: true
+    ws-opts:
+      path: /assignment
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_13
+    type: vless
+    server: www.true.th
+    port: 443
+    uuid: 7ce54bb3-d612-4aa7-be08-089d3c461d53
+    network: ws
+    servername: d1yxsk0zprgivr.cloudfront.net
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /
+      headers:
+        Host: d1yxsk0zprgivr.cloudfront.net
+    skip-cert-verify: true
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_14
+    type: trojan
+    server: 104.18.152.225
+    port: 443
+    password: humanity
+    sni: www.ignitelimit.com
+    skip-cert-verify: true
+    tls: true
+    ws-opts:
+      path: /assignment
+    udp: true
+  - name: JP日本(mibei77.com 米贝节点分享)
+    type: trojan
+    server: 104.18.152.225
+    port: 443
+    password: humanity
+    sni: www.ignitelimit.com
+    skip-cert-verify: true
+    tls: true
+    ws-opts:
+      path: /assignment
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_15
+    type: trojan
+    server: 104.18.152.97
+    port: 443
+    password: humanity
+    sni: www.ignitelimit.com
+    skip-cert-verify: true
+    tls: true
+    ws-opts:
+      path: /assignment
+      headers:
+        Host: www.ignitelimit.com
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_16
+    type: trojan
+    server: 104.16.174.71
+    port: 443
+    password: humanity
+    sni: www.ignitelimit.com
+    skip-cert-verify: true
+    tls: true
+    ws-opts:
+      path: /assignment
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_17
+    type: trojan
+    server: 104.18.152.175
+    port: 443
+    password: humanity
+    sni: www.ignitelimit.com
+    skip-cert-verify: true
+    tls: true
+    ws-opts:
+      path: /assignment
+    udp: true
+  - name: HK香港(mibei77.com 米贝节点分享)_8
+    type: trojan
+    server: 104.18.152.152
+    port: 443
+    password: humanity
+    sni: www.ignitelimit.com
+    skip-cert-verify: true
+    tls: true
+    ws-opts:
+      path: /assignment
+    udp: true
+  - name: FR法国(mibei77.com 米贝节点分享)_13
+    type: trojan
+    server: 104.18.152.229
+    port: 443
+    password: humanity
+    sni: www.ignitelimit.com
+    skip-cert-verify: true
+    tls: true
+    ws-opts:
+      path: /assignment
+    udp: true
+  - name: JP日本(mibei77.com 米贝节点分享)_1
+    type: trojan
+    server: 104.18.152.97
+    port: 443
+    password: humanity
+    sni: www.ignitelimit.com
+    skip-cert-verify: true
+    tls: true
+    ws-opts:
+      path: /assignment
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_18
+    type: trojan
+    server: 104.18.152.108
+    port: 443
+    password: humanity
+    sni: www.ignitelimit.com
+    skip-cert-verify: true
+    tls: true
+    ws-opts:
+      path: /assignment
+    udp: true
+  - name: JP日本(mibei77.com 米贝节点分享)_2
+    type: trojan
+    server: 104.16.174.44
+    port: 443
+    password: humanity
+    sni: www.ignitelimit.com
+    skip-cert-verify: true
+    tls: true
+    ws-opts:
+      path: /assignment
+      headers:
+        Host: www.ignitelimit.com
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_19
+    type: trojan
+    server: 104.26.14.137
+    port: 443
+    password: humanity
+    sni: www.ignitelimit.com
+    skip-cert-verify: true
+    tls: true
+    ws-opts:
+      path: /assignment
+    udp: true
+  - name: FR法国(mibei77.com 米贝节点分享)_14
+    type: trojan
+    server: 8.6.112.0
+    port: 443
+    password: humanity
+    sni: www.ignitelimit.com
+    skip-cert-verify: true
+    tls: true
+    ws-opts:
+      path: /assignment
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_20
+    type: trojan
+    server: ip.myip2.qzz.io
+    port: 443
+    password: humanity
+    sni: www.ignitelimit.com
+    skip-cert-verify: true
+    tls: true
+    ws-opts:
+      path: /assignment
+    udp: true
+  - name: FR法国(mibei77.com 米贝节点分享)_15
+    type: trojan
+    server: 172.67.149.60
+    port: 443
+    password: humanity
+    sni: www.ignitelimit.com
+    skip-cert-verify: true
+    tls: true
+    ws-opts:
+      path: /assignment
+    udp: true
+  - name: FR法国(mibei77.com 米贝节点分享)_16
+    type: trojan
+    server: 104.18.12.149
+    port: 443
+    password: humanity
+    sni: www.ignitelimit.com
+    skip-cert-verify: true
+    tls: true
+    ws-opts:
+      path: /assignment
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_21
+    type: trojan
+    server: 104.18.152.113
+    port: 443
+    password: humanity
+    sni: www.ignitelimit.com
+    skip-cert-verify: true
+    tls: true
+    ws-opts:
+      path: /assignment
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_22
+    type: vless
+    server: www.true.th
+    port: 443
+    uuid: 7ce54bb3-d612-4aa7-be08-089d3c461d53
+    network: ws
+    servername: d1yxsk0zprgivr.cloudfront.net
+    tls: true
+    ws-opts:
+      path: /
+      headers:
+        Host: d1yxsk0zprgivr.cloudfront.net
+    skip-cert-verify: true
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_23
+    type: trojan
+    server: 104.18.12.149
+    port: 443
+    password: humanity
+    sni: www.ignitelimit.com
+    skip-cert-verify: true
+    tls: true
+    ws-opts:
+      path: /assignment
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_24
+    type: trojan
+    server: 104.18.152.133
+    port: 443
+    password: humanity
+    sni: www.ignitelimit.com
+    skip-cert-verify: true
+    tls: true
+    ws-opts:
+      path: /assignment
+      headers:
+        Host: www.ignitelimit.com
+    udp: true
+  - name: HK香港(mibei77.com 米贝节点分享)_9
+    type: trojan
+    server: 104.16.7.70
+    port: 443
+    password: humanity
+    sni: www.ignitelimit.com
+    skip-cert-verify: true
+    tls: true
+    ws-opts:
+      path: /assignment
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_25
+    type: trojan
+    server: 104.18.152.204
+    port: 443
+    password: humanity
+    sni: www.ignitelimit.com
+    skip-cert-verify: true
+    tls: true
+    ws-opts:
+      path: /assignment
+    udp: true
+  - name: HK香港(mibei77.com 米贝节点分享)_10
+    type: trojan
+    server: 104.16.174.46
+    port: 443
+    password: humanity
+    sni: www.ignitelimit.com
+    skip-cert-verify: true
+    tls: true
+    ws-opts:
+      path: /assignment
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_26
+    type: trojan
+    server: 104.18.152.108
+    port: 443
+    password: humanity
+    sni: www.ignitelimit.com
+    skip-cert-verify: true
+    tls: true
+    ws-opts:
+      path: /assignment
+      headers:
+        Host: www.ignitelimit.com
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_27
+    type: vless
+    server: 217.163.76.118
+    port: 2086
+    uuid: b7977b65-cfd8-4db9-a029-6ef014a4ae4a
+    network: http
+    tls: false
+    http-opts:
+      path:
+        - /
+      headers:
+        Host:
+          - xvh.andishehparenting.com
+    skip-cert-verify: true
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_28
+    type: trojan
+    server: www.ignitelimit.com
+    port: 443
+    password: humanity
+    skip-cert-verify: true
+    tls: true
+    ws-opts:
+      path: /assignment
+    udp: true
+  - name: FR法国(mibei77.com 米贝节点分享)_17
+    type: trojan
+    server: www.ignitelimit.com
+    port: 443
+    password: humanity
+    sni: www.ignitelimit.com
+    skip-cert-verify: true
+    tls: true
+    ws-opts:
+      path: /assignment
+    udp: true
+  - name: HK香港(mibei77.com 米贝节点分享)_11
+    type: trojan
+    server: 104.18.152.210
+    port: 443
+    password: humanity
+    sni: www.ignitelimit.com
+    skip-cert-verify: true
+    tls: true
+    ws-opts:
+      path: /assignment
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_29
+    type: trojan
+    server: 104.16.174.36
+    port: 443
+    password: humanity
+    sni: www.ignitelimit.com
+    skip-cert-verify: true
+    tls: true
+    ws-opts:
+      path: /assignment
+      headers:
+        Host: www.ignitelimit.com
+    udp: true
+  - name: FR法国(mibei77.com 米贝节点分享)_18
+    type: trojan
+    server: 104.18.152.207
+    port: 443
+    password: humanity
+    sni: www.ignitelimit.com
+    skip-cert-verify: true
+    tls: true
+    ws-opts:
+      path: /assignment
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_30
+    type: trojan
+    server: 8.6.112.6
+    port: 443
+    password: humanity
+    sni: www.ignitelimit.com
+    skip-cert-verify: true
+    tls: true
+    ws-opts:
+      path: /assignment
+    udp: true
+  - name: HK香港(mibei77.com 米贝节点分享)_12
+    type: trojan
+    server: 104.16.174.22
+    port: 443
+    password: humanity
+    sni: www.ignitelimit.com
+    skip-cert-verify: true
+    tls: true
+    ws-opts:
+      path: //assignment
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_31
+    type: trojan
+    server: 104.16.174.22
+    port: 443
+    password: humanity
+    sni: www.ignitelimit.com
+    skip-cert-verify: true
+    tls: true
+    ws-opts:
+      path: //assignment
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_32
+    type: vless
+    server: www.true.th
+    port: 443
+    uuid: 7ce54bb3-d612-4aa7-be08-089d3c461d53
+    network: ws
+    servername: d1yxsk0zprgivr.cloudfront.net
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /
+    skip-cert-verify: true
+    udp: true
+  - name: HK香港(mibei77.com 米贝节点分享)_13
+    type: trojan
+    server: 104.16.174.121
+    port: 443
+    password: humanity
+    sni: www.ignitelimit.com
+    skip-cert-verify: true
+    tls: true
+    ws-opts:
+      path: /assignment
+      headers:
+        Host: www.ignitelimit.com
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_33
+    type: trojan
+    server: 104.16.174.37
+    port: 443
+    password: humanity
+    sni: www.ignitelimit.com
+    skip-cert-verify: true
+    tls: true
+    ws-opts:
+      path: /assignment
+      headers:
+        Host: www.ignitelimit.com
+    udp: true
+  - name: FR法国(mibei77.com 米贝节点分享)_19
+    type: trojan
+    server: 104.16.174.72
+    port: 443
+    password: humanity
+    sni: www.ignitelimit.com
+    skip-cert-verify: true
+    tls: true
+    ws-opts:
+      path: /assignment
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_34
+    type: trojan
+    server: 104.18.152.144
+    port: 443
+    password: humanity
+    sni: www.ignitelimit.com
+    skip-cert-verify: true
+    tls: true
+    ws-opts:
+      path: /assignment
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_35
+    type: vmess
+    server: www.nextkyc.com
+    port: 8443
+    uuid: 60441548-b68e-43b2-8191-e3b884be4b3c
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    ws-opts:
+      path: /lMnsZUN4/
+      headers:
+        Host: v2ray1.dozapp.xyz
+    udp: true
+  - name: JP日本(mibei77.com 米贝节点分享)_3
+    type: trojan
+    server: 104.18.152.219
+    port: 443
+    password: humanity
+    sni: www.ignitelimit.com
+    skip-cert-verify: true
+    tls: true
+    ws-opts:
+      path: /assignment
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_36
+    type: vless
+    server: admin.jikebet.com
+    port: 443
+    uuid: c0f16ee2-a909-4890-ab1c-96489230658a
+    network: ws
+    servername: admin.jikebet.com
+    tls: true
+    ws-opts:
+      path: /vless
+      headers:
+        Host: admin.jikebet.com
+    skip-cert-verify: true
+    udp: true
+  - name: 土耳其(mibei77.com 米贝节点分享)
+    type: trojan
+    server: 86.38.214.205
+    port: 443
+    password: humanity
+    sni: www.ignitelimit.com
+    skip-cert-verify: true
+    tls: true
+    ws-opts:
+      path: /assignment
+    udp: true
+  - name: FR法国(mibei77.com 米贝节点分享)_20
+    type: trojan
+    server: 104.18.152.103
+    port: 443
+    password: humanity
+    sni: www.ignitelimit.com
+    skip-cert-verify: true
+    tls: true
+    ws-opts:
+      path: /assignment
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_37
+    type: trojan
+    server: 172.67.149.60
+    port: 443
+    password: humanity
+    sni: www.ignitelimit.com
+    skip-cert-verify: true
+    tls: true
+    ws-opts:
+      path: /assignment
+    udp: true
+  - name: GB英国(mibei77.com 米贝节点分享)
+    type: vless
+    server: admin.jikebet.com
+    port: 443
+    uuid: c0f16ee2-a909-4890-ab1c-96489230658a
+    network: ws
+    servername: admin.jikebet.com
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /vless
+      headers:
+        Host: admin.jikebet.com
+    skip-cert-verify: true
+    udp: true
+  - name: NL荷兰(mibei77.com 米贝节点分享)_1
+    type: vless
+    server: 199.232.78.159
+    port: 443
+    uuid: 0f350a5d-e801-4eca-a1b9-abe9798ad48a
+    network: ws
+    servername: ssl.fastly.com
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /TELEGRAM_NUFiLTER,TELEGRAM_NUFiLTER,TELEGRAM_NUFiLTER,TELEGRAM_NUFiLTER,TELEGRAM_NUFiLTER,TELEGRAM_NUFiLTER,TELEGRAM_NUFiLTER?ed=2053
+      headers:
+        Host: pan1.global.ssl.fastly.net
+    skip-cert-verify: true
+    udp: true
+  - name: DE德国(mibei77.com 米贝节点分享)_4
+    type: vless
+    server: 82.40.42.204
+    port: 8443
+    uuid: cf39fab0-bb85-42cb-9945-2ad69d78e575
+    network: ws
+    servername: rubifen.adaspoloandco.com
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /GOrbEh
+      headers:
+        Host: rubifen.adaspoloandco.com
+    skip-cert-verify: true
+    udp: true
+  - name: HK香港(mibei77.com 米贝节点分享)_14
+    type: vless
+    server: 149.130.186.7
+    port: 62145
+    uuid: 8fb65472-5957-4f64-ba2d-b5812b2f155a
+    tls: false
+    skip-cert-verify: true
+    udp: true
+  - name: GB英国(mibei77.com 米贝节点分享)_1
+    type: vless
+    server: 31.76.251.127.cdn-one.org
+    port: 443
+    uuid: 4f375fb4-3c95-425f-bc7b-8085487a6f3c
+    network: ws
+    servername: 31.76.251.127.cdn-one.org
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /10336/2GCOqG7bvA
+      headers:
+        Host: 31.76.251.127.cdn-one.org
+    skip-cert-verify: true
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_38
+    type: vless
+    server: 162.159.160.22
+    port: 443
+    uuid: cf63446e-f6b7-4d34-b7ed-d8648eeed0f7
+    network: ws
+    servername: vps.181110.xyz
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /cf63446e-vl
+      headers:
+        Host: vps.181110.xyz
+    skip-cert-verify: true
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_39
+    type: vless
+    server: 157.137.219.208
+    port: 62145
+    uuid: 8fb65472-5957-4f64-ba2d-b5812b2f155a
+    tls: false
+    skip-cert-verify: true
+    udp: true
+  - name: DE德国(mibei77.com 米贝节点分享)_5
+    type: vless
+    server: 217.163.76.118
+    port: 2086
+    uuid: b7977b65-cfd8-4db9-a029-6ef014a4ae4a
+    network: http
+    tls: false
+    http-opts:
+      path:
+        - /
+      headers:
+        Host:
+          - xvh.andishehparenting.com
+    skip-cert-verify: true
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_40
+    type: trojan
+    server: 104.17.177.143
+    port: 443
+    password: humanity
+    sni: www.ignitelimit.com
+    skip-cert-verify: true
+    tls: true
+    ws-opts:
+      path: /assignment
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_41
+    type: trojan
+    server: 104.17.111.3
+    port: 443
+    password: humanity
+    sni: www.ignitelimit.com
+    skip-cert-verify: true
+    tls: true
+    ws-opts:
+      path: /assignment
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_42
+    type: vless
+    server: 104.21.80.209
+    port: 443
+    uuid: cf63446e-f6b7-4d34-b7ed-d8648eeed0f7
+    network: ws
+    servername: vps.181110.xyz
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /cf63446e-vl
+      headers:
+        Host: vps.181110.xyz
+    skip-cert-verify: true
+    udp: true
+  - name: FR法国(mibei77.com 米贝节点分享)_21
+    type: trojan
+    server: render.com
+    port: 443
+    password: humanity
+    sni: www.ignitelimit.com
+    skip-cert-verify: true
+    tls: true
+    ws-opts:
+      path: /assignment
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_43
+    type: trojan
+    server: 104.17.111.3
+    port: 443
+    password: humanity
+    sni: www.ignitelimit.com
+    skip-cert-verify: true
+    tls: true
+    ws-opts:
+      path: /assignment
+    udp: true
+  - name: CA加拿大(mibei77.com 米贝节点分享)_1
+    type: trojan
+    server: 104.17.111.8
+    port: 443
+    password: humanity
+    sni: www.ignitelimit.com
+    skip-cert-verify: true
+    tls: true
+    ws-opts:
+      path: /assignment
+    udp: true
+  - name: FR法国(mibei77.com 米贝节点分享)_22
+    type: trojan
+    server: 216.24.57.1
+    port: 443
+    password: humanity
+    sni: www.ignitelimit.com
+    skip-cert-verify: true
+    tls: true
+    ws-opts:
+      path: /assignment
+    udp: true
+  - name: FR法国(mibei77.com 米贝节点分享)_23
+    type: trojan
+    server: 104.17.111.8
+    port: 443
+    password: humanity
+    sni: www.ignitelimit.com
+    skip-cert-verify: true
+    tls: true
+    ws-opts:
+      path: /assignment
+    udp: true
+  - name: NL荷兰(mibei77.com 米贝节点分享)_2
+    type: vless
+    server: 134.98.136.178
+    port: 62145
+    uuid: 8fb65472-5957-4f64-ba2d-b5812b2f155a
+    tls: false
+    skip-cert-verify: true
+    udp: true
+  - name: FR法国(mibei77.com 米贝节点分享)_24
+    type: trojan
+    server: 216.24.57.7
+    port: 443
+    password: humanity
+    sni: www.ignitelimit.com
+    alpn:
+      - http/1.1
+    skip-cert-verify: true
+    tls: true
+    ws-opts:
+      path: /assignment
+    udp: true
+  - name: RU俄罗斯(mibei77.com 米贝节点分享)
+    type: vless
+    server: 62.113.103.10
+    port: 4100
+    uuid: ea535a23-447f-4501-918c-de8a8b376bec
+    network: ws
+    tls: false
+    ws-opts:
+      path: /v1
+    skip-cert-verify: true
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_44
+    type: trojan
+    server: 216.24.57.7
+    port: 443
+    password: humanity
+    sni: www.ignitelimit.com
+    skip-cert-verify: true
+    tls: true
+    ws-opts:
+      path: /assignment
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_45
+    type: vless
+    server: premium-us-ca-01-gthost.efgwf.online
+    port: 8080
+    uuid: 4e0f4e59-3613-4f0c-b824-7348413d20e6
+    network: ws
+    servername: premium-us-ca-01-gthost.efgwf.online
+    tls: false
+    ws-opts:
+      path: /ws-6Tta3kYF
+    skip-cert-verify: true
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_46
+    type: vless
+    server: russia.com
+    port: 443
+    uuid: 04c808e2-0b59-47b0-a54b-32fc7ef1c902
+    network: ws
+    servername: misaka.cndyw.ggff.net
+    tls: true
+    ws-opts:
+      path: /
+    skip-cert-verify: true
+    udp: true
+  - name: FR法国(mibei77.com 米贝节点分享)_25
+    type: vless
+    server: 104.24.9.6
+    port: 443
+    uuid: 407ecce0-dc85-465f-89f5-e520e9378baf
+    network: ws
+    servername: ld.223350.xyz
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /
+      headers:
+        Host: ld.223350.xyz
+    skip-cert-verify: true
+    udp: true
+  - name: FR法国(mibei77.com 米贝节点分享)_26
+    type: vless
+    server: 104.19.87.194
+    port: 443
+    uuid: 407ecce0-dc85-465f-89f5-e520e9378baf
+    network: ws
+    servername: ld.223350.xyz
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /
+      headers:
+        Host: ld.223350.xyz
+    skip-cert-verify: true
+    udp: true
+  - name: 瑞典(mibei77.com 米贝节点分享)
+    type: vless
+    server: 2.27.56.109
+    port: 443
+    uuid: 5d577f62-28a8-4b7e-9441-9307b6132065
+    servername: stacks.vk-portal.net
+    tls: true
+    client-fingerprint: edge
+    reality-opts:
+      public-key: 8R416wHsKA_fipQLIw2gceCaTTBJIZRMwGjNTURAx3I
+      short-id: ad55857184e91aad
+    skip-cert-verify: true
+    udp: true
+  - name: FR法国(mibei77.com 米贝节点分享)_27
+    type: vmess
+    server: 2001:bc8:32d7:1a9::2
+    port: 23388
+    uuid: 3a966d20-7b9d-48cc-ba2c-8d38161b6d3a
+    alterId: 0
+    cipher: auto
+    tls: false
+    skip-cert-verify: true
+    network: ws
+    ws-opts:
+      path: /github.com/Alvin9999-newpac/fanqiang
+    udp: true
+  - name: SG新加坡(mibei77.com 米贝节点分享)
+    type: vless
+    server: 104.18.37.228
+    port: 443
+    uuid: 83afd88f-200f-4d89-bfc7-66eff160c1d8
+    network: ws
+    servername: josni.hoyes.cloudns.ch
+    tls: true
+    ws-opts:
+      path: /sg-melbi
+      headers:
+        Host: josni.hoyes.cloudns.ch
+    skip-cert-verify: true
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_47
+    type: vless
+    server: 104.17.2.112
+    port: 2052
+    uuid: b4cee115-cb5e-4571-99fa-a8f80dc902b1
+    network: ws
+    tls: false
+    ws-opts:
+      path: /?ed=2560
+      headers:
+        Host: KAmraN04-9Q7IUQ-1.kAMran-04.WorkeRS.DEV
+    skip-cert-verify: true
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_48
+    type: vless
+    server: vpn.renshengxuanze.ccwu.cc
+    port: 443
+    uuid: 9a3de3e0-2a6e-4bb2-81bd-1a4e51dfa110
+    network: ws
+    servername: vpn.renshengxuanze.ccwu.cc
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /
+    skip-cert-verify: true
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_49
+    type: vless
+    server: 155.46.167.30
+    port: 8880
+    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+    network: ws
+    tls: false
+    ws-opts:
+      path: /
+      headers:
+        Host: vms.lifetime50.workers.dev
+    skip-cert-verify: true
+    udp: true
+  - name: 瑞典(mibei77.com 米贝节点分享)_1
+    type: vless
+    server: 2.27.56.109
+    port: 443
+    uuid: 5d577f62-28a8-4b7e-9441-9307b6132065
+    servername: stacks.vk-portal.net
+    tls: true
+    client-fingerprint: firefox
+    reality-opts:
+      public-key: 8R416wHsKA_fipQLIw2gceCaTTBJIZRMwGjNTURAx3I
+      short-id: ad55857184e91aad
+    skip-cert-verify: true
+    udp: true
+  - name: CA加拿大(mibei77.com 米贝节点分享)_2
+    type: trojan
+    server: 104.18.22.63
+    port: 443
+    password: humanity
+    sni: www.ignitelimit.com
+    skip-cert-verify: true
+    tls: true
+    ws-opts:
+      path: /assignment
+    udp: true
+  - name: 瑞典(mibei77.com 米贝节点分享)_2
+    type: vless
+    server: 2.27.56.216
+    port: 443
+    uuid: 5d577f62-28a8-4b7e-9441-9307b6132065
+    network: http
+    servername: sun10-67.vkuserphoto.ru
+    tls: true
+    client-fingerprint: firefox
+    http-opts:
+      path:
+        - /api/v1/events
+    reality-opts:
+      public-key: 8R416wHsKA_fipQLIw2gceCaTTBJIZRMwGjNTURAx3I
+      short-id: ad55857184e91aad
+    skip-cert-verify: true
+    udp: true
+  - name: GB英国(mibei77.com 米贝节点分享)_2
+    type: trojan
+    server: 104.18.23.63
+    port: 443
+    password: humanity
+    sni: www.ignitelimit.com
+    alpn:
+      - http/1.1
+    skip-cert-verify: true
+    tls: true
+    ws-opts:
+      path: /assignment
+    udp: true
+  - name: HK香港(mibei77.com 米贝节点分享)_15
+    type: trojan
+    server: 104.18.22.63
+    port: 443
+    password: humanity
+    sni: www.ignitelimit.com
+    skip-cert-verify: true
+    tls: true
+    ws-opts:
+      path: /assignment
+    udp: true
+  - name: 巴西(mibei77.com 米贝节点分享)
+    type: vless
+    server: 18.198.227.161
+    port: 443
+    uuid: 4f375fb4-3c95-425f-bc7b-8085487a6f3c
+    network: ws
+    servername: titandarkness.mooo.com
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /21381/0kO2id8FMQ
+      headers:
+        Host: titandarkness.mooo.com
+    skip-cert-verify: true
+    udp: true
+  - name: GB英国(mibei77.com 米贝节点分享)_3
+    type: vless
+    server: 134.98.145.72
+    port: 62145
+    uuid: 8fb65472-5957-4f64-ba2d-b5812b2f155a
+    tls: false
+    skip-cert-verify: true
+    udp: true
+  - name: GB英国(mibei77.com 米贝节点分享)_4
+    type: vless
+    server: 151.241.129.98
+    port: 7219
+    uuid: 03f3932c-5680-44f6-84f1-447d86971aeb
+    network: ws
+    servername: 9qohadlkywguh.hlf9x1796lkopyju2kplt9c9smz1vyuv0u8azzk.workers.dev
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /@Marisa_kristi
+      headers:
+        Host: 9qohadlkywguh.hlf9x1796lkopyju2kplt9c9smz1vyuv0u8azzk.workers.dev
+    skip-cert-verify: true
+    udp: true
+  - name: NL荷兰(mibei77.com 米贝节点分享)_3
+    type: vless
+    server: 141.148.239.174
+    port: 62145
+    uuid: 8fb65472-5957-4f64-ba2d-b5812b2f155a
+    tls: false
+    skip-cert-verify: true
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_50
+    type: vless
+    server: 188.164.248.69
+    port: 443
+    uuid: a21b9103-1693-49c1-8dc9-e8e8098ee969
+    network: ws
+    servername: free-7f1.pages.dev
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /
+    skip-cert-verify: true
+    udp: true
+  - name: PL波兰(mibei77.com 米贝节点分享)
+    type: hysteria2
+    server: 78.159.240.69
+    port: 8443
+    password: 7836b28e-8451-4596-ad3e-e3601b2335ba
+    sni: quic.tyr-agentstvo.tech
+    skip-cert-verify: true
+    udp: true
+  - name: DE德国(mibei77.com 米贝节点分享)_6
+    type: trojan
+    server: 151.101.56.7
+    port: 443
+    password: MiTiVPN
+    sni: default.fastly.com
+    skip-cert-verify: true
+    tls: true
+    ws-opts:
+      path: /---@MiTiVPN---@MiTiVPN/---@MiTiVPN---@MiTiVPN/---@MiTiVPN---@MiTiVPN/dde---@MiTiVPN---@MiTiVPN/---@MiTiVPN---@MiTiVPN/---@MiTiVPN---@MiTiVPN
+      headers:
+        Host: s1a-mitivpn--mitivpn--mitivpn-mitivpn---mitivpn.global.ssl.fastly.net
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_51
+    type: vless
+    server: www.true.th
+    port: 80
+    uuid: 63ae5b68-f6f8-432e-b440-d975053cfbc2
+    network: ws
+    tls: false
+    ws-opts:
+      path: /than
+      headers:
+        Host: d16l6nb4do0zu4.cloudfront.net
+    skip-cert-verify: true
+    udp: true
+  - name: GB英国(mibei77.com 米贝节点分享)_5
+    type: vless
+    server: 134.98.144.137
+    port: 62145
+    uuid: 8fb65472-5957-4f64-ba2d-b5812b2f155a
+    tls: false
+    skip-cert-verify: true
+    udp: true
+  - name: IN印度(mibei77.com 米贝节点分享)
+    type: vless
+    server: 157.245.97.66
+    port: 443
+    uuid: 19001d44-63d4-496f-9a58-312a5d65668c
+    servername: www.cloudflare.com
+    tls: true
+    flow: xtls-rprx-vision
+    client-fingerprint: chrome
+    reality-opts:
+      public-key: aGnuEqGr0P1reQd3FC-AvDppjiHZBH9itV33XDaKOg4
+      short-id: 53bf38279e382cb0
+    skip-cert-verify: true
+    udp: true
+  - name: HK香港(mibei77.com 米贝节点分享)_16
+    type: trojan
+    server: hkkk498.cloudflare.182682.xyz
+    port: 443
+    password: e0ab846b-8eb2-4042-96dd-7c695e467fbf
+    sni: oe4up9z5j9yntita.tkgogocsgo.top
+    skip-cert-verify: true
+    tls: true
+    ws-opts:
+      path: /images
+      headers:
+        Host: oe4up9z5j9yntita.tkgogocsgo.top
+    udp: true
+  - name: 西班牙(mibei77.com 米贝节点分享)_1
+    type: anytls
+    server: es2.xiaoliyu.cyou
+    port: 4430
+    password: 6a3fe9d0-0d68-4f29-ae99-5771d4217a45
+    skip-cert-verify: true
+    tls: true
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_52
+    type: vless
+    server: 83.217.200.217
+    port: 4100
+    uuid: 5ab425b0-d54d-45ed-a7ae-0a5788112258
+    network: ws
+    servername: live.ok.ru
+    tls: false
+    ws-opts:
+      path: /v1
+    skip-cert-verify: true
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_53
+    type: vless
+    server: 77.95.201.235
+    port: 2200
+    uuid: 9b4ba157-f60b-4a5b-b326-4d561eb826d4
+    network: ws
+    servername: rzd.ru
+    tls: false
+    ws-opts:
+      path: /v1
+    skip-cert-verify: true
+    udp: true
+  - name: TW台湾(mibei77.com 米贝节点分享)
+    type: trojan
+    server: visa.com.sg
+    port: 443
+    password: e0ab846b-8eb2-4042-96dd-7c695e467fbf
+    sni: px8r9i1b4k.bpusfaster2.top
+    skip-cert-verify: true
+    tls: true
+    ws-opts:
+      path: /images
+      headers:
+        Host: px8r9i1b4k.bpusfaster2.top
+    udp: true
+  - name: TW台湾(mibei77.com 米贝节点分享)_1
+    type: trojan
+    server: tw3011h8r.cloudflare.182682.xyz
+    port: 443
+    password: e0ab846b-8eb2-4042-96dd-7c695e467fbf
+    sni: kfb9frqf0v.bpis2026.top
+    skip-cert-verify: true
+    tls: true
+    ws-opts:
+      path: /images
+      headers:
+        Host: kfb9frqf0v.bpis2026.top
+    udp: true
+  - name: JP日本(mibei77.com 米贝节点分享)_4
+    type: trojan
+    server: jjyeye.cloudflare.182682.xyz
+    port: 443
+    password: e0ab846b-8eb2-4042-96dd-7c695e467fbf
+    sni: jpefoaweho04.jptimecsgo.xyz
+    skip-cert-verify: true
+    tls: true
+    ws-opts:
+      path: /images
+      headers:
+        Host: jpefoaweho04.jptimecsgo.xyz
+    udp: true
+  - name: JP日本(mibei77.com 米贝节点分享)_5
+    type: vless
+    server: 14.137.238.155
+    port: 10000
+    uuid: 431fe973-a43a-4fac-bf83-2a772e0d0625
+    tls: false
+    skip-cert-verify: true
+    udp: true
+  - name: FR法国(mibei77.com 米贝节点分享)_28
+    type: trojan
+    server: mmefi.cloudflare.182682.xyz
+    port: 443
+    password: e0ab846b-8eb2-4042-96dd-7c695e467fbf
+    sni: gogoyy.bpmalai2026.top
+    skip-cert-verify: true
+    tls: true
+    ws-opts:
+      path: /images
+      headers:
+        Host: gogoyy.bpmalai2026.top
+    udp: true
+  - name: 哥伦比亚(mibei77.com 米贝节点分享)
+    type: vless
+    server: 158.247.124.143
+    port: 62145
+    uuid: 8fb65472-5957-4f64-ba2d-b5812b2f155a
+    tls: false
+    skip-cert-verify: true
+    udp: true
+  - name: 哥伦比亚(mibei77.com 米贝节点分享)_1
+    type: vless
+    server: 149.130.189.152
+    port: 62145
+    uuid: 8fb65472-5957-4f64-ba2d-b5812b2f155a
+    tls: false
+    skip-cert-verify: true
+    udp: true
+  - name: 哥伦比亚(mibei77.com 米贝节点分享)_2
+    type: vless
+    server: 149.130.183.255
+    port: 62145
+    uuid: 8fb65472-5957-4f64-ba2d-b5812b2f155a
+    tls: false
+    skip-cert-verify: true
+    udp: true
+  - name: 哥伦比亚(mibei77.com 米贝节点分享)_3
+    type: vless
+    server: 149.130.175.159
+    port: 62145
+    uuid: 8fb65472-5957-4f64-ba2d-b5812b2f155a
+    tls: false
+    skip-cert-verify: true
+    udp: true
+  - name: FR法国(mibei77.com 米贝节点分享)_29
+    type: anytls
+    server: fr1.xiaoliyu.cyou
+    port: 4430
+    password: 6a3fe9d0-0d68-4f29-ae99-5771d4217a45
+    skip-cert-verify: true
+    tls: true
+    udp: true
+  - name: DE德国(mibei77.com 米贝节点分享)_7
+    type: vless
+    server: 31.58.182.33
+    port: 443
+    uuid: 2cca8201-c93e-40eb-bd8a-fea4170c169e
+    network: http
+    servername: deu683.lackerdeu.org
+    tls: true
+    client-fingerprint: firefox
+    http-opts:
+      path:
+        - /api/v1/
+    skip-cert-verify: true
+    udp: true
+  - name: PL波兰(mibei77.com 米贝节点分享)_1
+    type: vless
+    server: 31.76.251.127
+    port: 443
+    uuid: 2a6b708e-6799-473e-85e9-d4b116c5eedc
+    network: ws
+    servername: 31.76.251.127.cdn-one.org
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /10336/2GCOqG7bvA
+      headers:
+        Host: 31.76.251.127.cdn-one.org
+    skip-cert-verify: true
+    udp: true
+  - name: 巴西(mibei77.com 米贝节点分享)_1
+    type: vless
+    server: glidio.shieldix.top
+    port: 443
+    uuid: e3c40721-22bc-4862-a358-09502fc14af6
+    servername: glidio.shieldix.top
+    tls: true
+    flow: xtls-rprx-vision
+    client-fingerprint: firefox
+    reality-opts:
+      public-key: V9MHR6nhlKPenVUq1172uIHJFZYOkRVqSOUkjCS4430
+      short-id: f0ba53a31b489b3e
+    skip-cert-verify: true
+    udp: true
+  - name: 巴西(mibei77.com 米贝节点分享)_2
+    type: vless
+    server: glidio.shieldix.top
+    port: 443
+    uuid: e3c40721-22bc-4862-a358-09502fc14af6
+    servername: glidio.shieldix.top
+    tls: true
+    flow: xtls-rprx-vision
+    client-fingerprint: firefox
+    reality-opts:
+      public-key: V9MHR6nhlKPenVUq1172uIHJFZYOkRVqSOUkjCS4430
+      short-id: f0ba53a31b489b3e
+    skip-cert-verify: true
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_54
+    type: vmess
+    server: 366-1095.rabbitpro-in-3.com
+    port: 29009
+    uuid: e351d6d8-c167-3e07-8fda-3f2f4ec0760b
+    alterId: 0
+    cipher: auto
+    tls: false
+    skip-cert-verify: true
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_55
+    type: vmess
+    server: 104.21.57.84
+    port: 8443
+    uuid: 60441548-b68e-43b2-8191-e3b884be4b3c
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    ws-opts:
+      path: /lMnsZUN4/
+      headers:
+        Host: v2ray1.dozapp.xyz
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_56
+    type: vless
+    server: 50.62.195.4
+    port: 80
+    uuid: e382b6dd-2dac-49c5-b16f-1cd0a6b73bf2
+    network: ws
+    tls: false
+    ws-opts:
+      path: /pyip=Telegram🇨🇳+@WangCai2
+      headers:
+        Host: raspy-feather-12ec.137-257.workers.dev
+    skip-cert-verify: true
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_57
+    type: vless
+    server: 50.62.195.4
+    port: 80
+    uuid: e382b6dd-2dac-49c5-b16f-1cd0a6b73bf2
+    network: ws
+    tls: false
+    ws-opts:
+      path: /
+      headers:
+        Host: raspy-feather-12ec.137-257.workers.dev
+    skip-cert-verify: true
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_58
+    type: vless
+    server: 63.141.128.30
+    port: 8880
+    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+    network: ws
+    tls: false
+    ws-opts:
+      path: /
+      headers:
+        Host: vms.lifetime42.workers.dev
+    skip-cert-verify: true
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_59
+    type: vless
+    server: 91.206.71.8
+    port: 80
+    uuid: c20a0bcf-aa6f-4c35-9e62-a39b47b04e73
+    network: ws
+    tls: false
+    ws-opts:
+      path: /pyip=Telegram🇨🇳 @WangCai2
+      headers:
+        Host: round-haze-8783.294.workers.dev
+    skip-cert-verify: true
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_60
+    type: vless
+    server: 91.206.71.8
+    port: 80
+    uuid: c20a0bcf-aa6f-4c35-9e62-a39b47b04e73
+    network: ws
+    tls: false
+    ws-opts:
+      path: /pyip=Telegram🇨🇳+@WangCai2
+      headers:
+        Host: round-haze-8783.294.workers.dev
+    skip-cert-verify: true
+    udp: true
+  - name: RU俄罗斯(mibei77.com 米贝节点分享)_1
+    type: vless
+    server: 45.155.52.231
+    port: 443
+    uuid: 219f9fec-8983-4f6f-af8c-31bd0c6dbf19
+    servername: ru2.skydrgn-online.online
+    tls: true
+    client-fingerprint: chrome
+    reality-opts:
+      public-key: 6p0aVCkOgd-xaxqSMANYABL6O4Tdbftnxjiy5qcmISQ
+      short-id: 0b
+    skip-cert-verify: true
+    udp: true
+  - name: RU俄罗斯(mibei77.com 米贝节点分享)_2
+    type: vless
+    server: 45.155.52.231
+    port: 443
+    uuid: 219f9fec-8983-4f6f-af8c-31bd0c6dbf19
+    servername: ru2.skydrgn-online.online
+    tls: true
+    client-fingerprint: chrome
+    reality-opts:
+      public-key: 6p0aVCkOgd-xaxqSMANYABL6O4Tdbftnxjiy5qcmISQ
+      short-id: 0b
+    skip-cert-verify: true
+    udp: true
+proxy-groups:
+  - name: 🚀 节点选择
+    type: select
+    proxies:
+      - ♻️ 自动选择
+      - DIRECT
+      - DE德国(mibei77.com 米贝节点分享)
+      - FR法国(mibei77.com 米贝节点分享)
+      - US美国(mibei77.com 米贝节点分享)
+      - HK香港(mibei77.com 米贝节点分享)
+      - DE德国(mibei77.com 米贝节点分享)_1
+      - HK香港(mibei77.com 米贝节点分享)_1
+      - FR法国(mibei77.com 米贝节点分享)_1
+      - US美国(mibei77.com 米贝节点分享)_1
+      - CA加拿大(mibei77.com 米贝节点分享)
+      - DE德国(mibei77.com 米贝节点分享)_2
+      - US美国(mibei77.com 米贝节点分享)_2
+      - FR法国(mibei77.com 米贝节点分享)_2
+      - FR法国(mibei77.com 米贝节点分享)_3
+      - FR法国(mibei77.com 米贝节点分享)_4
+      - FR法国(mibei77.com 米贝节点分享)_5
+      - FR法国(mibei77.com 米贝节点分享)_6
+      - HK香港(mibei77.com 米贝节点分享)_2
+      - FR法国(mibei77.com 米贝节点分享)_7
+      - FR法国(mibei77.com 米贝节点分享)_8
+      - US美国(mibei77.com 米贝节点分享)_3
+      - 西班牙(mibei77.com 米贝节点分享)
+      - US美国(mibei77.com 米贝节点分享)_4
+      - US美国(mibei77.com 米贝节点分享)_5
+      - HK香港(mibei77.com 米贝节点分享)_3
+      - FR法国(mibei77.com 米贝节点分享)_9
+      - FR法国(mibei77.com 米贝节点分享)_10
+      - FR法国(mibei77.com 米贝节点分享)_11
+      - HK香港(mibei77.com 米贝节点分享)_4
+      - HK香港(mibei77.com 米贝节点分享)_5
+      - US美国(mibei77.com 米贝节点分享)_6
+      - 伊朗(mibei77.com 米贝节点分享)
+      - FR法国(mibei77.com 米贝节点分享)_12
+      - NL荷兰(mibei77.com 米贝节点分享)
+      - US美国(mibei77.com 米贝节点分享)_7
+      - US美国(mibei77.com 米贝节点分享)_8
+      - US美国(mibei77.com 米贝节点分享)_9
+      - DE德国(mibei77.com 米贝节点分享)_3
+      - US美国(mibei77.com 米贝节点分享)_10
+      - US美国(mibei77.com 米贝节点分享)_11
+      - HK香港(mibei77.com 米贝节点分享)_6
+      - US美国(mibei77.com 米贝节点分享)_12
+      - HK香港(mibei77.com 米贝节点分享)_7
+      - US美国(mibei77.com 米贝节点分享)_13
+      - US美国(mibei77.com 米贝节点分享)_14
+      - JP日本(mibei77.com 米贝节点分享)
+      - US美国(mibei77.com 米贝节点分享)_15
+      - US美国(mibei77.com 米贝节点分享)_16
+      - US美国(mibei77.com 米贝节点分享)_17
+      - HK香港(mibei77.com 米贝节点分享)_8
+      - FR法国(mibei77.com 米贝节点分享)_13
+      - JP日本(mibei77.com 米贝节点分享)_1
+      - US美国(mibei77.com 米贝节点分享)_18
+      - JP日本(mibei77.com 米贝节点分享)_2
+      - US美国(mibei77.com 米贝节点分享)_19
+      - FR法国(mibei77.com 米贝节点分享)_14
+      - US美国(mibei77.com 米贝节点分享)_20
+      - FR法国(mibei77.com 米贝节点分享)_15
+      - FR法国(mibei77.com 米贝节点分享)_16
+      - US美国(mibei77.com 米贝节点分享)_21
+      - US美国(mibei77.com 米贝节点分享)_22
+      - US美国(mibei77.com 米贝节点分享)_23
+      - US美国(mibei77.com 米贝节点分享)_24
+      - HK香港(mibei77.com 米贝节点分享)_9
+      - US美国(mibei77.com 米贝节点分享)_25
+      - HK香港(mibei77.com 米贝节点分享)_10
+      - US美国(mibei77.com 米贝节点分享)_26
+      - US美国(mibei77.com 米贝节点分享)_27
+      - US美国(mibei77.com 米贝节点分享)_28
+      - FR法国(mibei77.com 米贝节点分享)_17
+      - HK香港(mibei77.com 米贝节点分享)_11
+      - US美国(mibei77.com 米贝节点分享)_29
+      - FR法国(mibei77.com 米贝节点分享)_18
+      - US美国(mibei77.com 米贝节点分享)_30
+      - HK香港(mibei77.com 米贝节点分享)_12
+      - US美国(mibei77.com 米贝节点分享)_31
+      - US美国(mibei77.com 米贝节点分享)_32
+      - HK香港(mibei77.com 米贝节点分享)_13
+      - US美国(mibei77.com 米贝节点分享)_33
+      - FR法国(mibei77.com 米贝节点分享)_19
+      - US美国(mibei77.com 米贝节点分享)_34
+      - US美国(mibei77.com 米贝节点分享)_35
+      - JP日本(mibei77.com 米贝节点分享)_3
+      - US美国(mibei77.com 米贝节点分享)_36
+      - 土耳其(mibei77.com 米贝节点分享)
+      - FR法国(mibei77.com 米贝节点分享)_20
+      - US美国(mibei77.com 米贝节点分享)_37
+      - GB英国(mibei77.com 米贝节点分享)
+      - NL荷兰(mibei77.com 米贝节点分享)_1
+      - DE德国(mibei77.com 米贝节点分享)_4
+      - HK香港(mibei77.com 米贝节点分享)_14
+      - GB英国(mibei77.com 米贝节点分享)_1
+      - US美国(mibei77.com 米贝节点分享)_38
+      - US美国(mibei77.com 米贝节点分享)_39
+      - DE德国(mibei77.com 米贝节点分享)_5
+      - US美国(mibei77.com 米贝节点分享)_40
+      - US美国(mibei77.com 米贝节点分享)_41
+      - US美国(mibei77.com 米贝节点分享)_42
+      - FR法国(mibei77.com 米贝节点分享)_21
+      - US美国(mibei77.com 米贝节点分享)_43
+      - CA加拿大(mibei77.com 米贝节点分享)_1
+      - FR法国(mibei77.com 米贝节点分享)_22
+      - FR法国(mibei77.com 米贝节点分享)_23
+      - NL荷兰(mibei77.com 米贝节点分享)_2
+      - FR法国(mibei77.com 米贝节点分享)_24
+      - RU俄罗斯(mibei77.com 米贝节点分享)
+      - US美国(mibei77.com 米贝节点分享)_44
+      - US美国(mibei77.com 米贝节点分享)_45
+      - US美国(mibei77.com 米贝节点分享)_46
+      - FR法国(mibei77.com 米贝节点分享)_25
+      - FR法国(mibei77.com 米贝节点分享)_26
+      - 瑞典(mibei77.com 米贝节点分享)
+      - FR法国(mibei77.com 米贝节点分享)_27
+      - SG新加坡(mibei77.com 米贝节点分享)
+      - US美国(mibei77.com 米贝节点分享)_47
+      - US美国(mibei77.com 米贝节点分享)_48
+      - US美国(mibei77.com 米贝节点分享)_49
+      - 瑞典(mibei77.com 米贝节点分享)_1
+      - CA加拿大(mibei77.com 米贝节点分享)_2
+      - 瑞典(mibei77.com 米贝节点分享)_2
+      - GB英国(mibei77.com 米贝节点分享)_2
+      - HK香港(mibei77.com 米贝节点分享)_15
+      - 巴西(mibei77.com 米贝节点分享)
+      - GB英国(mibei77.com 米贝节点分享)_3
+      - GB英国(mibei77.com 米贝节点分享)_4
+      - NL荷兰(mibei77.com 米贝节点分享)_3
+      - US美国(mibei77.com 米贝节点分享)_50
+      - PL波兰(mibei77.com 米贝节点分享)
+      - DE德国(mibei77.com 米贝节点分享)_6
+      - US美国(mibei77.com 米贝节点分享)_51
+      - GB英国(mibei77.com 米贝节点分享)_5
+      - IN印度(mibei77.com 米贝节点分享)
+      - HK香港(mibei77.com 米贝节点分享)_16
+      - 西班牙(mibei77.com 米贝节点分享)_1
+      - US美国(mibei77.com 米贝节点分享)_52
+      - US美国(mibei77.com 米贝节点分享)_53
+      - TW台湾(mibei77.com 米贝节点分享)
+      - TW台湾(mibei77.com 米贝节点分享)_1
+      - JP日本(mibei77.com 米贝节点分享)_4
+      - JP日本(mibei77.com 米贝节点分享)_5
+      - FR法国(mibei77.com 米贝节点分享)_28
+      - 哥伦比亚(mibei77.com 米贝节点分享)
+      - 哥伦比亚(mibei77.com 米贝节点分享)_1
+      - 哥伦比亚(mibei77.com 米贝节点分享)_2
+      - 哥伦比亚(mibei77.com 米贝节点分享)_3
+      - FR法国(mibei77.com 米贝节点分享)_29
+      - DE德国(mibei77.com 米贝节点分享)_7
+      - PL波兰(mibei77.com 米贝节点分享)_1
+      - 巴西(mibei77.com 米贝节点分享)_1
+      - 巴西(mibei77.com 米贝节点分享)_2
+      - US美国(mibei77.com 米贝节点分享)_54
+      - US美国(mibei77.com 米贝节点分享)_55
+      - US美国(mibei77.com 米贝节点分享)_56
+      - US美国(mibei77.com 米贝节点分享)_57
+      - US美国(mibei77.com 米贝节点分享)_58
+      - US美国(mibei77.com 米贝节点分享)_59
+      - US美国(mibei77.com 米贝节点分享)_60
+      - RU俄罗斯(mibei77.com 米贝节点分享)_1
+      - RU俄罗斯(mibei77.com 米贝节点分享)_2
+  - name: ♻️ 自动选择
+    type: url-test
+    proxies:
+      - DE德国(mibei77.com 米贝节点分享)
+      - FR法国(mibei77.com 米贝节点分享)
+      - US美国(mibei77.com 米贝节点分享)
+      - HK香港(mibei77.com 米贝节点分享)
+      - DE德国(mibei77.com 米贝节点分享)_1
+      - HK香港(mibei77.com 米贝节点分享)_1
+      - FR法国(mibei77.com 米贝节点分享)_1
+      - US美国(mibei77.com 米贝节点分享)_1
+      - CA加拿大(mibei77.com 米贝节点分享)
+      - DE德国(mibei77.com 米贝节点分享)_2
+      - US美国(mibei77.com 米贝节点分享)_2
+      - FR法国(mibei77.com 米贝节点分享)_2
+      - FR法国(mibei77.com 米贝节点分享)_3
+      - FR法国(mibei77.com 米贝节点分享)_4
+      - FR法国(mibei77.com 米贝节点分享)_5
+      - FR法国(mibei77.com 米贝节点分享)_6
+      - HK香港(mibei77.com 米贝节点分享)_2
+      - FR法国(mibei77.com 米贝节点分享)_7
+      - FR法国(mibei77.com 米贝节点分享)_8
+      - US美国(mibei77.com 米贝节点分享)_3
+      - 西班牙(mibei77.com 米贝节点分享)
+      - US美国(mibei77.com 米贝节点分享)_4
+      - US美国(mibei77.com 米贝节点分享)_5
+      - HK香港(mibei77.com 米贝节点分享)_3
+      - FR法国(mibei77.com 米贝节点分享)_9
+      - FR法国(mibei77.com 米贝节点分享)_10
+      - FR法国(mibei77.com 米贝节点分享)_11
+      - HK香港(mibei77.com 米贝节点分享)_4
+      - HK香港(mibei77.com 米贝节点分享)_5
+      - US美国(mibei77.com 米贝节点分享)_6
+      - 伊朗(mibei77.com 米贝节点分享)
+      - FR法国(mibei77.com 米贝节点分享)_12
+      - NL荷兰(mibei77.com 米贝节点分享)
+      - US美国(mibei77.com 米贝节点分享)_7
+      - US美国(mibei77.com 米贝节点分享)_8
+      - US美国(mibei77.com 米贝节点分享)_9
+      - DE德国(mibei77.com 米贝节点分享)_3
+      - US美国(mibei77.com 米贝节点分享)_10
+      - US美国(mibei77.com 米贝节点分享)_11
+      - HK香港(mibei77.com 米贝节点分享)_6
+      - US美国(mibei77.com 米贝节点分享)_12
+      - HK香港(mibei77.com 米贝节点分享)_7
+      - US美国(mibei77.com 米贝节点分享)_13
+      - US美国(mibei77.com 米贝节点分享)_14
+      - JP日本(mibei77.com 米贝节点分享)
+      - US美国(mibei77.com 米贝节点分享)_15
+      - US美国(mibei77.com 米贝节点分享)_16
+      - US美国(mibei77.com 米贝节点分享)_17
+      - HK香港(mibei77.com 米贝节点分享)_8
+      - FR法国(mibei77.com 米贝节点分享)_13
+      - JP日本(mibei77.com 米贝节点分享)_1
+      - US美国(mibei77.com 米贝节点分享)_18
+      - JP日本(mibei77.com 米贝节点分享)_2
+      - US美国(mibei77.com 米贝节点分享)_19
+      - FR法国(mibei77.com 米贝节点分享)_14
+      - US美国(mibei77.com 米贝节点分享)_20
+      - FR法国(mibei77.com 米贝节点分享)_15
+      - FR法国(mibei77.com 米贝节点分享)_16
+      - US美国(mibei77.com 米贝节点分享)_21
+      - US美国(mibei77.com 米贝节点分享)_22
+      - US美国(mibei77.com 米贝节点分享)_23
+      - US美国(mibei77.com 米贝节点分享)_24
+      - HK香港(mibei77.com 米贝节点分享)_9
+      - US美国(mibei77.com 米贝节点分享)_25
+      - HK香港(mibei77.com 米贝节点分享)_10
+      - US美国(mibei77.com 米贝节点分享)_26
+      - US美国(mibei77.com 米贝节点分享)_27
+      - US美国(mibei77.com 米贝节点分享)_28
+      - FR法国(mibei77.com 米贝节点分享)_17
+      - HK香港(mibei77.com 米贝节点分享)_11
+      - US美国(mibei77.com 米贝节点分享)_29
+      - FR法国(mibei77.com 米贝节点分享)_18
+      - US美国(mibei77.com 米贝节点分享)_30
+      - HK香港(mibei77.com 米贝节点分享)_12
+      - US美国(mibei77.com 米贝节点分享)_31
+      - US美国(mibei77.com 米贝节点分享)_32
+      - HK香港(mibei77.com 米贝节点分享)_13
+      - US美国(mibei77.com 米贝节点分享)_33
+      - FR法国(mibei77.com 米贝节点分享)_19
+      - US美国(mibei77.com 米贝节点分享)_34
+      - US美国(mibei77.com 米贝节点分享)_35
+      - JP日本(mibei77.com 米贝节点分享)_3
+      - US美国(mibei77.com 米贝节点分享)_36
+      - 土耳其(mibei77.com 米贝节点分享)
+      - FR法国(mibei77.com 米贝节点分享)_20
+      - US美国(mibei77.com 米贝节点分享)_37
+      - GB英国(mibei77.com 米贝节点分享)
+      - NL荷兰(mibei77.com 米贝节点分享)_1
+      - DE德国(mibei77.com 米贝节点分享)_4
+      - HK香港(mibei77.com 米贝节点分享)_14
+      - GB英国(mibei77.com 米贝节点分享)_1
+      - US美国(mibei77.com 米贝节点分享)_38
+      - US美国(mibei77.com 米贝节点分享)_39
+      - DE德国(mibei77.com 米贝节点分享)_5
+      - US美国(mibei77.com 米贝节点分享)_40
+      - US美国(mibei77.com 米贝节点分享)_41
+      - US美国(mibei77.com 米贝节点分享)_42
+      - FR法国(mibei77.com 米贝节点分享)_21
+      - US美国(mibei77.com 米贝节点分享)_43
+      - CA加拿大(mibei77.com 米贝节点分享)_1
+      - FR法国(mibei77.com 米贝节点分享)_22
+      - FR法国(mibei77.com 米贝节点分享)_23
+      - NL荷兰(mibei77.com 米贝节点分享)_2
+      - FR法国(mibei77.com 米贝节点分享)_24
+      - RU俄罗斯(mibei77.com 米贝节点分享)
+      - US美国(mibei77.com 米贝节点分享)_44
+      - US美国(mibei77.com 米贝节点分享)_45
+      - US美国(mibei77.com 米贝节点分享)_46
+      - FR法国(mibei77.com 米贝节点分享)_25
+      - FR法国(mibei77.com 米贝节点分享)_26
+      - 瑞典(mibei77.com 米贝节点分享)
+      - FR法国(mibei77.com 米贝节点分享)_27
+      - SG新加坡(mibei77.com 米贝节点分享)
+      - US美国(mibei77.com 米贝节点分享)_47
+      - US美国(mibei77.com 米贝节点分享)_48
+      - US美国(mibei77.com 米贝节点分享)_49
+      - 瑞典(mibei77.com 米贝节点分享)_1
+      - CA加拿大(mibei77.com 米贝节点分享)_2
+      - 瑞典(mibei77.com 米贝节点分享)_2
+      - GB英国(mibei77.com 米贝节点分享)_2
+      - HK香港(mibei77.com 米贝节点分享)_15
+      - 巴西(mibei77.com 米贝节点分享)
+      - GB英国(mibei77.com 米贝节点分享)_3
+      - GB英国(mibei77.com 米贝节点分享)_4
+      - NL荷兰(mibei77.com 米贝节点分享)_3
+      - US美国(mibei77.com 米贝节点分享)_50
+      - PL波兰(mibei77.com 米贝节点分享)
+      - DE德国(mibei77.com 米贝节点分享)_6
+      - US美国(mibei77.com 米贝节点分享)_51
+      - GB英国(mibei77.com 米贝节点分享)_5
+      - IN印度(mibei77.com 米贝节点分享)
+      - HK香港(mibei77.com 米贝节点分享)_16
+      - 西班牙(mibei77.com 米贝节点分享)_1
+      - US美国(mibei77.com 米贝节点分享)_52
+      - US美国(mibei77.com 米贝节点分享)_53
+      - TW台湾(mibei77.com 米贝节点分享)
+      - TW台湾(mibei77.com 米贝节点分享)_1
+      - JP日本(mibei77.com 米贝节点分享)_4
+      - JP日本(mibei77.com 米贝节点分享)_5
+      - FR法国(mibei77.com 米贝节点分享)_28
+      - 哥伦比亚(mibei77.com 米贝节点分享)
+      - 哥伦比亚(mibei77.com 米贝节点分享)_1
+      - 哥伦比亚(mibei77.com 米贝节点分享)_2
+      - 哥伦比亚(mibei77.com 米贝节点分享)_3
+      - FR法国(mibei77.com 米贝节点分享)_29
+      - DE德国(mibei77.com 米贝节点分享)_7
+      - PL波兰(mibei77.com 米贝节点分享)_1
+      - 巴西(mibei77.com 米贝节点分享)_1
+      - 巴西(mibei77.com 米贝节点分享)_2
+      - US美国(mibei77.com 米贝节点分享)_54
+      - US美国(mibei77.com 米贝节点分享)_55
+      - US美国(mibei77.com 米贝节点分享)_56
+      - US美国(mibei77.com 米贝节点分享)_57
+      - US美国(mibei77.com 米贝节点分享)_58
+      - US美国(mibei77.com 米贝节点分享)_59
+      - US美国(mibei77.com 米贝节点分享)_60
+      - RU俄罗斯(mibei77.com 米贝节点分享)_1
+      - RU俄罗斯(mibei77.com 米贝节点分享)_2
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+  - name: 🌍 国外媒体
+    type: select
+    proxies:
+      - 🚀 节点选择
+      - ♻️ 自动选择
+      - 🎯 全球直连
+      - DE德国(mibei77.com 米贝节点分享)
+      - FR法国(mibei77.com 米贝节点分享)
+      - US美国(mibei77.com 米贝节点分享)
+      - HK香港(mibei77.com 米贝节点分享)
+      - DE德国(mibei77.com 米贝节点分享)_1
+      - HK香港(mibei77.com 米贝节点分享)_1
+      - FR法国(mibei77.com 米贝节点分享)_1
+      - US美国(mibei77.com 米贝节点分享)_1
+      - CA加拿大(mibei77.com 米贝节点分享)
+      - DE德国(mibei77.com 米贝节点分享)_2
+      - US美国(mibei77.com 米贝节点分享)_2
+      - FR法国(mibei77.com 米贝节点分享)_2
+      - FR法国(mibei77.com 米贝节点分享)_3
+      - FR法国(mibei77.com 米贝节点分享)_4
+      - FR法国(mibei77.com 米贝节点分享)_5
+      - FR法国(mibei77.com 米贝节点分享)_6
+      - HK香港(mibei77.com 米贝节点分享)_2
+      - FR法国(mibei77.com 米贝节点分享)_7
+      - FR法国(mibei77.com 米贝节点分享)_8
+      - US美国(mibei77.com 米贝节点分享)_3
+      - 西班牙(mibei77.com 米贝节点分享)
+      - US美国(mibei77.com 米贝节点分享)_4
+      - US美国(mibei77.com 米贝节点分享)_5
+      - HK香港(mibei77.com 米贝节点分享)_3
+      - FR法国(mibei77.com 米贝节点分享)_9
+      - FR法国(mibei77.com 米贝节点分享)_10
+      - FR法国(mibei77.com 米贝节点分享)_11
+      - HK香港(mibei77.com 米贝节点分享)_4
+      - HK香港(mibei77.com 米贝节点分享)_5
+      - US美国(mibei77.com 米贝节点分享)_6
+      - 伊朗(mibei77.com 米贝节点分享)
+      - FR法国(mibei77.com 米贝节点分享)_12
+      - NL荷兰(mibei77.com 米贝节点分享)
+      - US美国(mibei77.com 米贝节点分享)_7
+      - US美国(mibei77.com 米贝节点分享)_8
+      - US美国(mibei77.com 米贝节点分享)_9
+      - DE德国(mibei77.com 米贝节点分享)_3
+      - US美国(mibei77.com 米贝节点分享)_10
+      - US美国(mibei77.com 米贝节点分享)_11
+      - HK香港(mibei77.com 米贝节点分享)_6
+      - US美国(mibei77.com 米贝节点分享)_12
+      - HK香港(mibei77.com 米贝节点分享)_7
+      - US美国(mibei77.com 米贝节点分享)_13
+      - US美国(mibei77.com 米贝节点分享)_14
+      - JP日本(mibei77.com 米贝节点分享)
+      - US美国(mibei77.com 米贝节点分享)_15
+      - US美国(mibei77.com 米贝节点分享)_16
+      - US美国(mibei77.com 米贝节点分享)_17
+      - HK香港(mibei77.com 米贝节点分享)_8
+      - FR法国(mibei77.com 米贝节点分享)_13
+      - JP日本(mibei77.com 米贝节点分享)_1
+      - US美国(mibei77.com 米贝节点分享)_18
+      - JP日本(mibei77.com 米贝节点分享)_2
+      - US美国(mibei77.com 米贝节点分享)_19
+      - FR法国(mibei77.com 米贝节点分享)_14
+      - US美国(mibei77.com 米贝节点分享)_20
+      - FR法国(mibei77.com 米贝节点分享)_15
+      - FR法国(mibei77.com 米贝节点分享)_16
+      - US美国(mibei77.com 米贝节点分享)_21
+      - US美国(mibei77.com 米贝节点分享)_22
+      - US美国(mibei77.com 米贝节点分享)_23
+      - US美国(mibei77.com 米贝节点分享)_24
+      - HK香港(mibei77.com 米贝节点分享)_9
+      - US美国(mibei77.com 米贝节点分享)_25
+      - HK香港(mibei77.com 米贝节点分享)_10
+      - US美国(mibei77.com 米贝节点分享)_26
+      - US美国(mibei77.com 米贝节点分享)_27
+      - US美国(mibei77.com 米贝节点分享)_28
+      - FR法国(mibei77.com 米贝节点分享)_17
+      - HK香港(mibei77.com 米贝节点分享)_11
+      - US美国(mibei77.com 米贝节点分享)_29
+      - FR法国(mibei77.com 米贝节点分享)_18
+      - US美国(mibei77.com 米贝节点分享)_30
+      - HK香港(mibei77.com 米贝节点分享)_12
+      - US美国(mibei77.com 米贝节点分享)_31
+      - US美国(mibei77.com 米贝节点分享)_32
+      - HK香港(mibei77.com 米贝节点分享)_13
+      - US美国(mibei77.com 米贝节点分享)_33
+      - FR法国(mibei77.com 米贝节点分享)_19
+      - US美国(mibei77.com 米贝节点分享)_34
+      - US美国(mibei77.com 米贝节点分享)_35
+      - JP日本(mibei77.com 米贝节点分享)_3
+      - US美国(mibei77.com 米贝节点分享)_36
+      - 土耳其(mibei77.com 米贝节点分享)
+      - FR法国(mibei77.com 米贝节点分享)_20
+      - US美国(mibei77.com 米贝节点分享)_37
+      - GB英国(mibei77.com 米贝节点分享)
+      - NL荷兰(mibei77.com 米贝节点分享)_1
+      - DE德国(mibei77.com 米贝节点分享)_4
+      - HK香港(mibei77.com 米贝节点分享)_14
+      - GB英国(mibei77.com 米贝节点分享)_1
+      - US美国(mibei77.com 米贝节点分享)_38
+      - US美国(mibei77.com 米贝节点分享)_39
+      - DE德国(mibei77.com 米贝节点分享)_5
+      - US美国(mibei77.com 米贝节点分享)_40
+      - US美国(mibei77.com 米贝节点分享)_41
+      - US美国(mibei77.com 米贝节点分享)_42
+      - FR法国(mibei77.com 米贝节点分享)_21
+      - US美国(mibei77.com 米贝节点分享)_43
+      - CA加拿大(mibei77.com 米贝节点分享)_1
+      - FR法国(mibei77.com 米贝节点分享)_22
+      - FR法国(mibei77.com 米贝节点分享)_23
+      - NL荷兰(mibei77.com 米贝节点分享)_2
+      - FR法国(mibei77.com 米贝节点分享)_24
+      - RU俄罗斯(mibei77.com 米贝节点分享)
+      - US美国(mibei77.com 米贝节点分享)_44
+      - US美国(mibei77.com 米贝节点分享)_45
+      - US美国(mibei77.com 米贝节点分享)_46
+      - FR法国(mibei77.com 米贝节点分享)_25
+      - FR法国(mibei77.com 米贝节点分享)_26
+      - 瑞典(mibei77.com 米贝节点分享)
+      - FR法国(mibei77.com 米贝节点分享)_27
+      - SG新加坡(mibei77.com 米贝节点分享)
+      - US美国(mibei77.com 米贝节点分享)_47
+      - US美国(mibei77.com 米贝节点分享)_48
+      - US美国(mibei77.com 米贝节点分享)_49
+      - 瑞典(mibei77.com 米贝节点分享)_1
+      - CA加拿大(mibei77.com 米贝节点分享)_2
+      - 瑞典(mibei77.com 米贝节点分享)_2
+      - GB英国(mibei77.com 米贝节点分享)_2
+      - HK香港(mibei77.com 米贝节点分享)_15
+      - 巴西(mibei77.com 米贝节点分享)
+      - GB英国(mibei77.com 米贝节点分享)_3
+      - GB英国(mibei77.com 米贝节点分享)_4
+      - NL荷兰(mibei77.com 米贝节点分享)_3
+      - US美国(mibei77.com 米贝节点分享)_50
+      - PL波兰(mibei77.com 米贝节点分享)
+      - DE德国(mibei77.com 米贝节点分享)_6
+      - US美国(mibei77.com 米贝节点分享)_51
+      - GB英国(mibei77.com 米贝节点分享)_5
+      - IN印度(mibei77.com 米贝节点分享)
+      - HK香港(mibei77.com 米贝节点分享)_16
+      - 西班牙(mibei77.com 米贝节点分享)_1
+      - US美国(mibei77.com 米贝节点分享)_52
+      - US美国(mibei77.com 米贝节点分享)_53
+      - TW台湾(mibei77.com 米贝节点分享)
+      - TW台湾(mibei77.com 米贝节点分享)_1
+      - JP日本(mibei77.com 米贝节点分享)_4
+      - JP日本(mibei77.com 米贝节点分享)_5
+      - FR法国(mibei77.com 米贝节点分享)_28
+      - 哥伦比亚(mibei77.com 米贝节点分享)
+      - 哥伦比亚(mibei77.com 米贝节点分享)_1
+      - 哥伦比亚(mibei77.com 米贝节点分享)_2
+      - 哥伦比亚(mibei77.com 米贝节点分享)_3
+      - FR法国(mibei77.com 米贝节点分享)_29
+      - DE德国(mibei77.com 米贝节点分享)_7
+      - PL波兰(mibei77.com 米贝节点分享)_1
+      - 巴西(mibei77.com 米贝节点分享)_1
+      - 巴西(mibei77.com 米贝节点分享)_2
+      - US美国(mibei77.com 米贝节点分享)_54
+      - US美国(mibei77.com 米贝节点分享)_55
+      - US美国(mibei77.com 米贝节点分享)_56
+      - US美国(mibei77.com 米贝节点分享)_57
+      - US美国(mibei77.com 米贝节点分享)_58
+      - US美国(mibei77.com 米贝节点分享)_59
+      - US美国(mibei77.com 米贝节点分享)_60
+      - RU俄罗斯(mibei77.com 米贝节点分享)_1
+      - RU俄罗斯(mibei77.com 米贝节点分享)_2
+  - name: 📲 电报信息
+    type: select
+    proxies:
+      - 🚀 节点选择
+      - 🎯 全球直连
+      - DE德国(mibei77.com 米贝节点分享)
+      - FR法国(mibei77.com 米贝节点分享)
+      - US美国(mibei77.com 米贝节点分享)
+      - HK香港(mibei77.com 米贝节点分享)
+      - DE德国(mibei77.com 米贝节点分享)_1
+      - HK香港(mibei77.com 米贝节点分享)_1
+      - FR法国(mibei77.com 米贝节点分享)_1
+      - US美国(mibei77.com 米贝节点分享)_1
+      - CA加拿大(mibei77.com 米贝节点分享)
+      - DE德国(mibei77.com 米贝节点分享)_2
+      - US美国(mibei77.com 米贝节点分享)_2
+      - FR法国(mibei77.com 米贝节点分享)_2
+      - FR法国(mibei77.com 米贝节点分享)_3
+      - FR法国(mibei77.com 米贝节点分享)_4
+      - FR法国(mibei77.com 米贝节点分享)_5
+      - FR法国(mibei77.com 米贝节点分享)_6
+      - HK香港(mibei77.com 米贝节点分享)_2
+      - FR法国(mibei77.com 米贝节点分享)_7
+      - FR法国(mibei77.com 米贝节点分享)_8
+      - US美国(mibei77.com 米贝节点分享)_3
+      - 西班牙(mibei77.com 米贝节点分享)
+      - US美国(mibei77.com 米贝节点分享)_4
+      - US美国(mibei77.com 米贝节点分享)_5
+      - HK香港(mibei77.com 米贝节点分享)_3
+      - FR法国(mibei77.com 米贝节点分享)_9
+      - FR法国(mibei77.com 米贝节点分享)_10
+      - FR法国(mibei77.com 米贝节点分享)_11
+      - HK香港(mibei77.com 米贝节点分享)_4
+      - HK香港(mibei77.com 米贝节点分享)_5
+      - US美国(mibei77.com 米贝节点分享)_6
+      - 伊朗(mibei77.com 米贝节点分享)
+      - FR法国(mibei77.com 米贝节点分享)_12
+      - NL荷兰(mibei77.com 米贝节点分享)
+      - US美国(mibei77.com 米贝节点分享)_7
+      - US美国(mibei77.com 米贝节点分享)_8
+      - US美国(mibei77.com 米贝节点分享)_9
+      - DE德国(mibei77.com 米贝节点分享)_3
+      - US美国(mibei77.com 米贝节点分享)_10
+      - US美国(mibei77.com 米贝节点分享)_11
+      - HK香港(mibei77.com 米贝节点分享)_6
+      - US美国(mibei77.com 米贝节点分享)_12
+      - HK香港(mibei77.com 米贝节点分享)_7
+      - US美国(mibei77.com 米贝节点分享)_13
+      - US美国(mibei77.com 米贝节点分享)_14
+      - JP日本(mibei77.com 米贝节点分享)
+      - US美国(mibei77.com 米贝节点分享)_15
+      - US美国(mibei77.com 米贝节点分享)_16
+      - US美国(mibei77.com 米贝节点分享)_17
+      - HK香港(mibei77.com 米贝节点分享)_8
+      - FR法国(mibei77.com 米贝节点分享)_13
+      - JP日本(mibei77.com 米贝节点分享)_1
+      - US美国(mibei77.com 米贝节点分享)_18
+      - JP日本(mibei77.com 米贝节点分享)_2
+      - US美国(mibei77.com 米贝节点分享)_19
+      - FR法国(mibei77.com 米贝节点分享)_14
+      - US美国(mibei77.com 米贝节点分享)_20
+      - FR法国(mibei77.com 米贝节点分享)_15
+      - FR法国(mibei77.com 米贝节点分享)_16
+      - US美国(mibei77.com 米贝节点分享)_21
+      - US美国(mibei77.com 米贝节点分享)_22
+      - US美国(mibei77.com 米贝节点分享)_23
+      - US美国(mibei77.com 米贝节点分享)_24
+      - HK香港(mibei77.com 米贝节点分享)_9
+      - US美国(mibei77.com 米贝节点分享)_25
+      - HK香港(mibei77.com 米贝节点分享)_10
+      - US美国(mibei77.com 米贝节点分享)_26
+      - US美国(mibei77.com 米贝节点分享)_27
+      - US美国(mibei77.com 米贝节点分享)_28
+      - FR法国(mibei77.com 米贝节点分享)_17
+      - HK香港(mibei77.com 米贝节点分享)_11
+      - US美国(mibei77.com 米贝节点分享)_29
+      - FR法国(mibei77.com 米贝节点分享)_18
+      - US美国(mibei77.com 米贝节点分享)_30
+      - HK香港(mibei77.com 米贝节点分享)_12
+      - US美国(mibei77.com 米贝节点分享)_31
+      - US美国(mibei77.com 米贝节点分享)_32
+      - HK香港(mibei77.com 米贝节点分享)_13
+      - US美国(mibei77.com 米贝节点分享)_33
+      - FR法国(mibei77.com 米贝节点分享)_19
+      - US美国(mibei77.com 米贝节点分享)_34
+      - US美国(mibei77.com 米贝节点分享)_35
+      - JP日本(mibei77.com 米贝节点分享)_3
+      - US美国(mibei77.com 米贝节点分享)_36
+      - 土耳其(mibei77.com 米贝节点分享)
+      - FR法国(mibei77.com 米贝节点分享)_20
+      - US美国(mibei77.com 米贝节点分享)_37
+      - GB英国(mibei77.com 米贝节点分享)
+      - NL荷兰(mibei77.com 米贝节点分享)_1
+      - DE德国(mibei77.com 米贝节点分享)_4
+      - HK香港(mibei77.com 米贝节点分享)_14
+      - GB英国(mibei77.com 米贝节点分享)_1
+      - US美国(mibei77.com 米贝节点分享)_38
+      - US美国(mibei77.com 米贝节点分享)_39
+      - DE德国(mibei77.com 米贝节点分享)_5
+      - US美国(mibei77.com 米贝节点分享)_40
+      - US美国(mibei77.com 米贝节点分享)_41
+      - US美国(mibei77.com 米贝节点分享)_42
+      - FR法国(mibei77.com 米贝节点分享)_21
+      - US美国(mibei77.com 米贝节点分享)_43
+      - CA加拿大(mibei77.com 米贝节点分享)_1
+      - FR法国(mibei77.com 米贝节点分享)_22
+      - FR法国(mibei77.com 米贝节点分享)_23
+      - NL荷兰(mibei77.com 米贝节点分享)_2
+      - FR法国(mibei77.com 米贝节点分享)_24
+      - RU俄罗斯(mibei77.com 米贝节点分享)
+      - US美国(mibei77.com 米贝节点分享)_44
+      - US美国(mibei77.com 米贝节点分享)_45
+      - US美国(mibei77.com 米贝节点分享)_46
+      - FR法国(mibei77.com 米贝节点分享)_25
+      - FR法国(mibei77.com 米贝节点分享)_26
+      - 瑞典(mibei77.com 米贝节点分享)
+      - FR法国(mibei77.com 米贝节点分享)_27
+      - SG新加坡(mibei77.com 米贝节点分享)
+      - US美国(mibei77.com 米贝节点分享)_47
+      - US美国(mibei77.com 米贝节点分享)_48
+      - US美国(mibei77.com 米贝节点分享)_49
+      - 瑞典(mibei77.com 米贝节点分享)_1
+      - CA加拿大(mibei77.com 米贝节点分享)_2
+      - 瑞典(mibei77.com 米贝节点分享)_2
+      - GB英国(mibei77.com 米贝节点分享)_2
+      - HK香港(mibei77.com 米贝节点分享)_15
+      - 巴西(mibei77.com 米贝节点分享)
+      - GB英国(mibei77.com 米贝节点分享)_3
+      - GB英国(mibei77.com 米贝节点分享)_4
+      - NL荷兰(mibei77.com 米贝节点分享)_3
+      - US美国(mibei77.com 米贝节点分享)_50
+      - PL波兰(mibei77.com 米贝节点分享)
+      - DE德国(mibei77.com 米贝节点分享)_6
+      - US美国(mibei77.com 米贝节点分享)_51
+      - GB英国(mibei77.com 米贝节点分享)_5
+      - IN印度(mibei77.com 米贝节点分享)
+      - HK香港(mibei77.com 米贝节点分享)_16
+      - 西班牙(mibei77.com 米贝节点分享)_1
+      - US美国(mibei77.com 米贝节点分享)_52
+      - US美国(mibei77.com 米贝节点分享)_53
+      - TW台湾(mibei77.com 米贝节点分享)
+      - TW台湾(mibei77.com 米贝节点分享)_1
+      - JP日本(mibei77.com 米贝节点分享)_4
+      - JP日本(mibei77.com 米贝节点分享)_5
+      - FR法国(mibei77.com 米贝节点分享)_28
+      - 哥伦比亚(mibei77.com 米贝节点分享)
+      - 哥伦比亚(mibei77.com 米贝节点分享)_1
+      - 哥伦比亚(mibei77.com 米贝节点分享)_2
+      - 哥伦比亚(mibei77.com 米贝节点分享)_3
+      - FR法国(mibei77.com 米贝节点分享)_29
+      - DE德国(mibei77.com 米贝节点分享)_7
+      - PL波兰(mibei77.com 米贝节点分享)_1
+      - 巴西(mibei77.com 米贝节点分享)_1
+      - 巴西(mibei77.com 米贝节点分享)_2
+      - US美国(mibei77.com 米贝节点分享)_54
+      - US美国(mibei77.com 米贝节点分享)_55
+      - US美国(mibei77.com 米贝节点分享)_56
+      - US美国(mibei77.com 米贝节点分享)_57
+      - US美国(mibei77.com 米贝节点分享)_58
+      - US美国(mibei77.com 米贝节点分享)_59
+      - US美国(mibei77.com 米贝节点分享)_60
+      - RU俄罗斯(mibei77.com 米贝节点分享)_1
+      - RU俄罗斯(mibei77.com 米贝节点分享)_2
+  - name: Ⓜ️ 微软服务
+    type: select
+    proxies:
+      - 🎯 全球直连
+      - 🚀 节点选择
+      - DE德国(mibei77.com 米贝节点分享)
+      - FR法国(mibei77.com 米贝节点分享)
+      - US美国(mibei77.com 米贝节点分享)
+      - HK香港(mibei77.com 米贝节点分享)
+      - DE德国(mibei77.com 米贝节点分享)_1
+      - HK香港(mibei77.com 米贝节点分享)_1
+      - FR法国(mibei77.com 米贝节点分享)_1
+      - US美国(mibei77.com 米贝节点分享)_1
+      - CA加拿大(mibei77.com 米贝节点分享)
+      - DE德国(mibei77.com 米贝节点分享)_2
+      - US美国(mibei77.com 米贝节点分享)_2
+      - FR法国(mibei77.com 米贝节点分享)_2
+      - FR法国(mibei77.com 米贝节点分享)_3
+      - FR法国(mibei77.com 米贝节点分享)_4
+      - FR法国(mibei77.com 米贝节点分享)_5
+      - FR法国(mibei77.com 米贝节点分享)_6
+      - HK香港(mibei77.com 米贝节点分享)_2
+      - FR法国(mibei77.com 米贝节点分享)_7
+      - FR法国(mibei77.com 米贝节点分享)_8
+      - US美国(mibei77.com 米贝节点分享)_3
+      - 西班牙(mibei77.com 米贝节点分享)
+      - US美国(mibei77.com 米贝节点分享)_4
+      - US美国(mibei77.com 米贝节点分享)_5
+      - HK香港(mibei77.com 米贝节点分享)_3
+      - FR法国(mibei77.com 米贝节点分享)_9
+      - FR法国(mibei77.com 米贝节点分享)_10
+      - FR法国(mibei77.com 米贝节点分享)_11
+      - HK香港(mibei77.com 米贝节点分享)_4
+      - HK香港(mibei77.com 米贝节点分享)_5
+      - US美国(mibei77.com 米贝节点分享)_6
+      - 伊朗(mibei77.com 米贝节点分享)
+      - FR法国(mibei77.com 米贝节点分享)_12
+      - NL荷兰(mibei77.com 米贝节点分享)
+      - US美国(mibei77.com 米贝节点分享)_7
+      - US美国(mibei77.com 米贝节点分享)_8
+      - US美国(mibei77.com 米贝节点分享)_9
+      - DE德国(mibei77.com 米贝节点分享)_3
+      - US美国(mibei77.com 米贝节点分享)_10
+      - US美国(mibei77.com 米贝节点分享)_11
+      - HK香港(mibei77.com 米贝节点分享)_6
+      - US美国(mibei77.com 米贝节点分享)_12
+      - HK香港(mibei77.com 米贝节点分享)_7
+      - US美国(mibei77.com 米贝节点分享)_13
+      - US美国(mibei77.com 米贝节点分享)_14
+      - JP日本(mibei77.com 米贝节点分享)
+      - US美国(mibei77.com 米贝节点分享)_15
+      - US美国(mibei77.com 米贝节点分享)_16
+      - US美国(mibei77.com 米贝节点分享)_17
+      - HK香港(mibei77.com 米贝节点分享)_8
+      - FR法国(mibei77.com 米贝节点分享)_13
+      - JP日本(mibei77.com 米贝节点分享)_1
+      - US美国(mibei77.com 米贝节点分享)_18
+      - JP日本(mibei77.com 米贝节点分享)_2
+      - US美国(mibei77.com 米贝节点分享)_19
+      - FR法国(mibei77.com 米贝节点分享)_14
+      - US美国(mibei77.com 米贝节点分享)_20
+      - FR法国(mibei77.com 米贝节点分享)_15
+      - FR法国(mibei77.com 米贝节点分享)_16
+      - US美国(mibei77.com 米贝节点分享)_21
+      - US美国(mibei77.com 米贝节点分享)_22
+      - US美国(mibei77.com 米贝节点分享)_23
+      - US美国(mibei77.com 米贝节点分享)_24
+      - HK香港(mibei77.com 米贝节点分享)_9
+      - US美国(mibei77.com 米贝节点分享)_25
+      - HK香港(mibei77.com 米贝节点分享)_10
+      - US美国(mibei77.com 米贝节点分享)_26
+      - US美国(mibei77.com 米贝节点分享)_27
+      - US美国(mibei77.com 米贝节点分享)_28
+      - FR法国(mibei77.com 米贝节点分享)_17
+      - HK香港(mibei77.com 米贝节点分享)_11
+      - US美国(mibei77.com 米贝节点分享)_29
+      - FR法国(mibei77.com 米贝节点分享)_18
+      - US美国(mibei77.com 米贝节点分享)_30
+      - HK香港(mibei77.com 米贝节点分享)_12
+      - US美国(mibei77.com 米贝节点分享)_31
+      - US美国(mibei77.com 米贝节点分享)_32
+      - HK香港(mibei77.com 米贝节点分享)_13
+      - US美国(mibei77.com 米贝节点分享)_33
+      - FR法国(mibei77.com 米贝节点分享)_19
+      - US美国(mibei77.com 米贝节点分享)_34
+      - US美国(mibei77.com 米贝节点分享)_35
+      - JP日本(mibei77.com 米贝节点分享)_3
+      - US美国(mibei77.com 米贝节点分享)_36
+      - 土耳其(mibei77.com 米贝节点分享)
+      - FR法国(mibei77.com 米贝节点分享)_20
+      - US美国(mibei77.com 米贝节点分享)_37
+      - GB英国(mibei77.com 米贝节点分享)
+      - NL荷兰(mibei77.com 米贝节点分享)_1
+      - DE德国(mibei77.com 米贝节点分享)_4
+      - HK香港(mibei77.com 米贝节点分享)_14
+      - GB英国(mibei77.com 米贝节点分享)_1
+      - US美国(mibei77.com 米贝节点分享)_38
+      - US美国(mibei77.com 米贝节点分享)_39
+      - DE德国(mibei77.com 米贝节点分享)_5
+      - US美国(mibei77.com 米贝节点分享)_40
+      - US美国(mibei77.com 米贝节点分享)_41
+      - US美国(mibei77.com 米贝节点分享)_42
+      - FR法国(mibei77.com 米贝节点分享)_21
+      - US美国(mibei77.com 米贝节点分享)_43
+      - CA加拿大(mibei77.com 米贝节点分享)_1
+      - FR法国(mibei77.com 米贝节点分享)_22
+      - FR法国(mibei77.com 米贝节点分享)_23
+      - NL荷兰(mibei77.com 米贝节点分享)_2
+      - FR法国(mibei77.com 米贝节点分享)_24
+      - RU俄罗斯(mibei77.com 米贝节点分享)
+      - US美国(mibei77.com 米贝节点分享)_44
+      - US美国(mibei77.com 米贝节点分享)_45
+      - US美国(mibei77.com 米贝节点分享)_46
+      - FR法国(mibei77.com 米贝节点分享)_25
+      - FR法国(mibei77.com 米贝节点分享)_26
+      - 瑞典(mibei77.com 米贝节点分享)
+      - FR法国(mibei77.com 米贝节点分享)_27
+      - SG新加坡(mibei77.com 米贝节点分享)
+      - US美国(mibei77.com 米贝节点分享)_47
+      - US美国(mibei77.com 米贝节点分享)_48
+      - US美国(mibei77.com 米贝节点分享)_49
+      - 瑞典(mibei77.com 米贝节点分享)_1
+      - CA加拿大(mibei77.com 米贝节点分享)_2
+      - 瑞典(mibei77.com 米贝节点分享)_2
+      - GB英国(mibei77.com 米贝节点分享)_2
+      - HK香港(mibei77.com 米贝节点分享)_15
+      - 巴西(mibei77.com 米贝节点分享)
+      - GB英国(mibei77.com 米贝节点分享)_3
+      - GB英国(mibei77.com 米贝节点分享)_4
+      - NL荷兰(mibei77.com 米贝节点分享)_3
+      - US美国(mibei77.com 米贝节点分享)_50
+      - PL波兰(mibei77.com 米贝节点分享)
+      - DE德国(mibei77.com 米贝节点分享)_6
+      - US美国(mibei77.com 米贝节点分享)_51
+      - GB英国(mibei77.com 米贝节点分享)_5
+      - IN印度(mibei77.com 米贝节点分享)
+      - HK香港(mibei77.com 米贝节点分享)_16
+      - 西班牙(mibei77.com 米贝节点分享)_1
+      - US美国(mibei77.com 米贝节点分享)_52
+      - US美国(mibei77.com 米贝节点分享)_53
+      - TW台湾(mibei77.com 米贝节点分享)
+      - TW台湾(mibei77.com 米贝节点分享)_1
+      - JP日本(mibei77.com 米贝节点分享)_4
+      - JP日本(mibei77.com 米贝节点分享)_5
+      - FR法国(mibei77.com 米贝节点分享)_28
+      - 哥伦比亚(mibei77.com 米贝节点分享)
+      - 哥伦比亚(mibei77.com 米贝节点分享)_1
+      - 哥伦比亚(mibei77.com 米贝节点分享)_2
+      - 哥伦比亚(mibei77.com 米贝节点分享)_3
+      - FR法国(mibei77.com 米贝节点分享)_29
+      - DE德国(mibei77.com 米贝节点分享)_7
+      - PL波兰(mibei77.com 米贝节点分享)_1
+      - 巴西(mibei77.com 米贝节点分享)_1
+      - 巴西(mibei77.com 米贝节点分享)_2
+      - US美国(mibei77.com 米贝节点分享)_54
+      - US美国(mibei77.com 米贝节点分享)_55
+      - US美国(mibei77.com 米贝节点分享)_56
+      - US美国(mibei77.com 米贝节点分享)_57
+      - US美国(mibei77.com 米贝节点分享)_58
+      - US美国(mibei77.com 米贝节点分享)_59
+      - US美国(mibei77.com 米贝节点分享)_60
+      - RU俄罗斯(mibei77.com 米贝节点分享)_1
+      - RU俄罗斯(mibei77.com 米贝节点分享)_2
+  - name: 🍎 苹果服务
+    type: select
+    proxies:
+      - 🚀 节点选择
+      - 🎯 全球直连
+      - DE德国(mibei77.com 米贝节点分享)
+      - FR法国(mibei77.com 米贝节点分享)
+      - US美国(mibei77.com 米贝节点分享)
+      - HK香港(mibei77.com 米贝节点分享)
+      - DE德国(mibei77.com 米贝节点分享)_1
+      - HK香港(mibei77.com 米贝节点分享)_1
+      - FR法国(mibei77.com 米贝节点分享)_1
+      - US美国(mibei77.com 米贝节点分享)_1
+      - CA加拿大(mibei77.com 米贝节点分享)
+      - DE德国(mibei77.com 米贝节点分享)_2
+      - US美国(mibei77.com 米贝节点分享)_2
+      - FR法国(mibei77.com 米贝节点分享)_2
+      - FR法国(mibei77.com 米贝节点分享)_3
+      - FR法国(mibei77.com 米贝节点分享)_4
+      - FR法国(mibei77.com 米贝节点分享)_5
+      - FR法国(mibei77.com 米贝节点分享)_6
+      - HK香港(mibei77.com 米贝节点分享)_2
+      - FR法国(mibei77.com 米贝节点分享)_7
+      - FR法国(mibei77.com 米贝节点分享)_8
+      - US美国(mibei77.com 米贝节点分享)_3
+      - 西班牙(mibei77.com 米贝节点分享)
+      - US美国(mibei77.com 米贝节点分享)_4
+      - US美国(mibei77.com 米贝节点分享)_5
+      - HK香港(mibei77.com 米贝节点分享)_3
+      - FR法国(mibei77.com 米贝节点分享)_9
+      - FR法国(mibei77.com 米贝节点分享)_10
+      - FR法国(mibei77.com 米贝节点分享)_11
+      - HK香港(mibei77.com 米贝节点分享)_4
+      - HK香港(mibei77.com 米贝节点分享)_5
+      - US美国(mibei77.com 米贝节点分享)_6
+      - 伊朗(mibei77.com 米贝节点分享)
+      - FR法国(mibei77.com 米贝节点分享)_12
+      - NL荷兰(mibei77.com 米贝节点分享)
+      - US美国(mibei77.com 米贝节点分享)_7
+      - US美国(mibei77.com 米贝节点分享)_8
+      - US美国(mibei77.com 米贝节点分享)_9
+      - DE德国(mibei77.com 米贝节点分享)_3
+      - US美国(mibei77.com 米贝节点分享)_10
+      - US美国(mibei77.com 米贝节点分享)_11
+      - HK香港(mibei77.com 米贝节点分享)_6
+      - US美国(mibei77.com 米贝节点分享)_12
+      - HK香港(mibei77.com 米贝节点分享)_7
+      - US美国(mibei77.com 米贝节点分享)_13
+      - US美国(mibei77.com 米贝节点分享)_14
+      - JP日本(mibei77.com 米贝节点分享)
+      - US美国(mibei77.com 米贝节点分享)_15
+      - US美国(mibei77.com 米贝节点分享)_16
+      - US美国(mibei77.com 米贝节点分享)_17
+      - HK香港(mibei77.com 米贝节点分享)_8
+      - FR法国(mibei77.com 米贝节点分享)_13
+      - JP日本(mibei77.com 米贝节点分享)_1
+      - US美国(mibei77.com 米贝节点分享)_18
+      - JP日本(mibei77.com 米贝节点分享)_2
+      - US美国(mibei77.com 米贝节点分享)_19
+      - FR法国(mibei77.com 米贝节点分享)_14
+      - US美国(mibei77.com 米贝节点分享)_20
+      - FR法国(mibei77.com 米贝节点分享)_15
+      - FR法国(mibei77.com 米贝节点分享)_16
+      - US美国(mibei77.com 米贝节点分享)_21
+      - US美国(mibei77.com 米贝节点分享)_22
+      - US美国(mibei77.com 米贝节点分享)_23
+      - US美国(mibei77.com 米贝节点分享)_24
+      - HK香港(mibei77.com 米贝节点分享)_9
+      - US美国(mibei77.com 米贝节点分享)_25
+      - HK香港(mibei77.com 米贝节点分享)_10
+      - US美国(mibei77.com 米贝节点分享)_26
+      - US美国(mibei77.com 米贝节点分享)_27
+      - US美国(mibei77.com 米贝节点分享)_28
+      - FR法国(mibei77.com 米贝节点分享)_17
+      - HK香港(mibei77.com 米贝节点分享)_11
+      - US美国(mibei77.com 米贝节点分享)_29
+      - FR法国(mibei77.com 米贝节点分享)_18
+      - US美国(mibei77.com 米贝节点分享)_30
+      - HK香港(mibei77.com 米贝节点分享)_12
+      - US美国(mibei77.com 米贝节点分享)_31
+      - US美国(mibei77.com 米贝节点分享)_32
+      - HK香港(mibei77.com 米贝节点分享)_13
+      - US美国(mibei77.com 米贝节点分享)_33
+      - FR法国(mibei77.com 米贝节点分享)_19
+      - US美国(mibei77.com 米贝节点分享)_34
+      - US美国(mibei77.com 米贝节点分享)_35
+      - JP日本(mibei77.com 米贝节点分享)_3
+      - US美国(mibei77.com 米贝节点分享)_36
+      - 土耳其(mibei77.com 米贝节点分享)
+      - FR法国(mibei77.com 米贝节点分享)_20
+      - US美国(mibei77.com 米贝节点分享)_37
+      - GB英国(mibei77.com 米贝节点分享)
+      - NL荷兰(mibei77.com 米贝节点分享)_1
+      - DE德国(mibei77.com 米贝节点分享)_4
+      - HK香港(mibei77.com 米贝节点分享)_14
+      - GB英国(mibei77.com 米贝节点分享)_1
+      - US美国(mibei77.com 米贝节点分享)_38
+      - US美国(mibei77.com 米贝节点分享)_39
+      - DE德国(mibei77.com 米贝节点分享)_5
+      - US美国(mibei77.com 米贝节点分享)_40
+      - US美国(mibei77.com 米贝节点分享)_41
+      - US美国(mibei77.com 米贝节点分享)_42
+      - FR法国(mibei77.com 米贝节点分享)_21
+      - US美国(mibei77.com 米贝节点分享)_43
+      - CA加拿大(mibei77.com 米贝节点分享)_1
+      - FR法国(mibei77.com 米贝节点分享)_22
+      - FR法国(mibei77.com 米贝节点分享)_23
+      - NL荷兰(mibei77.com 米贝节点分享)_2
+      - FR法国(mibei77.com 米贝节点分享)_24
+      - RU俄罗斯(mibei77.com 米贝节点分享)
+      - US美国(mibei77.com 米贝节点分享)_44
+      - US美国(mibei77.com 米贝节点分享)_45
+      - US美国(mibei77.com 米贝节点分享)_46
+      - FR法国(mibei77.com 米贝节点分享)_25
+      - FR法国(mibei77.com 米贝节点分享)_26
+      - 瑞典(mibei77.com 米贝节点分享)
+      - FR法国(mibei77.com 米贝节点分享)_27
+      - SG新加坡(mibei77.com 米贝节点分享)
+      - US美国(mibei77.com 米贝节点分享)_47
+      - US美国(mibei77.com 米贝节点分享)_48
+      - US美国(mibei77.com 米贝节点分享)_49
+      - 瑞典(mibei77.com 米贝节点分享)_1
+      - CA加拿大(mibei77.com 米贝节点分享)_2
+      - 瑞典(mibei77.com 米贝节点分享)_2
+      - GB英国(mibei77.com 米贝节点分享)_2
+      - HK香港(mibei77.com 米贝节点分享)_15
+      - 巴西(mibei77.com 米贝节点分享)
+      - GB英国(mibei77.com 米贝节点分享)_3
+      - GB英国(mibei77.com 米贝节点分享)_4
+      - NL荷兰(mibei77.com 米贝节点分享)_3
+      - US美国(mibei77.com 米贝节点分享)_50
+      - PL波兰(mibei77.com 米贝节点分享)
+      - DE德国(mibei77.com 米贝节点分享)_6
+      - US美国(mibei77.com 米贝节点分享)_51
+      - GB英国(mibei77.com 米贝节点分享)_5
+      - IN印度(mibei77.com 米贝节点分享)
+      - HK香港(mibei77.com 米贝节点分享)_16
+      - 西班牙(mibei77.com 米贝节点分享)_1
+      - US美国(mibei77.com 米贝节点分享)_52
+      - US美国(mibei77.com 米贝节点分享)_53
+      - TW台湾(mibei77.com 米贝节点分享)
+      - TW台湾(mibei77.com 米贝节点分享)_1
+      - JP日本(mibei77.com 米贝节点分享)_4
+      - JP日本(mibei77.com 米贝节点分享)_5
+      - FR法国(mibei77.com 米贝节点分享)_28
+      - 哥伦比亚(mibei77.com 米贝节点分享)
+      - 哥伦比亚(mibei77.com 米贝节点分享)_1
+      - 哥伦比亚(mibei77.com 米贝节点分享)_2
+      - 哥伦比亚(mibei77.com 米贝节点分享)_3
+      - FR法国(mibei77.com 米贝节点分享)_29
+      - DE德国(mibei77.com 米贝节点分享)_7
+      - PL波兰(mibei77.com 米贝节点分享)_1
+      - 巴西(mibei77.com 米贝节点分享)_1
+      - 巴西(mibei77.com 米贝节点分享)_2
+      - US美国(mibei77.com 米贝节点分享)_54
+      - US美国(mibei77.com 米贝节点分享)_55
+      - US美国(mibei77.com 米贝节点分享)_56
+      - US美国(mibei77.com 米贝节点分享)_57
+      - US美国(mibei77.com 米贝节点分享)_58
+      - US美国(mibei77.com 米贝节点分享)_59
+      - US美国(mibei77.com 米贝节点分享)_60
+      - RU俄罗斯(mibei77.com 米贝节点分享)_1
+      - RU俄罗斯(mibei77.com 米贝节点分享)_2
+  - name: 🎯 全球直连
+    type: select
+    proxies:
+      - DIRECT
+      - 🚀 节点选择
+      - ♻️ 自动选择
+  - name: 🛑 全球拦截
+    type: select
+    proxies:
+      - REJECT
+      - DIRECT
+  - name: 🍃 应用净化
+    type: select
+    proxies:
+      - REJECT
+      - DIRECT
+  - name: 🐟 漏网之鱼
+    type: select
+    proxies:
+      - 🚀 节点选择
+      - 🎯 全球直连
+      - ♻️ 自动选择
+      - DE德国(mibei77.com 米贝节点分享)
+      - FR法国(mibei77.com 米贝节点分享)
+      - US美国(mibei77.com 米贝节点分享)
+      - HK香港(mibei77.com 米贝节点分享)
+      - DE德国(mibei77.com 米贝节点分享)_1
+      - HK香港(mibei77.com 米贝节点分享)_1
+      - FR法国(mibei77.com 米贝节点分享)_1
+      - US美国(mibei77.com 米贝节点分享)_1
+      - CA加拿大(mibei77.com 米贝节点分享)
+      - DE德国(mibei77.com 米贝节点分享)_2
+      - US美国(mibei77.com 米贝节点分享)_2
+      - FR法国(mibei77.com 米贝节点分享)_2
+      - FR法国(mibei77.com 米贝节点分享)_3
+      - FR法国(mibei77.com 米贝节点分享)_4
+      - FR法国(mibei77.com 米贝节点分享)_5
+      - FR法国(mibei77.com 米贝节点分享)_6
+      - HK香港(mibei77.com 米贝节点分享)_2
+      - FR法国(mibei77.com 米贝节点分享)_7
+      - FR法国(mibei77.com 米贝节点分享)_8
+      - US美国(mibei77.com 米贝节点分享)_3
+      - 西班牙(mibei77.com 米贝节点分享)
+      - US美国(mibei77.com 米贝节点分享)_4
+      - US美国(mibei77.com 米贝节点分享)_5
+      - HK香港(mibei77.com 米贝节点分享)_3
+      - FR法国(mibei77.com 米贝节点分享)_9
+      - FR法国(mibei77.com 米贝节点分享)_10
+      - FR法国(mibei77.com 米贝节点分享)_11
+      - HK香港(mibei77.com 米贝节点分享)_4
+      - HK香港(mibei77.com 米贝节点分享)_5
+      - US美国(mibei77.com 米贝节点分享)_6
+      - 伊朗(mibei77.com 米贝节点分享)
+      - FR法国(mibei77.com 米贝节点分享)_12
+      - NL荷兰(mibei77.com 米贝节点分享)
+      - US美国(mibei77.com 米贝节点分享)_7
+      - US美国(mibei77.com 米贝节点分享)_8
+      - US美国(mibei77.com 米贝节点分享)_9
+      - DE德国(mibei77.com 米贝节点分享)_3
+      - US美国(mibei77.com 米贝节点分享)_10
+      - US美国(mibei77.com 米贝节点分享)_11
+      - HK香港(mibei77.com 米贝节点分享)_6
+      - US美国(mibei77.com 米贝节点分享)_12
+      - HK香港(mibei77.com 米贝节点分享)_7
+      - US美国(mibei77.com 米贝节点分享)_13
+      - US美国(mibei77.com 米贝节点分享)_14
+      - JP日本(mibei77.com 米贝节点分享)
+      - US美国(mibei77.com 米贝节点分享)_15
+      - US美国(mibei77.com 米贝节点分享)_16
+      - US美国(mibei77.com 米贝节点分享)_17
+      - HK香港(mibei77.com 米贝节点分享)_8
+      - FR法国(mibei77.com 米贝节点分享)_13
+      - JP日本(mibei77.com 米贝节点分享)_1
+      - US美国(mibei77.com 米贝节点分享)_18
+      - JP日本(mibei77.com 米贝节点分享)_2
+      - US美国(mibei77.com 米贝节点分享)_19
+      - FR法国(mibei77.com 米贝节点分享)_14
+      - US美国(mibei77.com 米贝节点分享)_20
+      - FR法国(mibei77.com 米贝节点分享)_15
+      - FR法国(mibei77.com 米贝节点分享)_16
+      - US美国(mibei77.com 米贝节点分享)_21
+      - US美国(mibei77.com 米贝节点分享)_22
+      - US美国(mibei77.com 米贝节点分享)_23
+      - US美国(mibei77.com 米贝节点分享)_24
+      - HK香港(mibei77.com 米贝节点分享)_9
+      - US美国(mibei77.com 米贝节点分享)_25
+      - HK香港(mibei77.com 米贝节点分享)_10
+      - US美国(mibei77.com 米贝节点分享)_26
+      - US美国(mibei77.com 米贝节点分享)_27
+      - US美国(mibei77.com 米贝节点分享)_28
+      - FR法国(mibei77.com 米贝节点分享)_17
+      - HK香港(mibei77.com 米贝节点分享)_11
+      - US美国(mibei77.com 米贝节点分享)_29
+      - FR法国(mibei77.com 米贝节点分享)_18
+      - US美国(mibei77.com 米贝节点分享)_30
+      - HK香港(mibei77.com 米贝节点分享)_12
+      - US美国(mibei77.com 米贝节点分享)_31
+      - US美国(mibei77.com 米贝节点分享)_32
+      - HK香港(mibei77.com 米贝节点分享)_13
+      - US美国(mibei77.com 米贝节点分享)_33
+      - FR法国(mibei77.com 米贝节点分享)_19
+      - US美国(mibei77.com 米贝节点分享)_34
+      - US美国(mibei77.com 米贝节点分享)_35
+      - JP日本(mibei77.com 米贝节点分享)_3
+      - US美国(mibei77.com 米贝节点分享)_36
+      - 土耳其(mibei77.com 米贝节点分享)
+      - FR法国(mibei77.com 米贝节点分享)_20
+      - US美国(mibei77.com 米贝节点分享)_37
+      - GB英国(mibei77.com 米贝节点分享)
+      - NL荷兰(mibei77.com 米贝节点分享)_1
+      - DE德国(mibei77.com 米贝节点分享)_4
+      - HK香港(mibei77.com 米贝节点分享)_14
+      - GB英国(mibei77.com 米贝节点分享)_1
+      - US美国(mibei77.com 米贝节点分享)_38
+      - US美国(mibei77.com 米贝节点分享)_39
+      - DE德国(mibei77.com 米贝节点分享)_5
+      - US美国(mibei77.com 米贝节点分享)_40
+      - US美国(mibei77.com 米贝节点分享)_41
+      - US美国(mibei77.com 米贝节点分享)_42
+      - FR法国(mibei77.com 米贝节点分享)_21
+      - US美国(mibei77.com 米贝节点分享)_43
+      - CA加拿大(mibei77.com 米贝节点分享)_1
+      - FR法国(mibei77.com 米贝节点分享)_22
+      - FR法国(mibei77.com 米贝节点分享)_23
+      - NL荷兰(mibei77.com 米贝节点分享)_2
+      - FR法国(mibei77.com 米贝节点分享)_24
+      - RU俄罗斯(mibei77.com 米贝节点分享)
+      - US美国(mibei77.com 米贝节点分享)_44
+      - US美国(mibei77.com 米贝节点分享)_45
+      - US美国(mibei77.com 米贝节点分享)_46
+      - FR法国(mibei77.com 米贝节点分享)_25
+      - FR法国(mibei77.com 米贝节点分享)_26
+      - 瑞典(mibei77.com 米贝节点分享)
+      - FR法国(mibei77.com 米贝节点分享)_27
+      - SG新加坡(mibei77.com 米贝节点分享)
+      - US美国(mibei77.com 米贝节点分享)_47
+      - US美国(mibei77.com 米贝节点分享)_48
+      - US美国(mibei77.com 米贝节点分享)_49
+      - 瑞典(mibei77.com 米贝节点分享)_1
+      - CA加拿大(mibei77.com 米贝节点分享)_2
+      - 瑞典(mibei77.com 米贝节点分享)_2
+      - GB英国(mibei77.com 米贝节点分享)_2
+      - HK香港(mibei77.com 米贝节点分享)_15
+      - 巴西(mibei77.com 米贝节点分享)
+      - GB英国(mibei77.com 米贝节点分享)_3
+      - GB英国(mibei77.com 米贝节点分享)_4
+      - NL荷兰(mibei77.com 米贝节点分享)_3
+      - US美国(mibei77.com 米贝节点分享)_50
+      - PL波兰(mibei77.com 米贝节点分享)
+      - DE德国(mibei77.com 米贝节点分享)_6
+      - US美国(mibei77.com 米贝节点分享)_51
+      - GB英国(mibei77.com 米贝节点分享)_5
+      - IN印度(mibei77.com 米贝节点分享)
+      - HK香港(mibei77.com 米贝节点分享)_16
+      - 西班牙(mibei77.com 米贝节点分享)_1
+      - US美国(mibei77.com 米贝节点分享)_52
+      - US美国(mibei77.com 米贝节点分享)_53
+      - TW台湾(mibei77.com 米贝节点分享)
+      - TW台湾(mibei77.com 米贝节点分享)_1
+      - JP日本(mibei77.com 米贝节点分享)_4
+      - JP日本(mibei77.com 米贝节点分享)_5
+      - FR法国(mibei77.com 米贝节点分享)_28
+      - 哥伦比亚(mibei77.com 米贝节点分享)
+      - 哥伦比亚(mibei77.com 米贝节点分享)_1
+      - 哥伦比亚(mibei77.com 米贝节点分享)_2
+      - 哥伦比亚(mibei77.com 米贝节点分享)_3
+      - FR法国(mibei77.com 米贝节点分享)_29
+      - DE德国(mibei77.com 米贝节点分享)_7
+      - PL波兰(mibei77.com 米贝节点分享)_1
+      - 巴西(mibei77.com 米贝节点分享)_1
+      - 巴西(mibei77.com 米贝节点分享)_2
+      - US美国(mibei77.com 米贝节点分享)_54
+      - US美国(mibei77.com 米贝节点分享)_55
+      - US美国(mibei77.com 米贝节点分享)_56
+      - US美国(mibei77.com 米贝节点分享)_57
+      - US美国(mibei77.com 米贝节点分享)_58
+      - US美国(mibei77.com 米贝节点分享)_59
+      - US美国(mibei77.com 米贝节点分享)_60
+      - RU俄罗斯(mibei77.com 米贝节点分享)_1
+      - RU俄罗斯(mibei77.com 米贝节点分享)_2
+rule-providers:
+  LocalAreaNetwork:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/LocalAreaNetwork.list
+    path: ./rules/LocalAreaNetwork.yaml
+  BanAD:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/BanAD.list
+    path: ./rules/BanAD.yaml
+  BanProgramAD:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/BanProgramAD.list
+    path: ./rules/BanProgramAD.yaml
+  GoogleCN:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/GoogleCN.list
+    path: ./rules/GoogleCN.yaml
+  SteamCN:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/Ruleset/SteamCN.list
+    path: ./rules/SteamCN.yaml
+  Microsoft:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/Microsoft.list
+    path: ./rules/Microsoft.yaml
+  Apple:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/Apple.list
+    path: ./rules/Apple.yaml
+  ProxyMedia:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/ProxyMedia.list
+    path: ./rules/ProxyMedia.yaml
+  Telegram:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/Telegram.list
+    path: ./rules/Telegram.yaml
+  ProxyLite:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/ProxyLite.list
+    path: ./rules/ProxyLite.yaml
+  ChinaDomain:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/ChinaDomain.list
+    path: ./rules/ChinaDomain.yaml
+  ChinaCompanyIp:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/ChinaCompanyIp.list
+    path: ./rules/ChinaCompanyIp.yaml
+rules:
+  - DOMAIN-SUFFIX,nodebuf.com,🚀 节点选择
+  - RULE-SET,LocalAreaNetwork,🎯 全球直连
+  - RULE-SET,BanAD,🛑 全球拦截
+  - RULE-SET,BanProgramAD,🍃 应用净化
+  - RULE-SET,GoogleCN,🎯 全球直连
+  - RULE-SET,SteamCN,🎯 全球直连
+  - RULE-SET,Microsoft,Ⓜ️ 微软服务
+  - RULE-SET,Apple,🍎 苹果服务
+  - RULE-SET,ProxyMedia,🌍 国外媒体
+  - RULE-SET,Telegram,📲 电报信息
+  - RULE-SET,ProxyLite,🚀 节点选择
+  - RULE-SET,ChinaDomain,🎯 全球直连
+  - RULE-SET,ChinaCompanyIp,🎯 全球直连
+  - GEOIP,CN,🎯 全球直连
+  - MATCH,🐟 漏网之鱼
