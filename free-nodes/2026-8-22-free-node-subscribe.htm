@@ -164,19 +164,24 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
     </div>
 <h4>FAQ</h4>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Hysteria2 在丢包环境下如何配置更稳？</h5></div>
-    <div class="panel-body">
-        可调整 Hysteria2 的拥塞控制与重传参数，启用 FEC（前向纠错）并合理设置 MTU 与窗口大小以适应链路特性。还可尝试切换 QUIC 参数或更换中转以减少丢包影响。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>如何判断节点是否支持 UDP 转发以便游戏加速？</h5></div>
-    <div class="panel-body">
-        可通过客户端的协议与节点说明确认是否支持 UDP（例如支持 UDP Relay 或 TUN/TAP 模式）。也可实际用 UDP 测试工具或直接用目标游戏连接进行延迟/丢包测试以验证是否可用。<hr />    </div>
-</div>
-<div class="panel panel-default">
     <div class="panel-heading"><h5>Clash 运行在低配设备上卡顿，如何减轻资源占用？</h5></div>
     <div class="panel-body">
         减少 rule-provider 数量、关闭不必要的日志与统计、降低 DNS 轮询频率并禁用内置测速；若使用 TUN 模式，可改为代理模式减少内核负担。必要时升级到更高性能的设备或使用更轻量内核。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>VLESS + XTLS 模式能在移动网络下提高稳定性吗？</h5></div>
+    <div class="panel-body">
+        可以。XTLS 降低加密开销，减少握手次数，适合移动网络高延迟或不稳定环境。结合策略组和多出口节点，可提升连接稳定性和访问速度。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>PassWall2 的规则优先级如何设置？</h5></div>
+    <div class="panel-body">
+        在 PassWall2 中，规则的匹配顺序按配置文件自上而下执行。建议将精确规则放在前面，通用规则放后面，以确保高优先级的流量优先被正确分流到指定出口。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Hysteria2 在丢包环境下如何配置更稳？</h5></div>
+    <div class="panel-body">
+        可调整 Hysteria2 的拥塞控制与重传参数，启用 FEC（前向纠错）并合理设置 MTU 与窗口大小以适应链路特性。还可尝试切换 QUIC 参数或更换中转以减少丢包影响。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>WinXray 支持 Trojan 协议吗？</h5></div>
@@ -189,9 +194,14 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
         QuantumultX 的 MITM（中间人）功能可拦截 HTTPS 流量，用于修改或分析请求与响应。开启时需安装客户端生成的根证书，确保能正确解析加密数据。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>PassWall2 的规则优先级如何设置？</h5></div>
+    <div class="panel-heading"><h5>如何判断节点是否支持 UDP 转发以便游戏加速？</h5></div>
     <div class="panel-body">
-        在 PassWall2 中，规则的匹配顺序按配置文件自上而下执行。建议将精确规则放在前面，通用规则放后面，以确保高优先级的流量优先被正确分流到指定出口。<hr />    </div>
+        可通过客户端的协议与节点说明确认是否支持 UDP（例如支持 UDP Relay 或 TUN/TAP 模式）。也可实际用 UDP 测试工具或直接用目标游戏连接进行延迟/丢包测试以验证是否可用。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Nekoray 节点订阅失败如何解决？</h5></div>
+    <div class="panel-body">
+        确认订阅 URL 是否有效并检查网络通畅。可手动刷新或重新添加订阅链接，保证节点列表最新。结合策略组使用，可确保稳定科学上网体验。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>何时应选择 VLess 而非 Vmess？</h5></div>
@@ -201,17 +211,7 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
 <div class="panel panel-default">
     <div class="panel-heading"><h5>如何使用 Clash 配置订阅链接？</h5></div>
     <div class="panel-body">
-        在 Clash 中添加订阅链接时，用户需复制提供的 URL 并在客户端的配置界面中粘贴。Clash 会自动下载并更新配置文件。通过订阅，用户可以一键更新节点信息，无需手动导入，适合长期维护多个节点来源的用户。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>VLESS + XTLS 模式能在移动网络下提高稳定性吗？</h5></div>
-    <div class="panel-body">
-        可以。XTLS 降低加密开销，减少握手次数，适合移动网络高延迟或不稳定环境。结合策略组和多出口节点，可提升连接稳定性和访问速度。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Nekoray 节点订阅失败如何解决？</h5></div>
-    <div class="panel-body">
-        确认订阅 URL 是否有效并检查网络通畅。可手动刷新或重新添加订阅链接，保证节点列表最新。结合策略组使用，可确保稳定科学上网体验。    </div>
+        在 Clash 中添加订阅链接时，用户需复制提供的 URL 并在客户端的配置界面中粘贴。Clash 会自动下载并更新配置文件。通过订阅，用户可以一键更新节点信息，无需手动导入，适合长期维护多个节点来源的用户。    </div>
 </div>
 <div class="panel panel-default mt-5">
     <div class="panel-heading">
@@ -259,16 +259,16 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2026-8-16-latest-clash-verge-rev-node.htm" title="「8月16日」最高速度21.1M/S，2025年Clsah Verge每天更新免费节点订阅地址">「8月16日」最高速度21.1M/S，2025年Clsah Verge每天更新免费节点订阅地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/node-share-links-2026-8-19.htm" title="「8月19日」最高速度20.5M/S，2025年Clsah Verge每天更新免费节点订阅地址">「8月19日」最高速度20.5M/S，2025年Clsah Verge每天更新免费节点订阅地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-7-24-node-share.htm" title="「7月24日」最高速度19.3M/S，2025年Clsah Verge每天更新免费节点订阅地址">「7月24日」最高速度19.3M/S，2025年Clsah Verge每天更新免费节点订阅地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-8-10-clash-verge-rev-node-github.htm" title="「8月10日」最高速度21.8M/S，2025年Clsah Verge每天更新免费节点订阅地址">「8月10日」最高速度21.8M/S，2025年Clsah Verge每天更新免费节点订阅地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/clash-verge-rev-github-2026-8-1.htm" title="「8月1日」最高速度20M/S，2025年Clsah Verge每天更新免费节点订阅地址">「8月1日」最高速度20M/S，2025年Clsah Verge每天更新免费节点订阅地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-8-24-latest-clash-verge-rev-node.htm" title="「8月24日」最高速度19.1M/S，2025年Clsah Verge每天更新免费节点订阅地址">「8月24日」最高速度19.1M/S，2025年Clsah Verge每天更新免费节点订阅地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-8-6-clash-verge-rev-nodes.htm" title="「8月6日」最高速度18.6M/S，2025年Clsah Verge每天更新免费节点订阅地址">「8月6日」最高速度18.6M/S，2025年Clsah Verge每天更新免费节点订阅地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-7-22-clash-verge-rev-node-share.htm" title="「7月22日」最高速度20.5M/S，2025年Clsah Verge每天更新免费节点订阅地址">「7月22日」最高速度20.5M/S，2025年Clsah Verge每天更新免费节点订阅地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-7-26-free-node-subscribe.htm" title="「7月26日」最高速度22.2M/S，2025年Clsah Verge每天更新免费节点订阅地址">「7月26日」最高速度22.2M/S，2025年Clsah Verge每天更新免费节点订阅地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-8-12-latest-clash-verge-rev-node.htm" title="「8月12日」最高速度18.1M/S，2025年Clsah Verge每天更新免费节点订阅地址">「8月12日」最高速度18.1M/S，2025年Clsah Verge每天更新免费节点订阅地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/node-share-links-2026-8-25.htm" title="「8月25日」最高速度22.7M/S，2025年Clsah Verge每天更新免费节点订阅地址">「8月25日」最高速度22.7M/S，2025年Clsah Verge每天更新免费节点订阅地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/today-clash-verge-rev-node-2026-8-17.htm" title="「8月17日」最高速度20M/S，2025年Clsah Verge每天更新免费节点订阅地址">「8月17日」最高速度20M/S，2025年Clsah Verge每天更新免费节点订阅地址</a><hr /></li>
                         <li class="py-2"><a href="/free-nodes/free-clash-verge-rev-node-2026-8-9.htm" title="「8月9日」最高速度18.6M/S，2025年Clsah Verge每天更新免费节点订阅地址">「8月9日」最高速度18.6M/S，2025年Clsah Verge每天更新免费节点订阅地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/free-node-subscribe-links-2026-8-13.htm" title="「8月13日」最高速度22.3M/S，2025年Clsah Verge每天更新免费节点订阅地址">「8月13日」最高速度22.3M/S，2025年Clsah Verge每天更新免费节点订阅地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/free-high-speed-nodes-2026-8-15.htm" title="「8月15日」最高速度19.5M/S，2025年Clsah Verge每天更新免费节点订阅地址">「8月15日」最高速度19.5M/S，2025年Clsah Verge每天更新免费节点订阅地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/free-node-subscribe-links-2026-8-7.htm" title="「8月7日」最高速度22.2M/S，2025年Clsah Verge每天更新免费节点订阅地址">「8月7日」最高速度22.2M/S，2025年Clsah Verge每天更新免费节点订阅地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/free-node-subscribe-links-2026-8-21.htm" title="「8月21日」最高速度20M/S，2025年Clsah Verge每天更新免费节点订阅地址">「8月21日」最高速度20M/S，2025年Clsah Verge每天更新免费节点订阅地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-8-24-latest-clash-verge-rev-node.htm" title="「8月24日」最高速度19.1M/S，2025年Clsah Verge每天更新免费节点订阅地址">「8月24日」最高速度19.1M/S，2025年Clsah Verge每天更新免费节点订阅地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-8-18-clash-verge-rev-windows.htm" title="「8月18日」最高速度22.7M/S，2025年Clsah Verge每天更新免费节点订阅地址">「8月18日」最高速度22.7M/S，2025年Clsah Verge每天更新免费节点订阅地址</a><hr /></li>
                     </ul>
     </div>
 </div>
@@ -280,10 +280,10 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">26</span> <a href="/date/2026-08/" title="2026-08 归档">2026-08</a></h4>
+                <h4><span class="badge" style="float: right;">4</span> <a href="/date/2026-09/" title="2026-09 归档">2026-09</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">13</span> <a href="/date/2026-07/" title="2026-07 归档">2026-07</a></h4>
+                <h4><span class="badge" style="float: right;">26</span> <a href="/date/2026-08/" title="2026-08 归档">2026-08</a></h4>
             </li>
                     </ul>
     </div>

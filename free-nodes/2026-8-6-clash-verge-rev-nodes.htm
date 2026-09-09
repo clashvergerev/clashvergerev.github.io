@@ -158,10 +158,14 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
 <p style="margin-bottom:3rem;color:#999;font-style:italic;">注：跳转链接可能会 <b style="color:red;">被墙</b> ，如多次打开失败，请先使用下面不稳定免费订阅后，再尝试点击链接</p><p>&nbsp;</p><p></p><h2>订阅链接</h2><p>&nbsp;</p><p><strong>clash订阅链接</strong></p><p>https://clashvergerev.github.io/uploads/2026/08/0-20260806.yaml</p><p>https://clashvergerev.github.io/uploads/2026/08/1-20260806.yaml</p><p>https://clashvergerev.github.io/uploads/2026/08/2-20260806.yaml</p><p>&nbsp;</p><p><strong>v2ray订阅链接:</strong></p><p>https://clashvergerev.github.io/uploads/2026/08/0-20260806.txt</p><p>https://clashvergerev.github.io/uploads/2026/08/2-20260806.txt</p><p>https://clashvergerev.github.io/uploads/2026/08/3-20260806.txt</p><p>https://clashvergerev.github.io/uploads/2026/08/4-20260806.txt</p><p><strong>sing-box订阅链接</strong></p><p>https://clashvergerev.github.io/uploads/2026/08/20260806.json</p><p>&nbsp;</p><p>如果您需要高质量的付费服务,我们强烈推荐您试试「<a href="https://www.dginv.click/#/register?code=G6yPcu5e" class="js_to" data-url="https://www.dginv.click/#/register?code=" data-type="Gougou" data-code="TEAyo1QK" rel="nofollow noopener" style="color:#c00;">狗狗加速</a> 」。提供全球范围内快速稳定的高速节点,轻松处理8K高清视频流量,并可解锁流媒体网站和chatGPT。其服务器性能出色,确保您享受到高品质的体验。</p><h2>从零到精通：OpenWrt Luci界面下V2Ray的完整配置与实战指南</h2>  <h2>引言：当智能路由遇见隐私守护</h2>  <p>在数字化生存成为常态的今天，家庭网关已从简单的网络分配器进化为智能网络中枢。OpenWrt以其开源特性成为极客们的首选，而Luci作为其"可视化大脑"，让复杂的路由配置变得触手可及。与此同时，V2Ray这款被誉为"下一代代理工具"的软件，正以多协议支持、强混淆能力重塑着网络隐私保护的边界。本文将带您深入探索这两大技术的完美融合——在Luci图形界面中实现V2Ray的全流程部署，打造兼具便利性与安全性的智能网络环境。  </p>  <h2>第一章 技术基石解析</h2>  <h3>1.1 Luci：OpenWrt的视觉神经</h3>  <p>作为OpenWrt的官方Web管理界面，Luci采用Lua语言开发，将晦涩的UCI配置转化为直观的交互界面。不同于传统路由器的功能阉割版界面，Luci完整保留了OpenWrt的所有特性：<br /> - <strong>网络拓扑可视化</strong>：实时展示WAN/LAN/WiFi连接状态<br /> - <strong>防火墙规则编辑器</strong>：支持图形化配置NAT/端口转发<br /> - <strong>软件包管理系统</strong>：超过3000个应用的一键安装<br /> - <strong>实时监控看板</strong>：CPU负载、内存占用、连接数等数据可视化  </p>  <h3>1.2 V2Ray：隐私保护的瑞士军刀</h3>  <p>Project V团队打造的V2Ray之所以被称为代理工具中的"变形金刚"，源于其三大核心优势：<br /> 1. <strong>协议矩阵</strong>：支持VMess、Shadowsocks、Socks等17种协议，可动态切换<br /> 2. <strong>流量伪装</strong>：通过TLS+WebSocket实现流量特征伪装，有效对抗DPI检测<br /> 3. <strong>路由智能</strong>：基于域名的分流策略，实现国内外流量智能路由  </p>  <blockquote>   <p><strong>技术点评</strong>：当Luci的可视化能力遇上V2Ray的多协议支持，就像为狙击手配备了全息瞄准镜——既保留了精准控制力，又大幅降低了操作门槛。  </p> </blockquote>  <h2>第二章 环境准备与安装</h2>  <h3>2.1 系统要求核查</h3>  <p>在开始前需确认：<br /> - OpenWrt版本 ≥ 19.07（推荐使用21.02稳定版）<br /> - 存储空间 ≥ 32MB（完整安装需要约18MB空间）<br /> - 已连接互联网（建议通过有线连接进行配置）  </p>  <h3>2.2 软件源配置艺术</h3>  <ol> <li>登录Luci进入<code>系统 &gt; 软件包</code>  </li> <li>在<code>配置</code>标签页检查软件源：<br /> <code>bash src/gz openwrt_base https://downloads.openwrt.org/releases/21.02.3/packages/mipsel_24kc/base src/gz openwrt_luci https://downloads.openwrt.org/releases/21.02.3/packages/mipsel_24kc/luci</code>  </li> <li>执行<code>更新列表</code>（需等待约2分钟）  </li> </ol>  <h3>2.3 V2Ray核心安装</h3>  <p>通过SSH或Luci终端执行：<br /> <code>bash opkg update opkg install v2ray-core luci-app-v2ray luci-i18n-v2ray-zh-cn</code><br /> <strong>常见问题处理</strong>：<br /> - 若出现依赖错误，尝试<code>opkg install --force-depends</code><br /> - 空间不足时可挂载USB存储扩展overlay  </p>  <h2>第三章 深度配置实战</h2>  <h3>3.1 服务端连接配置</h3>  <p>进入<code>服务 &gt; V2Ray</code>主界面：  </p>  <p>| 参数项       | 示例值              | 技术说明                  | |--------------|---------------------|-------------------------| | 服务器地址   | us.v2ray.example.com | 建议使用域名避免IP封锁    | | 端口         | 443                 | 伪装为HTTPS端口          | | 用户ID       | 12345678-1234-...   | UUID需与服务端严格一致    | | 传输协议     | WebSocket + TLS     | 最佳隐蔽性方案            | | 路径         | /ws-path            | 自定义路径增强混淆        |</p>  <h3>3.2 高级路由策略</h3>  <p>在<code>路由设置</code>标签页配置：<br /> - <strong>域名分流</strong>：添加<code>geosite:cn</code>直连规则<br /> - <strong>IP分流</strong>：设置<code>geoip:private</code>不代理局域网流量<br /> - <strong>负载均衡</strong>：配置多个outbound实现故障自动切换  </p>  <h3>3.3 防火墙联动配置</h3>  <ol> <li>进入<code>网络 &gt; 防火墙</code>  </li> <li>创建新规则：    <ul> <li>名称：V2Ray_Redirect  </li> <li>协议：TCP  </li> <li>目标端口：12345（自定义监听端口）  </li> <li>动作：重定向到1080  </li> </ul></li> </ol>  <h2>第四章 性能调优与监控</h2>  <h3>4.1 速度优化技巧</h3>  <ul> <li><strong>Mux多路复用</strong>：启用<code>mux.enable</code>（并发连接数建议设为4）  </li> <li><strong>传输层优化</strong>：<br /> <code>json "streamSettings": { "tcpSettings": {   "header": {     "type": "http",     "request": {       "path": ["/fake-path"]     }   } } }</code>  </li> </ul>  <h3>4.2 实时监控方案</h3>  <ol> <li>安装监控组件：<br /> <code>bash opkg install luci-app-statistics collectd-mod-v2ray</code>  </li> <li>在<code>状态 &gt; 实时图表</code>中可查看：    <ul> <li>代理延迟热力图  </li> <li>流量吞吐波动曲线  </li> <li>连接数变化趋势  </li> </ul></li> </ol>  <h2>第五章 故障排查手册</h2>  <h3>5.1 连接诊断流程</h3>  <p><code>mermaid graph TD     A[连接失败] --&gt; B{能ping通服务器?}     B --&gt;|否| C[检查网络基础连接]     B --&gt;|是| D{端口可访问?}     D --&gt;|否| E[检查防火墙/服务端配置]     D --&gt;|是| F[检查UUID/时间偏移]</code>  </p>  <h3>5.2 典型错误解决方案</h3>  <ul> <li><strong>证书错误</strong>：更新CA证书包<code>opkg install ca-certificates</code>  </li> <li><strong>时间不同步</strong>：安装NTP客户端<code>opkg install ntpclient</code>  </li> <li><strong>内存溢出</strong>：添加swap分区或启用<code>v2ray.ray.compress</code>  </li> </ul>  <h2>结语：构建智能安全网络</h2>  <p>通过本文的深度探索，我们见证了Luci与V2Ray这对黄金组合如何将专业级网络隐私保护带入寻常百姓家。从基础的协议配置到高级的路由策略，从性能调优到故障排查，这套方案既满足了技术爱好者的定制需求，又通过图形界面降低了普通用户的使用门槛。  </p>  <p>在5G与IoT时代，网络边界正在消失，而隐私保护将成为数字生活的基本需求。掌握本文所述技能，您不仅获得了一把打开无界网络的钥匙，更构筑了抵御数据洪流的安全堤坝。正如网络安全专家Bruce Schneier所言："隐私不是关于隐藏什么，而是关于自我保护的权利。"愿每位读者都能在开放与安全之间找到完美平衡。  </p>  <blockquote>   <p><strong>终极建议</strong>：定期检查V2Ray的GitHub Release页面，及时更新以获取最新的协议对抗能力；同时建议结合WireGuard实现全隧道加密，构建多层次的防御体系。</p> </blockquote> </div>
 <div class="clearfix"></div>
 <div class="col-md-12 mt-5">
-        <p>上一个：<a href="/free-nodes/free-high-speed-nodes-2026-8-5.htm">「8月5日」最高速度22.6M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></p>
         <p>下一个：<a href="/free-nodes/free-node-subscribe-links-2026-8-7.htm">「8月7日」最高速度22.2M/S，2025年Clsah Verge每天更新免费节点订阅地址</a></p>
     </div>
 <h4>FAQ</h4>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Mellow 的 TUN 模式与系统代理有何区别？</h5></div>
+    <div class="panel-body">
+        TUN 模式直接拦截 IP 层流量，实现全局代理，而系统代理通常仅影响支持代理的应用。TUN 更适合游戏、视频或全局科学上网场景，确保所有流量经过代理节点。<hr />    </div>
+</div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>V2Ray QUIC 传输适合什么网络环境？</h5></div>
     <div class="panel-body">
@@ -173,19 +177,14 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
         可以。Clash 支持导入多个 Profile URL，用户可在“配置”面板切换不同订阅源。多个配置之间互不干扰，方便区分不同地区或用途的线路。<hr />    </div>
 </div>
 <div class="panel panel-default">
+    <div class="panel-heading"><h5>WinXray 延迟检测如何提高网络稳定性？</h5></div>
+    <div class="panel-body">
+        WinXray 定期测速节点延迟，并结合策略组自动切换到延迟最低节点。这样可保证网页、视频和游戏流量稳定快速访问，减少卡顿和掉线，提高整体网络体验。<hr />    </div>
+</div>
+<div class="panel panel-default">
     <div class="panel-heading"><h5>V2Ray 如何隐藏真实 IP？</h5></div>
     <div class="panel-body">
         通过启用 TLS、Reality 或 WebSocket + CDN 转发，V2Ray 可有效隐藏真实服务器 IP。这样外部监测只能看到中转节点，从而提升匿名性与安全性。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Mellow 的 TUN 模式与系统代理有何区别？</h5></div>
-    <div class="panel-body">
-        TUN 模式直接拦截 IP 层流量，实现全局代理，而系统代理通常仅影响支持代理的应用。TUN 更适合游戏、视频或全局科学上网场景，确保所有流量经过代理节点。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Hiddify Next 的多用户限速功能如何使用？</h5></div>
-    <div class="panel-body">
-        Hiddify Next 支持在管理面板中为每个用户设置带宽上限。管理员可以按需分配速率或流量配额，防止单一用户占用过多资源，从而保持整体网络稳定。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>PassWall2 是什么软件？</h5></div>
@@ -193,24 +192,24 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
         PassWall2 是一个运行在 OpenWRT 路由器上的插件，用于代理流量分流和节点管理。它支持多种协议，包括 V2Ray、Trojan、SSR 等。通过 Web 界面，用户可以灵活设置不同设备走不同代理，适合家庭或小型局域网使用。<hr />    </div>
 </div>
 <div class="panel panel-default">
+    <div class="panel-heading"><h5>Sing-box 如何实现端口与流量的精确分流？</h5></div>
+    <div class="panel-body">
+        Sing-box 支持按端口匹配流量，将不同类型应用的流量分配到指定节点。结合策略组使用，可提高访问速度和网络稳定性，实现精准分流和优化用户体验。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Hiddify Next 的多用户限速功能如何使用？</h5></div>
+    <div class="panel-body">
+        Hiddify Next 支持在管理面板中为每个用户设置带宽上限。管理员可以按需分配速率或流量配额，防止单一用户占用过多资源，从而保持整体网络稳定。<hr />    </div>
+</div>
+<div class="panel panel-default">
     <div class="panel-heading"><h5>Clash 的自定义规则组能实现哪些功能？</h5></div>
     <div class="panel-body">
         Clash 的自定义规则组允许用户将多个节点和策略组合，通过优先级和条件分流流量。这样可以根据网站类别或流量类型自动选择最优节点，提高网络效率和使用体验。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>WinXray 延迟检测如何提高网络稳定性？</h5></div>
-    <div class="panel-body">
-        WinXray 定期测速节点延迟，并结合策略组自动切换到延迟最低节点。这样可保证网页、视频和游戏流量稳定快速访问，减少卡顿和掉线，提高整体网络体验。<hr />    </div>
-</div>
-<div class="panel panel-default">
     <div class="panel-heading"><h5>Sing-box 是否支持多出口自动选择？</h5></div>
     <div class="panel-body">
-        支持。通过配置路由规则和策略组，Sing-box 可以自动判断流量类型并选择最佳出口，实现智能分流和多节点负载均衡，提高访问效率。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Sing-box 如何实现端口与流量的精确分流？</h5></div>
-    <div class="panel-body">
-        Sing-box 支持按端口匹配流量，将不同类型应用的流量分配到指定节点。结合策略组使用，可提高访问速度和网络稳定性，实现精准分流和优化用户体验。    </div>
+        支持。通过配置路由规则和策略组，Sing-box 可以自动判断流量类型并选择最佳出口，实现智能分流和多节点负载均衡，提高访问效率。    </div>
 </div>
 <div class="panel panel-default mt-5">
     <div class="panel-heading">
@@ -258,16 +257,16 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/free-high-speed-nodes-2026-7-29.htm" title="「7月29日」最高速度19.5M/S，2025年Clsah Verge每天更新免费节点订阅地址">「7月29日」最高速度19.5M/S，2025年Clsah Verge每天更新免费节点订阅地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-7-20-free-subscribe-node.htm" title="「7月20日」最高速度22.7M/S，2025年Clsah Verge每天更新免费节点订阅地址">「7月20日」最高速度22.7M/S，2025年Clsah Verge每天更新免费节点订阅地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/free-high-speed-nodes-2026-8-5.htm" title="「8月5日」最高速度22.6M/S，2025年Clsah Verge每天更新免费节点订阅地址">「8月5日」最高速度22.6M/S，2025年Clsah Verge每天更新免费节点订阅地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-7-15-clash-verge-rev-node.htm" title="「7月15日」最高速度18.9M/S，2025年Clsah Verge每天更新免费节点订阅地址">「7月15日」最高速度18.9M/S，2025年Clsah Verge每天更新免费节点订阅地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-8-6-clash-verge-rev-nodes.htm" title="「8月6日」最高速度18.6M/S，2025年Clsah Verge每天更新免费节点订阅地址">「8月6日」最高速度18.6M/S，2025年Clsah Verge每天更新免费节点订阅地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-8-4-latest-clash-verge-rev-node.htm" title="「8月4日」最高速度18.3M/S，2025年Clsah Verge每天更新免费节点订阅地址">「8月4日」最高速度18.3M/S，2025年Clsah Verge每天更新免费节点订阅地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-7-26-free-node-subscribe.htm" title="「7月26日」最高速度22.2M/S，2025年Clsah Verge每天更新免费节点订阅地址">「7月26日」最高速度22.2M/S，2025年Clsah Verge每天更新免费节点订阅地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-7-19-clash-verge-rev-github.htm" title="「7月19日」最高速度21.8M/S，2025年Clsah Verge每天更新免费节点订阅地址">「7月19日」最高速度21.8M/S，2025年Clsah Verge每天更新免费节点订阅地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/clash-verge-rev-github-2026-8-3.htm" title="「8月3日」最高速度20.7M/S，2025年Clsah Verge每天更新免费节点订阅地址">「8月3日」最高速度20.7M/S，2025年Clsah Verge每天更新免费节点订阅地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-7-16-free-node-subscribe.htm" title="「7月16日」最高速度22M/S，2025年Clsah Verge每天更新免费节点订阅地址">「7月16日」最高速度22M/S，2025年Clsah Verge每天更新免费节点订阅地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/free-node-subscribe-links-2026-8-21.htm" title="「8月21日」最高速度20M/S，2025年Clsah Verge每天更新免费节点订阅地址">「8月21日」最高速度20M/S，2025年Clsah Verge每天更新免费节点订阅地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-8-18-clash-verge-rev-windows.htm" title="「8月18日」最高速度22.7M/S，2025年Clsah Verge每天更新免费节点订阅地址">「8月18日」最高速度22.7M/S，2025年Clsah Verge每天更新免费节点订阅地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-8-20-clash-verge-rev-node-github.htm" title="「8月20日」最高速度22.5M/S，2025年Clsah Verge每天更新免费节点订阅地址">「8月20日」最高速度22.5M/S，2025年Clsah Verge每天更新免费节点订阅地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/free-high-speed-nodes-2026-9-3.htm" title="「9月3日」最高速度18.9M/S，2025年Clsah Verge每天更新免费节点订阅地址">「9月3日」最高速度18.9M/S，2025年Clsah Verge每天更新免费节点订阅地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/free-node-subscribe-links-2026-8-7.htm" title="「8月7日」最高速度22.2M/S，2025年Clsah Verge每天更新免费节点订阅地址">「8月7日」最高速度22.2M/S，2025年Clsah Verge每天更新免费节点订阅地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/node-share-links-2026-8-25.htm" title="「8月25日」最高速度22.7M/S，2025年Clsah Verge每天更新免费节点订阅地址">「8月25日」最高速度22.7M/S，2025年Clsah Verge每天更新免费节点订阅地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/clash-verge-rev-node-2026-8-23.htm" title="「8月23日」最高速度19.1M/S，2025年Clsah Verge每天更新免费节点订阅地址">「8月23日」最高速度19.1M/S，2025年Clsah Verge每天更新免费节点订阅地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-8-30-clash-verge-rev-node-share.htm" title="「8月30日」最高速度18.8M/S，2025年Clsah Verge每天更新免费节点订阅地址">「8月30日」最高速度18.8M/S，2025年Clsah Verge每天更新免费节点订阅地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-8-8-clash-verge-rev-windows.htm" title="「8月8日」最高速度19.4M/S，2025年Clsah Verge每天更新免费节点订阅地址">「8月8日」最高速度19.4M/S，2025年Clsah Verge每天更新免费节点订阅地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/clash-verge-rev-node-2026-8-11.htm" title="「8月11日」最高速度21.6M/S，2025年Clsah Verge每天更新免费节点订阅地址">「8月11日」最高速度21.6M/S，2025年Clsah Verge每天更新免费节点订阅地址</a><hr /></li>
                     </ul>
     </div>
 </div>
@@ -279,10 +278,10 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">12</span> <a href="/date/2026-08/" title="2026-08 归档">2026-08</a></h4>
+                <h4><span class="badge" style="float: right;">4</span> <a href="/date/2026-09/" title="2026-09 归档">2026-09</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">19</span> <a href="/date/2026-07/" title="2026-07 归档">2026-07</a></h4>
+                <h4><span class="badge" style="float: right;">26</span> <a href="/date/2026-08/" title="2026-08 归档">2026-08</a></h4>
             </li>
                     </ul>
     </div>
