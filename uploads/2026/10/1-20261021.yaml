@@ -1,0 +1,5284 @@
+mixed-port: 7890
+allow-lan: false
+mode: rule
+log-level: info
+ipv6: false
+external-controller: 127.0.0.1:9090
+dns:
+  enable: true
+  listen: 127.0.0.1:1053
+  ipv6: false
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  default-nameserver:
+    - 223.5.5.5
+    - 119.29.29.29
+  nameserver:
+    - https://dns.alidns.com/dns-query
+    - https://doh.pub/dns-query
+  proxy-server-nameserver:
+    - https://dns.alidns.com/dns-query
+    - https://doh.pub/dns-query
+  nameserver-policy:
+    geosite:geolocation-!cn:
+      - https://1.1.1.1/dns-query#🚀 节点选择
+      - https://8.8.8.8/dns-query#🚀 节点选择
+proxies:
+  - name: US美国(mibei77.com 米贝节点分享)
+    type: vless
+    server: 68.64.178.52
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    ws-opts:
+      path: /
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_1
+    type: vless
+    server: 207.57.133.165
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: JP日本(mibei77.com 米贝节点分享)
+    type: vless
+    server: 45.8.173.115
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    ws-opts:
+      path: /fp=chrome
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: HK香港(mibei77.com 米贝节点分享)
+    type: vless
+    server: 45.136.14.153
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: JP日本(mibei77.com 米贝节点分享)_1
+    type: vless
+    server: 69.8.128.249
+    port: 8443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_2
+    type: vless
+    server: 207.57.132.76
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    ws-opts:
+      path: /
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: JP日本(mibei77.com 米贝节点分享)_2
+    type: vless
+    server: 172.104.77.231
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: JP日本(mibei77.com 米贝节点分享)_3
+    type: vless
+    server: funagfrdfs.alixxplay.com
+    port: 56656
+    uuid: 57beeeb0-03fc-4fc9-94da-7604488a7134
+    servername: cdn-dynmedia-1.microsoft.com
+    tls: true
+    flow: xtls-rprx-vision
+    client-fingerprint: chrome
+    reality-opts:
+      public-key: QFM3jTzb5n-E9L2cfFo6GHqioGmIkjmG60l8wXA4IXc
+      short-id: aae6d935
+    skip-cert-verify: true
+    udp: true
+  - name: JP日本(mibei77.com 米贝节点分享)_4
+    type: vless
+    server: 161.33.192.73
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: JP日本(mibei77.com 米贝节点分享)_5
+    type: vless
+    server: funagfrdfs.alixxplay.com
+    port: 56656
+    uuid: 57beeeb0-03fc-4fc9-94da-7604488a7134
+    servername: cdn-dynmedia-1.microsoft.com
+    tls: true
+    flow: xtls-rprx-vision
+    client-fingerprint: ios
+    reality-opts:
+      public-key: QFM3jTzb5n-E9L2cfFo6GHqioGmIkjmG60l8wXA4IXc
+      short-id: aae6d935
+    skip-cert-verify: true
+    udp: true
+  - name: JP日本(mibei77.com 米贝节点分享)_6
+    type: vless
+    server: 178.239.117.133
+    port: 8443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /fdip=sstp://vpn:vpn@public-vpn-200.opengw.net:443
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: JP日本(mibei77.com 米贝节点分享)_7
+    type: vless
+    server: 54.64.190.109
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: JP日本(mibei77.com 米贝节点分享)_8
+    type: vless
+    server: 35.74.79.196
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_3
+    type: vless
+    server: 207.57.132.76
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: JP日本(mibei77.com 米贝节点分享)_9
+    type: vless
+    server: 60.130.209.253
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: JP日本(mibei77.com 米贝节点分享)_10
+    type: vless
+    server: 60.130.209.253
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /fp=chrome
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_4
+    type: vless
+    server: 104.21.91.244
+    port: 443
+    uuid: e6df2095-a73c-4043-8693-8d5a03686870
+    network: ws
+    servername: lucasjow.us.ci
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /cart/docs/www/proxyip=108.160.132.132?ed
+      headers:
+        Host: lucasjow.us.ci
+    alpn:
+      - http/1.1
+    skip-cert-verify: true
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_5
+    type: vless
+    server: 104.21.91.244
+    port: 443
+    uuid: e6df2095-a73c-4043-8693-8d5a03686870
+    network: ws
+    servername: lucasjow.us.ci
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /cart/docs/www/proxyip=108.160.132.132?ed#Telegram---MTMVPN---MTMVPN---MTMVPN---MTMVPN
+      headers:
+        Host: lucasjow.us.ci
+    alpn:
+      - http/1.1
+    skip-cert-verify: true
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_6
+    type: vless
+    server: saas.sin.fan
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    alpn:
+      - h3
+      - h2
+    skip-cert-verify: true
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_7
+    type: vless
+    server: saas.sin.fan
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /fdip=sstp://vpn:vpn@vpn748359672.opengw.net:1458?ed=2560fp=chrome
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_8
+    type: vless
+    server: saas.sin.fan
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /fdip=sstp://vpn:vpn@public-vpn-200.opengw.net:443?ed=2560fp=chrome
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    alpn:
+      - h3
+      - h2
+    skip-cert-verify: true
+    udp: true
+  - name: JP日本(mibei77.com 米贝节点分享)_11
+    type: vless
+    server: 60.130.209.253
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    ws-opts:
+      path: /fp=chrome
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_9
+    type: vless
+    server: saas.sin.fan
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /fdip=sstp://vpn:vpn@public-vpn-200.opengw.net:443
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    alpn:
+      - h3
+      - h2
+    skip-cert-verify: true
+    udp: true
+  - name: TW台湾(mibei77.com 米贝节点分享)
+    type: anytls
+    server: er8u54dh.df6h451rh.xin
+    port: 443
+    password: 0324fbc29561
+    sni: px.ads.linkedin.com
+    alpn:
+      - http/1.1
+    skip-cert-verify: true
+    tls: true
+    udp: true
+    client-fingerprint: chrome
+  - name: SG新加坡(mibei77.com 米贝节点分享)
+    type: vless
+    server: 216.195.195.205
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /fp=unsafe
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_10
+    type: vless
+    server: saas.sin.fan
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /fdip=sstp://vpn:vpn@public-vpn-200.opengw.net:443?ed=2560fp=chrome
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_11
+    type: vless
+    server: saas.sin.fan
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    ws-opts:
+      path: /fdip=sstp://vpn:vpn@vpn748359672.opengw.net:1458?ed=2560fp=chrome
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    alpn:
+      - h3
+      - h2
+    skip-cert-verify: true
+    udp: true
+  - name: JP日本(mibei77.com 米贝节点分享)_12
+    type: vless
+    server: 212.135.212.211
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /fdip=sstp://vpn:vpn@public-vpn-200.opengw.net:443?ed=2560fp=chromefp=chrome
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_12
+    type: vless
+    server: saas.sin.fan
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    ws-opts:
+      path: /fdip=sstp://vpn:vpn@vpn748359672.opengw.net:1458?ed=2560fp=chrome
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_13
+    type: vless
+    server: saas.sin.fan
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    ws-opts:
+      path: /
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    alpn:
+      - h3
+      - h2
+    skip-cert-verify: true
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_14
+    type: vless
+    server: saas.sin.fan
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /fdip=sstp://vpn:vpn@public-vpn-200.opengw.net:443
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: JP日本(mibei77.com 米贝节点分享)_13
+    type: vless
+    server: 38.47.52.252
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    ws-opts:
+      path: /
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: HK香港(mibei77.com 米贝节点分享)_1
+    type: anytls
+    server: 56481.df6h451rh.xin
+    port: 443
+    password: 0324fbc29561
+    sni: images.ctfassets.net
+    alpn:
+      - http/1.1
+    skip-cert-verify: true
+    tls: true
+    udp: true
+    client-fingerprint: chrome
+  - name: US美国(mibei77.com 米贝节点分享)_15
+    type: vless
+    server: saas.sin.fan
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    ws-opts:
+      path: /fdip=sstp://vpn:vpn@public-vpn-200.opengw.net:443?ed=2560fp=chrome
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_16
+    type: anytls
+    server: 56481.df6h451rh.xin
+    port: 443
+    password: 0324fbc29561
+    sni: images.ctfassets.net
+    skip-cert-verify: true
+    tls: true
+    udp: true
+  - name: HK香港(mibei77.com 米贝节点分享)_2
+    type: anytls
+    server: 654968169.df6h451rh.xin
+    port: 443
+    password: 0324fbc29561
+    sni: images.ctfassets.net
+    skip-cert-verify: true
+    tls: true
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_17
+    type: vless
+    server: saas.sin.fan
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    ws-opts:
+      path: /fdip=sstp://vpn:vpn@public-vpn-200.opengw.net:443?ed=2560fp=chrome
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    alpn:
+      - h3
+      - h2
+    skip-cert-verify: true
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_18
+    type: anytls
+    server: 56481.df6h451rh.xin
+    port: 443
+    password: ec74bb6a86c2
+    sni: images.ctfassets.net
+    skip-cert-verify: true
+    tls: true
+    udp: true
+  - name: JP日本(mibei77.com 米贝节点分享)_14
+    type: vless
+    server: 101.142.129.72
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    ws-opts:
+      path: /
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: SG新加坡(mibei77.com 米贝节点分享)_1
+    type: vless
+    server: 43.174.195.1
+    port: 443
+    uuid: 24916ad0-847d-4522-9e17-f4347dee57fd
+    network: ws
+    servername: kv.074167.xyz
+    tls: true
+    ws-opts:
+      path: /
+      headers:
+        Host: kv.074167.xyz
+    skip-cert-verify: true
+    udp: true
+  - name: SG新加坡(mibei77.com 米贝节点分享)_2
+    type: vless
+    server: 43.174.195.1
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: HK香港(mibei77.com 米贝节点分享)_3
+    type: anytls
+    server: 654968169.df6h451rh.xin
+    port: 443
+    password: 0324fbc29561
+    sni: images.ctfassets.net
+    skip-cert-verify: true
+    tls: true
+    udp: true
+    client-fingerprint: chrome
+  - name: SG新加坡(mibei77.com 米贝节点分享)_3
+    type: vless
+    server: 43.174.195.1
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    ws-opts:
+      path: /fdip=sstp://vpn:vpn@public-vpn-200.opengw.net:443fp=chrome
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_19
+    type: vless
+    server: 43.174.195.1
+    port: 443
+    uuid: 24916ad0-847d-4522-9e17-f4347dee57fd
+    network: ws
+    servername: kv.074167.xyz
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /
+      headers:
+        Host: kv.074167.xyz
+    skip-cert-verify: true
+    udp: true
+  - name: SG新加坡(mibei77.com 米贝节点分享)_4
+    type: vless
+    server: 103.149.46.74
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: SG新加坡(mibei77.com 米贝节点分享)_5
+    type: vless
+    server: 175.41.179.37
+    port: 51262
+    uuid: 6c6ea474-0cf5-4a3d-bc81-aa2eeb6516d6
+    network: ws
+    servername: jln31qtswdkut5.60kohcognywybguuq3ouc818oofnxfvn35daott.workers.dev
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /@Marisa_kristi
+      headers:
+        Host: jln31qtswdkut5.60kohcognywybguuq3ouc818oofnxfvn35daott.workers.dev
+    skip-cert-verify: true
+    udp: true
+  - name: SG新加坡(mibei77.com 米贝节点分享)_6
+    type: vless
+    server: 43.174.195.1
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    ws-opts:
+      path: /fp=chrome
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: HK香港(mibei77.com 米贝节点分享)_4
+    type: vless
+    server: 103.101.0.73
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /fdip=sstp://vpn:vpn@public-vpn-200.opengw.net:443
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_20
+    type: vless
+    server: 43.174.195.1
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /fdip=sstp://vpn:vpn@public-vpn-200.opengw.net:443fp=chrome
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: SG新加坡(mibei77.com 米贝节点分享)_7
+    type: vless
+    server: 56.10.33.77
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    ws-opts:
+      path: /
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: SG新加坡(mibei77.com 米贝节点分享)_8
+    type: vless
+    server: 43.174.195.1
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /fdip=sstp://vpn:vpn@public-vpn-200.opengw.net:443
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: HK香港(mibei77.com 米贝节点分享)_5
+    type: vless
+    server: 103.97.200.42
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /fp=unsafe
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: KR韩国(mibei77.com 米贝节点分享)
+    type: vless
+    server: 52.79.188.223
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    alpn:
+      - h3
+      - h2
+    skip-cert-verify: true
+    udp: true
+  - name: JP日本(mibei77.com 米贝节点分享)_15
+    type: vless
+    server: 131.143.215.37
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /fdip=sstp://vpn:vpn@public-vpn-200.opengw.net:443
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: KR韩国(mibei77.com 米贝节点分享)_1
+    type: vless
+    server: 43.202.32.50
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: KR韩国(mibei77.com 米贝节点分享)_2
+    type: vless
+    server: 168.107.36.135
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: DE德国(mibei77.com 米贝节点分享)
+    type: vless
+    server: jrnkkm.de5.net
+    port: 8443
+    uuid: 19b0841d-9166-43bf-87d9-3e501a3ee707
+    network: ws
+    servername: jrnkkm.de5.net
+    tls: true
+    ws-opts:
+      path: /ws
+    skip-cert-verify: true
+    udp: true
+  - name: KR韩国(mibei77.com 米贝节点分享)_3
+    type: vless
+    server: 123.111.169.70
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: JP日本(mibei77.com 米贝节点分享)_16
+    type: vless
+    server: funagfrdfs.alixxplay.com
+    port: 46105
+    uuid: 57beeeb0-03fc-4fc9-94da-7604488a7134
+    servername: www.lamer.com.sg
+    tls: true
+    flow: xtls-rprx-vision
+    client-fingerprint: safari
+    reality-opts:
+      public-key: Lk5nwDxC2tr3J7hT8emhUUiMX8cHyKX9TiRj_EnAiik
+      short-id: 28f5c1f8f98a
+    skip-cert-verify: true
+    udp: true
+  - name: JP日本(mibei77.com 米贝节点分享)_17
+    type: vless
+    server: 101.142.129.72
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: FR法国(mibei77.com 米贝节点分享)
+    type: vless
+    server: 57.131.153.153
+    port: 2053
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /fdip=sstp://vpn:vpn@public-vpn-200.opengw.net:443
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: KR韩国(mibei77.com 米贝节点分享)_4
+    type: vless
+    server: 141.164.34.193
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: DE德国(mibei77.com 米贝节点分享)_1
+    type: vless
+    server: 2.28.42.209
+    port: 8443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    ws-opts:
+      path: /fdip=sstp://vpn:vpn@public-vpn-200.opengw.net:443fp=chrome
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: DE德国(mibei77.com 米贝节点分享)_2
+    type: vless
+    server: 178.105.113.205
+    port: 8443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /fdip=sstp://vpn:vpn@public-vpn-200.opengw.net:443
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: DE德国(mibei77.com 米贝节点分享)_3
+    type: vless
+    server: 178.105.215.151
+    port: 2053
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /fdip=sstp://vpn:vpn@public-vpn-200.opengw.net:443
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: FR法国(mibei77.com 米贝节点分享)_1
+    type: vless
+    server: 104.252.30.35
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    ws-opts:
+      path: /fdip=sstp://vpn:vpn@public-vpn-200.opengw.net:443
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: KR韩国(mibei77.com 米贝节点分享)_5
+    type: vless
+    server: 141.164.35.4
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    alpn:
+      - http/1.1
+    skip-cert-verify: true
+    udp: true
+  - name: JP日本(mibei77.com 米贝节点分享)_18
+    type: vless
+    server: 101.142.129.72
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    ws-opts:
+      path: /fp=chrome
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_21
+    type: vless
+    server: 101.142.129.72
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /fp=chrome
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: DE德国(mibei77.com 米贝节点分享)_4
+    type: vless
+    server: 2.28.42.209
+    port: 8443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /fdip=sstp://vpn:vpn@public-vpn-200.opengw.net:443
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: DE德国(mibei77.com 米贝节点分享)_5
+    type: vless
+    server: 188.245.191.19
+    port: 2040
+    uuid: bdd897a6-57f2-4311-835f-0b6c5ac5a1a2
+    network: ws
+    servername: 9qohadlkywguh.hlf9x1796lkopyju2kplt9c9smz1vyuv0u8azzk.workers.dev
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /@Marisa_kristi
+      headers:
+        Host: 9qohadlkywguh.hlf9x1796lkopyju2kplt9c9smz1vyuv0u8azzk.workers.dev
+    skip-cert-verify: true
+    udp: true
+  - name: DE德国(mibei77.com 米贝节点分享)_6
+    type: vless
+    server: 5.75.195.83
+    port: 56879
+    uuid: 7b0f8733-03cc-472b-9c50-ed159b48ef59
+    network: ws
+    servername: jln31qtswdkut5.60kohcognywybguuq3ouc818oofnxfvn35daott.workers.dev
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /@Marisa_kristi
+      headers:
+        Host: jln31qtswdkut5.60kohcognywybguuq3ouc818oofnxfvn35daott.workers.dev
+    skip-cert-verify: true
+    udp: true
+  - name: JP日本(mibei77.com 米贝节点分享)_19
+    type: vless
+    server: funagfrdfs.alixxplay.com
+    port: 46105
+    uuid: 57beeeb0-03fc-4fc9-94da-7604488a7134
+    servername: www.lamer.com.sg
+    tls: true
+    flow: xtls-rprx-vision
+    client-fingerprint: safari
+    reality-opts:
+      public-key: Lk5nwDxC2tr3J7hT8emhUUiMX8cHyKX9TiRj_EnAiik
+      short-id: 28f5c1f8f98a
+    skip-cert-verify: true
+    udp: true
+  - name: 保加利亚(mibei77.com 米贝节点分享)
+    type: vless
+    server: 13.140.29.253
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: DE德国(mibei77.com 米贝节点分享)_7
+    type: vless
+    server: 103.13.211.236
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    alpn:
+      - h3
+      - h2
+    skip-cert-verify: true
+    udp: true
+  - name: DE德国(mibei77.com 米贝节点分享)_8
+    type: vless
+    server: 155.254.35.156
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: HK香港(mibei77.com 米贝节点分享)_6
+    type: vless
+    server: 85.121.245.104
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: JP日本(mibei77.com 米贝节点分享)_20
+    type: vless
+    server: funagfrdfs.alixxplay.com
+    port: 46105
+    uuid: 57beeeb0-03fc-4fc9-94da-7604488a7134
+    servername: www.lamer.com.sg
+    tls: true
+    flow: xtls-rprx-vision
+    client-fingerprint: safari
+    reality-opts:
+      public-key: Lk5nwDxC2tr3J7hT8emhUUiMX8cHyKX9TiRj_EnAiik
+      short-id: 28f5c1f8f98a
+    skip-cert-verify: true
+    udp: true
+  - name: AU澳大利亚(mibei77.com 米贝节点分享)
+    type: anytls
+    server: svip.skycon808.com
+    port: 60005
+    password: 13f0acfa-38c1-4e82-a758-583aa31740df
+    skip-cert-verify: true
+    tls: true
+    udp: true
+    client-fingerprint: chrome
+  - name: US美国(mibei77.com 米贝节点分享)_22
+    type: vless
+    server: 63.141.128.30
+    port: 8880
+    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+    network: ws
+    tls: false
+    ws-opts:
+      path: /
+      headers:
+        Host: vms.lifetime42.workers.dev
+    skip-cert-verify: true
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_23
+    type: vless
+    server: 162.159.135.234
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /fdip=sstp://vpn:vpn@public-vpn-200.opengw.net:443
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_24
+    type: vless
+    server: 179.255.107.60
+    port: 8443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    ws-opts:
+      path: /
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_25
+    type: vless
+    server: 208.68.180.204
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /fdip=sstp://vpn:vpn@public-vpn-200.opengw.net:443
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_26
+    type: anytls
+    server: svip.skycon808.com
+    port: 60005
+    password: 13f0acfa-38c1-4e82-a758-583aa31740df
+    sni: 127.0.0.1
+    skip-cert-verify: true
+    tls: true
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_27
+    type: vless
+    server: 162.159.130.234
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_28
+    type: vless
+    server: 131.143.180.190
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /fdip=sstp://vpn:vpn@public-vpn-200.opengw.net:443
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: 保加利亚(mibei77.com 米贝节点分享)_1
+    type: vless
+    server: 13.140.29.253
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    ws-opts:
+      path: /
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: DE德国(mibei77.com 米贝节点分享)_9
+    type: vless
+    server: 152.53.197.166
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    alpn:
+      - h3
+      - h2
+    skip-cert-verify: true
+    udp: true
+  - name: KR韩国(mibei77.com 米贝节点分享)_6
+    type: vless
+    server: 168.107.16.68
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /fdip=sstp://vpn:vpn@public-vpn-200.opengw.net:443
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_29
+    type: vless
+    server: 162.159.135.234
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /fp=chrome
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    alpn:
+      - h3
+      - h2
+    skip-cert-verify: true
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_30
+    type: vless
+    server: 162.159.135.234
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    ws-opts:
+      path: /fdip=sstp://vpn:vpn@public-vpn-200.opengw.net:443
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_31
+    type: vless
+    server: 162.159.135.234
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_32
+    type: vless
+    server: 179.253.250.237
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_33
+    type: vless
+    server: 162.159.135.234
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    alpn:
+      - h3
+      - h2
+    skip-cert-verify: true
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_34
+    type: vless
+    server: 162.159.135.234
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    ws-opts:
+      path: /
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_35
+    type: vless
+    server: 154.17.6.42
+    port: 2053
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: 保加利亚(mibei77.com 米贝节点分享)_2
+    type: vless
+    server: 104.152.48.248
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_36
+    type: vless
+    server: 216.24.57.1
+    port: 443
+    uuid: 974c2588-c1cd-43ac-8823-ce3d879b09fd
+    network: ws
+    servername: somersby.pt.ex33r.eu.cc
+    tls: true
+    ws-opts:
+      path: /id-amz
+    skip-cert-verify: true
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_37
+    type: vless
+    server: 162.159.130.234
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    alpn:
+      - h3
+      - h2
+    skip-cert-verify: true
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_38
+    type: vless
+    server: 162.159.135.234
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /fdip=sstp://vpn:vpn@public-vpn-200.opengw.net:443
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    alpn:
+      - h3
+      - h2
+    skip-cert-verify: true
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_39
+    type: vless
+    server: 162.159.135.234
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    ws-opts:
+      path: /fdip=sstp://vpn:vpn@public-vpn-200.opengw.net:443fp=chrome
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    alpn:
+      - h3
+      - h2
+    skip-cert-verify: true
+    udp: true
+  - name: GB英国(mibei77.com 米贝节点分享)
+    type: vless
+    server: 104.194.140.26
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    ws-opts:
+      path: /fp=chrome
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_40
+    type: vless
+    server: 162.159.135.234
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    ws-opts:
+      path: /fp=chrome
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    alpn:
+      - h3
+      - h2
+    skip-cert-verify: true
+    udp: true
+  - name: DE德国(mibei77.com 米贝节点分享)_10
+    type: vless
+    server: 155.117.234.52
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_41
+    type: vless
+    server: 179.255.107.28
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /fdip=sstp://vpn:vpn@public-vpn-200.opengw.net:443
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_42
+    type: vless
+    server: 23.227.39.30
+    port: 8880
+    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+    network: ws
+    tls: false
+    ws-opts:
+      path: /
+      headers:
+        Host: vms.lifetime17.workers.dev
+    skip-cert-verify: true
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_43
+    type: vless
+    server: 162.159.135.234
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /fdip=sstp://vpn:vpn@public-vpn-200.opengw.net:443?ed=2560
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    alpn:
+      - h3
+      - h2
+    skip-cert-verify: true
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_44
+    type: vless
+    server: 162.159.135.234
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    ws-opts:
+      path: /
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    alpn:
+      - h3
+      - h2
+    skip-cert-verify: true
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_45
+    type: vless
+    server: 179.253.247.47
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_46
+    type: vless
+    server: 179.255.99.95
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_47
+    type: vless
+    server: 162.159.130.234
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    ws-opts:
+      path: /
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_48
+    type: vless
+    server: 179.255.106.248
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: KR韩国(mibei77.com 米贝节点分享)_7
+    type: anytls
+    server: svip.skycon808.com
+    port: 47531
+    password: 87c6ad7b-e450-44a8-8088-bc2234d43de1
+    sni: tw15.swiftrelay.cc
+    skip-cert-verify: true
+    tls: true
+    udp: true
+    client-fingerprint: chrome
+  - name: RU俄罗斯(mibei77.com 米贝节点分享)
+    type: vless
+    server: randomquaint.net
+    port: 2053
+    uuid: 95a608b6-bff1-4e10-bb61-0a39f221bb7d
+    network: xhttp
+    servername: randomquaint.net
+    tls: true
+    xhttp-opts:
+      path: /api/v1/upload
+      host: randomquaint.net
+      mode: auto
+    skip-cert-verify: true
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_49
+    type: vless
+    server: 78.159.246.179
+    port: 2053
+    uuid: 95a608b6-bff1-4e10-bb61-0a39f221bb7d
+    network: xhttp
+    servername: randomquaint.net
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - h2
+      - http/1.1
+    xhttp-opts:
+      path: /api/v1/upload
+      host: randomquaint.net
+      mode: auto
+    skip-cert-verify: true
+    udp: true
+  - name: FR法国(mibei77.com 米贝节点分享)_2
+    type: vless
+    server: 104.252.30.35
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_50
+    type: vless
+    server: 162.159.135.234
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /fdip=sstp://vpn:vpn@public-vpn-200.opengw.net:443fp=chrome
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: DE德国(mibei77.com 米贝节点分享)_11
+    type: vless
+    server: 89.127.210.245
+    port: 2053
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    ws-opts:
+      path: /
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: DE德国(mibei77.com 米贝节点分享)_12
+    type: vless
+    server: 45.95.0.43
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    ws-opts:
+      path: /fp=chrome
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: DE德国(mibei77.com 米贝节点分享)_13
+    type: vless
+    server: 77.91.66.41
+    port: 8443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: 瑞士(mibei77.com 米贝节点分享)
+    type: vless
+    server: 138.124.36.67
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /fp=chrome
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: DE德国(mibei77.com 米贝节点分享)_14
+    type: vless
+    server: 31.70.89.136
+    port: 8443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /fdip=sstp://vpn:vpn@vpn748359672.opengw.net:1458?ed=2560fp=chrome
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: DE德国(mibei77.com 米贝节点分享)_15
+    type: vless
+    server: 93.127.223.238
+    port: 8443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: KR韩国(mibei77.com 米贝节点分享)_8
+    type: vless
+    server: 146.56.151.92
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    ws-opts:
+      path: /fdip=sstp://vpn:vpn@vpn748359672.opengw.net:1458?ed=2560fp=chrome
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_51
+    type: vless
+    server: www.speedtest.net
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    alpn:
+      - http/1.1
+    skip-cert-verify: true
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_52
+    type: vless
+    server: 179.255.99.57
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_53
+    type: vless
+    server: 154.12.52.153
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: KR韩国(mibei77.com 米贝节点分享)_9
+    type: vless
+    server: 193.122.115.184
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    ws-opts:
+      path: /
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: KR韩国(mibei77.com 米贝节点分享)_10
+    type: vless
+    server: 146.56.188.74
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    ws-opts:
+      path: /fdip=sstp://vpn:vpn@public-vpn-200.opengw.net:443fp=chrome
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    alpn:
+      - h3
+      - h2
+    skip-cert-verify: true
+    udp: true
+  - name: 马来西亚(mibei77.com 米贝节点分享)
+    type: vless
+    server: 143.246.223.110
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /fdip=sstp://vpn:vpn@public-vpn-200.opengw.net:443
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_54
+    type: vless
+    server: 179.255.107.216
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: 保加利亚(mibei77.com 米贝节点分享)_3
+    type: vless
+    server: 13.140.29.45
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: RU俄罗斯(mibei77.com 米贝节点分享)_1
+    type: vless
+    server: 139.100.226.187
+    port: 8443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /fdip=sstp://vpn:vpn@public-vpn-200.opengw.net:443
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_55
+    type: vless
+    server: 172.64.150.43
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    ws-opts:
+      path: /fp=unsafe
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: DE德国(mibei77.com 米贝节点分享)_16
+    type: vless
+    server: 144.31.181.177
+    port: 8443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    ws-opts:
+      path: /
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_56
+    type: vless
+    server: 207.246.105.197
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    ws-opts:
+      path: /fp=chrome
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_57
+    type: vless
+    server: 188.114.98.0
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    tls: true
+    ws-opts:
+      path: /fdipfp=chrome
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_58
+    type: vless
+    server: 141.98.41.80
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: FI芬兰(mibei77.com 米贝节点分享)
+    type: vless
+    server: 109.122.194.61
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: 马来西亚(mibei77.com 米贝节点分享)_1
+    type: vless
+    server: 154.46.31.118
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_59
+    type: vless
+    server: 188.114.98.0
+    port: 443
+    uuid: e6df2095-a73c-4043-8693-8d5a03686870
+    network: ws
+    servername: lucasjow.us.ci
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /?TELEGRAM-TOOTFFARANGI
+      headers:
+        Host: lucasjow.us.ci
+    alpn:
+      - http/1.1
+    skip-cert-verify: true
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_60
+    type: vless
+    server: 173.249.207.192
+    port: 8443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /fp=unsafe
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: 马来西亚(mibei77.com 米贝节点分享)_2
+    type: vless
+    server: 216.173.67.144
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_61
+    type: vless
+    server: swself2.yandex-api.com
+    port: 443
+    uuid: 1b7ee703-fa08-4305-8469-ae3e30e61e44
+    servername: swself2.yandex-api.com
+    tls: true
+    flow: xtls-rprx-vision
+    client-fingerprint: random
+    reality-opts:
+      public-key: HXFe_cPryw01zqXchAFjZciDAS4UJg1-xScx6vjgjjY
+      short-id: 7f2e9c4b1a8d6e25
+    skip-cert-verify: true
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_62
+    type: vless
+    server: 80.93.202.40
+    port: 8880
+    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+    network: ws
+    tls: false
+    ws-opts:
+      path: /
+      headers:
+        Host: vms.lifetime02.workers.dev
+    skip-cert-verify: true
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_63
+    type: vless
+    server: www.speedtest.net
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /fdip=sstp://vpn:vpn@vpn748359672.opengw.net:1458?ed=2560#Telegram---bored_vpn
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    alpn:
+      - http/1.1
+    skip-cert-verify: true
+    udp: true
+  - name: 越南(mibei77.com 米贝节点分享)
+    type: vless
+    server: 103.161.179.171
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /fdip=sstp://vpn:vpn@public-vpn-200.opengw.net:443
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: RU俄罗斯(mibei77.com 米贝节点分享)_2
+    type: vless
+    server: randomquaint.net
+    port: 2053
+    uuid: 95a608b6-bff1-4e10-bb61-0a39f221bb7d
+    network: xhttp
+    servername: randomquaint.net
+    tls: true
+    client-fingerprint: chrome
+    xhttp-opts:
+      path: /api/v1/upload
+      host: randomquaint.net
+      mode: auto
+    skip-cert-verify: true
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_64
+    type: vless
+    server: 104.19.45.195
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    ws-opts:
+      path: /?TELEGRAM-TOOTFFARANGIfp=chrome
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    alpn:
+      - http/1.1
+    skip-cert-verify: true
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_65
+    type: vless
+    server: 104.248.68.179
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    ws-opts:
+      path: /fdip=sstp://vpn:vpn@public-vpn-200.opengw.net:443?ed=2560fp=chromefp=chrome
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: HK香港(mibei77.com 米贝节点分享)_7
+    type: vless
+    server: 103.39.78.118
+    port: 8443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /fdip=sstp://vpn:vpn@public-vpn-200.opengw.net:443
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: HK香港(mibei77.com 米贝节点分享)_8
+    type: vless
+    server: 104.17.148.22
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    alpn:
+      - http/1.1
+    skip-cert-verify: true
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_66
+    type: vless
+    server: 203.88.117.190
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_67
+    type: vless
+    server: 154.21.197.32
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_68
+    type: vless
+    server: 172.64.150.43
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /fp=unsafe
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: HK香港(mibei77.com 米贝节点分享)_9
+    type: vless
+    server: 216.23.93.27
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: VN越南(mibei77.com 米贝节点分享)
+    type: vless
+    server: 103.161.178.205
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    ws-opts:
+      path: /fdip=sstp://vpn:vpn@public-vpn-200.opengw.net:443fp=chrome
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: 马来西亚(mibei77.com 米贝节点分享)_3
+    type: vless
+    server: 136.0.254.132
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    ws-opts:
+      path: /
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: JP日本(mibei77.com 米贝节点分享)_21
+    type: vless
+    server: funagfrdfs.alixxplay.com
+    port: 47672
+    uuid: 57beeeb0-03fc-4fc9-94da-7604488a7134
+    servername: us1p1.xn--ghq880n3na965a.com
+    tls: true
+    flow: xtls-rprx-vision
+    client-fingerprint: ios
+    reality-opts:
+      public-key: tBvlo8F8hKRXSK-EHRAfzEH-x3e4uvheGloO-9bPKx4
+      short-id: 70ab6d813e
+    skip-cert-verify: true
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_69
+    type: vless
+    server: 172.64.150.43
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    ws-opts:
+      path: fp=unsafe
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_70
+    type: vless
+    server: 159.54.172.104
+    port: 8443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_71
+    type: vless
+    server: 154.197.75.40
+    port: 8880
+    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+    network: ws
+    tls: false
+    ws-opts:
+      path: /
+      headers:
+        Host: vms.lifetime37.workers.dev
+    skip-cert-verify: true
+    udp: true
+  - name: JP日本(mibei77.com 米贝节点分享)_22
+    type: vless
+    server: funagfrdfs.alixxplay.com
+    port: 34379
+    uuid: 57beeeb0-03fc-4fc9-94da-7604488a7134
+    servername: us1p1.xn--ghq880n3na965a.com
+    tls: true
+    flow: xtls-rprx-vision
+    client-fingerprint: chrome
+    reality-opts:
+      public-key: KfOrtENkHAXDFlsCluw6fv62Q-WuJXCKI98XZihtemA
+      short-id: e51285e3
+    skip-cert-verify: true
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_72
+    type: vless
+    server: 172.64.150.43
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    ws-opts:
+      path: /
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_73
+    type: vless
+    server: 172.64.150.43
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_74
+    type: vless
+    server: 66.42.97.131
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /fdip=sstp://vpn:vpn@public-vpn-200.opengw.net:443
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: 马来西亚(mibei77.com 米贝节点分享)_4
+    type: vless
+    server: 136.0.254.132
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    ws-opts:
+      path: /fp=chrome
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_75
+    type: vless
+    server: 203.88.117.227
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    ws-opts:
+      path: /
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: DE德国(mibei77.com 米贝节点分享)_17
+    type: vless
+    server: 178.105.133.160
+    port: 4443
+    uuid: fb0818b3-4031-4843-b5f7-1d75177a1758
+    network: ws
+    servername: jln31qtswdkut5.60kohcognywybguuq3ouc818oofnxfvn35daott.workers.dev
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /@Marisa_kristi
+      headers:
+        Host: jln31qtswdkut5.60kohcognywybguuq3ouc818oofnxfvn35daott.workers.dev
+    skip-cert-verify: true
+    udp: true
+  - name: GB英国(mibei77.com 米贝节点分享)_1
+    type: vless
+    server: 109.120.186.137
+    port: 2053
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /fp=unsafe
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_76
+    type: vless
+    server: 92.53.189.40
+    port: 8880
+    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+    network: ws
+    tls: false
+    ws-opts:
+      path: /
+      headers:
+        Host: vms.lifetime19.workers.dev
+    skip-cert-verify: true
+    udp: true
+  - name: 葡萄牙(mibei77.com 米贝节点分享)
+    type: vless
+    server: 195.133.92.228
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /fdip=sstp://vpn:vpn@public-vpn-200.opengw.net:443
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: 葡萄牙(mibei77.com 米贝节点分享)_1
+    type: vless
+    server: 195.133.92.20
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: 爱沙尼亚(mibei77.com 米贝节点分享)
+    type: vless
+    server: 114.129.9.132
+    port: 8443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /fdip=sstp://vpn:vpn@public-vpn-200.opengw.net:443
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: HK香港(mibei77.com 米贝节点分享)_10
+    type: vless
+    server: epam.com
+    port: 443
+    uuid: e53eacb6-cd30-4964-a57c-febcb5151b98
+    network: ws
+    servername: wallweb-4r0.pages.dev
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /
+    skip-cert-verify: true
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_77
+    type: vless
+    server: 45.61.149.205
+    port: 8443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /fdip=sstp://vpn:vpn@public-vpn-200.opengw.net:443
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_78
+    type: vless
+    server: 141.148.186.22
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /fdip=sstp://vpn:vpn@public-vpn-200.opengw.net:443fp=chrome
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: SG新加坡(mibei77.com 米贝节点分享)_9
+    type: vless
+    server: 185.115.207.234
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: SG新加坡(mibei77.com 米贝节点分享)_10
+    type: vless
+    server: 168.107.90.137
+    port: 8443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_79
+    type: vless
+    server: 193.108.112.65
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    ws-opts:
+      path: /fp=chrome
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: SG新加坡(mibei77.com 米贝节点分享)_11
+    type: vless
+    server: 138.2.66.236
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    ws-opts:
+      path: /fp=chrome
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_80
+    type: vless
+    server: 188.114.98.0
+    port: 443
+    uuid: e6df2095-a73c-4043-8693-8d5a03686870
+    network: ws
+    servername: lucasjow.us.ci
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /?Telegram---bored_vpn
+      headers:
+        Host: lucasjow.us.ci
+    alpn:
+      - http/1.1
+    skip-cert-verify: true
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_81
+    type: vless
+    server: 188.114.98.0
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    ws-opts:
+      path: /fdipfp=chrome
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    alpn:
+      - http/1.1
+    skip-cert-verify: true
+    udp: true
+  - name: 意大利(mibei77.com 米贝节点分享)
+    type: vless
+    server: 149.154.157.213
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    ws-opts:
+      path: fp=unsafe
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: IN印度(mibei77.com 米贝节点分享)
+    type: vless
+    server: 13.233.229.128
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: SG新加坡(mibei77.com 米贝节点分享)_12
+    type: vless
+    server: 94.237.65.232
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /fp=chrome
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: SG新加坡(mibei77.com 米贝节点分享)_13
+    type: vless
+    server: 207.148.123.149
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    ws-opts:
+      path: /
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: 土耳其(mibei77.com 米贝节点分享)
+    type: vless
+    server: 45.74.158.57
+    port: 2218
+    uuid: 4476ca08-bdb4-41c1-bae4-a960bdb28c19
+    servername: www.apple.com
+    tls: true
+    reality-opts:
+      public-key: bWIOrQAqUWCrz6BGdwaG42xaV-HEo8sUdGqVktUh0XU
+      short-id: cc80ef
+    skip-cert-verify: true
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_82
+    type: vless
+    server: 141.98.41.20
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    ws-opts:
+      path: fp=unsafe
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: 约旦(mibei77.com 米贝节点分享)
+    type: vless
+    server: 62.72.163.108
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    ws-opts:
+      path: /fp=chrome
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_83
+    type: vless
+    server: 188.114.98.0
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /fdipfp=chrome
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: HK香港(mibei77.com 米贝节点分享)_11
+    type: vless
+    server: dey.lnmarketplace.net
+    port: 443
+    uuid: 3536e1fa-0850-44d1-b123-925ce12476cf
+    network: xhttp
+    servername: dey.lnmarketplace.net
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - h2
+    xhttp-opts:
+      path: /kavir
+      host: dey.lnmarketplace.net
+      mode: stream-one
+    skip-cert-verify: true
+    udp: true
+  - name: 马来西亚(mibei77.com 米贝节点分享)_5
+    type: vless
+    server: 72.60.235.49
+    port: 8443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /fdip=sstp://vpn:vpn@public-vpn-200.opengw.net:443?ed=2560fp=chromefp=chrome
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_84
+    type: vless
+    server: 212.134.252.249
+    port: 15407
+    uuid: b2332eff-b231-4c10-8552-5dfad84f5521
+    servername: www.apple.com
+    tls: true
+    flow: xtls-rprx-vision
+    client-fingerprint: chrome
+    reality-opts:
+      public-key: qO5TgVOZ6xTBvxe9_1mByF5yx4ViCuGPsDaJRvAUTBE
+      short-id: 48ebac29ede6e8f3
+    skip-cert-verify: true
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_85
+    type: vless
+    server: dey.lnmarketplace.net
+    port: 443
+    uuid: 3536e1fa-0850-44d1-b123-925ce12476cf
+    network: xhttp
+    servername: dey.lnmarketplace.net
+    tls: true
+    alpn:
+      - h2
+    xhttp-opts:
+      path: /kavir
+      host: dey.lnmarketplace.net
+      mode: stream-one
+    skip-cert-verify: true
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_86
+    type: vless
+    server: 185.148.104.30
+    port: 8880
+    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+    network: ws
+    servername: 185.148.104.30
+    tls: false
+    client-fingerprint: chrome
+    ws-opts:
+      path: /
+      headers:
+        Host: vms.lifetime51.workers.dev
+    skip-cert-verify: true
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_87
+    type: vless
+    server: 188.114.97.6
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /fdip
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    alpn:
+      - http/1.1
+    skip-cert-verify: true
+    udp: true
+  - name: NL荷兰(mibei77.com 米贝节点分享)
+    type: vless
+    server: dey.lnmarketplace.net
+    port: 443
+    uuid: 3536e1fa-0850-44d1-b123-925ce12476cf
+    network: xhttp
+    servername: dey.lnmarketplace.net
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - h2
+    xhttp-opts:
+      path: /kavir
+      host: dey.lnmarketplace.net
+      mode: stream-one
+    skip-cert-verify: true
+    udp: true
+  - name: DE德国(mibei77.com 米贝节点分享)_18
+    type: vless
+    server: 94.159.100.154
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    ws-opts:
+      path: /
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: DE德国(mibei77.com 米贝节点分享)_19
+    type: vless
+    server: 62.133.60.134
+    port: 8443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_88
+    type: vless
+    server: 94.183.184.239
+    port: 8443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    alpn:
+      - http/1.1
+    skip-cert-verify: true
+    udp: true
+  - name: 埃及(mibei77.com 米贝节点分享)
+    type: vless
+    server: 38.54.59.70
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: DE德国(mibei77.com 米贝节点分享)_20
+    type: vless
+    server: 165.227.161.20
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    ws-opts:
+      path: fp=unsafe
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: DE德国(mibei77.com 米贝节点分享)_21
+    type: vless
+    server: 165.245.214.107
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: DE德国(mibei77.com 米贝节点分享)_22
+    type: vless
+    server: 206.189.56.164
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /fdip=sstp://vpn:vpn@public-vpn-200.opengw.net:443
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: 塞浦路斯(mibei77.com 米贝节点分享)
+    type: vless
+    server: 194.55.166.65
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: NL荷兰(mibei77.com 米贝节点分享)_1
+    type: vless
+    server: 194.93.61.143
+    port: 443
+    uuid: 244d9eab-3311-40c7-b47f-4968dc3088a6
+    servername: nl10.lazeroe.com
+    tls: true
+    flow: xtls-rprx-vision
+    client-fingerprint: edge
+    reality-opts:
+      public-key: drl7nndYdfzZY1aQ0eUAWmNV0nsHig2uDnu9siy9biQ
+      short-id: 868419504747f6de
+    skip-cert-verify: true
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_89
+    type: vless
+    server: 78.159.246.179
+    port: 8443
+    uuid: 2c634977-584e-4e1f-b501-1b70c77a6743
+    network: xhttp
+    servername: randomquaint.net
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - h2
+      - http/1.1
+    xhttp-opts:
+      path: /api/v1/upload
+      host: randomquaint.net
+      mode: auto
+    skip-cert-verify: true
+    udp: true
+  - name: GB英国(mibei77.com 米贝节点分享)_2
+    type: vless
+    server: 195.133.17.250
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /fp=chrome
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: DE德国(mibei77.com 米贝节点分享)_23
+    type: vless
+    server: 45.134.38.133
+    port: 2053
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    ws-opts:
+      path: /
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: DE德国(mibei77.com 米贝节点分享)_24
+    type: vless
+    server: ge-s-1.pythonmakemigreat.wiki
+    port: 443
+    uuid: f8d52ece-fad4-478d-875d-df6eed3befa7
+    servername: ge-s-1.pythonmakemigreat.wiki
+    tls: true
+    flow: xtls-rprx-vision
+    client-fingerprint: chrome
+    reality-opts:
+      public-key: 5fkwwCKZzMsE6Eb_b3iqluu-1AWIfnYl-p0N3EL9Al8
+      short-id: 2c9a2790ad5900b2
+    skip-cert-verify: true
+    udp: true
+  - name: NL荷兰(mibei77.com 米贝节点分享)_2
+    type: vless
+    server: 195.133.17.250
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    ws-opts:
+      path: /fp=chrome
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: DE德国(mibei77.com 米贝节点分享)_25
+    type: vless
+    server: 185.230.44.140
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    alpn:
+      - http/1.1
+    skip-cert-verify: true
+    udp: true
+  - name: FI芬兰(mibei77.com 米贝节点分享)_1
+    type: vless
+    server: 109.122.194.61
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    ws-opts:
+      path: /
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: 马来西亚(mibei77.com 米贝节点分享)_6
+    type: vless
+    server: 187.52.127.204
+    port: 8443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: 爱尔兰(mibei77.com 米贝节点分享)
+    type: vless
+    server: 166.1.221.39
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: RU俄罗斯(mibei77.com 米贝节点分享)_3
+    type: vless
+    server: 139.100.226.187
+    port: 8443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: DE德国(mibei77.com 米贝节点分享)_26
+    type: vless
+    server: 78.17.178.125
+    port: 443
+    uuid: 6c713691-3ca2-4446-ad25-113d1bed6b03
+    servername: cdn.tbank.ru
+    tls: true
+    flow: xtls-rprx-vision
+    client-fingerprint: chrome
+    reality-opts:
+      public-key: jcp4Lj_qYzxtkalm_XFjrmvqEMGRG7sb19yMwLe16WE
+      short-id: e0215064d8d1fd7c
+    skip-cert-verify: true
+    udp: true
+  - name: TW台湾(mibei77.com 米贝节点分享)_1
+    type: vless
+    server: 152.32.167.33
+    port: 443
+    uuid: 91ad30e9-ab06-4b4c-9fb9-1c2aa97d8b3a
+    servername: www.amazon.com
+    tls: true
+    flow: xtls-rprx-vision
+    client-fingerprint: chrome
+    reality-opts:
+      public-key: Q8QwBSGN6J-FqgDV1pYNm0VThS_xNRyQ3DPPa9YZ3j4
+      short-id: cff998a4
+    skip-cert-verify: true
+    udp: true
+  - name: DE德国(mibei77.com 米贝节点分享)_27
+    type: vless
+    server: 78.17.178.125
+    port: 443
+    uuid: 6c713691-3ca2-4446-ad25-113d1bed6b03
+    servername: cdn.tbank.ru
+    tls: true
+    flow: xtls-rprx-vision
+    client-fingerprint: chrome
+    reality-opts:
+      public-key: jcp4Lj_qYzxtkalm_XFjrmvqEMGRG7sb19yMwLe16WE
+      short-id: e0215064d8d1fd7c
+    skip-cert-verify: true
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_90
+    type: vless
+    server: 185.92.182.106
+    port: 2083
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /fp=chrome
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: 丹麦(mibei77.com 米贝节点分享)
+    type: vless
+    server: 193.180.208.167
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    ws-opts:
+      path: /
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: DE德国(mibei77.com 米贝节点分享)_28
+    type: vless
+    server: 159.195.45.210
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: DE德国(mibei77.com 米贝节点分享)_29
+    type: vless
+    server: 152.53.127.16
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: PL波兰(mibei77.com 米贝节点分享)
+    type: vless
+    server: 104.245.245.16
+    port: 8443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: VN越南(mibei77.com 米贝节点分享)_1
+    type: vless
+    server: 103.199.19.132
+    port: 8443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /fdip=sstp://vpn:vpn@public-vpn-200.opengw.net:443
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_91
+    type: vless
+    server: vless-colo.whuiy.xyz
+    port: 443
+    uuid: c64992bd-54aa-4d3d-8527-42da7d7e520a
+    network: xhttp
+    servername: vless-colo.whuiy.xyz
+    tls: true
+    client-fingerprint: chrome
+    xhttp-opts:
+      path: /xhttp-us
+      host: vless-colo.whuiy.xyz
+      mode: auto
+    skip-cert-verify: true
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_92
+    type: vless
+    server: dey.lnmarketplace.net
+    port: 443
+    uuid: 3536e1fa-0850-44d1-b123-925ce12476cf
+    network: xhttp
+    servername: dey.lnmarketplace.net
+    tls: true
+    client-fingerprint: firefox
+    alpn:
+      - h2
+    xhttp-opts:
+      path: /kavir
+      host: dey.lnmarketplace.net
+      mode: stream-one
+    skip-cert-verify: true
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_93
+    type: vless
+    server: 104.17.147.22
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    alpn:
+      - http/1.1
+    skip-cert-verify: true
+    udp: true
+  - name: SG新加坡(mibei77.com 米贝节点分享)_14
+    type: vless
+    server: 103.170.217.60
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: NL荷兰(mibei77.com 米贝节点分享)_3
+    type: vless
+    server: 195.133.17.250
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: 以色列(mibei77.com 米贝节点分享)
+    type: vless
+    server: 185.239.48.154
+    port: 8443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /fp=chrome
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_94
+    type: vless
+    server: 104.17.147.22
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    skip-cert-verify: true
+    udp: true
+  - name: US美国(mibei77.com 米贝节点分享)_95
+    type: vless
+    server: 104.17.148.22
+    port: 443
+    uuid: 495c7195-85b8-498a-bf20-2ea9ce9175b5
+    network: ws
+    servername: snip.edgeoneai.cc.cd
+    tls: true
+    client-fingerprint: chrome
+    ws-opts:
+      path: /fp=chrome
+      headers:
+        Host: snip.edgeoneai.cc.cd
+    alpn:
+      - http/1.1
+    skip-cert-verify: true
+    udp: true
+  - name: SG新加坡(mibei77.com 米贝节点分享)_15
+    type: vless
+    server: jklo.personalitytoday.com
+    port: 55069
+    uuid: b2332eff-b231-4c10-8552-5dfad84f5521
+    servername: www.apple.com
+    tls: true
+    flow: xtls-rprx-vision
+    client-fingerprint: chrome
+    reality-opts:
+      public-key: YQ3pqAAbm2RcACEkU8K0nol3-B-driJbXISk-rb-A0E
+      short-id: 98a763b0b27e284b
+    skip-cert-verify: true
+    udp: true
+proxy-groups:
+  - name: 🚀 节点选择
+    type: select
+    proxies:
+      - ♻️ 自动选择
+      - DIRECT
+      - US美国(mibei77.com 米贝节点分享)
+      - US美国(mibei77.com 米贝节点分享)_1
+      - JP日本(mibei77.com 米贝节点分享)
+      - HK香港(mibei77.com 米贝节点分享)
+      - JP日本(mibei77.com 米贝节点分享)_1
+      - US美国(mibei77.com 米贝节点分享)_2
+      - JP日本(mibei77.com 米贝节点分享)_2
+      - JP日本(mibei77.com 米贝节点分享)_3
+      - JP日本(mibei77.com 米贝节点分享)_4
+      - JP日本(mibei77.com 米贝节点分享)_5
+      - JP日本(mibei77.com 米贝节点分享)_6
+      - JP日本(mibei77.com 米贝节点分享)_7
+      - JP日本(mibei77.com 米贝节点分享)_8
+      - US美国(mibei77.com 米贝节点分享)_3
+      - JP日本(mibei77.com 米贝节点分享)_9
+      - JP日本(mibei77.com 米贝节点分享)_10
+      - US美国(mibei77.com 米贝节点分享)_4
+      - US美国(mibei77.com 米贝节点分享)_5
+      - US美国(mibei77.com 米贝节点分享)_6
+      - US美国(mibei77.com 米贝节点分享)_7
+      - US美国(mibei77.com 米贝节点分享)_8
+      - JP日本(mibei77.com 米贝节点分享)_11
+      - US美国(mibei77.com 米贝节点分享)_9
+      - TW台湾(mibei77.com 米贝节点分享)
+      - SG新加坡(mibei77.com 米贝节点分享)
+      - US美国(mibei77.com 米贝节点分享)_10
+      - US美国(mibei77.com 米贝节点分享)_11
+      - JP日本(mibei77.com 米贝节点分享)_12
+      - US美国(mibei77.com 米贝节点分享)_12
+      - US美国(mibei77.com 米贝节点分享)_13
+      - US美国(mibei77.com 米贝节点分享)_14
+      - JP日本(mibei77.com 米贝节点分享)_13
+      - HK香港(mibei77.com 米贝节点分享)_1
+      - US美国(mibei77.com 米贝节点分享)_15
+      - US美国(mibei77.com 米贝节点分享)_16
+      - HK香港(mibei77.com 米贝节点分享)_2
+      - US美国(mibei77.com 米贝节点分享)_17
+      - US美国(mibei77.com 米贝节点分享)_18
+      - JP日本(mibei77.com 米贝节点分享)_14
+      - SG新加坡(mibei77.com 米贝节点分享)_1
+      - SG新加坡(mibei77.com 米贝节点分享)_2
+      - HK香港(mibei77.com 米贝节点分享)_3
+      - SG新加坡(mibei77.com 米贝节点分享)_3
+      - US美国(mibei77.com 米贝节点分享)_19
+      - SG新加坡(mibei77.com 米贝节点分享)_4
+      - SG新加坡(mibei77.com 米贝节点分享)_5
+      - SG新加坡(mibei77.com 米贝节点分享)_6
+      - HK香港(mibei77.com 米贝节点分享)_4
+      - US美国(mibei77.com 米贝节点分享)_20
+      - SG新加坡(mibei77.com 米贝节点分享)_7
+      - SG新加坡(mibei77.com 米贝节点分享)_8
+      - HK香港(mibei77.com 米贝节点分享)_5
+      - KR韩国(mibei77.com 米贝节点分享)
+      - JP日本(mibei77.com 米贝节点分享)_15
+      - KR韩国(mibei77.com 米贝节点分享)_1
+      - KR韩国(mibei77.com 米贝节点分享)_2
+      - DE德国(mibei77.com 米贝节点分享)
+      - KR韩国(mibei77.com 米贝节点分享)_3
+      - JP日本(mibei77.com 米贝节点分享)_16
+      - JP日本(mibei77.com 米贝节点分享)_17
+      - FR法国(mibei77.com 米贝节点分享)
+      - KR韩国(mibei77.com 米贝节点分享)_4
+      - DE德国(mibei77.com 米贝节点分享)_1
+      - DE德国(mibei77.com 米贝节点分享)_2
+      - DE德国(mibei77.com 米贝节点分享)_3
+      - FR法国(mibei77.com 米贝节点分享)_1
+      - KR韩国(mibei77.com 米贝节点分享)_5
+      - JP日本(mibei77.com 米贝节点分享)_18
+      - US美国(mibei77.com 米贝节点分享)_21
+      - DE德国(mibei77.com 米贝节点分享)_4
+      - DE德国(mibei77.com 米贝节点分享)_5
+      - DE德国(mibei77.com 米贝节点分享)_6
+      - JP日本(mibei77.com 米贝节点分享)_19
+      - 保加利亚(mibei77.com 米贝节点分享)
+      - DE德国(mibei77.com 米贝节点分享)_7
+      - DE德国(mibei77.com 米贝节点分享)_8
+      - HK香港(mibei77.com 米贝节点分享)_6
+      - JP日本(mibei77.com 米贝节点分享)_20
+      - AU澳大利亚(mibei77.com 米贝节点分享)
+      - US美国(mibei77.com 米贝节点分享)_22
+      - US美国(mibei77.com 米贝节点分享)_23
+      - US美国(mibei77.com 米贝节点分享)_24
+      - US美国(mibei77.com 米贝节点分享)_25
+      - US美国(mibei77.com 米贝节点分享)_26
+      - US美国(mibei77.com 米贝节点分享)_27
+      - US美国(mibei77.com 米贝节点分享)_28
+      - 保加利亚(mibei77.com 米贝节点分享)_1
+      - DE德国(mibei77.com 米贝节点分享)_9
+      - KR韩国(mibei77.com 米贝节点分享)_6
+      - US美国(mibei77.com 米贝节点分享)_29
+      - US美国(mibei77.com 米贝节点分享)_30
+      - US美国(mibei77.com 米贝节点分享)_31
+      - US美国(mibei77.com 米贝节点分享)_32
+      - US美国(mibei77.com 米贝节点分享)_33
+      - US美国(mibei77.com 米贝节点分享)_34
+      - US美国(mibei77.com 米贝节点分享)_35
+      - 保加利亚(mibei77.com 米贝节点分享)_2
+      - US美国(mibei77.com 米贝节点分享)_36
+      - US美国(mibei77.com 米贝节点分享)_37
+      - US美国(mibei77.com 米贝节点分享)_38
+      - US美国(mibei77.com 米贝节点分享)_39
+      - GB英国(mibei77.com 米贝节点分享)
+      - US美国(mibei77.com 米贝节点分享)_40
+      - DE德国(mibei77.com 米贝节点分享)_10
+      - US美国(mibei77.com 米贝节点分享)_41
+      - US美国(mibei77.com 米贝节点分享)_42
+      - US美国(mibei77.com 米贝节点分享)_43
+      - US美国(mibei77.com 米贝节点分享)_44
+      - US美国(mibei77.com 米贝节点分享)_45
+      - US美国(mibei77.com 米贝节点分享)_46
+      - US美国(mibei77.com 米贝节点分享)_47
+      - US美国(mibei77.com 米贝节点分享)_48
+      - KR韩国(mibei77.com 米贝节点分享)_7
+      - RU俄罗斯(mibei77.com 米贝节点分享)
+      - US美国(mibei77.com 米贝节点分享)_49
+      - FR法国(mibei77.com 米贝节点分享)_2
+      - US美国(mibei77.com 米贝节点分享)_50
+      - DE德国(mibei77.com 米贝节点分享)_11
+      - DE德国(mibei77.com 米贝节点分享)_12
+      - DE德国(mibei77.com 米贝节点分享)_13
+      - 瑞士(mibei77.com 米贝节点分享)
+      - DE德国(mibei77.com 米贝节点分享)_14
+      - DE德国(mibei77.com 米贝节点分享)_15
+      - KR韩国(mibei77.com 米贝节点分享)_8
+      - US美国(mibei77.com 米贝节点分享)_51
+      - US美国(mibei77.com 米贝节点分享)_52
+      - US美国(mibei77.com 米贝节点分享)_53
+      - KR韩国(mibei77.com 米贝节点分享)_9
+      - KR韩国(mibei77.com 米贝节点分享)_10
+      - 马来西亚(mibei77.com 米贝节点分享)
+      - US美国(mibei77.com 米贝节点分享)_54
+      - 保加利亚(mibei77.com 米贝节点分享)_3
+      - RU俄罗斯(mibei77.com 米贝节点分享)_1
+      - US美国(mibei77.com 米贝节点分享)_55
+      - DE德国(mibei77.com 米贝节点分享)_16
+      - US美国(mibei77.com 米贝节点分享)_56
+      - US美国(mibei77.com 米贝节点分享)_57
+      - US美国(mibei77.com 米贝节点分享)_58
+      - FI芬兰(mibei77.com 米贝节点分享)
+      - 马来西亚(mibei77.com 米贝节点分享)_1
+      - US美国(mibei77.com 米贝节点分享)_59
+      - US美国(mibei77.com 米贝节点分享)_60
+      - 马来西亚(mibei77.com 米贝节点分享)_2
+      - US美国(mibei77.com 米贝节点分享)_61
+      - US美国(mibei77.com 米贝节点分享)_62
+      - US美国(mibei77.com 米贝节点分享)_63
+      - 越南(mibei77.com 米贝节点分享)
+      - RU俄罗斯(mibei77.com 米贝节点分享)_2
+      - US美国(mibei77.com 米贝节点分享)_64
+      - US美国(mibei77.com 米贝节点分享)_65
+      - HK香港(mibei77.com 米贝节点分享)_7
+      - HK香港(mibei77.com 米贝节点分享)_8
+      - US美国(mibei77.com 米贝节点分享)_66
+      - US美国(mibei77.com 米贝节点分享)_67
+      - US美国(mibei77.com 米贝节点分享)_68
+      - HK香港(mibei77.com 米贝节点分享)_9
+      - VN越南(mibei77.com 米贝节点分享)
+      - 马来西亚(mibei77.com 米贝节点分享)_3
+      - JP日本(mibei77.com 米贝节点分享)_21
+      - US美国(mibei77.com 米贝节点分享)_69
+      - US美国(mibei77.com 米贝节点分享)_70
+      - US美国(mibei77.com 米贝节点分享)_71
+      - JP日本(mibei77.com 米贝节点分享)_22
+      - US美国(mibei77.com 米贝节点分享)_72
+      - US美国(mibei77.com 米贝节点分享)_73
+      - US美国(mibei77.com 米贝节点分享)_74
+      - 马来西亚(mibei77.com 米贝节点分享)_4
+      - US美国(mibei77.com 米贝节点分享)_75
+      - DE德国(mibei77.com 米贝节点分享)_17
+      - GB英国(mibei77.com 米贝节点分享)_1
+      - US美国(mibei77.com 米贝节点分享)_76
+      - 葡萄牙(mibei77.com 米贝节点分享)
+      - 葡萄牙(mibei77.com 米贝节点分享)_1
+      - 爱沙尼亚(mibei77.com 米贝节点分享)
+      - HK香港(mibei77.com 米贝节点分享)_10
+      - US美国(mibei77.com 米贝节点分享)_77
+      - US美国(mibei77.com 米贝节点分享)_78
+      - SG新加坡(mibei77.com 米贝节点分享)_9
+      - SG新加坡(mibei77.com 米贝节点分享)_10
+      - US美国(mibei77.com 米贝节点分享)_79
+      - SG新加坡(mibei77.com 米贝节点分享)_11
+      - US美国(mibei77.com 米贝节点分享)_80
+      - US美国(mibei77.com 米贝节点分享)_81
+      - 意大利(mibei77.com 米贝节点分享)
+      - IN印度(mibei77.com 米贝节点分享)
+      - SG新加坡(mibei77.com 米贝节点分享)_12
+      - SG新加坡(mibei77.com 米贝节点分享)_13
+      - 土耳其(mibei77.com 米贝节点分享)
+      - US美国(mibei77.com 米贝节点分享)_82
+      - 约旦(mibei77.com 米贝节点分享)
+      - US美国(mibei77.com 米贝节点分享)_83
+      - HK香港(mibei77.com 米贝节点分享)_11
+      - 马来西亚(mibei77.com 米贝节点分享)_5
+      - US美国(mibei77.com 米贝节点分享)_84
+      - US美国(mibei77.com 米贝节点分享)_85
+      - US美国(mibei77.com 米贝节点分享)_86
+      - US美国(mibei77.com 米贝节点分享)_87
+      - NL荷兰(mibei77.com 米贝节点分享)
+      - DE德国(mibei77.com 米贝节点分享)_18
+      - DE德国(mibei77.com 米贝节点分享)_19
+      - US美国(mibei77.com 米贝节点分享)_88
+      - 埃及(mibei77.com 米贝节点分享)
+      - DE德国(mibei77.com 米贝节点分享)_20
+      - DE德国(mibei77.com 米贝节点分享)_21
+      - DE德国(mibei77.com 米贝节点分享)_22
+      - 塞浦路斯(mibei77.com 米贝节点分享)
+      - NL荷兰(mibei77.com 米贝节点分享)_1
+      - US美国(mibei77.com 米贝节点分享)_89
+      - GB英国(mibei77.com 米贝节点分享)_2
+      - DE德国(mibei77.com 米贝节点分享)_23
+      - DE德国(mibei77.com 米贝节点分享)_24
+      - NL荷兰(mibei77.com 米贝节点分享)_2
+      - DE德国(mibei77.com 米贝节点分享)_25
+      - FI芬兰(mibei77.com 米贝节点分享)_1
+      - 马来西亚(mibei77.com 米贝节点分享)_6
+      - 爱尔兰(mibei77.com 米贝节点分享)
+      - RU俄罗斯(mibei77.com 米贝节点分享)_3
+      - DE德国(mibei77.com 米贝节点分享)_26
+      - TW台湾(mibei77.com 米贝节点分享)_1
+      - DE德国(mibei77.com 米贝节点分享)_27
+      - US美国(mibei77.com 米贝节点分享)_90
+      - 丹麦(mibei77.com 米贝节点分享)
+      - DE德国(mibei77.com 米贝节点分享)_28
+      - DE德国(mibei77.com 米贝节点分享)_29
+      - PL波兰(mibei77.com 米贝节点分享)
+      - VN越南(mibei77.com 米贝节点分享)_1
+      - US美国(mibei77.com 米贝节点分享)_91
+      - US美国(mibei77.com 米贝节点分享)_92
+      - US美国(mibei77.com 米贝节点分享)_93
+      - SG新加坡(mibei77.com 米贝节点分享)_14
+      - NL荷兰(mibei77.com 米贝节点分享)_3
+      - 以色列(mibei77.com 米贝节点分享)
+      - US美国(mibei77.com 米贝节点分享)_94
+      - US美国(mibei77.com 米贝节点分享)_95
+      - SG新加坡(mibei77.com 米贝节点分享)_15
+  - name: ♻️ 自动选择
+    type: url-test
+    proxies:
+      - US美国(mibei77.com 米贝节点分享)
+      - US美国(mibei77.com 米贝节点分享)_1
+      - JP日本(mibei77.com 米贝节点分享)
+      - HK香港(mibei77.com 米贝节点分享)
+      - JP日本(mibei77.com 米贝节点分享)_1
+      - US美国(mibei77.com 米贝节点分享)_2
+      - JP日本(mibei77.com 米贝节点分享)_2
+      - JP日本(mibei77.com 米贝节点分享)_3
+      - JP日本(mibei77.com 米贝节点分享)_4
+      - JP日本(mibei77.com 米贝节点分享)_5
+      - JP日本(mibei77.com 米贝节点分享)_6
+      - JP日本(mibei77.com 米贝节点分享)_7
+      - JP日本(mibei77.com 米贝节点分享)_8
+      - US美国(mibei77.com 米贝节点分享)_3
+      - JP日本(mibei77.com 米贝节点分享)_9
+      - JP日本(mibei77.com 米贝节点分享)_10
+      - US美国(mibei77.com 米贝节点分享)_4
+      - US美国(mibei77.com 米贝节点分享)_5
+      - US美国(mibei77.com 米贝节点分享)_6
+      - US美国(mibei77.com 米贝节点分享)_7
+      - US美国(mibei77.com 米贝节点分享)_8
+      - JP日本(mibei77.com 米贝节点分享)_11
+      - US美国(mibei77.com 米贝节点分享)_9
+      - TW台湾(mibei77.com 米贝节点分享)
+      - SG新加坡(mibei77.com 米贝节点分享)
+      - US美国(mibei77.com 米贝节点分享)_10
+      - US美国(mibei77.com 米贝节点分享)_11
+      - JP日本(mibei77.com 米贝节点分享)_12
+      - US美国(mibei77.com 米贝节点分享)_12
+      - US美国(mibei77.com 米贝节点分享)_13
+      - US美国(mibei77.com 米贝节点分享)_14
+      - JP日本(mibei77.com 米贝节点分享)_13
+      - HK香港(mibei77.com 米贝节点分享)_1
+      - US美国(mibei77.com 米贝节点分享)_15
+      - US美国(mibei77.com 米贝节点分享)_16
+      - HK香港(mibei77.com 米贝节点分享)_2
+      - US美国(mibei77.com 米贝节点分享)_17
+      - US美国(mibei77.com 米贝节点分享)_18
+      - JP日本(mibei77.com 米贝节点分享)_14
+      - SG新加坡(mibei77.com 米贝节点分享)_1
+      - SG新加坡(mibei77.com 米贝节点分享)_2
+      - HK香港(mibei77.com 米贝节点分享)_3
+      - SG新加坡(mibei77.com 米贝节点分享)_3
+      - US美国(mibei77.com 米贝节点分享)_19
+      - SG新加坡(mibei77.com 米贝节点分享)_4
+      - SG新加坡(mibei77.com 米贝节点分享)_5
+      - SG新加坡(mibei77.com 米贝节点分享)_6
+      - HK香港(mibei77.com 米贝节点分享)_4
+      - US美国(mibei77.com 米贝节点分享)_20
+      - SG新加坡(mibei77.com 米贝节点分享)_7
+      - SG新加坡(mibei77.com 米贝节点分享)_8
+      - HK香港(mibei77.com 米贝节点分享)_5
+      - KR韩国(mibei77.com 米贝节点分享)
+      - JP日本(mibei77.com 米贝节点分享)_15
+      - KR韩国(mibei77.com 米贝节点分享)_1
+      - KR韩国(mibei77.com 米贝节点分享)_2
+      - DE德国(mibei77.com 米贝节点分享)
+      - KR韩国(mibei77.com 米贝节点分享)_3
+      - JP日本(mibei77.com 米贝节点分享)_16
+      - JP日本(mibei77.com 米贝节点分享)_17
+      - FR法国(mibei77.com 米贝节点分享)
+      - KR韩国(mibei77.com 米贝节点分享)_4
+      - DE德国(mibei77.com 米贝节点分享)_1
+      - DE德国(mibei77.com 米贝节点分享)_2
+      - DE德国(mibei77.com 米贝节点分享)_3
+      - FR法国(mibei77.com 米贝节点分享)_1
+      - KR韩国(mibei77.com 米贝节点分享)_5
+      - JP日本(mibei77.com 米贝节点分享)_18
+      - US美国(mibei77.com 米贝节点分享)_21
+      - DE德国(mibei77.com 米贝节点分享)_4
+      - DE德国(mibei77.com 米贝节点分享)_5
+      - DE德国(mibei77.com 米贝节点分享)_6
+      - JP日本(mibei77.com 米贝节点分享)_19
+      - 保加利亚(mibei77.com 米贝节点分享)
+      - DE德国(mibei77.com 米贝节点分享)_7
+      - DE德国(mibei77.com 米贝节点分享)_8
+      - HK香港(mibei77.com 米贝节点分享)_6
+      - JP日本(mibei77.com 米贝节点分享)_20
+      - AU澳大利亚(mibei77.com 米贝节点分享)
+      - US美国(mibei77.com 米贝节点分享)_22
+      - US美国(mibei77.com 米贝节点分享)_23
+      - US美国(mibei77.com 米贝节点分享)_24
+      - US美国(mibei77.com 米贝节点分享)_25
+      - US美国(mibei77.com 米贝节点分享)_26
+      - US美国(mibei77.com 米贝节点分享)_27
+      - US美国(mibei77.com 米贝节点分享)_28
+      - 保加利亚(mibei77.com 米贝节点分享)_1
+      - DE德国(mibei77.com 米贝节点分享)_9
+      - KR韩国(mibei77.com 米贝节点分享)_6
+      - US美国(mibei77.com 米贝节点分享)_29
+      - US美国(mibei77.com 米贝节点分享)_30
+      - US美国(mibei77.com 米贝节点分享)_31
+      - US美国(mibei77.com 米贝节点分享)_32
+      - US美国(mibei77.com 米贝节点分享)_33
+      - US美国(mibei77.com 米贝节点分享)_34
+      - US美国(mibei77.com 米贝节点分享)_35
+      - 保加利亚(mibei77.com 米贝节点分享)_2
+      - US美国(mibei77.com 米贝节点分享)_36
+      - US美国(mibei77.com 米贝节点分享)_37
+      - US美国(mibei77.com 米贝节点分享)_38
+      - US美国(mibei77.com 米贝节点分享)_39
+      - GB英国(mibei77.com 米贝节点分享)
+      - US美国(mibei77.com 米贝节点分享)_40
+      - DE德国(mibei77.com 米贝节点分享)_10
+      - US美国(mibei77.com 米贝节点分享)_41
+      - US美国(mibei77.com 米贝节点分享)_42
+      - US美国(mibei77.com 米贝节点分享)_43
+      - US美国(mibei77.com 米贝节点分享)_44
+      - US美国(mibei77.com 米贝节点分享)_45
+      - US美国(mibei77.com 米贝节点分享)_46
+      - US美国(mibei77.com 米贝节点分享)_47
+      - US美国(mibei77.com 米贝节点分享)_48
+      - KR韩国(mibei77.com 米贝节点分享)_7
+      - RU俄罗斯(mibei77.com 米贝节点分享)
+      - US美国(mibei77.com 米贝节点分享)_49
+      - FR法国(mibei77.com 米贝节点分享)_2
+      - US美国(mibei77.com 米贝节点分享)_50
+      - DE德国(mibei77.com 米贝节点分享)_11
+      - DE德国(mibei77.com 米贝节点分享)_12
+      - DE德国(mibei77.com 米贝节点分享)_13
+      - 瑞士(mibei77.com 米贝节点分享)
+      - DE德国(mibei77.com 米贝节点分享)_14
+      - DE德国(mibei77.com 米贝节点分享)_15
+      - KR韩国(mibei77.com 米贝节点分享)_8
+      - US美国(mibei77.com 米贝节点分享)_51
+      - US美国(mibei77.com 米贝节点分享)_52
+      - US美国(mibei77.com 米贝节点分享)_53
+      - KR韩国(mibei77.com 米贝节点分享)_9
+      - KR韩国(mibei77.com 米贝节点分享)_10
+      - 马来西亚(mibei77.com 米贝节点分享)
+      - US美国(mibei77.com 米贝节点分享)_54
+      - 保加利亚(mibei77.com 米贝节点分享)_3
+      - RU俄罗斯(mibei77.com 米贝节点分享)_1
+      - US美国(mibei77.com 米贝节点分享)_55
+      - DE德国(mibei77.com 米贝节点分享)_16
+      - US美国(mibei77.com 米贝节点分享)_56
+      - US美国(mibei77.com 米贝节点分享)_57
+      - US美国(mibei77.com 米贝节点分享)_58
+      - FI芬兰(mibei77.com 米贝节点分享)
+      - 马来西亚(mibei77.com 米贝节点分享)_1
+      - US美国(mibei77.com 米贝节点分享)_59
+      - US美国(mibei77.com 米贝节点分享)_60
+      - 马来西亚(mibei77.com 米贝节点分享)_2
+      - US美国(mibei77.com 米贝节点分享)_61
+      - US美国(mibei77.com 米贝节点分享)_62
+      - US美国(mibei77.com 米贝节点分享)_63
+      - 越南(mibei77.com 米贝节点分享)
+      - RU俄罗斯(mibei77.com 米贝节点分享)_2
+      - US美国(mibei77.com 米贝节点分享)_64
+      - US美国(mibei77.com 米贝节点分享)_65
+      - HK香港(mibei77.com 米贝节点分享)_7
+      - HK香港(mibei77.com 米贝节点分享)_8
+      - US美国(mibei77.com 米贝节点分享)_66
+      - US美国(mibei77.com 米贝节点分享)_67
+      - US美国(mibei77.com 米贝节点分享)_68
+      - HK香港(mibei77.com 米贝节点分享)_9
+      - VN越南(mibei77.com 米贝节点分享)
+      - 马来西亚(mibei77.com 米贝节点分享)_3
+      - JP日本(mibei77.com 米贝节点分享)_21
+      - US美国(mibei77.com 米贝节点分享)_69
+      - US美国(mibei77.com 米贝节点分享)_70
+      - US美国(mibei77.com 米贝节点分享)_71
+      - JP日本(mibei77.com 米贝节点分享)_22
+      - US美国(mibei77.com 米贝节点分享)_72
+      - US美国(mibei77.com 米贝节点分享)_73
+      - US美国(mibei77.com 米贝节点分享)_74
+      - 马来西亚(mibei77.com 米贝节点分享)_4
+      - US美国(mibei77.com 米贝节点分享)_75
+      - DE德国(mibei77.com 米贝节点分享)_17
+      - GB英国(mibei77.com 米贝节点分享)_1
+      - US美国(mibei77.com 米贝节点分享)_76
+      - 葡萄牙(mibei77.com 米贝节点分享)
+      - 葡萄牙(mibei77.com 米贝节点分享)_1
+      - 爱沙尼亚(mibei77.com 米贝节点分享)
+      - HK香港(mibei77.com 米贝节点分享)_10
+      - US美国(mibei77.com 米贝节点分享)_77
+      - US美国(mibei77.com 米贝节点分享)_78
+      - SG新加坡(mibei77.com 米贝节点分享)_9
+      - SG新加坡(mibei77.com 米贝节点分享)_10
+      - US美国(mibei77.com 米贝节点分享)_79
+      - SG新加坡(mibei77.com 米贝节点分享)_11
+      - US美国(mibei77.com 米贝节点分享)_80
+      - US美国(mibei77.com 米贝节点分享)_81
+      - 意大利(mibei77.com 米贝节点分享)
+      - IN印度(mibei77.com 米贝节点分享)
+      - SG新加坡(mibei77.com 米贝节点分享)_12
+      - SG新加坡(mibei77.com 米贝节点分享)_13
+      - 土耳其(mibei77.com 米贝节点分享)
+      - US美国(mibei77.com 米贝节点分享)_82
+      - 约旦(mibei77.com 米贝节点分享)
+      - US美国(mibei77.com 米贝节点分享)_83
+      - HK香港(mibei77.com 米贝节点分享)_11
+      - 马来西亚(mibei77.com 米贝节点分享)_5
+      - US美国(mibei77.com 米贝节点分享)_84
+      - US美国(mibei77.com 米贝节点分享)_85
+      - US美国(mibei77.com 米贝节点分享)_86
+      - US美国(mibei77.com 米贝节点分享)_87
+      - NL荷兰(mibei77.com 米贝节点分享)
+      - DE德国(mibei77.com 米贝节点分享)_18
+      - DE德国(mibei77.com 米贝节点分享)_19
+      - US美国(mibei77.com 米贝节点分享)_88
+      - 埃及(mibei77.com 米贝节点分享)
+      - DE德国(mibei77.com 米贝节点分享)_20
+      - DE德国(mibei77.com 米贝节点分享)_21
+      - DE德国(mibei77.com 米贝节点分享)_22
+      - 塞浦路斯(mibei77.com 米贝节点分享)
+      - NL荷兰(mibei77.com 米贝节点分享)_1
+      - US美国(mibei77.com 米贝节点分享)_89
+      - GB英国(mibei77.com 米贝节点分享)_2
+      - DE德国(mibei77.com 米贝节点分享)_23
+      - DE德国(mibei77.com 米贝节点分享)_24
+      - NL荷兰(mibei77.com 米贝节点分享)_2
+      - DE德国(mibei77.com 米贝节点分享)_25
+      - FI芬兰(mibei77.com 米贝节点分享)_1
+      - 马来西亚(mibei77.com 米贝节点分享)_6
+      - 爱尔兰(mibei77.com 米贝节点分享)
+      - RU俄罗斯(mibei77.com 米贝节点分享)_3
+      - DE德国(mibei77.com 米贝节点分享)_26
+      - TW台湾(mibei77.com 米贝节点分享)_1
+      - DE德国(mibei77.com 米贝节点分享)_27
+      - US美国(mibei77.com 米贝节点分享)_90
+      - 丹麦(mibei77.com 米贝节点分享)
+      - DE德国(mibei77.com 米贝节点分享)_28
+      - DE德国(mibei77.com 米贝节点分享)_29
+      - PL波兰(mibei77.com 米贝节点分享)
+      - VN越南(mibei77.com 米贝节点分享)_1
+      - US美国(mibei77.com 米贝节点分享)_91
+      - US美国(mibei77.com 米贝节点分享)_92
+      - US美国(mibei77.com 米贝节点分享)_93
+      - SG新加坡(mibei77.com 米贝节点分享)_14
+      - NL荷兰(mibei77.com 米贝节点分享)_3
+      - 以色列(mibei77.com 米贝节点分享)
+      - US美国(mibei77.com 米贝节点分享)_94
+      - US美国(mibei77.com 米贝节点分享)_95
+      - SG新加坡(mibei77.com 米贝节点分享)_15
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+  - name: 🌍 国外媒体
+    type: select
+    proxies:
+      - 🚀 节点选择
+      - ♻️ 自动选择
+      - 🎯 全球直连
+      - US美国(mibei77.com 米贝节点分享)
+      - US美国(mibei77.com 米贝节点分享)_1
+      - JP日本(mibei77.com 米贝节点分享)
+      - HK香港(mibei77.com 米贝节点分享)
+      - JP日本(mibei77.com 米贝节点分享)_1
+      - US美国(mibei77.com 米贝节点分享)_2
+      - JP日本(mibei77.com 米贝节点分享)_2
+      - JP日本(mibei77.com 米贝节点分享)_3
+      - JP日本(mibei77.com 米贝节点分享)_4
+      - JP日本(mibei77.com 米贝节点分享)_5
+      - JP日本(mibei77.com 米贝节点分享)_6
+      - JP日本(mibei77.com 米贝节点分享)_7
+      - JP日本(mibei77.com 米贝节点分享)_8
+      - US美国(mibei77.com 米贝节点分享)_3
+      - JP日本(mibei77.com 米贝节点分享)_9
+      - JP日本(mibei77.com 米贝节点分享)_10
+      - US美国(mibei77.com 米贝节点分享)_4
+      - US美国(mibei77.com 米贝节点分享)_5
+      - US美国(mibei77.com 米贝节点分享)_6
+      - US美国(mibei77.com 米贝节点分享)_7
+      - US美国(mibei77.com 米贝节点分享)_8
+      - JP日本(mibei77.com 米贝节点分享)_11
+      - US美国(mibei77.com 米贝节点分享)_9
+      - TW台湾(mibei77.com 米贝节点分享)
+      - SG新加坡(mibei77.com 米贝节点分享)
+      - US美国(mibei77.com 米贝节点分享)_10
+      - US美国(mibei77.com 米贝节点分享)_11
+      - JP日本(mibei77.com 米贝节点分享)_12
+      - US美国(mibei77.com 米贝节点分享)_12
+      - US美国(mibei77.com 米贝节点分享)_13
+      - US美国(mibei77.com 米贝节点分享)_14
+      - JP日本(mibei77.com 米贝节点分享)_13
+      - HK香港(mibei77.com 米贝节点分享)_1
+      - US美国(mibei77.com 米贝节点分享)_15
+      - US美国(mibei77.com 米贝节点分享)_16
+      - HK香港(mibei77.com 米贝节点分享)_2
+      - US美国(mibei77.com 米贝节点分享)_17
+      - US美国(mibei77.com 米贝节点分享)_18
+      - JP日本(mibei77.com 米贝节点分享)_14
+      - SG新加坡(mibei77.com 米贝节点分享)_1
+      - SG新加坡(mibei77.com 米贝节点分享)_2
+      - HK香港(mibei77.com 米贝节点分享)_3
+      - SG新加坡(mibei77.com 米贝节点分享)_3
+      - US美国(mibei77.com 米贝节点分享)_19
+      - SG新加坡(mibei77.com 米贝节点分享)_4
+      - SG新加坡(mibei77.com 米贝节点分享)_5
+      - SG新加坡(mibei77.com 米贝节点分享)_6
+      - HK香港(mibei77.com 米贝节点分享)_4
+      - US美国(mibei77.com 米贝节点分享)_20
+      - SG新加坡(mibei77.com 米贝节点分享)_7
+      - SG新加坡(mibei77.com 米贝节点分享)_8
+      - HK香港(mibei77.com 米贝节点分享)_5
+      - KR韩国(mibei77.com 米贝节点分享)
+      - JP日本(mibei77.com 米贝节点分享)_15
+      - KR韩国(mibei77.com 米贝节点分享)_1
+      - KR韩国(mibei77.com 米贝节点分享)_2
+      - DE德国(mibei77.com 米贝节点分享)
+      - KR韩国(mibei77.com 米贝节点分享)_3
+      - JP日本(mibei77.com 米贝节点分享)_16
+      - JP日本(mibei77.com 米贝节点分享)_17
+      - FR法国(mibei77.com 米贝节点分享)
+      - KR韩国(mibei77.com 米贝节点分享)_4
+      - DE德国(mibei77.com 米贝节点分享)_1
+      - DE德国(mibei77.com 米贝节点分享)_2
+      - DE德国(mibei77.com 米贝节点分享)_3
+      - FR法国(mibei77.com 米贝节点分享)_1
+      - KR韩国(mibei77.com 米贝节点分享)_5
+      - JP日本(mibei77.com 米贝节点分享)_18
+      - US美国(mibei77.com 米贝节点分享)_21
+      - DE德国(mibei77.com 米贝节点分享)_4
+      - DE德国(mibei77.com 米贝节点分享)_5
+      - DE德国(mibei77.com 米贝节点分享)_6
+      - JP日本(mibei77.com 米贝节点分享)_19
+      - 保加利亚(mibei77.com 米贝节点分享)
+      - DE德国(mibei77.com 米贝节点分享)_7
+      - DE德国(mibei77.com 米贝节点分享)_8
+      - HK香港(mibei77.com 米贝节点分享)_6
+      - JP日本(mibei77.com 米贝节点分享)_20
+      - AU澳大利亚(mibei77.com 米贝节点分享)
+      - US美国(mibei77.com 米贝节点分享)_22
+      - US美国(mibei77.com 米贝节点分享)_23
+      - US美国(mibei77.com 米贝节点分享)_24
+      - US美国(mibei77.com 米贝节点分享)_25
+      - US美国(mibei77.com 米贝节点分享)_26
+      - US美国(mibei77.com 米贝节点分享)_27
+      - US美国(mibei77.com 米贝节点分享)_28
+      - 保加利亚(mibei77.com 米贝节点分享)_1
+      - DE德国(mibei77.com 米贝节点分享)_9
+      - KR韩国(mibei77.com 米贝节点分享)_6
+      - US美国(mibei77.com 米贝节点分享)_29
+      - US美国(mibei77.com 米贝节点分享)_30
+      - US美国(mibei77.com 米贝节点分享)_31
+      - US美国(mibei77.com 米贝节点分享)_32
+      - US美国(mibei77.com 米贝节点分享)_33
+      - US美国(mibei77.com 米贝节点分享)_34
+      - US美国(mibei77.com 米贝节点分享)_35
+      - 保加利亚(mibei77.com 米贝节点分享)_2
+      - US美国(mibei77.com 米贝节点分享)_36
+      - US美国(mibei77.com 米贝节点分享)_37
+      - US美国(mibei77.com 米贝节点分享)_38
+      - US美国(mibei77.com 米贝节点分享)_39
+      - GB英国(mibei77.com 米贝节点分享)
+      - US美国(mibei77.com 米贝节点分享)_40
+      - DE德国(mibei77.com 米贝节点分享)_10
+      - US美国(mibei77.com 米贝节点分享)_41
+      - US美国(mibei77.com 米贝节点分享)_42
+      - US美国(mibei77.com 米贝节点分享)_43
+      - US美国(mibei77.com 米贝节点分享)_44
+      - US美国(mibei77.com 米贝节点分享)_45
+      - US美国(mibei77.com 米贝节点分享)_46
+      - US美国(mibei77.com 米贝节点分享)_47
+      - US美国(mibei77.com 米贝节点分享)_48
+      - KR韩国(mibei77.com 米贝节点分享)_7
+      - RU俄罗斯(mibei77.com 米贝节点分享)
+      - US美国(mibei77.com 米贝节点分享)_49
+      - FR法国(mibei77.com 米贝节点分享)_2
+      - US美国(mibei77.com 米贝节点分享)_50
+      - DE德国(mibei77.com 米贝节点分享)_11
+      - DE德国(mibei77.com 米贝节点分享)_12
+      - DE德国(mibei77.com 米贝节点分享)_13
+      - 瑞士(mibei77.com 米贝节点分享)
+      - DE德国(mibei77.com 米贝节点分享)_14
+      - DE德国(mibei77.com 米贝节点分享)_15
+      - KR韩国(mibei77.com 米贝节点分享)_8
+      - US美国(mibei77.com 米贝节点分享)_51
+      - US美国(mibei77.com 米贝节点分享)_52
+      - US美国(mibei77.com 米贝节点分享)_53
+      - KR韩国(mibei77.com 米贝节点分享)_9
+      - KR韩国(mibei77.com 米贝节点分享)_10
+      - 马来西亚(mibei77.com 米贝节点分享)
+      - US美国(mibei77.com 米贝节点分享)_54
+      - 保加利亚(mibei77.com 米贝节点分享)_3
+      - RU俄罗斯(mibei77.com 米贝节点分享)_1
+      - US美国(mibei77.com 米贝节点分享)_55
+      - DE德国(mibei77.com 米贝节点分享)_16
+      - US美国(mibei77.com 米贝节点分享)_56
+      - US美国(mibei77.com 米贝节点分享)_57
+      - US美国(mibei77.com 米贝节点分享)_58
+      - FI芬兰(mibei77.com 米贝节点分享)
+      - 马来西亚(mibei77.com 米贝节点分享)_1
+      - US美国(mibei77.com 米贝节点分享)_59
+      - US美国(mibei77.com 米贝节点分享)_60
+      - 马来西亚(mibei77.com 米贝节点分享)_2
+      - US美国(mibei77.com 米贝节点分享)_61
+      - US美国(mibei77.com 米贝节点分享)_62
+      - US美国(mibei77.com 米贝节点分享)_63
+      - 越南(mibei77.com 米贝节点分享)
+      - RU俄罗斯(mibei77.com 米贝节点分享)_2
+      - US美国(mibei77.com 米贝节点分享)_64
+      - US美国(mibei77.com 米贝节点分享)_65
+      - HK香港(mibei77.com 米贝节点分享)_7
+      - HK香港(mibei77.com 米贝节点分享)_8
+      - US美国(mibei77.com 米贝节点分享)_66
+      - US美国(mibei77.com 米贝节点分享)_67
+      - US美国(mibei77.com 米贝节点分享)_68
+      - HK香港(mibei77.com 米贝节点分享)_9
+      - VN越南(mibei77.com 米贝节点分享)
+      - 马来西亚(mibei77.com 米贝节点分享)_3
+      - JP日本(mibei77.com 米贝节点分享)_21
+      - US美国(mibei77.com 米贝节点分享)_69
+      - US美国(mibei77.com 米贝节点分享)_70
+      - US美国(mibei77.com 米贝节点分享)_71
+      - JP日本(mibei77.com 米贝节点分享)_22
+      - US美国(mibei77.com 米贝节点分享)_72
+      - US美国(mibei77.com 米贝节点分享)_73
+      - US美国(mibei77.com 米贝节点分享)_74
+      - 马来西亚(mibei77.com 米贝节点分享)_4
+      - US美国(mibei77.com 米贝节点分享)_75
+      - DE德国(mibei77.com 米贝节点分享)_17
+      - GB英国(mibei77.com 米贝节点分享)_1
+      - US美国(mibei77.com 米贝节点分享)_76
+      - 葡萄牙(mibei77.com 米贝节点分享)
+      - 葡萄牙(mibei77.com 米贝节点分享)_1
+      - 爱沙尼亚(mibei77.com 米贝节点分享)
+      - HK香港(mibei77.com 米贝节点分享)_10
+      - US美国(mibei77.com 米贝节点分享)_77
+      - US美国(mibei77.com 米贝节点分享)_78
+      - SG新加坡(mibei77.com 米贝节点分享)_9
+      - SG新加坡(mibei77.com 米贝节点分享)_10
+      - US美国(mibei77.com 米贝节点分享)_79
+      - SG新加坡(mibei77.com 米贝节点分享)_11
+      - US美国(mibei77.com 米贝节点分享)_80
+      - US美国(mibei77.com 米贝节点分享)_81
+      - 意大利(mibei77.com 米贝节点分享)
+      - IN印度(mibei77.com 米贝节点分享)
+      - SG新加坡(mibei77.com 米贝节点分享)_12
+      - SG新加坡(mibei77.com 米贝节点分享)_13
+      - 土耳其(mibei77.com 米贝节点分享)
+      - US美国(mibei77.com 米贝节点分享)_82
+      - 约旦(mibei77.com 米贝节点分享)
+      - US美国(mibei77.com 米贝节点分享)_83
+      - HK香港(mibei77.com 米贝节点分享)_11
+      - 马来西亚(mibei77.com 米贝节点分享)_5
+      - US美国(mibei77.com 米贝节点分享)_84
+      - US美国(mibei77.com 米贝节点分享)_85
+      - US美国(mibei77.com 米贝节点分享)_86
+      - US美国(mibei77.com 米贝节点分享)_87
+      - NL荷兰(mibei77.com 米贝节点分享)
+      - DE德国(mibei77.com 米贝节点分享)_18
+      - DE德国(mibei77.com 米贝节点分享)_19
+      - US美国(mibei77.com 米贝节点分享)_88
+      - 埃及(mibei77.com 米贝节点分享)
+      - DE德国(mibei77.com 米贝节点分享)_20
+      - DE德国(mibei77.com 米贝节点分享)_21
+      - DE德国(mibei77.com 米贝节点分享)_22
+      - 塞浦路斯(mibei77.com 米贝节点分享)
+      - NL荷兰(mibei77.com 米贝节点分享)_1
+      - US美国(mibei77.com 米贝节点分享)_89
+      - GB英国(mibei77.com 米贝节点分享)_2
+      - DE德国(mibei77.com 米贝节点分享)_23
+      - DE德国(mibei77.com 米贝节点分享)_24
+      - NL荷兰(mibei77.com 米贝节点分享)_2
+      - DE德国(mibei77.com 米贝节点分享)_25
+      - FI芬兰(mibei77.com 米贝节点分享)_1
+      - 马来西亚(mibei77.com 米贝节点分享)_6
+      - 爱尔兰(mibei77.com 米贝节点分享)
+      - RU俄罗斯(mibei77.com 米贝节点分享)_3
+      - DE德国(mibei77.com 米贝节点分享)_26
+      - TW台湾(mibei77.com 米贝节点分享)_1
+      - DE德国(mibei77.com 米贝节点分享)_27
+      - US美国(mibei77.com 米贝节点分享)_90
+      - 丹麦(mibei77.com 米贝节点分享)
+      - DE德国(mibei77.com 米贝节点分享)_28
+      - DE德国(mibei77.com 米贝节点分享)_29
+      - PL波兰(mibei77.com 米贝节点分享)
+      - VN越南(mibei77.com 米贝节点分享)_1
+      - US美国(mibei77.com 米贝节点分享)_91
+      - US美国(mibei77.com 米贝节点分享)_92
+      - US美国(mibei77.com 米贝节点分享)_93
+      - SG新加坡(mibei77.com 米贝节点分享)_14
+      - NL荷兰(mibei77.com 米贝节点分享)_3
+      - 以色列(mibei77.com 米贝节点分享)
+      - US美国(mibei77.com 米贝节点分享)_94
+      - US美国(mibei77.com 米贝节点分享)_95
+      - SG新加坡(mibei77.com 米贝节点分享)_15
+  - name: 📲 电报信息
+    type: select
+    proxies:
+      - 🚀 节点选择
+      - 🎯 全球直连
+      - US美国(mibei77.com 米贝节点分享)
+      - US美国(mibei77.com 米贝节点分享)_1
+      - JP日本(mibei77.com 米贝节点分享)
+      - HK香港(mibei77.com 米贝节点分享)
+      - JP日本(mibei77.com 米贝节点分享)_1
+      - US美国(mibei77.com 米贝节点分享)_2
+      - JP日本(mibei77.com 米贝节点分享)_2
+      - JP日本(mibei77.com 米贝节点分享)_3
+      - JP日本(mibei77.com 米贝节点分享)_4
+      - JP日本(mibei77.com 米贝节点分享)_5
+      - JP日本(mibei77.com 米贝节点分享)_6
+      - JP日本(mibei77.com 米贝节点分享)_7
+      - JP日本(mibei77.com 米贝节点分享)_8
+      - US美国(mibei77.com 米贝节点分享)_3
+      - JP日本(mibei77.com 米贝节点分享)_9
+      - JP日本(mibei77.com 米贝节点分享)_10
+      - US美国(mibei77.com 米贝节点分享)_4
+      - US美国(mibei77.com 米贝节点分享)_5
+      - US美国(mibei77.com 米贝节点分享)_6
+      - US美国(mibei77.com 米贝节点分享)_7
+      - US美国(mibei77.com 米贝节点分享)_8
+      - JP日本(mibei77.com 米贝节点分享)_11
+      - US美国(mibei77.com 米贝节点分享)_9
+      - TW台湾(mibei77.com 米贝节点分享)
+      - SG新加坡(mibei77.com 米贝节点分享)
+      - US美国(mibei77.com 米贝节点分享)_10
+      - US美国(mibei77.com 米贝节点分享)_11
+      - JP日本(mibei77.com 米贝节点分享)_12
+      - US美国(mibei77.com 米贝节点分享)_12
+      - US美国(mibei77.com 米贝节点分享)_13
+      - US美国(mibei77.com 米贝节点分享)_14
+      - JP日本(mibei77.com 米贝节点分享)_13
+      - HK香港(mibei77.com 米贝节点分享)_1
+      - US美国(mibei77.com 米贝节点分享)_15
+      - US美国(mibei77.com 米贝节点分享)_16
+      - HK香港(mibei77.com 米贝节点分享)_2
+      - US美国(mibei77.com 米贝节点分享)_17
+      - US美国(mibei77.com 米贝节点分享)_18
+      - JP日本(mibei77.com 米贝节点分享)_14
+      - SG新加坡(mibei77.com 米贝节点分享)_1
+      - SG新加坡(mibei77.com 米贝节点分享)_2
+      - HK香港(mibei77.com 米贝节点分享)_3
+      - SG新加坡(mibei77.com 米贝节点分享)_3
+      - US美国(mibei77.com 米贝节点分享)_19
+      - SG新加坡(mibei77.com 米贝节点分享)_4
+      - SG新加坡(mibei77.com 米贝节点分享)_5
+      - SG新加坡(mibei77.com 米贝节点分享)_6
+      - HK香港(mibei77.com 米贝节点分享)_4
+      - US美国(mibei77.com 米贝节点分享)_20
+      - SG新加坡(mibei77.com 米贝节点分享)_7
+      - SG新加坡(mibei77.com 米贝节点分享)_8
+      - HK香港(mibei77.com 米贝节点分享)_5
+      - KR韩国(mibei77.com 米贝节点分享)
+      - JP日本(mibei77.com 米贝节点分享)_15
+      - KR韩国(mibei77.com 米贝节点分享)_1
+      - KR韩国(mibei77.com 米贝节点分享)_2
+      - DE德国(mibei77.com 米贝节点分享)
+      - KR韩国(mibei77.com 米贝节点分享)_3
+      - JP日本(mibei77.com 米贝节点分享)_16
+      - JP日本(mibei77.com 米贝节点分享)_17
+      - FR法国(mibei77.com 米贝节点分享)
+      - KR韩国(mibei77.com 米贝节点分享)_4
+      - DE德国(mibei77.com 米贝节点分享)_1
+      - DE德国(mibei77.com 米贝节点分享)_2
+      - DE德国(mibei77.com 米贝节点分享)_3
+      - FR法国(mibei77.com 米贝节点分享)_1
+      - KR韩国(mibei77.com 米贝节点分享)_5
+      - JP日本(mibei77.com 米贝节点分享)_18
+      - US美国(mibei77.com 米贝节点分享)_21
+      - DE德国(mibei77.com 米贝节点分享)_4
+      - DE德国(mibei77.com 米贝节点分享)_5
+      - DE德国(mibei77.com 米贝节点分享)_6
+      - JP日本(mibei77.com 米贝节点分享)_19
+      - 保加利亚(mibei77.com 米贝节点分享)
+      - DE德国(mibei77.com 米贝节点分享)_7
+      - DE德国(mibei77.com 米贝节点分享)_8
+      - HK香港(mibei77.com 米贝节点分享)_6
+      - JP日本(mibei77.com 米贝节点分享)_20
+      - AU澳大利亚(mibei77.com 米贝节点分享)
+      - US美国(mibei77.com 米贝节点分享)_22
+      - US美国(mibei77.com 米贝节点分享)_23
+      - US美国(mibei77.com 米贝节点分享)_24
+      - US美国(mibei77.com 米贝节点分享)_25
+      - US美国(mibei77.com 米贝节点分享)_26
+      - US美国(mibei77.com 米贝节点分享)_27
+      - US美国(mibei77.com 米贝节点分享)_28
+      - 保加利亚(mibei77.com 米贝节点分享)_1
+      - DE德国(mibei77.com 米贝节点分享)_9
+      - KR韩国(mibei77.com 米贝节点分享)_6
+      - US美国(mibei77.com 米贝节点分享)_29
+      - US美国(mibei77.com 米贝节点分享)_30
+      - US美国(mibei77.com 米贝节点分享)_31
+      - US美国(mibei77.com 米贝节点分享)_32
+      - US美国(mibei77.com 米贝节点分享)_33
+      - US美国(mibei77.com 米贝节点分享)_34
+      - US美国(mibei77.com 米贝节点分享)_35
+      - 保加利亚(mibei77.com 米贝节点分享)_2
+      - US美国(mibei77.com 米贝节点分享)_36
+      - US美国(mibei77.com 米贝节点分享)_37
+      - US美国(mibei77.com 米贝节点分享)_38
+      - US美国(mibei77.com 米贝节点分享)_39
+      - GB英国(mibei77.com 米贝节点分享)
+      - US美国(mibei77.com 米贝节点分享)_40
+      - DE德国(mibei77.com 米贝节点分享)_10
+      - US美国(mibei77.com 米贝节点分享)_41
+      - US美国(mibei77.com 米贝节点分享)_42
+      - US美国(mibei77.com 米贝节点分享)_43
+      - US美国(mibei77.com 米贝节点分享)_44
+      - US美国(mibei77.com 米贝节点分享)_45
+      - US美国(mibei77.com 米贝节点分享)_46
+      - US美国(mibei77.com 米贝节点分享)_47
+      - US美国(mibei77.com 米贝节点分享)_48
+      - KR韩国(mibei77.com 米贝节点分享)_7
+      - RU俄罗斯(mibei77.com 米贝节点分享)
+      - US美国(mibei77.com 米贝节点分享)_49
+      - FR法国(mibei77.com 米贝节点分享)_2
+      - US美国(mibei77.com 米贝节点分享)_50
+      - DE德国(mibei77.com 米贝节点分享)_11
+      - DE德国(mibei77.com 米贝节点分享)_12
+      - DE德国(mibei77.com 米贝节点分享)_13
+      - 瑞士(mibei77.com 米贝节点分享)
+      - DE德国(mibei77.com 米贝节点分享)_14
+      - DE德国(mibei77.com 米贝节点分享)_15
+      - KR韩国(mibei77.com 米贝节点分享)_8
+      - US美国(mibei77.com 米贝节点分享)_51
+      - US美国(mibei77.com 米贝节点分享)_52
+      - US美国(mibei77.com 米贝节点分享)_53
+      - KR韩国(mibei77.com 米贝节点分享)_9
+      - KR韩国(mibei77.com 米贝节点分享)_10
+      - 马来西亚(mibei77.com 米贝节点分享)
+      - US美国(mibei77.com 米贝节点分享)_54
+      - 保加利亚(mibei77.com 米贝节点分享)_3
+      - RU俄罗斯(mibei77.com 米贝节点分享)_1
+      - US美国(mibei77.com 米贝节点分享)_55
+      - DE德国(mibei77.com 米贝节点分享)_16
+      - US美国(mibei77.com 米贝节点分享)_56
+      - US美国(mibei77.com 米贝节点分享)_57
+      - US美国(mibei77.com 米贝节点分享)_58
+      - FI芬兰(mibei77.com 米贝节点分享)
+      - 马来西亚(mibei77.com 米贝节点分享)_1
+      - US美国(mibei77.com 米贝节点分享)_59
+      - US美国(mibei77.com 米贝节点分享)_60
+      - 马来西亚(mibei77.com 米贝节点分享)_2
+      - US美国(mibei77.com 米贝节点分享)_61
+      - US美国(mibei77.com 米贝节点分享)_62
+      - US美国(mibei77.com 米贝节点分享)_63
+      - 越南(mibei77.com 米贝节点分享)
+      - RU俄罗斯(mibei77.com 米贝节点分享)_2
+      - US美国(mibei77.com 米贝节点分享)_64
+      - US美国(mibei77.com 米贝节点分享)_65
+      - HK香港(mibei77.com 米贝节点分享)_7
+      - HK香港(mibei77.com 米贝节点分享)_8
+      - US美国(mibei77.com 米贝节点分享)_66
+      - US美国(mibei77.com 米贝节点分享)_67
+      - US美国(mibei77.com 米贝节点分享)_68
+      - HK香港(mibei77.com 米贝节点分享)_9
+      - VN越南(mibei77.com 米贝节点分享)
+      - 马来西亚(mibei77.com 米贝节点分享)_3
+      - JP日本(mibei77.com 米贝节点分享)_21
+      - US美国(mibei77.com 米贝节点分享)_69
+      - US美国(mibei77.com 米贝节点分享)_70
+      - US美国(mibei77.com 米贝节点分享)_71
+      - JP日本(mibei77.com 米贝节点分享)_22
+      - US美国(mibei77.com 米贝节点分享)_72
+      - US美国(mibei77.com 米贝节点分享)_73
+      - US美国(mibei77.com 米贝节点分享)_74
+      - 马来西亚(mibei77.com 米贝节点分享)_4
+      - US美国(mibei77.com 米贝节点分享)_75
+      - DE德国(mibei77.com 米贝节点分享)_17
+      - GB英国(mibei77.com 米贝节点分享)_1
+      - US美国(mibei77.com 米贝节点分享)_76
+      - 葡萄牙(mibei77.com 米贝节点分享)
+      - 葡萄牙(mibei77.com 米贝节点分享)_1
+      - 爱沙尼亚(mibei77.com 米贝节点分享)
+      - HK香港(mibei77.com 米贝节点分享)_10
+      - US美国(mibei77.com 米贝节点分享)_77
+      - US美国(mibei77.com 米贝节点分享)_78
+      - SG新加坡(mibei77.com 米贝节点分享)_9
+      - SG新加坡(mibei77.com 米贝节点分享)_10
+      - US美国(mibei77.com 米贝节点分享)_79
+      - SG新加坡(mibei77.com 米贝节点分享)_11
+      - US美国(mibei77.com 米贝节点分享)_80
+      - US美国(mibei77.com 米贝节点分享)_81
+      - 意大利(mibei77.com 米贝节点分享)
+      - IN印度(mibei77.com 米贝节点分享)
+      - SG新加坡(mibei77.com 米贝节点分享)_12
+      - SG新加坡(mibei77.com 米贝节点分享)_13
+      - 土耳其(mibei77.com 米贝节点分享)
+      - US美国(mibei77.com 米贝节点分享)_82
+      - 约旦(mibei77.com 米贝节点分享)
+      - US美国(mibei77.com 米贝节点分享)_83
+      - HK香港(mibei77.com 米贝节点分享)_11
+      - 马来西亚(mibei77.com 米贝节点分享)_5
+      - US美国(mibei77.com 米贝节点分享)_84
+      - US美国(mibei77.com 米贝节点分享)_85
+      - US美国(mibei77.com 米贝节点分享)_86
+      - US美国(mibei77.com 米贝节点分享)_87
+      - NL荷兰(mibei77.com 米贝节点分享)
+      - DE德国(mibei77.com 米贝节点分享)_18
+      - DE德国(mibei77.com 米贝节点分享)_19
+      - US美国(mibei77.com 米贝节点分享)_88
+      - 埃及(mibei77.com 米贝节点分享)
+      - DE德国(mibei77.com 米贝节点分享)_20
+      - DE德国(mibei77.com 米贝节点分享)_21
+      - DE德国(mibei77.com 米贝节点分享)_22
+      - 塞浦路斯(mibei77.com 米贝节点分享)
+      - NL荷兰(mibei77.com 米贝节点分享)_1
+      - US美国(mibei77.com 米贝节点分享)_89
+      - GB英国(mibei77.com 米贝节点分享)_2
+      - DE德国(mibei77.com 米贝节点分享)_23
+      - DE德国(mibei77.com 米贝节点分享)_24
+      - NL荷兰(mibei77.com 米贝节点分享)_2
+      - DE德国(mibei77.com 米贝节点分享)_25
+      - FI芬兰(mibei77.com 米贝节点分享)_1
+      - 马来西亚(mibei77.com 米贝节点分享)_6
+      - 爱尔兰(mibei77.com 米贝节点分享)
+      - RU俄罗斯(mibei77.com 米贝节点分享)_3
+      - DE德国(mibei77.com 米贝节点分享)_26
+      - TW台湾(mibei77.com 米贝节点分享)_1
+      - DE德国(mibei77.com 米贝节点分享)_27
+      - US美国(mibei77.com 米贝节点分享)_90
+      - 丹麦(mibei77.com 米贝节点分享)
+      - DE德国(mibei77.com 米贝节点分享)_28
+      - DE德国(mibei77.com 米贝节点分享)_29
+      - PL波兰(mibei77.com 米贝节点分享)
+      - VN越南(mibei77.com 米贝节点分享)_1
+      - US美国(mibei77.com 米贝节点分享)_91
+      - US美国(mibei77.com 米贝节点分享)_92
+      - US美国(mibei77.com 米贝节点分享)_93
+      - SG新加坡(mibei77.com 米贝节点分享)_14
+      - NL荷兰(mibei77.com 米贝节点分享)_3
+      - 以色列(mibei77.com 米贝节点分享)
+      - US美国(mibei77.com 米贝节点分享)_94
+      - US美国(mibei77.com 米贝节点分享)_95
+      - SG新加坡(mibei77.com 米贝节点分享)_15
+  - name: Ⓜ️ 微软服务
+    type: select
+    proxies:
+      - 🎯 全球直连
+      - 🚀 节点选择
+      - US美国(mibei77.com 米贝节点分享)
+      - US美国(mibei77.com 米贝节点分享)_1
+      - JP日本(mibei77.com 米贝节点分享)
+      - HK香港(mibei77.com 米贝节点分享)
+      - JP日本(mibei77.com 米贝节点分享)_1
+      - US美国(mibei77.com 米贝节点分享)_2
+      - JP日本(mibei77.com 米贝节点分享)_2
+      - JP日本(mibei77.com 米贝节点分享)_3
+      - JP日本(mibei77.com 米贝节点分享)_4
+      - JP日本(mibei77.com 米贝节点分享)_5
+      - JP日本(mibei77.com 米贝节点分享)_6
+      - JP日本(mibei77.com 米贝节点分享)_7
+      - JP日本(mibei77.com 米贝节点分享)_8
+      - US美国(mibei77.com 米贝节点分享)_3
+      - JP日本(mibei77.com 米贝节点分享)_9
+      - JP日本(mibei77.com 米贝节点分享)_10
+      - US美国(mibei77.com 米贝节点分享)_4
+      - US美国(mibei77.com 米贝节点分享)_5
+      - US美国(mibei77.com 米贝节点分享)_6
+      - US美国(mibei77.com 米贝节点分享)_7
+      - US美国(mibei77.com 米贝节点分享)_8
+      - JP日本(mibei77.com 米贝节点分享)_11
+      - US美国(mibei77.com 米贝节点分享)_9
+      - TW台湾(mibei77.com 米贝节点分享)
+      - SG新加坡(mibei77.com 米贝节点分享)
+      - US美国(mibei77.com 米贝节点分享)_10
+      - US美国(mibei77.com 米贝节点分享)_11
+      - JP日本(mibei77.com 米贝节点分享)_12
+      - US美国(mibei77.com 米贝节点分享)_12
+      - US美国(mibei77.com 米贝节点分享)_13
+      - US美国(mibei77.com 米贝节点分享)_14
+      - JP日本(mibei77.com 米贝节点分享)_13
+      - HK香港(mibei77.com 米贝节点分享)_1
+      - US美国(mibei77.com 米贝节点分享)_15
+      - US美国(mibei77.com 米贝节点分享)_16
+      - HK香港(mibei77.com 米贝节点分享)_2
+      - US美国(mibei77.com 米贝节点分享)_17
+      - US美国(mibei77.com 米贝节点分享)_18
+      - JP日本(mibei77.com 米贝节点分享)_14
+      - SG新加坡(mibei77.com 米贝节点分享)_1
+      - SG新加坡(mibei77.com 米贝节点分享)_2
+      - HK香港(mibei77.com 米贝节点分享)_3
+      - SG新加坡(mibei77.com 米贝节点分享)_3
+      - US美国(mibei77.com 米贝节点分享)_19
+      - SG新加坡(mibei77.com 米贝节点分享)_4
+      - SG新加坡(mibei77.com 米贝节点分享)_5
+      - SG新加坡(mibei77.com 米贝节点分享)_6
+      - HK香港(mibei77.com 米贝节点分享)_4
+      - US美国(mibei77.com 米贝节点分享)_20
+      - SG新加坡(mibei77.com 米贝节点分享)_7
+      - SG新加坡(mibei77.com 米贝节点分享)_8
+      - HK香港(mibei77.com 米贝节点分享)_5
+      - KR韩国(mibei77.com 米贝节点分享)
+      - JP日本(mibei77.com 米贝节点分享)_15
+      - KR韩国(mibei77.com 米贝节点分享)_1
+      - KR韩国(mibei77.com 米贝节点分享)_2
+      - DE德国(mibei77.com 米贝节点分享)
+      - KR韩国(mibei77.com 米贝节点分享)_3
+      - JP日本(mibei77.com 米贝节点分享)_16
+      - JP日本(mibei77.com 米贝节点分享)_17
+      - FR法国(mibei77.com 米贝节点分享)
+      - KR韩国(mibei77.com 米贝节点分享)_4
+      - DE德国(mibei77.com 米贝节点分享)_1
+      - DE德国(mibei77.com 米贝节点分享)_2
+      - DE德国(mibei77.com 米贝节点分享)_3
+      - FR法国(mibei77.com 米贝节点分享)_1
+      - KR韩国(mibei77.com 米贝节点分享)_5
+      - JP日本(mibei77.com 米贝节点分享)_18
+      - US美国(mibei77.com 米贝节点分享)_21
+      - DE德国(mibei77.com 米贝节点分享)_4
+      - DE德国(mibei77.com 米贝节点分享)_5
+      - DE德国(mibei77.com 米贝节点分享)_6
+      - JP日本(mibei77.com 米贝节点分享)_19
+      - 保加利亚(mibei77.com 米贝节点分享)
+      - DE德国(mibei77.com 米贝节点分享)_7
+      - DE德国(mibei77.com 米贝节点分享)_8
+      - HK香港(mibei77.com 米贝节点分享)_6
+      - JP日本(mibei77.com 米贝节点分享)_20
+      - AU澳大利亚(mibei77.com 米贝节点分享)
+      - US美国(mibei77.com 米贝节点分享)_22
+      - US美国(mibei77.com 米贝节点分享)_23
+      - US美国(mibei77.com 米贝节点分享)_24
+      - US美国(mibei77.com 米贝节点分享)_25
+      - US美国(mibei77.com 米贝节点分享)_26
+      - US美国(mibei77.com 米贝节点分享)_27
+      - US美国(mibei77.com 米贝节点分享)_28
+      - 保加利亚(mibei77.com 米贝节点分享)_1
+      - DE德国(mibei77.com 米贝节点分享)_9
+      - KR韩国(mibei77.com 米贝节点分享)_6
+      - US美国(mibei77.com 米贝节点分享)_29
+      - US美国(mibei77.com 米贝节点分享)_30
+      - US美国(mibei77.com 米贝节点分享)_31
+      - US美国(mibei77.com 米贝节点分享)_32
+      - US美国(mibei77.com 米贝节点分享)_33
+      - US美国(mibei77.com 米贝节点分享)_34
+      - US美国(mibei77.com 米贝节点分享)_35
+      - 保加利亚(mibei77.com 米贝节点分享)_2
+      - US美国(mibei77.com 米贝节点分享)_36
+      - US美国(mibei77.com 米贝节点分享)_37
+      - US美国(mibei77.com 米贝节点分享)_38
+      - US美国(mibei77.com 米贝节点分享)_39
+      - GB英国(mibei77.com 米贝节点分享)
+      - US美国(mibei77.com 米贝节点分享)_40
+      - DE德国(mibei77.com 米贝节点分享)_10
+      - US美国(mibei77.com 米贝节点分享)_41
+      - US美国(mibei77.com 米贝节点分享)_42
+      - US美国(mibei77.com 米贝节点分享)_43
+      - US美国(mibei77.com 米贝节点分享)_44
+      - US美国(mibei77.com 米贝节点分享)_45
+      - US美国(mibei77.com 米贝节点分享)_46
+      - US美国(mibei77.com 米贝节点分享)_47
+      - US美国(mibei77.com 米贝节点分享)_48
+      - KR韩国(mibei77.com 米贝节点分享)_7
+      - RU俄罗斯(mibei77.com 米贝节点分享)
+      - US美国(mibei77.com 米贝节点分享)_49
+      - FR法国(mibei77.com 米贝节点分享)_2
+      - US美国(mibei77.com 米贝节点分享)_50
+      - DE德国(mibei77.com 米贝节点分享)_11
+      - DE德国(mibei77.com 米贝节点分享)_12
+      - DE德国(mibei77.com 米贝节点分享)_13
+      - 瑞士(mibei77.com 米贝节点分享)
+      - DE德国(mibei77.com 米贝节点分享)_14
+      - DE德国(mibei77.com 米贝节点分享)_15
+      - KR韩国(mibei77.com 米贝节点分享)_8
+      - US美国(mibei77.com 米贝节点分享)_51
+      - US美国(mibei77.com 米贝节点分享)_52
+      - US美国(mibei77.com 米贝节点分享)_53
+      - KR韩国(mibei77.com 米贝节点分享)_9
+      - KR韩国(mibei77.com 米贝节点分享)_10
+      - 马来西亚(mibei77.com 米贝节点分享)
+      - US美国(mibei77.com 米贝节点分享)_54
+      - 保加利亚(mibei77.com 米贝节点分享)_3
+      - RU俄罗斯(mibei77.com 米贝节点分享)_1
+      - US美国(mibei77.com 米贝节点分享)_55
+      - DE德国(mibei77.com 米贝节点分享)_16
+      - US美国(mibei77.com 米贝节点分享)_56
+      - US美国(mibei77.com 米贝节点分享)_57
+      - US美国(mibei77.com 米贝节点分享)_58
+      - FI芬兰(mibei77.com 米贝节点分享)
+      - 马来西亚(mibei77.com 米贝节点分享)_1
+      - US美国(mibei77.com 米贝节点分享)_59
+      - US美国(mibei77.com 米贝节点分享)_60
+      - 马来西亚(mibei77.com 米贝节点分享)_2
+      - US美国(mibei77.com 米贝节点分享)_61
+      - US美国(mibei77.com 米贝节点分享)_62
+      - US美国(mibei77.com 米贝节点分享)_63
+      - 越南(mibei77.com 米贝节点分享)
+      - RU俄罗斯(mibei77.com 米贝节点分享)_2
+      - US美国(mibei77.com 米贝节点分享)_64
+      - US美国(mibei77.com 米贝节点分享)_65
+      - HK香港(mibei77.com 米贝节点分享)_7
+      - HK香港(mibei77.com 米贝节点分享)_8
+      - US美国(mibei77.com 米贝节点分享)_66
+      - US美国(mibei77.com 米贝节点分享)_67
+      - US美国(mibei77.com 米贝节点分享)_68
+      - HK香港(mibei77.com 米贝节点分享)_9
+      - VN越南(mibei77.com 米贝节点分享)
+      - 马来西亚(mibei77.com 米贝节点分享)_3
+      - JP日本(mibei77.com 米贝节点分享)_21
+      - US美国(mibei77.com 米贝节点分享)_69
+      - US美国(mibei77.com 米贝节点分享)_70
+      - US美国(mibei77.com 米贝节点分享)_71
+      - JP日本(mibei77.com 米贝节点分享)_22
+      - US美国(mibei77.com 米贝节点分享)_72
+      - US美国(mibei77.com 米贝节点分享)_73
+      - US美国(mibei77.com 米贝节点分享)_74
+      - 马来西亚(mibei77.com 米贝节点分享)_4
+      - US美国(mibei77.com 米贝节点分享)_75
+      - DE德国(mibei77.com 米贝节点分享)_17
+      - GB英国(mibei77.com 米贝节点分享)_1
+      - US美国(mibei77.com 米贝节点分享)_76
+      - 葡萄牙(mibei77.com 米贝节点分享)
+      - 葡萄牙(mibei77.com 米贝节点分享)_1
+      - 爱沙尼亚(mibei77.com 米贝节点分享)
+      - HK香港(mibei77.com 米贝节点分享)_10
+      - US美国(mibei77.com 米贝节点分享)_77
+      - US美国(mibei77.com 米贝节点分享)_78
+      - SG新加坡(mibei77.com 米贝节点分享)_9
+      - SG新加坡(mibei77.com 米贝节点分享)_10
+      - US美国(mibei77.com 米贝节点分享)_79
+      - SG新加坡(mibei77.com 米贝节点分享)_11
+      - US美国(mibei77.com 米贝节点分享)_80
+      - US美国(mibei77.com 米贝节点分享)_81
+      - 意大利(mibei77.com 米贝节点分享)
+      - IN印度(mibei77.com 米贝节点分享)
+      - SG新加坡(mibei77.com 米贝节点分享)_12
+      - SG新加坡(mibei77.com 米贝节点分享)_13
+      - 土耳其(mibei77.com 米贝节点分享)
+      - US美国(mibei77.com 米贝节点分享)_82
+      - 约旦(mibei77.com 米贝节点分享)
+      - US美国(mibei77.com 米贝节点分享)_83
+      - HK香港(mibei77.com 米贝节点分享)_11
+      - 马来西亚(mibei77.com 米贝节点分享)_5
+      - US美国(mibei77.com 米贝节点分享)_84
+      - US美国(mibei77.com 米贝节点分享)_85
+      - US美国(mibei77.com 米贝节点分享)_86
+      - US美国(mibei77.com 米贝节点分享)_87
+      - NL荷兰(mibei77.com 米贝节点分享)
+      - DE德国(mibei77.com 米贝节点分享)_18
+      - DE德国(mibei77.com 米贝节点分享)_19
+      - US美国(mibei77.com 米贝节点分享)_88
+      - 埃及(mibei77.com 米贝节点分享)
+      - DE德国(mibei77.com 米贝节点分享)_20
+      - DE德国(mibei77.com 米贝节点分享)_21
+      - DE德国(mibei77.com 米贝节点分享)_22
+      - 塞浦路斯(mibei77.com 米贝节点分享)
+      - NL荷兰(mibei77.com 米贝节点分享)_1
+      - US美国(mibei77.com 米贝节点分享)_89
+      - GB英国(mibei77.com 米贝节点分享)_2
+      - DE德国(mibei77.com 米贝节点分享)_23
+      - DE德国(mibei77.com 米贝节点分享)_24
+      - NL荷兰(mibei77.com 米贝节点分享)_2
+      - DE德国(mibei77.com 米贝节点分享)_25
+      - FI芬兰(mibei77.com 米贝节点分享)_1
+      - 马来西亚(mibei77.com 米贝节点分享)_6
+      - 爱尔兰(mibei77.com 米贝节点分享)
+      - RU俄罗斯(mibei77.com 米贝节点分享)_3
+      - DE德国(mibei77.com 米贝节点分享)_26
+      - TW台湾(mibei77.com 米贝节点分享)_1
+      - DE德国(mibei77.com 米贝节点分享)_27
+      - US美国(mibei77.com 米贝节点分享)_90
+      - 丹麦(mibei77.com 米贝节点分享)
+      - DE德国(mibei77.com 米贝节点分享)_28
+      - DE德国(mibei77.com 米贝节点分享)_29
+      - PL波兰(mibei77.com 米贝节点分享)
+      - VN越南(mibei77.com 米贝节点分享)_1
+      - US美国(mibei77.com 米贝节点分享)_91
+      - US美国(mibei77.com 米贝节点分享)_92
+      - US美国(mibei77.com 米贝节点分享)_93
+      - SG新加坡(mibei77.com 米贝节点分享)_14
+      - NL荷兰(mibei77.com 米贝节点分享)_3
+      - 以色列(mibei77.com 米贝节点分享)
+      - US美国(mibei77.com 米贝节点分享)_94
+      - US美国(mibei77.com 米贝节点分享)_95
+      - SG新加坡(mibei77.com 米贝节点分享)_15
+  - name: 🍎 苹果服务
+    type: select
+    proxies:
+      - 🚀 节点选择
+      - 🎯 全球直连
+      - US美国(mibei77.com 米贝节点分享)
+      - US美国(mibei77.com 米贝节点分享)_1
+      - JP日本(mibei77.com 米贝节点分享)
+      - HK香港(mibei77.com 米贝节点分享)
+      - JP日本(mibei77.com 米贝节点分享)_1
+      - US美国(mibei77.com 米贝节点分享)_2
+      - JP日本(mibei77.com 米贝节点分享)_2
+      - JP日本(mibei77.com 米贝节点分享)_3
+      - JP日本(mibei77.com 米贝节点分享)_4
+      - JP日本(mibei77.com 米贝节点分享)_5
+      - JP日本(mibei77.com 米贝节点分享)_6
+      - JP日本(mibei77.com 米贝节点分享)_7
+      - JP日本(mibei77.com 米贝节点分享)_8
+      - US美国(mibei77.com 米贝节点分享)_3
+      - JP日本(mibei77.com 米贝节点分享)_9
+      - JP日本(mibei77.com 米贝节点分享)_10
+      - US美国(mibei77.com 米贝节点分享)_4
+      - US美国(mibei77.com 米贝节点分享)_5
+      - US美国(mibei77.com 米贝节点分享)_6
+      - US美国(mibei77.com 米贝节点分享)_7
+      - US美国(mibei77.com 米贝节点分享)_8
+      - JP日本(mibei77.com 米贝节点分享)_11
+      - US美国(mibei77.com 米贝节点分享)_9
+      - TW台湾(mibei77.com 米贝节点分享)
+      - SG新加坡(mibei77.com 米贝节点分享)
+      - US美国(mibei77.com 米贝节点分享)_10
+      - US美国(mibei77.com 米贝节点分享)_11
+      - JP日本(mibei77.com 米贝节点分享)_12
+      - US美国(mibei77.com 米贝节点分享)_12
+      - US美国(mibei77.com 米贝节点分享)_13
+      - US美国(mibei77.com 米贝节点分享)_14
+      - JP日本(mibei77.com 米贝节点分享)_13
+      - HK香港(mibei77.com 米贝节点分享)_1
+      - US美国(mibei77.com 米贝节点分享)_15
+      - US美国(mibei77.com 米贝节点分享)_16
+      - HK香港(mibei77.com 米贝节点分享)_2
+      - US美国(mibei77.com 米贝节点分享)_17
+      - US美国(mibei77.com 米贝节点分享)_18
+      - JP日本(mibei77.com 米贝节点分享)_14
+      - SG新加坡(mibei77.com 米贝节点分享)_1
+      - SG新加坡(mibei77.com 米贝节点分享)_2
+      - HK香港(mibei77.com 米贝节点分享)_3
+      - SG新加坡(mibei77.com 米贝节点分享)_3
+      - US美国(mibei77.com 米贝节点分享)_19
+      - SG新加坡(mibei77.com 米贝节点分享)_4
+      - SG新加坡(mibei77.com 米贝节点分享)_5
+      - SG新加坡(mibei77.com 米贝节点分享)_6
+      - HK香港(mibei77.com 米贝节点分享)_4
+      - US美国(mibei77.com 米贝节点分享)_20
+      - SG新加坡(mibei77.com 米贝节点分享)_7
+      - SG新加坡(mibei77.com 米贝节点分享)_8
+      - HK香港(mibei77.com 米贝节点分享)_5
+      - KR韩国(mibei77.com 米贝节点分享)
+      - JP日本(mibei77.com 米贝节点分享)_15
+      - KR韩国(mibei77.com 米贝节点分享)_1
+      - KR韩国(mibei77.com 米贝节点分享)_2
+      - DE德国(mibei77.com 米贝节点分享)
+      - KR韩国(mibei77.com 米贝节点分享)_3
+      - JP日本(mibei77.com 米贝节点分享)_16
+      - JP日本(mibei77.com 米贝节点分享)_17
+      - FR法国(mibei77.com 米贝节点分享)
+      - KR韩国(mibei77.com 米贝节点分享)_4
+      - DE德国(mibei77.com 米贝节点分享)_1
+      - DE德国(mibei77.com 米贝节点分享)_2
+      - DE德国(mibei77.com 米贝节点分享)_3
+      - FR法国(mibei77.com 米贝节点分享)_1
+      - KR韩国(mibei77.com 米贝节点分享)_5
+      - JP日本(mibei77.com 米贝节点分享)_18
+      - US美国(mibei77.com 米贝节点分享)_21
+      - DE德国(mibei77.com 米贝节点分享)_4
+      - DE德国(mibei77.com 米贝节点分享)_5
+      - DE德国(mibei77.com 米贝节点分享)_6
+      - JP日本(mibei77.com 米贝节点分享)_19
+      - 保加利亚(mibei77.com 米贝节点分享)
+      - DE德国(mibei77.com 米贝节点分享)_7
+      - DE德国(mibei77.com 米贝节点分享)_8
+      - HK香港(mibei77.com 米贝节点分享)_6
+      - JP日本(mibei77.com 米贝节点分享)_20
+      - AU澳大利亚(mibei77.com 米贝节点分享)
+      - US美国(mibei77.com 米贝节点分享)_22
+      - US美国(mibei77.com 米贝节点分享)_23
+      - US美国(mibei77.com 米贝节点分享)_24
+      - US美国(mibei77.com 米贝节点分享)_25
+      - US美国(mibei77.com 米贝节点分享)_26
+      - US美国(mibei77.com 米贝节点分享)_27
+      - US美国(mibei77.com 米贝节点分享)_28
+      - 保加利亚(mibei77.com 米贝节点分享)_1
+      - DE德国(mibei77.com 米贝节点分享)_9
+      - KR韩国(mibei77.com 米贝节点分享)_6
+      - US美国(mibei77.com 米贝节点分享)_29
+      - US美国(mibei77.com 米贝节点分享)_30
+      - US美国(mibei77.com 米贝节点分享)_31
+      - US美国(mibei77.com 米贝节点分享)_32
+      - US美国(mibei77.com 米贝节点分享)_33
+      - US美国(mibei77.com 米贝节点分享)_34
+      - US美国(mibei77.com 米贝节点分享)_35
+      - 保加利亚(mibei77.com 米贝节点分享)_2
+      - US美国(mibei77.com 米贝节点分享)_36
+      - US美国(mibei77.com 米贝节点分享)_37
+      - US美国(mibei77.com 米贝节点分享)_38
+      - US美国(mibei77.com 米贝节点分享)_39
+      - GB英国(mibei77.com 米贝节点分享)
+      - US美国(mibei77.com 米贝节点分享)_40
+      - DE德国(mibei77.com 米贝节点分享)_10
+      - US美国(mibei77.com 米贝节点分享)_41
+      - US美国(mibei77.com 米贝节点分享)_42
+      - US美国(mibei77.com 米贝节点分享)_43
+      - US美国(mibei77.com 米贝节点分享)_44
+      - US美国(mibei77.com 米贝节点分享)_45
+      - US美国(mibei77.com 米贝节点分享)_46
+      - US美国(mibei77.com 米贝节点分享)_47
+      - US美国(mibei77.com 米贝节点分享)_48
+      - KR韩国(mibei77.com 米贝节点分享)_7
+      - RU俄罗斯(mibei77.com 米贝节点分享)
+      - US美国(mibei77.com 米贝节点分享)_49
+      - FR法国(mibei77.com 米贝节点分享)_2
+      - US美国(mibei77.com 米贝节点分享)_50
+      - DE德国(mibei77.com 米贝节点分享)_11
+      - DE德国(mibei77.com 米贝节点分享)_12
+      - DE德国(mibei77.com 米贝节点分享)_13
+      - 瑞士(mibei77.com 米贝节点分享)
+      - DE德国(mibei77.com 米贝节点分享)_14
+      - DE德国(mibei77.com 米贝节点分享)_15
+      - KR韩国(mibei77.com 米贝节点分享)_8
+      - US美国(mibei77.com 米贝节点分享)_51
+      - US美国(mibei77.com 米贝节点分享)_52
+      - US美国(mibei77.com 米贝节点分享)_53
+      - KR韩国(mibei77.com 米贝节点分享)_9
+      - KR韩国(mibei77.com 米贝节点分享)_10
+      - 马来西亚(mibei77.com 米贝节点分享)
+      - US美国(mibei77.com 米贝节点分享)_54
+      - 保加利亚(mibei77.com 米贝节点分享)_3
+      - RU俄罗斯(mibei77.com 米贝节点分享)_1
+      - US美国(mibei77.com 米贝节点分享)_55
+      - DE德国(mibei77.com 米贝节点分享)_16
+      - US美国(mibei77.com 米贝节点分享)_56
+      - US美国(mibei77.com 米贝节点分享)_57
+      - US美国(mibei77.com 米贝节点分享)_58
+      - FI芬兰(mibei77.com 米贝节点分享)
+      - 马来西亚(mibei77.com 米贝节点分享)_1
+      - US美国(mibei77.com 米贝节点分享)_59
+      - US美国(mibei77.com 米贝节点分享)_60
+      - 马来西亚(mibei77.com 米贝节点分享)_2
+      - US美国(mibei77.com 米贝节点分享)_61
+      - US美国(mibei77.com 米贝节点分享)_62
+      - US美国(mibei77.com 米贝节点分享)_63
+      - 越南(mibei77.com 米贝节点分享)
+      - RU俄罗斯(mibei77.com 米贝节点分享)_2
+      - US美国(mibei77.com 米贝节点分享)_64
+      - US美国(mibei77.com 米贝节点分享)_65
+      - HK香港(mibei77.com 米贝节点分享)_7
+      - HK香港(mibei77.com 米贝节点分享)_8
+      - US美国(mibei77.com 米贝节点分享)_66
+      - US美国(mibei77.com 米贝节点分享)_67
+      - US美国(mibei77.com 米贝节点分享)_68
+      - HK香港(mibei77.com 米贝节点分享)_9
+      - VN越南(mibei77.com 米贝节点分享)
+      - 马来西亚(mibei77.com 米贝节点分享)_3
+      - JP日本(mibei77.com 米贝节点分享)_21
+      - US美国(mibei77.com 米贝节点分享)_69
+      - US美国(mibei77.com 米贝节点分享)_70
+      - US美国(mibei77.com 米贝节点分享)_71
+      - JP日本(mibei77.com 米贝节点分享)_22
+      - US美国(mibei77.com 米贝节点分享)_72
+      - US美国(mibei77.com 米贝节点分享)_73
+      - US美国(mibei77.com 米贝节点分享)_74
+      - 马来西亚(mibei77.com 米贝节点分享)_4
+      - US美国(mibei77.com 米贝节点分享)_75
+      - DE德国(mibei77.com 米贝节点分享)_17
+      - GB英国(mibei77.com 米贝节点分享)_1
+      - US美国(mibei77.com 米贝节点分享)_76
+      - 葡萄牙(mibei77.com 米贝节点分享)
+      - 葡萄牙(mibei77.com 米贝节点分享)_1
+      - 爱沙尼亚(mibei77.com 米贝节点分享)
+      - HK香港(mibei77.com 米贝节点分享)_10
+      - US美国(mibei77.com 米贝节点分享)_77
+      - US美国(mibei77.com 米贝节点分享)_78
+      - SG新加坡(mibei77.com 米贝节点分享)_9
+      - SG新加坡(mibei77.com 米贝节点分享)_10
+      - US美国(mibei77.com 米贝节点分享)_79
+      - SG新加坡(mibei77.com 米贝节点分享)_11
+      - US美国(mibei77.com 米贝节点分享)_80
+      - US美国(mibei77.com 米贝节点分享)_81
+      - 意大利(mibei77.com 米贝节点分享)
+      - IN印度(mibei77.com 米贝节点分享)
+      - SG新加坡(mibei77.com 米贝节点分享)_12
+      - SG新加坡(mibei77.com 米贝节点分享)_13
+      - 土耳其(mibei77.com 米贝节点分享)
+      - US美国(mibei77.com 米贝节点分享)_82
+      - 约旦(mibei77.com 米贝节点分享)
+      - US美国(mibei77.com 米贝节点分享)_83
+      - HK香港(mibei77.com 米贝节点分享)_11
+      - 马来西亚(mibei77.com 米贝节点分享)_5
+      - US美国(mibei77.com 米贝节点分享)_84
+      - US美国(mibei77.com 米贝节点分享)_85
+      - US美国(mibei77.com 米贝节点分享)_86
+      - US美国(mibei77.com 米贝节点分享)_87
+      - NL荷兰(mibei77.com 米贝节点分享)
+      - DE德国(mibei77.com 米贝节点分享)_18
+      - DE德国(mibei77.com 米贝节点分享)_19
+      - US美国(mibei77.com 米贝节点分享)_88
+      - 埃及(mibei77.com 米贝节点分享)
+      - DE德国(mibei77.com 米贝节点分享)_20
+      - DE德国(mibei77.com 米贝节点分享)_21
+      - DE德国(mibei77.com 米贝节点分享)_22
+      - 塞浦路斯(mibei77.com 米贝节点分享)
+      - NL荷兰(mibei77.com 米贝节点分享)_1
+      - US美国(mibei77.com 米贝节点分享)_89
+      - GB英国(mibei77.com 米贝节点分享)_2
+      - DE德国(mibei77.com 米贝节点分享)_23
+      - DE德国(mibei77.com 米贝节点分享)_24
+      - NL荷兰(mibei77.com 米贝节点分享)_2
+      - DE德国(mibei77.com 米贝节点分享)_25
+      - FI芬兰(mibei77.com 米贝节点分享)_1
+      - 马来西亚(mibei77.com 米贝节点分享)_6
+      - 爱尔兰(mibei77.com 米贝节点分享)
+      - RU俄罗斯(mibei77.com 米贝节点分享)_3
+      - DE德国(mibei77.com 米贝节点分享)_26
+      - TW台湾(mibei77.com 米贝节点分享)_1
+      - DE德国(mibei77.com 米贝节点分享)_27
+      - US美国(mibei77.com 米贝节点分享)_90
+      - 丹麦(mibei77.com 米贝节点分享)
+      - DE德国(mibei77.com 米贝节点分享)_28
+      - DE德国(mibei77.com 米贝节点分享)_29
+      - PL波兰(mibei77.com 米贝节点分享)
+      - VN越南(mibei77.com 米贝节点分享)_1
+      - US美国(mibei77.com 米贝节点分享)_91
+      - US美国(mibei77.com 米贝节点分享)_92
+      - US美国(mibei77.com 米贝节点分享)_93
+      - SG新加坡(mibei77.com 米贝节点分享)_14
+      - NL荷兰(mibei77.com 米贝节点分享)_3
+      - 以色列(mibei77.com 米贝节点分享)
+      - US美国(mibei77.com 米贝节点分享)_94
+      - US美国(mibei77.com 米贝节点分享)_95
+      - SG新加坡(mibei77.com 米贝节点分享)_15
+  - name: 🎯 全球直连
+    type: select
+    proxies:
+      - DIRECT
+      - 🚀 节点选择
+      - ♻️ 自动选择
+  - name: 🛑 全球拦截
+    type: select
+    proxies:
+      - REJECT
+      - DIRECT
+  - name: 🍃 应用净化
+    type: select
+    proxies:
+      - REJECT
+      - DIRECT
+  - name: 🐟 漏网之鱼
+    type: select
+    proxies:
+      - 🚀 节点选择
+      - 🎯 全球直连
+      - ♻️ 自动选择
+      - US美国(mibei77.com 米贝节点分享)
+      - US美国(mibei77.com 米贝节点分享)_1
+      - JP日本(mibei77.com 米贝节点分享)
+      - HK香港(mibei77.com 米贝节点分享)
+      - JP日本(mibei77.com 米贝节点分享)_1
+      - US美国(mibei77.com 米贝节点分享)_2
+      - JP日本(mibei77.com 米贝节点分享)_2
+      - JP日本(mibei77.com 米贝节点分享)_3
+      - JP日本(mibei77.com 米贝节点分享)_4
+      - JP日本(mibei77.com 米贝节点分享)_5
+      - JP日本(mibei77.com 米贝节点分享)_6
+      - JP日本(mibei77.com 米贝节点分享)_7
+      - JP日本(mibei77.com 米贝节点分享)_8
+      - US美国(mibei77.com 米贝节点分享)_3
+      - JP日本(mibei77.com 米贝节点分享)_9
+      - JP日本(mibei77.com 米贝节点分享)_10
+      - US美国(mibei77.com 米贝节点分享)_4
+      - US美国(mibei77.com 米贝节点分享)_5
+      - US美国(mibei77.com 米贝节点分享)_6
+      - US美国(mibei77.com 米贝节点分享)_7
+      - US美国(mibei77.com 米贝节点分享)_8
+      - JP日本(mibei77.com 米贝节点分享)_11
+      - US美国(mibei77.com 米贝节点分享)_9
+      - TW台湾(mibei77.com 米贝节点分享)
+      - SG新加坡(mibei77.com 米贝节点分享)
+      - US美国(mibei77.com 米贝节点分享)_10
+      - US美国(mibei77.com 米贝节点分享)_11
+      - JP日本(mibei77.com 米贝节点分享)_12
+      - US美国(mibei77.com 米贝节点分享)_12
+      - US美国(mibei77.com 米贝节点分享)_13
+      - US美国(mibei77.com 米贝节点分享)_14
+      - JP日本(mibei77.com 米贝节点分享)_13
+      - HK香港(mibei77.com 米贝节点分享)_1
+      - US美国(mibei77.com 米贝节点分享)_15
+      - US美国(mibei77.com 米贝节点分享)_16
+      - HK香港(mibei77.com 米贝节点分享)_2
+      - US美国(mibei77.com 米贝节点分享)_17
+      - US美国(mibei77.com 米贝节点分享)_18
+      - JP日本(mibei77.com 米贝节点分享)_14
+      - SG新加坡(mibei77.com 米贝节点分享)_1
+      - SG新加坡(mibei77.com 米贝节点分享)_2
+      - HK香港(mibei77.com 米贝节点分享)_3
+      - SG新加坡(mibei77.com 米贝节点分享)_3
+      - US美国(mibei77.com 米贝节点分享)_19
+      - SG新加坡(mibei77.com 米贝节点分享)_4
+      - SG新加坡(mibei77.com 米贝节点分享)_5
+      - SG新加坡(mibei77.com 米贝节点分享)_6
+      - HK香港(mibei77.com 米贝节点分享)_4
+      - US美国(mibei77.com 米贝节点分享)_20
+      - SG新加坡(mibei77.com 米贝节点分享)_7
+      - SG新加坡(mibei77.com 米贝节点分享)_8
+      - HK香港(mibei77.com 米贝节点分享)_5
+      - KR韩国(mibei77.com 米贝节点分享)
+      - JP日本(mibei77.com 米贝节点分享)_15
+      - KR韩国(mibei77.com 米贝节点分享)_1
+      - KR韩国(mibei77.com 米贝节点分享)_2
+      - DE德国(mibei77.com 米贝节点分享)
+      - KR韩国(mibei77.com 米贝节点分享)_3
+      - JP日本(mibei77.com 米贝节点分享)_16
+      - JP日本(mibei77.com 米贝节点分享)_17
+      - FR法国(mibei77.com 米贝节点分享)
+      - KR韩国(mibei77.com 米贝节点分享)_4
+      - DE德国(mibei77.com 米贝节点分享)_1
+      - DE德国(mibei77.com 米贝节点分享)_2
+      - DE德国(mibei77.com 米贝节点分享)_3
+      - FR法国(mibei77.com 米贝节点分享)_1
+      - KR韩国(mibei77.com 米贝节点分享)_5
+      - JP日本(mibei77.com 米贝节点分享)_18
+      - US美国(mibei77.com 米贝节点分享)_21
+      - DE德国(mibei77.com 米贝节点分享)_4
+      - DE德国(mibei77.com 米贝节点分享)_5
+      - DE德国(mibei77.com 米贝节点分享)_6
+      - JP日本(mibei77.com 米贝节点分享)_19
+      - 保加利亚(mibei77.com 米贝节点分享)
+      - DE德国(mibei77.com 米贝节点分享)_7
+      - DE德国(mibei77.com 米贝节点分享)_8
+      - HK香港(mibei77.com 米贝节点分享)_6
+      - JP日本(mibei77.com 米贝节点分享)_20
+      - AU澳大利亚(mibei77.com 米贝节点分享)
+      - US美国(mibei77.com 米贝节点分享)_22
+      - US美国(mibei77.com 米贝节点分享)_23
+      - US美国(mibei77.com 米贝节点分享)_24
+      - US美国(mibei77.com 米贝节点分享)_25
+      - US美国(mibei77.com 米贝节点分享)_26
+      - US美国(mibei77.com 米贝节点分享)_27
+      - US美国(mibei77.com 米贝节点分享)_28
+      - 保加利亚(mibei77.com 米贝节点分享)_1
+      - DE德国(mibei77.com 米贝节点分享)_9
+      - KR韩国(mibei77.com 米贝节点分享)_6
+      - US美国(mibei77.com 米贝节点分享)_29
+      - US美国(mibei77.com 米贝节点分享)_30
+      - US美国(mibei77.com 米贝节点分享)_31
+      - US美国(mibei77.com 米贝节点分享)_32
+      - US美国(mibei77.com 米贝节点分享)_33
+      - US美国(mibei77.com 米贝节点分享)_34
+      - US美国(mibei77.com 米贝节点分享)_35
+      - 保加利亚(mibei77.com 米贝节点分享)_2
+      - US美国(mibei77.com 米贝节点分享)_36
+      - US美国(mibei77.com 米贝节点分享)_37
+      - US美国(mibei77.com 米贝节点分享)_38
+      - US美国(mibei77.com 米贝节点分享)_39
+      - GB英国(mibei77.com 米贝节点分享)
+      - US美国(mibei77.com 米贝节点分享)_40
+      - DE德国(mibei77.com 米贝节点分享)_10
+      - US美国(mibei77.com 米贝节点分享)_41
+      - US美国(mibei77.com 米贝节点分享)_42
+      - US美国(mibei77.com 米贝节点分享)_43
+      - US美国(mibei77.com 米贝节点分享)_44
+      - US美国(mibei77.com 米贝节点分享)_45
+      - US美国(mibei77.com 米贝节点分享)_46
+      - US美国(mibei77.com 米贝节点分享)_47
+      - US美国(mibei77.com 米贝节点分享)_48
+      - KR韩国(mibei77.com 米贝节点分享)_7
+      - RU俄罗斯(mibei77.com 米贝节点分享)
+      - US美国(mibei77.com 米贝节点分享)_49
+      - FR法国(mibei77.com 米贝节点分享)_2
+      - US美国(mibei77.com 米贝节点分享)_50
+      - DE德国(mibei77.com 米贝节点分享)_11
+      - DE德国(mibei77.com 米贝节点分享)_12
+      - DE德国(mibei77.com 米贝节点分享)_13
+      - 瑞士(mibei77.com 米贝节点分享)
+      - DE德国(mibei77.com 米贝节点分享)_14
+      - DE德国(mibei77.com 米贝节点分享)_15
+      - KR韩国(mibei77.com 米贝节点分享)_8
+      - US美国(mibei77.com 米贝节点分享)_51
+      - US美国(mibei77.com 米贝节点分享)_52
+      - US美国(mibei77.com 米贝节点分享)_53
+      - KR韩国(mibei77.com 米贝节点分享)_9
+      - KR韩国(mibei77.com 米贝节点分享)_10
+      - 马来西亚(mibei77.com 米贝节点分享)
+      - US美国(mibei77.com 米贝节点分享)_54
+      - 保加利亚(mibei77.com 米贝节点分享)_3
+      - RU俄罗斯(mibei77.com 米贝节点分享)_1
+      - US美国(mibei77.com 米贝节点分享)_55
+      - DE德国(mibei77.com 米贝节点分享)_16
+      - US美国(mibei77.com 米贝节点分享)_56
+      - US美国(mibei77.com 米贝节点分享)_57
+      - US美国(mibei77.com 米贝节点分享)_58
+      - FI芬兰(mibei77.com 米贝节点分享)
+      - 马来西亚(mibei77.com 米贝节点分享)_1
+      - US美国(mibei77.com 米贝节点分享)_59
+      - US美国(mibei77.com 米贝节点分享)_60
+      - 马来西亚(mibei77.com 米贝节点分享)_2
+      - US美国(mibei77.com 米贝节点分享)_61
+      - US美国(mibei77.com 米贝节点分享)_62
+      - US美国(mibei77.com 米贝节点分享)_63
+      - 越南(mibei77.com 米贝节点分享)
+      - RU俄罗斯(mibei77.com 米贝节点分享)_2
+      - US美国(mibei77.com 米贝节点分享)_64
+      - US美国(mibei77.com 米贝节点分享)_65
+      - HK香港(mibei77.com 米贝节点分享)_7
+      - HK香港(mibei77.com 米贝节点分享)_8
+      - US美国(mibei77.com 米贝节点分享)_66
+      - US美国(mibei77.com 米贝节点分享)_67
+      - US美国(mibei77.com 米贝节点分享)_68
+      - HK香港(mibei77.com 米贝节点分享)_9
+      - VN越南(mibei77.com 米贝节点分享)
+      - 马来西亚(mibei77.com 米贝节点分享)_3
+      - JP日本(mibei77.com 米贝节点分享)_21
+      - US美国(mibei77.com 米贝节点分享)_69
+      - US美国(mibei77.com 米贝节点分享)_70
+      - US美国(mibei77.com 米贝节点分享)_71
+      - JP日本(mibei77.com 米贝节点分享)_22
+      - US美国(mibei77.com 米贝节点分享)_72
+      - US美国(mibei77.com 米贝节点分享)_73
+      - US美国(mibei77.com 米贝节点分享)_74
+      - 马来西亚(mibei77.com 米贝节点分享)_4
+      - US美国(mibei77.com 米贝节点分享)_75
+      - DE德国(mibei77.com 米贝节点分享)_17
+      - GB英国(mibei77.com 米贝节点分享)_1
+      - US美国(mibei77.com 米贝节点分享)_76
+      - 葡萄牙(mibei77.com 米贝节点分享)
+      - 葡萄牙(mibei77.com 米贝节点分享)_1
+      - 爱沙尼亚(mibei77.com 米贝节点分享)
+      - HK香港(mibei77.com 米贝节点分享)_10
+      - US美国(mibei77.com 米贝节点分享)_77
+      - US美国(mibei77.com 米贝节点分享)_78
+      - SG新加坡(mibei77.com 米贝节点分享)_9
+      - SG新加坡(mibei77.com 米贝节点分享)_10
+      - US美国(mibei77.com 米贝节点分享)_79
+      - SG新加坡(mibei77.com 米贝节点分享)_11
+      - US美国(mibei77.com 米贝节点分享)_80
+      - US美国(mibei77.com 米贝节点分享)_81
+      - 意大利(mibei77.com 米贝节点分享)
+      - IN印度(mibei77.com 米贝节点分享)
+      - SG新加坡(mibei77.com 米贝节点分享)_12
+      - SG新加坡(mibei77.com 米贝节点分享)_13
+      - 土耳其(mibei77.com 米贝节点分享)
+      - US美国(mibei77.com 米贝节点分享)_82
+      - 约旦(mibei77.com 米贝节点分享)
+      - US美国(mibei77.com 米贝节点分享)_83
+      - HK香港(mibei77.com 米贝节点分享)_11
+      - 马来西亚(mibei77.com 米贝节点分享)_5
+      - US美国(mibei77.com 米贝节点分享)_84
+      - US美国(mibei77.com 米贝节点分享)_85
+      - US美国(mibei77.com 米贝节点分享)_86
+      - US美国(mibei77.com 米贝节点分享)_87
+      - NL荷兰(mibei77.com 米贝节点分享)
+      - DE德国(mibei77.com 米贝节点分享)_18
+      - DE德国(mibei77.com 米贝节点分享)_19
+      - US美国(mibei77.com 米贝节点分享)_88
+      - 埃及(mibei77.com 米贝节点分享)
+      - DE德国(mibei77.com 米贝节点分享)_20
+      - DE德国(mibei77.com 米贝节点分享)_21
+      - DE德国(mibei77.com 米贝节点分享)_22
+      - 塞浦路斯(mibei77.com 米贝节点分享)
+      - NL荷兰(mibei77.com 米贝节点分享)_1
+      - US美国(mibei77.com 米贝节点分享)_89
+      - GB英国(mibei77.com 米贝节点分享)_2
+      - DE德国(mibei77.com 米贝节点分享)_23
+      - DE德国(mibei77.com 米贝节点分享)_24
+      - NL荷兰(mibei77.com 米贝节点分享)_2
+      - DE德国(mibei77.com 米贝节点分享)_25
+      - FI芬兰(mibei77.com 米贝节点分享)_1
+      - 马来西亚(mibei77.com 米贝节点分享)_6
+      - 爱尔兰(mibei77.com 米贝节点分享)
+      - RU俄罗斯(mibei77.com 米贝节点分享)_3
+      - DE德国(mibei77.com 米贝节点分享)_26
+      - TW台湾(mibei77.com 米贝节点分享)_1
+      - DE德国(mibei77.com 米贝节点分享)_27
+      - US美国(mibei77.com 米贝节点分享)_90
+      - 丹麦(mibei77.com 米贝节点分享)
+      - DE德国(mibei77.com 米贝节点分享)_28
+      - DE德国(mibei77.com 米贝节点分享)_29
+      - PL波兰(mibei77.com 米贝节点分享)
+      - VN越南(mibei77.com 米贝节点分享)_1
+      - US美国(mibei77.com 米贝节点分享)_91
+      - US美国(mibei77.com 米贝节点分享)_92
+      - US美国(mibei77.com 米贝节点分享)_93
+      - SG新加坡(mibei77.com 米贝节点分享)_14
+      - NL荷兰(mibei77.com 米贝节点分享)_3
+      - 以色列(mibei77.com 米贝节点分享)
+      - US美国(mibei77.com 米贝节点分享)_94
+      - US美国(mibei77.com 米贝节点分享)_95
+      - SG新加坡(mibei77.com 米贝节点分享)_15
+rule-providers:
+  LocalAreaNetwork:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/LocalAreaNetwork.list
+    path: ./rules/LocalAreaNetwork.yaml
+  BanAD:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/BanAD.list
+    path: ./rules/BanAD.yaml
+  BanProgramAD:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/BanProgramAD.list
+    path: ./rules/BanProgramAD.yaml
+  GoogleCN:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/GoogleCN.list
+    path: ./rules/GoogleCN.yaml
+  SteamCN:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/Ruleset/SteamCN.list
+    path: ./rules/SteamCN.yaml
+  Microsoft:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/Microsoft.list
+    path: ./rules/Microsoft.yaml
+  Apple:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/Apple.list
+    path: ./rules/Apple.yaml
+  ProxyMedia:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/ProxyMedia.list
+    path: ./rules/ProxyMedia.yaml
+  Telegram:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/Telegram.list
+    path: ./rules/Telegram.yaml
+  ProxyLite:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/ProxyLite.list
+    path: ./rules/ProxyLite.yaml
+  ChinaDomain:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/ChinaDomain.list
+    path: ./rules/ChinaDomain.yaml
+  ChinaCompanyIp:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/ChinaCompanyIp.list
+    path: ./rules/ChinaCompanyIp.yaml
+rules:
+  - DOMAIN-SUFFIX,nodebuf.com,🚀 节点选择
+  - RULE-SET,LocalAreaNetwork,🎯 全球直连
+  - RULE-SET,BanAD,🛑 全球拦截
+  - RULE-SET,BanProgramAD,🍃 应用净化
+  - RULE-SET,GoogleCN,🎯 全球直连
+  - RULE-SET,SteamCN,🎯 全球直连
+  - RULE-SET,Microsoft,Ⓜ️ 微软服务
+  - RULE-SET,Apple,🍎 苹果服务
+  - RULE-SET,ProxyMedia,🌍 国外媒体
+  - RULE-SET,Telegram,📲 电报信息
+  - RULE-SET,ProxyLite,🚀 节点选择
+  - RULE-SET,ChinaDomain,🎯 全球直连
+  - RULE-SET,ChinaCompanyIp,🎯 全球直连
+  - GEOIP,CN,🎯 全球直连
+  - MATCH,🐟 漏网之鱼
