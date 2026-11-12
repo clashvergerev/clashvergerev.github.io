@@ -1,0 +1,329 @@
+mixed-port: 7890
+allow-lan: false
+mode: rule
+log-level: warning
+ipv6: true
+dns:
+  enable: true
+  listen: 127.0.0.1:1053
+  ipv6: true
+  prefer-h3: false
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  fake-ip-filter-mode: blacklist
+  fake-ip-filter:
+    - localhost
+    - +.localhost
+    - +.lan
+    - +.local
+    - +.home.arpa
+  use-hosts: true
+  use-system-hosts: true
+  respect-rules: true
+  proxy-server-nameserver:
+    - https://223.5.5.5/dns-query#DIRECT
+    - https://223.6.6.6/dns-query#DIRECT
+  direct-nameserver:
+    - https://223.5.5.5/dns-query#DIRECT
+    - https://doh.pub/dns-query#DIRECT
+  direct-nameserver-follow-policy: false
+  nameserver:
+    - https://1.1.1.1/dns-query
+    - https://1.0.0.1/dns-query
+proxies:
+  - type: ss
+    name: 🇮🇹_IT_意大利_IPV4
+    server: 202.50.253.72
+    port: 19999
+    password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+    cipher: aes-256-gcm
+    tls: false
+    skip-cert-verify: false
+  - type: ss
+    name: 🇮🇹_IT_意大利_IPV4 (2)
+    server: 202.50.253.81
+    port: 19999
+    password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+    cipher: aes-256-gcm
+    tls: false
+    skip-cert-verify: false
+  - type: ss
+    name: 🇮🇹_IT_意大利_IPV4 (3)
+    server: 202.50.253.99
+    port: 19999
+    password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+    cipher: aes-256-gcm
+    tls: false
+    skip-cert-verify: false
+  - type: ss
+    name: 🇮🇹_IT_意大利_IPV4 (4)
+    server: 202.50.253.45
+    port: 19999
+    password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+    cipher: aes-256-gcm
+    tls: false
+    skip-cert-verify: false
+  - type: ss
+    name: 🇮🇹_IT_意大利_IPV4 (5)
+    server: 202.50.253.54
+    port: 19999
+    password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+    cipher: aes-256-gcm
+    tls: false
+    skip-cert-verify: false
+  - type: ss
+    name: 🇮🇹_IT_意大利_IPV4 (6)
+    server: 202.50.253.18
+    port: 19999
+    password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+    cipher: aes-256-gcm
+    tls: false
+    skip-cert-verify: false
+  - type: ss
+    name: 🇮🇹_IT_意大利_IPV4 (7)
+    server: 202.50.253.63
+    port: 19999
+    password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+    cipher: aes-256-gcm
+    tls: false
+    skip-cert-verify: false
+  - type: ss
+    name: 🇮🇹_IT_意大利_IPV4 (8)
+    server: 202.50.253.90
+    port: 19999
+    password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+    cipher: aes-256-gcm
+    tls: false
+    skip-cert-verify: false
+  - type: ss
+    name: 🇮🇹_IT_意大利_IPV4 (9)
+    server: 202.50.253.27
+    port: 19999
+    password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+    cipher: aes-256-gcm
+    tls: false
+    skip-cert-verify: false
+  - type: vmess
+    name: 🇺🇸_US_美国_IPV4
+    server: 172.66.0.1
+    port: 443
+    uuid: 0cf6d970-3f1d-4aae-a989-92a8f76ae3db
+    cipher: auto
+    alterId: 0
+    tls: true
+    servername: vmess.lbw666.dpdns.org
+    sni: vmess.lbw666.dpdns.org
+    network: ws
+    ws-opts:
+      path: /ws
+      headers:
+        Host: vmess.lbw666.dpdns.org
+  - type: vmess
+    name: 🇺🇸 机场推荐:dafei.de 美国 15_IPV4
+    server: 172.67.190.164
+    port: 443
+    uuid: 6a89a215-22bf-4bd7-9642-b95b2e09583a
+    cipher: auto
+    alterId: 0
+    tls: true
+    servername: guanwang.awsno.com
+    sni: guanwang.awsno.com
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /hls/cctv5phd.m3u8
+      headers:
+        Host: guanwang.awsno.com
+  - type: trojan
+    name: 🇩🇪_DE_德国_IPV4
+    server: 191.44.112.170
+    port: 443
+    password: 46d221fa-e9b4-748c-4eae-019a88e42991
+    tls: true
+    servername: orbylume.my.to
+    sni: orbylume.my.to
+    skip-cert-verify: true
+    network: ws
+    ws-opts:
+      path: /tvpn-trojan/bg
+      headers:
+        Host: orbylume.my.to
+  - type: vmess
+    name: "@DeltaKroneckerGithub_3021_IPV4"
+    server: 172.64.145.93
+    port: 443
+    uuid: 6a89a215-22bf-4bd7-9642-b95b2e09583a
+    cipher: auto
+    alterId: 0
+    tls: true
+    servername: guanwang.awsno.com
+    sni: guanwang.awsno.com
+    network: ws
+    ws-opts:
+      path: /hls/cctv5phd.m3u8
+      headers:
+        Host: guanwang.awsno.com
+  - type: vmess
+    name: 🇨🇳_CN_中国_IPV4
+    server: 39.108.113.127
+    port: 10086
+    uuid: b0253c6c-0b96-4950-bde1-669f13bc1a01
+    cipher: auto
+    alterId: 0
+    tls: false
+    network: ws
+    ws-opts:
+      path: /
+proxy-groups:
+  - name: 🚀 节点选择
+    type: select
+    proxies:
+      - ♻️ 自动选择
+      - DIRECT
+      - 🇮🇹_IT_意大利_IPV4
+      - 🇮🇹_IT_意大利_IPV4 (2)
+      - 🇮🇹_IT_意大利_IPV4 (3)
+      - 🇮🇹_IT_意大利_IPV4 (4)
+      - 🇮🇹_IT_意大利_IPV4 (5)
+      - 🇮🇹_IT_意大利_IPV4 (6)
+      - 🇮🇹_IT_意大利_IPV4 (7)
+      - 🇮🇹_IT_意大利_IPV4 (8)
+      - 🇮🇹_IT_意大利_IPV4 (9)
+      - 🇺🇸_US_美国_IPV4
+      - 🇺🇸 机场推荐:dafei.de 美国 15_IPV4
+      - 🇩🇪_DE_德国_IPV4
+      - "@DeltaKroneckerGithub_3021_IPV4"
+      - 🇨🇳_CN_中国_IPV4
+  - name: ♻️ 自动选择
+    type: url-test
+    proxies:
+      - 🇮🇹_IT_意大利_IPV4
+      - 🇮🇹_IT_意大利_IPV4 (2)
+      - 🇮🇹_IT_意大利_IPV4 (3)
+      - 🇮🇹_IT_意大利_IPV4 (4)
+      - 🇮🇹_IT_意大利_IPV4 (5)
+      - 🇮🇹_IT_意大利_IPV4 (6)
+      - 🇮🇹_IT_意大利_IPV4 (7)
+      - 🇮🇹_IT_意大利_IPV4 (8)
+      - 🇮🇹_IT_意大利_IPV4 (9)
+      - 🇺🇸_US_美国_IPV4
+      - 🇺🇸 机场推荐:dafei.de 美国 15_IPV4
+      - 🇩🇪_DE_德国_IPV4
+      - "@DeltaKroneckerGithub_3021_IPV4"
+      - 🇨🇳_CN_中国_IPV4
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+  - name: 🌍 国外媒体
+    type: select
+    proxies:
+      - 🚀 节点选择
+      - ♻️ 自动选择
+      - 🎯 全球直连
+      - 🇮🇹_IT_意大利_IPV4
+      - 🇮🇹_IT_意大利_IPV4 (2)
+      - 🇮🇹_IT_意大利_IPV4 (3)
+      - 🇮🇹_IT_意大利_IPV4 (4)
+      - 🇮🇹_IT_意大利_IPV4 (5)
+      - 🇮🇹_IT_意大利_IPV4 (6)
+      - 🇮🇹_IT_意大利_IPV4 (7)
+      - 🇮🇹_IT_意大利_IPV4 (8)
+      - 🇮🇹_IT_意大利_IPV4 (9)
+      - 🇺🇸_US_美国_IPV4
+      - 🇺🇸 机场推荐:dafei.de 美国 15_IPV4
+      - 🇩🇪_DE_德国_IPV4
+      - "@DeltaKroneckerGithub_3021_IPV4"
+      - 🇨🇳_CN_中国_IPV4
+  - name: 📲 电报信息
+    type: select
+    proxies:
+      - 🚀 节点选择
+      - 🎯 全球直连
+      - 🇮🇹_IT_意大利_IPV4
+      - 🇮🇹_IT_意大利_IPV4 (2)
+      - 🇮🇹_IT_意大利_IPV4 (3)
+      - 🇮🇹_IT_意大利_IPV4 (4)
+      - 🇮🇹_IT_意大利_IPV4 (5)
+      - 🇮🇹_IT_意大利_IPV4 (6)
+      - 🇮🇹_IT_意大利_IPV4 (7)
+      - 🇮🇹_IT_意大利_IPV4 (8)
+      - 🇮🇹_IT_意大利_IPV4 (9)
+      - 🇺🇸_US_美国_IPV4
+      - 🇺🇸 机场推荐:dafei.de 美国 15_IPV4
+      - 🇩🇪_DE_德国_IPV4
+      - "@DeltaKroneckerGithub_3021_IPV4"
+      - 🇨🇳_CN_中国_IPV4
+  - name: Ⓜ️ 微软服务
+    type: select
+    proxies:
+      - 🎯 全球直连
+      - 🚀 节点选择
+      - 🇮🇹_IT_意大利_IPV4
+      - 🇮🇹_IT_意大利_IPV4 (2)
+      - 🇮🇹_IT_意大利_IPV4 (3)
+      - 🇮🇹_IT_意大利_IPV4 (4)
+      - 🇮🇹_IT_意大利_IPV4 (5)
+      - 🇮🇹_IT_意大利_IPV4 (6)
+      - 🇮🇹_IT_意大利_IPV4 (7)
+      - 🇮🇹_IT_意大利_IPV4 (8)
+      - 🇮🇹_IT_意大利_IPV4 (9)
+      - 🇺🇸_US_美国_IPV4
+      - 🇺🇸 机场推荐:dafei.de 美国 15_IPV4
+      - 🇩🇪_DE_德国_IPV4
+      - "@DeltaKroneckerGithub_3021_IPV4"
+      - 🇨🇳_CN_中国_IPV4
+  - name: 🍎 苹果服务
+    type: select
+    proxies:
+      - 🚀 节点选择
+      - 🎯 全球直连
+      - 🇮🇹_IT_意大利_IPV4
+      - 🇮🇹_IT_意大利_IPV4 (2)
+      - 🇮🇹_IT_意大利_IPV4 (3)
+      - 🇮🇹_IT_意大利_IPV4 (4)
+      - 🇮🇹_IT_意大利_IPV4 (5)
+      - 🇮🇹_IT_意大利_IPV4 (6)
+      - 🇮🇹_IT_意大利_IPV4 (7)
+      - 🇮🇹_IT_意大利_IPV4 (8)
+      - 🇮🇹_IT_意大利_IPV4 (9)
+      - 🇺🇸_US_美国_IPV4
+      - 🇺🇸 机场推荐:dafei.de 美国 15_IPV4
+      - 🇩🇪_DE_德国_IPV4
+      - "@DeltaKroneckerGithub_3021_IPV4"
+      - 🇨🇳_CN_中国_IPV4
+  - name: 🎯 全球直连
+    type: select
+    proxies:
+      - DIRECT
+      - 🚀 节点选择
+      - ♻️ 自动选择
+  - name: 🛑 全球拦截
+    type: select
+    proxies:
+      - REJECT
+      - DIRECT
+  - name: 🍃 应用净化
+    type: select
+    proxies:
+      - REJECT
+      - DIRECT
+  - name: 🐟 漏网之鱼
+    type: select
+    proxies:
+      - 🚀 节点选择
+      - 🎯 全球直连
+      - ♻️ 自动选择
+      - 🇮🇹_IT_意大利_IPV4
+      - 🇮🇹_IT_意大利_IPV4 (2)
+      - 🇮🇹_IT_意大利_IPV4 (3)
+      - 🇮🇹_IT_意大利_IPV4 (4)
+      - 🇮🇹_IT_意大利_IPV4 (5)
+      - 🇮🇹_IT_意大利_IPV4 (6)
+      - 🇮🇹_IT_意大利_IPV4 (7)
+      - 🇮🇹_IT_意大利_IPV4 (8)
+      - 🇮🇹_IT_意大利_IPV4 (9)
+      - 🇺🇸_US_美国_IPV4
+      - 🇺🇸 机场推荐:dafei.de 美国 15_IPV4
+      - 🇩🇪_DE_德国_IPV4
+      - "@DeltaKroneckerGithub_3021_IPV4"
+      - 🇨🇳_CN_中国_IPV4
