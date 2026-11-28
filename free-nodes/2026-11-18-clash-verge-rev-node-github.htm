@@ -237,9 +237,39 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
     </div>
 <h4>FAQ</h4>
 <div class="panel panel-default">
+    <div class="panel-heading"><h5>何为 multiplex (mux)，启用后会有哪些利弊？</h5></div>
+    <div class="panel-body">
+        mux 是多路复用技术，可在单一连接上传输多路流量，从而减少握手次数与连接开销。优点是提升短连接并发效率，缺点是在丢包或单连接异常时可能影响多条会话并增加调试复杂度。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Surfboard 如何实现按应用分流？</h5></div>
+    <div class="panel-body">
+        Surfboard 支持通过策略组和规则文件按应用分流，将不同应用的流量分配到不同节点。这样可保证游戏或视频走低延迟节点，提高访问速度并优化网络体验。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>VLESS + XTLS 模式在移动网络下表现如何？</h5></div>
+    <div class="panel-body">
+        XTLS 降低加密开销，减少握手次数，适合高延迟或不稳定的移动网络。结合策略组和多出口节点，可提升访问速度和连接稳定性，确保用户体验流畅。<hr />    </div>
+</div>
+<div class="panel panel-default">
     <div class="panel-heading"><h5>Shadowrocket 如何处理域名直连与代理的冲突？</h5></div>
     <div class="panel-body">
         在 Shadowrocket 的规则管理中优先设置具体规则（如 DOMAIN-KEYWORD 或 DOMAIN-SUFFIX），将直连规则放在规则列表靠前位置，避免被泛用的代理规则覆盖，从而确保特定域名走直连。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>WinXray 的测速功能如何使用？</h5></div>
+    <div class="panel-body">
+        WinXray 内置节点测速工具，可以通过延迟测试（ping）或带宽测试判断节点质量。用户只需右键节点选择“测速”即可，测试结果将显示在列表中，帮助快速挑选最佳线路。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Quantumult X 的自动策略组如何工作？</h5></div>
+    <div class="panel-body">
+        Quantumult X 的自动策略组可根据延迟、可用性或测速结果自动选择最优节点，用户无需手动切换。可在策略组设置中开启“延迟优先”或“可用性优先”模式以优化体验。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>SSR 如何手动导入节点？</h5></div>
+    <div class="panel-body">
+        SSR 节点通常以“ssr://”链接形式提供。用户可在客户端中点击“添加节点”或“导入链接”，粘贴该字符串后保存即可。程序会自动解析服务器地址、端口、加密方式等参数。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Trojan 的伪装域名如何选择更安全？</h5></div>
@@ -252,39 +282,9 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
         支持。用户可以手动添加节点信息，或者通过扫描节点二维码导入节点。虽然不支持自动订阅更新，但足够满足轻量用户对节点管理和分流的需求。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>WinXray 的测速功能如何使用？</h5></div>
-    <div class="panel-body">
-        WinXray 内置节点测速工具，可以通过延迟测试（ping）或带宽测试判断节点质量。用户只需右键节点选择“测速”即可，测试结果将显示在列表中，帮助快速挑选最佳线路。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>SSR 如何手动导入节点？</h5></div>
-    <div class="panel-body">
-        SSR 节点通常以“ssr://”链接形式提供。用户可在客户端中点击“添加节点”或“导入链接”，粘贴该字符串后保存即可。程序会自动解析服务器地址、端口、加密方式等参数。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Surfboard 如何实现按应用分流？</h5></div>
-    <div class="panel-body">
-        Surfboard 支持通过策略组和规则文件按应用分流，将不同应用的流量分配到不同节点。这样可保证游戏或视频走低延迟节点，提高访问速度并优化网络体验。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>何为 multiplex (mux)，启用后会有哪些利弊？</h5></div>
-    <div class="panel-body">
-        mux 是多路复用技术，可在单一连接上传输多路流量，从而减少握手次数与连接开销。优点是提升短连接并发效率，缺点是在丢包或单连接异常时可能影响多条会话并增加调试复杂度。<hr />    </div>
-</div>
-<div class="panel panel-default">
     <div class="panel-heading"><h5>Clash 如何手动设置某应用直连？</h5></div>
     <div class="panel-body">
-        在 Clash 的规则文件中添加 PROCESS-NAME 规则，如 `PROCESS-NAME,chrome.exe,DIRECT`。保存并重启后，该应用的流量将绕过代理直连。适用于游戏或内网程序等特殊场景。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>VLESS + XTLS 模式在移动网络下表现如何？</h5></div>
-    <div class="panel-body">
-        XTLS 降低加密开销，减少握手次数，适合高延迟或不稳定的移动网络。结合策略组和多出口节点，可提升访问速度和连接稳定性，确保用户体验流畅。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Quantumult X 的自动策略组如何工作？</h5></div>
-    <div class="panel-body">
-        Quantumult X 的自动策略组可根据延迟、可用性或测速结果自动选择最优节点，用户无需手动切换。可在策略组设置中开启“延迟优先”或“可用性优先”模式以优化体验。    </div>
+        在 Clash 的规则文件中添加 PROCESS-NAME 规则，如 `PROCESS-NAME,chrome.exe,DIRECT`。保存并重启后，该应用的流量将绕过代理直连。适用于游戏或内网程序等特殊场景。    </div>
 </div>
 <div class="panel panel-default mt-5">
     <div class="panel-heading">
@@ -332,16 +332,16 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2026-10-10-latest-clash-verge-rev-node.htm" title="「10月10日」最高速度19.9M/S，2025年Clsah Verge每天更新免费节点订阅地址">「10月10日」最高速度19.9M/S，2025年Clsah Verge每天更新免费节点订阅地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/clash-verge-rev-node-2026-11-3.htm" title="「11月3日」最高速度19.8M/S，2025年Clsah Verge每天更新免费节点订阅地址">「11月3日」最高速度19.8M/S，2025年Clsah Verge每天更新免费节点订阅地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-11-16-node-share.htm" title="「11月16日」最高速度19.3M/S，2026年Clsah Verge每天更新免费节点订阅地址">「11月16日」最高速度19.3M/S，2026年Clsah Verge每天更新免费节点订阅地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-11-14-latest-clash-verge-rev-node.htm" title="「11月14日」最高速度18.8M/S，2026年Clsah Verge每天更新免费节点订阅地址">「11月14日」最高速度18.8M/S，2026年Clsah Verge每天更新免费节点订阅地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/clash-verge-rev-node-2026-11-9.htm" title="「11月9日」最高速度18.5M/S，2026年Clsah Verge每天更新免费节点订阅地址">「11月9日」最高速度18.5M/S，2026年Clsah Verge每天更新免费节点订阅地址</a><hr /></li>
                         <li class="py-2"><a href="/free-nodes/2026-11-4-free-subscribe-node.htm" title="「11月4日」最高速度18.6M/S，2025年Clsah Verge每天更新免费节点订阅地址">「11月4日」最高速度18.6M/S，2025年Clsah Verge每天更新免费节点订阅地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-10-26-free-subscribe-node.htm" title="「10月26日」最高速度20.3M/S，2025年Clsah Verge每天更新免费节点订阅地址">「10月26日」最高速度20.3M/S，2025年Clsah Verge每天更新免费节点订阅地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/clash-verge-rev-github-2026-10-25.htm" title="「10月25日」最高速度19.5M/S，2025年Clsah Verge每天更新免费节点订阅地址">「10月25日」最高速度19.5M/S，2025年Clsah Verge每天更新免费节点订阅地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/free-high-speed-nodes-2026-10-27.htm" title="「10月27日」最高速度19.6M/S，2025年Clsah Verge每天更新免费节点订阅地址">「10月27日」最高速度19.6M/S，2025年Clsah Verge每天更新免费节点订阅地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/node-share-links-2026-10-29.htm" title="「10月29日」最高速度19.1M/S，2025年Clsah Verge每天更新免费节点订阅地址">「10月29日」最高速度19.1M/S，2025年Clsah Verge每天更新免费节点订阅地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-11-16-node-share.htm" title="「11月16日」最高速度19.3M/S，2026年Clsah Verge每天更新免费节点订阅地址">「11月16日」最高速度19.3M/S，2026年Clsah Verge每天更新免费节点订阅地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/clash-verge-rev-node-2026-11-11.htm" title="「11月11日」最高速度19.7M/S，2026年Clsah Verge每天更新免费节点订阅地址">「11月11日」最高速度19.7M/S，2026年Clsah Verge每天更新免费节点订阅地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/free-node-subscribe-links-2026-10-13.htm" title="「10月13日」最高速度22.7M/S，2025年Clsah Verge每天更新免费节点订阅地址">「10月13日」最高速度22.7M/S，2025年Clsah Verge每天更新免费节点订阅地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-11-6-free-subscribe-node.htm" title="「11月6日」最高速度21.6M/S，2025年Clsah Verge每天更新免费节点订阅地址">「11月6日」最高速度21.6M/S，2025年Clsah Verge每天更新免费节点订阅地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-11-14-latest-clash-verge-rev-node.htm" title="「11月14日」最高速度18.8M/S，2026年Clsah Verge每天更新免费节点订阅地址">「11月14日」最高速度18.8M/S，2026年Clsah Verge每天更新免费节点订阅地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/clash-verge-rev-node-2026-11-19.htm" title="「11月19日」最高速度18.5M/S，2026年Clsah Verge每天更新免费节点订阅地址">「11月19日」最高速度18.5M/S，2026年Clsah Verge每天更新免费节点订阅地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/free-node-subscribe-links-2026-11-5.htm" title="「11月5日」最高速度22.4M/S，2025年Clsah Verge每天更新免费节点订阅地址">「11月5日」最高速度22.4M/S，2025年Clsah Verge每天更新免费节点订阅地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-11-8-clash-verge-rev-node-github.htm" title="「11月8日」最高速度19.2M/S，2026年Clsah Verge每天更新免费节点订阅地址">「11月8日」最高速度19.2M/S，2026年Clsah Verge每天更新免费节点订阅地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/clash-verge-rev-node-2026-11-9.htm" title="「11月9日」最高速度18.5M/S，2026年Clsah Verge每天更新免费节点订阅地址">「11月9日」最高速度18.5M/S，2026年Clsah Verge每天更新免费节点订阅地址</a><hr /></li>
                     </ul>
     </div>
 </div>
@@ -353,7 +353,7 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">19</span> <a href="/date/2026-11/" title="2026-11 归档">2026-11</a></h4>
+                <h4><span class="badge" style="float: right;">26</span> <a href="/date/2026-11/" title="2026-11 归档">2026-11</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">21</span> <a href="/date/2026-10/" title="2026-10 归档">2026-10</a></h4>
